@@ -1,0 +1,26 @@
+---
+title: "Welcome to Michael DeWitt's Blog"
+description: |
+  Welcome to our new blog, Michael DeWitt. We hope you enjoy 
+  reading what we have to say!
+author:
+  - name: Michael DeWitt
+    url: https://michaeldewittjr.com
+    affiliation: Wake Forest University
+    affiliation_url: www.ir.wfu.edu
+date: 07-10-2018
+output:
+  radix::radix_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating blogs with Radix at:
+# https://radixpub.github.io/radix-r/blog.html
+
+```
+
+This is just a new way to display my blog. We'll see how this works. It is using the `radix` package from Rstudio.
+

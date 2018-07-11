@@ -1,0 +1,36 @@
+[
+  {
+    "path": "posts/2018-07-10-test/",
+    "title": "Radix",
+    "description": "So I'm moving to radix\n",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-07-10",
+    "categories": [
+      "blogging",
+      "platforms",
+      "communication"
+    ],
+    "preview": {},
+    "last_modified": "2018-07-10T20:41:41-04:00"
+  },
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to Michael DeWitt's Blog",
+    "description": "Welcome to our new blog, Michael DeWitt. We hope you enjoy \nreading what we have to say!\n",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-07-10",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2018-07-10T20:25:46-04:00"
+  }
+]

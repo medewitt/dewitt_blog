@@ -1,0 +1,31 @@
+---
+title: "Radix"
+description: |
+  So I'm moving to radix
+categories:
+  - blogging
+  - platforms
+  - communication
+author:
+  - name: Michael DeWitt
+    url: https://michaeldewittjr.com
+date: 07-10-2018
+output:
+  radix::radix_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+  knitr::opts_chunk$set(echo = FALSE)
+```
+
+Radix is a publication format for scientific and technical writing, native to the web and it is awesome. 
+
+I'll admit it, I follow JJ Allaire on github. I always enjoy seeing what he is working on. In my opinion RStudio is always one step ahead of the rest when it comes to developing tools that make data science, applied statistics and generally just scientific communication easy, fast and reproducible. 
+
+I first encounted the works of JJ when I worked at Michelin. Part of our visualisation strategy at the plant at which I worked was coldfusion. We needed a language that our programming team could learn and spin up dashboards so we could monitor plant production and key indicators real-time. Coldfusion was the language to which they turned to connect to databases across the factory and build the dashboards.
+
+Fast forward a few years I am working in scripts in base R when someone finally told me to try RStudio. I resisted at first because it wasn't "pure R." Silly me. I'm glad I got over that and moved into RStudio and the ecosystem that they support. This platform is just the next step. All that to say, happy blogging.
+
+Learn more about using Radix at <https://radixpub.github.io/radix-r>.
+

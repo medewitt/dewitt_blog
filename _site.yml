@@ -1,0 +1,12 @@
+name: "dewitt_blog"
+title: "Michael DeWitt"
+description: |
+  The thoughts and exploration of Michael DeWitt
+output_dir: "docs"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "About"
+      href: about.html
+output: radix::radix_article
