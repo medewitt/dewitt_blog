@@ -9,4 +9,10 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
+    - text: "Main Site"
+      href: michaeldewittjr.com
+    - icon: fa fa-rss
+      href: index.xml
 output: radix::radix_article
+google_analytics: 'UA-117944166-1'
+creative_commons: CC BY
