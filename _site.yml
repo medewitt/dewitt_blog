@@ -10,7 +10,7 @@ navbar:
     - text: "About"
       href: about.html
     - text: "Main Site"
-      href: michaeldewittjr.com
+      href: https://michaeldewittjr.com
     - icon: fa fa-rss
       href: index.xml
 output: radix::radix_article
