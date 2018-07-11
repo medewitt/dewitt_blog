@@ -1,0 +1,16 @@
+---
+title: Blogging is hard
+author: Michael DeWitt
+date: '2018-07-07'
+slug: blogging-is-hard
+categories:
+  - blogdown
+  - r
+tags:
+  - blogdown
+  - r
+---
+
+Not really a post about statistics, but I must say that moving past the vanilla blogdown hugo themes one encounters a lot of hang ups and issues. I think this is partly because many themes haven't been tested yet, which is foolish on my part, but also because the platform itself is pretty intricate. I sincerely appreciate Yihui Xie et al creating blogdown because it certainly has made this kind of blogging more accessible (easier) than say blogdown or spinnning up a WP site.
+
+All that to say that it is more challenging than I thought and expect this theme to change at some point in the near future (hopefully).

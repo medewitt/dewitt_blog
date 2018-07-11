@@ -32,5 +32,118 @@
     "categories": [],
     "preview": {},
     "last_modified": "2018-07-10T20:25:46-04:00"
+  },
+  {
+    "path": "posts/2018-07-08-exploring-forecast/",
+    "title": "Exploring forecast",
+    "description": "Let's examine some of the functions inside for forecast\n",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-07-07",
+    "categories": [
+      "timeseries",
+      "forecasting",
+      "r"
+    ],
+    "preview": "posts/2018-07-08-exploring-forecast/2018-07-08-exploring-forecast_files/figure-html5/unnamed-chunk-4-1.png",
+    "last_modified": "2018-07-10T21:08:31-04:00"
+  },
+  {
+    "path": "posts/2018-07-06-speed-it-up_files/",
+    "title": "Speed it up!",
+    "description": "This post explores how to see opportunities to make your code run faster.\n",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-07-06",
+    "categories": [
+      "programming",
+      "r"
+    ],
+    "preview": "posts/2018-07-06-speed-it-up_files/2018-07-06-speed-it-up_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2018-07-10T21:28:14-04:00"
+  },
+  {
+    "path": "posts/2018-07-05-bayesian-time-series-analysis-with-bsts_files/",
+    "title": "Bayesian Time Series Analysis with bsts",
+    "description": "Exploring the bsts package and what it provides for Bayesian structural time series modeling\n",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-07-05",
+    "categories": [
+      "forecasting",
+      "Bayes",
+      "r"
+    ],
+    "preview": "posts/2018-07-05-bayesian-time-series-analysis-with-bsts_files/2018-07-05-bayesian-time-series-analysis-with-bsts_files/figure-html5/unnamed-chunk-3-1.png",
+    "last_modified": "2018-07-10T21:25:47-04:00"
+  },
+  {
+    "path": "posts/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/",
+    "title": "ggrough",
+    "description": "ggrough is a great package that can be used to make graphs that look hand-drawn. This can be a   great aesthetic choice when giving presentations and making handouts.\n",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-07-05",
+    "categories": [
+      "ggplot2",
+      "data visualisation",
+      "r"
+    ],
+    "preview": "posts/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2018-07-10T21:21:29-04:00"
+  },
+  {
+    "path": "posts/2018-07-04-gghighlight-for-the-win_files/",
+    "title": "gghighlight for the win",
+    "description": "Exploring the power of gghighlight package to automatically highlight charts\n",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-07-04",
+    "categories": [
+      "ggplot2",
+      "data visualisation",
+      "r"
+    ],
+    "preview": "posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png",
+    "last_modified": "2018-07-10T21:11:37-04:00"
+  },
+  {
+    "path": "posts/2018-07-04-let-s-try-some-visualisation_files/",
+    "title": "Let's Try Some Visualisation",
+    "description": "An example of the value suppressing uncertainty scale. Great uses include forecast uncertainity.\n",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-07-04",
+    "categories": [
+      "ggplot2",
+      "data visualisation",
+      "r"
+    ],
+    "preview": "posts/2018-07-04-let-s-try-some-visualisation_files/2018-07-04-let-s-try-some-visualisation_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2018-07-10T21:15:35-04:00"
   }
 ]
