@@ -1,0 +1,23 @@
+---
+title: "Forecasting Benchmarks"
+description: |
+  A short description of the post.
+author:
+  - name: Michael DeWitt
+    url: https://michaeldewittjr.com
+categories:
+  - forecasting
+  - r
+draft: TRUE
+date: 07-11-2018
+output:
+  radix::radix_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+  knitr::opts_chunk$set(echo = FALSE)
+```
+
+Look at this: https://robjhyndman.com/hyndsight/benchmark-combination/
+

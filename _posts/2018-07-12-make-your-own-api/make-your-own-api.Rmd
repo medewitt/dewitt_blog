@@ -1,0 +1,26 @@
+---
+title: "make your own api"
+description: |
+  A short description of the post.
+author:
+  - name: Michael DeWitt
+    url: https://michaeldewittjr.com
+categories:
+  - r
+  - apis
+  - packages
+date: 07-12-2018
+output:
+  radix::radix_article:
+    self_contained: false
+draft: TRUE
+---
+
+```{r setup, include=FALSE}
+  knitr::opts_chunk$set(echo = FALSE)
+```
+
+#What's in an API?
+
+
+
