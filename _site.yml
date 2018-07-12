@@ -3,6 +3,9 @@ title: "Michael DeWitt"
 description: |
   The thoughts and exploration of Michael DeWitt
 output_dir: "docs"
+collections:
+  posts:
+    subscribe: _search.html
 navbar:
   right:
     - text: "Home"
