@@ -5,7 +5,7 @@ description: |
 output_dir: "docs"
 collections:
   posts:
-    subscribe: _search.html
+    search: _search.html
 navbar:
   right:
     - text: "Home"
