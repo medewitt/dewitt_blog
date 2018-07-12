@@ -1,5 +1,25 @@
 [
   {
+    "path": "posts/2018-07-11-irt-and-the-rasch-model/",
+    "title": "IRT and the Rasch Model",
+    "description": "Item Response Theory (IRT) is a method by which item difficulty is assessed and used to measure latent factors. Classical test theory has a shortcoming where the test-taker's ability and the difficulty of the item cannot be separated. Thus there is a question of universalisability outside of the instrument. Additionally, the models make some assumptions that mathematically may not be justified. In come IRT which handles some of these issues.\n",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-07-11",
+    "categories": [
+      "r",
+      "IRT",
+      "Constructs",
+      "Survey Analysis"
+    ],
+    "preview": "posts/2018-07-11-irt-and-the-rasch-model/irt-and-the-rasch-model_files/figure-html5/unnamed-chunk-9-1.png",
+    "last_modified": "2018-07-11T20:57:25-04:00"
+  },
+  {
     "path": "posts/2018-07-10-test/",
     "title": "Radix",
     "description": "So I'm moving to radix\n",
@@ -21,7 +41,7 @@
   {
     "path": "posts/welcome/",
     "title": "Welcome to Michael DeWitt's Blog",
-    "description": "Welcome to our new blog, Michael DeWitt. We hope you enjoy \nreading what we have to say!\n",
+    "description": "Welcome to the rebooted blog!\n",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -31,7 +51,7 @@
     "date": "2018-07-10",
     "categories": [],
     "preview": {},
-    "last_modified": "2018-07-10T20:25:46-04:00"
+    "last_modified": "2018-07-11T19:55:42-04:00"
   },
   {
     "path": "posts/2018-07-08-exploring-forecast/",

@@ -1,8 +1,7 @@
 ---
 title: "Welcome to Michael DeWitt's Blog"
 description: |
-  Welcome to our new blog, Michael DeWitt. We hope you enjoy 
-  reading what we have to say!
+  Welcome to the rebooted blog!
 author:
   - name: Michael DeWitt
     url: https://michaeldewittjr.com
@@ -22,5 +21,5 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
-This is just a new way to display my blog. We'll see how this works. It is using the `radix` package from Rstudio.
+This is to introduce my rebooted blog. This new platform should bettter capture the look and feel for which I was going.
 
