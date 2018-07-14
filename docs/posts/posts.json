@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2018-07-12-make-your-own-api/",
+    "title": "make your own api",
+    "description": "Exploring the concept of developing internal APIs. An API could also be an R package that can be used by people in your organisation to more easily connect to common data sources. This is a good example of some internal tooling that can make data access easier.\n",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-07-12",
+    "categories": [
+      "r",
+      "apis",
+      "packages"
+    ],
+    "preview": "posts/2018-07-12-make-your-own-api/mermaid.png",
+    "last_modified": "2018-07-13T20:50:17-04:00"
+  },
+  {
     "path": "posts/2018-07-11-irt-and-the-rasch-model/",
     "title": "IRT and the Rasch Model",
     "description": "Item Response Theory (IRT) is a method by which item difficulty is assessed and used to measure latent factors. Classical test theory has a shortcoming where the test-taker's ability and the difficulty of the item cannot be separated. Thus there is a question of universalisability outside of the instrument. Additionally, the models make some assumptions that mathematically may not be justified. In come IRT which handles some of these issues.\n",
