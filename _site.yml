@@ -6,6 +6,7 @@ output_dir: "docs"
 collections:
   posts:
     search: _search.html
+    subscribe: _subscribe.html
 navbar:
   right:
     - text: "Home"
