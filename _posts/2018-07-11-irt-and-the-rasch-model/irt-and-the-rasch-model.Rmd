@@ -33,7 +33,7 @@ library(mirt)
 library(tidyverse)
 ```
 
-I am going to load the `mirt` and `ltm` packages for use here [@mirt, @ltm]. The primary data set with Science. Here a preview of the data in the dataset of `r nrow(Science)` respondents and `r ncol(Science)` items.
+I am going to load the `mirt` and `ltm` packages for use here [@mirt], [@ltm]. The primary data set with Science. Here a preview of the data in the dataset of `r nrow(Science)` respondents and `r ncol(Science)` items.
 
 ```{r}
 head(Science) %>% knitr::kable()

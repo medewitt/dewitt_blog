@@ -36,7 +36,7 @@
       "Survey Analysis"
     ],
     "preview": "posts/2018-07-11-irt-and-the-rasch-model/irt-and-the-rasch-model_files/figure-html5/unnamed-chunk-9-1.png",
-    "last_modified": "2018-07-12T12:19:27-04:00"
+    "last_modified": "2018-07-19T06:35:40-04:00"
   },
   {
     "path": "posts/2018-07-10-test/",
@@ -55,7 +55,7 @@
       "communication"
     ],
     "preview": {},
-    "last_modified": "2018-07-12T11:49:14-04:00"
+    "last_modified": "2018-07-10T20:41:41-04:00"
   },
   {
     "path": "posts/welcome/",
@@ -70,7 +70,7 @@
     "date": "2018-07-10",
     "categories": [],
     "preview": {},
-    "last_modified": "2018-07-12T11:49:14-04:00"
+    "last_modified": "2018-07-11T19:55:42-04:00"
   },
   {
     "path": "posts/2018-07-08-exploring-forecast/",
@@ -89,7 +89,7 @@
       "r"
     ],
     "preview": "posts/2018-07-08-exploring-forecast/2018-07-08-exploring-forecast_files/figure-html5/unnamed-chunk-4-1.png",
-    "last_modified": "2018-07-12T12:19:44-04:00"
+    "last_modified": "2018-07-10T21:08:31-04:00"
   },
   {
     "path": "posts/2018-07-06-speed-it-up_files/",
@@ -107,7 +107,7 @@
       "r"
     ],
     "preview": "posts/2018-07-06-speed-it-up_files/2018-07-06-speed-it-up_files/figure-html5/unnamed-chunk-2-1.png",
-    "last_modified": "2018-07-12T12:20:26-04:00"
+    "last_modified": "2018-07-12T19:44:16-04:00"
   },
   {
     "path": "posts/2018-07-05-bayesian-time-series-analysis-with-bsts_files/",
@@ -126,7 +126,7 @@
       "r"
     ],
     "preview": "posts/2018-07-05-bayesian-time-series-analysis-with-bsts_files/2018-07-05-bayesian-time-series-analysis-with-bsts_files/figure-html5/unnamed-chunk-3-1.png",
-    "last_modified": "2018-07-12T12:21:47-04:00"
+    "last_modified": "2018-07-12T19:44:16-04:00"
   },
   {
     "path": "posts/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/",
@@ -145,7 +145,7 @@
       "r"
     ],
     "preview": "posts/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/figure-html5/unnamed-chunk-2-1.png",
-    "last_modified": "2018-07-12T12:20:44-04:00"
+    "last_modified": "2018-07-12T19:44:16-04:00"
   },
   {
     "path": "posts/2018-07-04-gghighlight-for-the-win_files/",
@@ -164,7 +164,7 @@
       "r"
     ],
     "preview": "posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png",
-    "last_modified": "2018-07-12T12:25:04-04:00"
+    "last_modified": "2018-07-12T19:44:16-04:00"
   },
   {
     "path": "posts/2018-07-04-let-s-try-some-visualisation_files/",
@@ -183,6 +183,6 @@
       "r"
     ],
     "preview": "posts/2018-07-04-let-s-try-some-visualisation_files/2018-07-04-let-s-try-some-visualisation_files/figure-html5/unnamed-chunk-2-1.png",
-    "last_modified": "2018-07-12T12:24:25-04:00"
+    "last_modified": "2018-07-12T19:44:16-04:00"
   }
 ]

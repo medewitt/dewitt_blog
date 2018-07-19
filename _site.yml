@@ -4,8 +4,9 @@ description: |
   The thoughts and exploration of Michael DeWitt
 output_dir: "docs"
 collections:
+#base_url: https://michaeldewittjr.com/dewitt_blog/
   posts:
-    search: _search.html
+    subscribe: _subscribe.html
 navbar:
   right:
     - text: "Home"
