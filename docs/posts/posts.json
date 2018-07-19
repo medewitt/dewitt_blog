@@ -2,7 +2,7 @@
   {
     "path": "posts/2018-07-19-analysis-of-short-time-series/",
     "title": "Analysis of Short Time Series",
-    "description": "A short description of the post.\n",
+    "description": "Using Fourier Transform as coefficients in short time series data helps with prediction.\n",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -16,7 +16,7 @@
       "forecasting"
     ],
     "preview": "posts/2018-07-19-analysis-of-short-time-series/analysis-of-short-time-series_files/figure-html5/unnamed-chunk-4-1.png",
-    "last_modified": "2018-07-19T11:40:37-04:00"
+    "last_modified": "2018-07-19T11:42:58-04:00"
   },
   {
     "path": "posts/2018-07-12-make-your-own-api/",

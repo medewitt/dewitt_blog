@@ -1,7 +1,7 @@
 ---
 title: "Analysis of Short Time Series"
 description: |
-  A short description of the post.
+  Using Fourier Transform as coefficients in short time series data helps with prediction.
 author:
   - name: Michael DeWitt
     url: https://michaeldewittjr.com
