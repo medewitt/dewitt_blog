@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2018-07-19-analysis-of-short-time-series/",
+    "title": "Analysis of Short Time Series",
+    "description": "A short description of the post.\n",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-07-19",
+    "categories": [
+      "time series",
+      "r",
+      "forecasting"
+    ],
+    "preview": "posts/2018-07-19-analysis-of-short-time-series/analysis-of-short-time-series_files/figure-html5/unnamed-chunk-4-1.png",
+    "last_modified": "2018-07-19T11:40:37-04:00"
+  },
+  {
     "path": "posts/2018-07-12-make-your-own-api/",
     "title": "make your own api",
     "description": "Exploring the concept of developing internal APIs. An API could also be an R package that can be used by people in your organisation to more easily connect to common data sources. This is a good example of some internal tooling that can make data access easier.\n",
