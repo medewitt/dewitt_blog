@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="radix" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+  <title>models of microeconomics</title>
+  
+  <meta property="description" itemprop="description" content="Exploring the examples in Kleiber and Zeileis&#39; Applied Economics in R&#10;"/>
+  
+  
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2018-09-16"/>
+  <meta property="article:created" itemprop="dateCreated" content="2018-09-16"/>
+  <meta name="article:author" content="Michael DeWitt"/>
+  
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="models of microeconomics"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="Exploring the examples in Kleiber and Zeileis&#39; Applied Economics in R&#10;"/>
+  <meta property="og:locale" content="en_US"/>
+  
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="models of microeconomics"/>
+  <meta property="twitter:description" content="Exploring the examples in Kleiber and Zeileis&#39; Applied Economics in R&#10;"/>
+  
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","preview","categories","date","output"]}},"value":[{"type":"character","attributes":{},"value":["models of microeconomics"]},{"type":"character","attributes":{},"value":["Exploring the examples in Kleiber and Zeileis' Applied Economics in R\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["mermaid.png"]},{"type":"character","attributes":{},"value":["r","econometrics","modeling"]},{"type":"character","attributes":{},"value":["09-16-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["models-of-microeconomics_files/bowser-1.9.3/bowser.min.js","models-of-microeconomics_files/distill-2.2.21/template.v2.js","models-of-microeconomics_files/figure-html5/unnamed-chunk-10-1.png","models-of-microeconomics_files/figure-html5/unnamed-chunk-23-1.png","models-of-microeconomics_files/figure-html5/unnamed-chunk-5-1.png","models-of-microeconomics_files/jquery-1.11.3/jquery.min.js","models-of-microeconomics_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+  
+  <style type="text/css">
+  
+  body {
+    background-color: white;
+  }
+  
+  .pandoc-table {
+    width: 100%;
+  }
+  
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+  
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+  
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+  
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+  
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  d-article {
+    padding-bottom: 30px;
+  }
+  
+  d-appendix {
+    padding-top: 30px;
+  }
+  
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  /* CSS for table of contents */
+  
+  .d-toc {
+    color: rgba(0,0,0,0.8);
+    font-size: 0.8em;
+    line-height: 1em;
+  }
+  
+  .d-toc-header {
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 1.3em;
+  }
+  
+  .d-toc a {
+    border-bottom: none;
+  }
+  
+  .d-toc ul {
+    padding-left: 0;
+  }
+  
+  .d-toc li>ul {
+    padding-top: 0.8em;
+    padding-left: 16px;
+    margin-bottom: 0.6em;
+  }
+  
+  .d-toc ul,
+  .d-toc li {
+    list-style-type: none;
+  }
+  
+  .d-toc li {
+    margin-bottom: 0.9em;
+  }
+  
+  .d-toc-separator {
+    margin-top: 20px;
+    margin-bottom: 2em;
+  }
+  
+  .d-article-with-toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  
+  
+  
+  /* Tweak code blocks (note that this CSS is repeated above in an injection
+     into the d-code shadow dom) */
+  
+  pre.d-code code.d-code {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+  
+  pre.text-output {
+  
+    font-size: 12px;
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  @media(min-width: 768px) {
+  pre.d-code code.d-code  {
+      padding-left: 18px;
+      font-size: 14px;
+  }
+  pre.text-output {
+    font-size: 14px;
+  }
+  }
+  
+  /* Tweak 1000px media break to show more text */
+  
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+  
+    .grid {
+      grid-column-gap: 16px;
+    }
+  
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption {
+      font-size: 13px;
+    }
+  }
+  
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+  
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+  
+  
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+  
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  
+  /* Social footer */
+  
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+  
+  .disqus-comments {
+    margin-right: 30px;
+  }
+  
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+  
+  #disqus_thread {
+    margin-top: 30px;
+  }
+  
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+  
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+  
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+  
+  
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+  
+  
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+  
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+  
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+  
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+  
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+  
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+  
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+  
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+  
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+  
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  </style>
+  
+  <script type="application/javascript">
+  
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+  
+  // show body when load is complete
+  function on_load_complete() {
+  
+    // set body to visible
+    document.body.style.visibility = 'visible';
+  
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+  
+  function init_distill() {
+  
+    init_common();
+  
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+  
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+  
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+  
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+  
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+  
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+  
+    // create d-bibliography
+    var bibliography = $('<d-bibliography></d-bibliography>');
+    $('#distill-bibliography').wrap(bibliography);
+  
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+  
+    // replace citations with <d-cite>
+    $('.citation').each(function(i, val) {
+      appendix = true;
+      var cites = $(this).attr('data-cites').split(" ");
+      var dt_cite = $('<d-cite></d-cite>');
+      dt_cite.attr('key', cites.join());
+      $(this).replaceWith(dt_cite);
+    });
+    // remove refs
+    $('#refs').remove();
+  
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#fn1>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.text();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.text(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+  
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-toc a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+  
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+  
+    // replace code blocks with d-code
+    $('pre>code').each(function(i, val) {
+      var code = $(this);
+      var pre = code.parent();
+      var clz = "";
+      var language = pre.attr('class');
+      if (language) {
+        if ($.inArray(language, ["r", "cpp", "c", "java"]) != -1)
+          language = "clike";
+        language = ' language="' + language + '"';
+        var dt_code = $('<d-code block' + language + clz + '></d-code>');
+        dt_code.text(code.text());
+        pre.replaceWith(dt_code);
+      } else {
+        code.addClass('text-output').unwrap().changeElementType('pre');
+      }
+    });
+  
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+  
+      // capture layout
+      var layout = $(this).attr('data-layout');
+  
+      // apply layout to markdown level block elements
+      $(this).children().not('d-code, pre.text-output')
+        .wrap($('<div class="' + layout + '"></div>'));
+  
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+  
+    // load distill framework
+    load_distill_framework();
+  
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+  
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+  
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+  
+      // table of contents
+      if (have_authors) // adjust border if we are in authors
+        $('.d-toc').parent().addClass('d-article-with-toc');
+  
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+  
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+  
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+  
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+  
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+  
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+  
+      // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+      $('d-code').each(function(i, val) {
+        var style = document.createElement('style');
+        style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                          '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+        if (this.shadowRoot)
+          this.shadowRoot.appendChild(style);
+      });
+  
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+  
+      // clear polling timer
+      clearInterval(tid);
+  
+      // show body now that everything is ready
+      on_load_complete();
+    }
+  
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+  
+  }
+  
+  function init_downlevel() {
+  
+    init_common();
+  
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+  
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+  
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+  
+    // remove toc
+    $('.d-toc-header').remove();
+    $('.d-toc').remove();
+    $('.d-toc-separator').remove();
+  
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+  
+  
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+  
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+  
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+  
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+  
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+  
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+  
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+  
+    $('body').addClass('downlevel');
+  
+    on_load_complete();
+  }
+  
+  
+  function init_common() {
+  
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+  
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+  
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+  
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+  
+    // mark figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      $(this).find('img, .html-widget').css('width', '100%');
+    });
+  
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+  
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+  
+  
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+  
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+  
+  </script>
+  
+  <!--/radix_placeholder_distill-->
+  <script src="models-of-microeconomics_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="models-of-microeconomics_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="models-of-microeconomics_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="models-of-microeconomics_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"models of microeconomics","description":"Exploring the examples in Kleiber and Zeileis' Applied Economics in R\n","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2018-09-16T00:00:00.000-04:00","citationText":"DeWitt, 2018"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>models of microeconomics</h1>
+<p>Exploring the examples in Kleiber and Zeileis’ Applied Economics in R</p>
+</div>
+
+<div class="d-byline">
+  Michael DeWitt <a href="https://michaeldewittjr.com" class="uri">https://michaeldewittjr.com</a> 
+  
+<br/>09-16-2018
+</div>
+
+<div class="d-article">
+<p>I just wanted to explore a little more some of the topics covered in the fantastic <em>Applied Econometrics with R</em>. All of these examples come from their text in Chapter 3.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h2 id="binary-depedent-modeling">Binary Depedent Modeling</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+  participation   income age education youngkids oldkids foreign
+1            no 10.78750 3.0         8         1       1      no
+2           yes 10.52425 4.5         8         0       1      no
+3            no 10.96858 4.6         9         0       0      no
+4            no 11.10500 3.1        11         2       0      no
+5            no 11.10847 4.4        12         0       2      no
+6           yes 11.02825 4.2        12         0       1      no</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+Call:
+glm(formula = participation ~ . + I(age^2), family = binomial(link = &quot;probit&quot;), 
+    data = SwissLabor)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-1.9191  -0.9695  -0.4792   1.0209   2.4803  
+
+Coefficients:
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  3.74909    1.40695   2.665  0.00771 ** 
+income      -0.66694    0.13196  -5.054 4.33e-07 ***
+age          2.07530    0.40544   5.119 3.08e-07 ***
+education    0.01920    0.01793   1.071  0.28428    
+youngkids   -0.71449    0.10039  -7.117 1.10e-12 ***
+oldkids     -0.14698    0.05089  -2.888  0.00387 ** 
+foreignyes   0.71437    0.12133   5.888 3.92e-09 ***
+I(age^2)    -0.29434    0.04995  -5.893 3.79e-09 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 1203.2  on 871  degrees of freedom
+Residual deviance: 1017.2  on 864  degrees of freedom
+AIC: 1033.2
+
+Number of Fisher Scoring iterations: 4</code></pre>
+</div>
+<h3 id="visualisation-of-the-data">Visualisation of the Data</h3>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="models-of-microeconomics_files/figure-html5/unnamed-chunk-5-1.png" width="576" /></p>
+</div>
+<h2 id="retrieving-average-marginal-effects">Retrieving Average Marginal Effects</h2>
+<p>Average of the sample marginal effects is determined by the following:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+ (Intercept)       income          age    education    youngkids 
+ 1.241929965 -0.220931858  0.687466185  0.006358743 -0.236682273 
+     oldkids   foreignyes     I(age^2) 
+-0.048690170  0.236644422 -0.097504844 </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<h2 id="goodness-of-fit">Goodness of Fit</h2>
+<p>This can be evauluated with a pseudo R^2 called _McFadden’s pseudo-R^2.</p>
+<p><span class="math display">\[R^2 = 1- \frac{l(\hat\beta)}{l(\bar y)}\]</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+[1] 0.1546416</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+     pred
+true    0   1
+  no  337 134
+  yes 146 255</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="models-of-microeconomics_files/figure-html5/unnamed-chunk-10-1.png" width="576" /></p>
+</div>
+<h2 id="residuals-and-diagnostics">Residuals and Diagnostics</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+z test of coefficients:
+
+             Estimate Std. Error z value  Pr(&gt;|z|)    
+(Intercept)  3.749091   1.327072  2.8251  0.004727 ** 
+income      -0.666941   0.127292 -5.2395 1.611e-07 ***
+age          2.075297   0.398580  5.2067 1.922e-07 ***
+education    0.019196   0.017935  1.0703  0.284479    
+youngkids   -0.714487   0.106095 -6.7344 1.646e-11 ***
+oldkids     -0.146984   0.051609 -2.8480  0.004399 ** 
+foreignyes   0.714373   0.122437  5.8346 5.391e-09 ***
+I(age^2)    -0.294344   0.049527 -5.9430 2.798e-09 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<h1 id="count-data">Count Data</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+  trips quality ski income userfee  costC   costS   costH
+1     0       0 yes      4      no  67.59  68.620  76.800
+2     0       0  no      9      no  68.86  70.936  84.780
+3     0       0 yes      5      no  58.12  59.465  72.110
+4     0       0  no      2      no  15.79  13.750  23.680
+5     0       0 yes      3      no  24.02  34.033  34.547
+6     0       0 yes      5      no 129.46 137.377 137.850</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+z test of coefficients:
+
+              Estimate Std. Error  z value  Pr(&gt;|z|)    
+(Intercept)  0.2649934  0.0937222   2.8274  0.004692 ** 
+quality      0.4717259  0.0170905  27.6016 &lt; 2.2e-16 ***
+skiyes       0.4182137  0.0571902   7.3127 2.619e-13 ***
+income      -0.1113232  0.0195884  -5.6831 1.323e-08 ***
+userfeeyes   0.8981653  0.0789851  11.3713 &lt; 2.2e-16 ***
+costC       -0.0034297  0.0031178  -1.1001  0.271309    
+costS       -0.0425364  0.0016703 -25.4667 &lt; 2.2e-16 ***
+costH        0.0361336  0.0027096  13.3353 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<p>Overdispersion??</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+    Overdispersion test
+
+data:  rd_poisson
+z = 2.4116, p-value = 0.007941
+alternative hypothesis: true dispersion is greater than 1
+sample estimates:
+dispersion 
+    6.5658 </code></pre>
+</div>
+<p>Yup</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+    Overdispersion test
+
+data:  rd_poisson
+z = 2.9381, p-value = 0.001651
+alternative hypothesis: true alpha is greater than 0
+sample estimates:
+   alpha 
+1.316051 </code></pre>
+</div>
+<h2 id="negative-binomial">Negative Binomial</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+z test of coefficients:
+
+              Estimate Std. Error  z value  Pr(&gt;|z|)    
+(Intercept) -1.1219363  0.2143029  -5.2353 1.647e-07 ***
+quality      0.7219990  0.0401165  17.9976 &lt; 2.2e-16 ***
+skiyes       0.6121388  0.1503029   4.0727 4.647e-05 ***
+income      -0.0260588  0.0424527  -0.6138   0.53933    
+userfeeyes   0.6691676  0.3530211   1.8955   0.05802 .  
+costC        0.0480087  0.0091848   5.2270 1.723e-07 ***
+costS       -0.0926910  0.0066534 -13.9314 &lt; 2.2e-16 ***
+costH        0.0388357  0.0077505   5.0107 5.423e-07 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+                        [,1]
+poisson           -1529.4313
+negative_binomial  -825.5576</code></pre>
+</div>
+<p>Improvement!</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+      0   1  2  3  4  5  6  7  8 9
+obs 417  68 38 34 17 13 11  2  8 1
+exp 277 146 68 41 30 23 17 13 10 7</code></pre>
+</div>
+<p>This model is under-predicting the zero number of trips. Perhaps it is time to use a zero-inflated model that will help to correct this undercounting.</p>
+<p><span class="math display">\[f_{zeroinfl}(y) = p_i * I_{0}(y)+(1-p_i)*f_{count}(y;\mu_i)\]</span></p>
+<p>Thus the linear predictor portion uses all of the independent variables and the inflation component to be a function of quality and income.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+Call:
+zeroinfl(formula = trips ~ . | quality + income, data = RecreationDemand, 
+    dist = &quot;negbin&quot;)
+
+Pearson residuals:
+     Min       1Q   Median       3Q      Max 
+-1.08885 -0.20037 -0.05696 -0.04509 40.01393 
+
+Count model coefficients (negbin with log link):
+             Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)  1.096634   0.256679   4.272 1.93e-05 ***
+quality      0.168911   0.053032   3.185 0.001447 ** 
+skiyes       0.500694   0.134488   3.723 0.000197 ***
+income      -0.069268   0.043800  -1.581 0.113775    
+userfeeyes   0.542786   0.282801   1.919 0.054944 .  
+costC        0.040445   0.014520   2.785 0.005345 ** 
+costS       -0.066206   0.007745  -8.548  &lt; 2e-16 ***
+costH        0.020596   0.010233   2.013 0.044146 *  
+Log(theta)   0.190175   0.112989   1.683 0.092352 .  
+
+Zero-inflation model coefficients (binomial with logit link):
+            Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)   5.7427     1.5561   3.691 0.000224 ***
+quality      -8.3074     3.6816  -2.256 0.024041 *  
+income       -0.2585     0.2821  -0.916 0.359504    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1 
+
+Theta = 1.2095 
+Number of iterations in BFGS optimization: 26 
+Log-likelihood:  -722 on 12 Df</code></pre>
+</div>
+<p>Let’s check the fit!</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+      0  1  2  3  4  5  6  7 8 9
+obs 417 68 38 34 17 13 11  2 8 1
+exp 433 47 35 27 20 16 12 10 8 7</code></pre>
+</div>
+<p>Looks a great deal better!</p>
+<h1 id="hurdle-models">Hurdle Models</h1>
+<p>Useful for an excessive number of zeros (or a small number of zeros). This is more widely used in economics according to the text. The hurdle consists of two parts</p>
+<ul>
+<li>Binary part given by a count distribution that is right censored at y = 1 (e.g. is the hurdle crossed)</li>
+<li>A count part given by a left-truncated distribution at y = 1 (e,g, if y &gt; 0, how large is y)</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+      0  1  2  3  4  5  6 7 8 9
+obs 417 68 38 34 17 13 11 2 8 1
+exp 417 74 42 27 19 14 10 8 6 5</code></pre>
+</div>
+<h1 id="censored-depdent-variables">Censored Depdent Variables</h1>
+<p>A Tobit model posits that Gaussian linear predictor exists for a latent variable, <span class="math inline">\(y_0\)</span> exists. IT is reported only if the latent variable is positive.</p>
+<p>Thus:</p>
+<p><span class="math display">\[y_i^0= x_i^T\beta+\epsilon_i\]</span> <span class="math display">\[y_i = \begin{cases} y_i, y_i^0 &gt;0\\ 0, y_i^0 \le 0 \end{cases},\]</span></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+   affairs gender age yearsmarried children religiousness education
+4        0   male  37        10.00       no             3        18
+5        0 female  27         4.00       no             4        14
+11       0 female  32        15.00      yes             1        12
+16       0   male  57        15.00      yes             5        18
+23       0   male  22         0.75       no             2        17
+29       0 female  32         1.50       no             2        17
+   occupation rating
+4           7      4
+5           6      4
+11          1      4
+16          6      5
+23          6      3
+29          5      5</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<p><img src="models-of-microeconomics_files/figure-html5/unnamed-chunk-23-1.png" width="576" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+Call:
+tobit(formula = affairs ~ age + yearsmarried + religiousness + 
+    occupation + rating, data = Affairs)
+
+Observations:
+         Total  Left-censored     Uncensored Right-censored 
+           601            451            150              0 
+
+Coefficients:
+              Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)    8.17420    2.74145   2.982  0.00287 ** 
+age           -0.17933    0.07909  -2.267  0.02337 *  
+yearsmarried   0.55414    0.13452   4.119 3.80e-05 ***
+religiousness -1.68622    0.40375  -4.176 2.96e-05 ***
+occupation     0.32605    0.25442   1.282  0.20001    
+rating        -2.28497    0.40783  -5.603 2.11e-08 ***
+Log(scale)     2.10986    0.06710  31.444  &lt; 2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Scale: 8.247 
+
+Gaussian distribution
+Number of Newton-Raphson Iterations: 4 
+Log-likelihood: -705.6 on 7 Df
+Wald-statistic: 67.71 on 5 Df, p-value: 3.0718e-13 </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+Linear hypothesis test
+
+Hypothesis:
+age = 0
+occupation = 0
+
+Model 1: restricted model
+Model 2: affairs ~ age + yearsmarried + religiousness + occupation + rating
+
+Note: Coefficient covariance matrix supplied.
+
+  Res.Df Df  Chisq Pr(&gt;Chisq)  
+1    596                       
+2    594  2 4.9078    0.08596 .
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<p>Age and occupation are joinly weakyl significant.</p>
+<h1 id="ordinal-response-variables">Ordinal Response Variables</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+z test of coefficients:
+
+                 Estimate Std. Error z value  Pr(&gt;|z|)    
+education        0.869998   0.093071  9.3476 &lt; 2.2e-16 ***
+minorityyes     -1.056438   0.411994 -2.5642   0.01034 *  
+custodial|admin  7.951359   1.076932  7.3833 1.544e-13 ***
+admin|manage    14.172125   1.474364  9.6124 &lt; 2.2e-16 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+</div>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
