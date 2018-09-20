@@ -71,8 +71,7 @@ Now we can plot based on several features:
 ## Visualising the Network
 
 
-```{r}
-par(mfrow = c(1,3))
+```{r out.height="600px", out.width="600px"}
 plot(florentine_g, vertex.size = betweenness(florentine_g), main = "Betweeness")
 plot(florentine_g, vertex.size = closeness(florentine_g)*1000, main = "Closeness")
 plot(florentine_g, vertex.size = degree(florentine_g)*10, main = "Degree")
