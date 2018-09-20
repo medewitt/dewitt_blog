@@ -1,5 +1,23 @@
 [
   {
+    "path": "posts/2018-09-16-a-foray-into-network-analysis/",
+    "title": "a foray into network analysis",
+    "description": "Network analysis provides an way to analyse the interconnectedness of different networks.\nThis can provide insight into social networks, interconnected groups of text, tweets, etc.\nVisualisations help to show these relationships but also some numeric values to quantify them.\n",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-09-17",
+    "categories": [
+      "network analysis",
+      "r"
+    ],
+    "preview": "posts/2018-09-16-a-foray-into-network-analysis/a-foray-into-network-analysis_files/figure-html5/unnamed-chunk-4-1.png",
+    "last_modified": "2018-09-20T12:06:55-04:00"
+  },
+  {
     "path": "posts/2018-09-16-models-of-microeconomics/",
     "title": "models of microeconomics",
     "description": "Exploring the examples in Kleiber and Zeileis' Applied Economics in R\n",

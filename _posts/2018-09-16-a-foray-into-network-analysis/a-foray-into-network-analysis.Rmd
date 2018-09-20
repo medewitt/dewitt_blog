@@ -10,8 +10,8 @@ author:
 categories:
   - network analysis
   - r
-draft: TRUE
-date: 09-16-2018
+draft: FALSE
+date: 09-17-2018
 output:
   radix::radix_article:
     self_contained: false
@@ -67,6 +67,8 @@ Now we can plot based on several features:
 - closeness
 
 - betweeness
+
+- PageRank
 
 ## Visualising the Network
 
