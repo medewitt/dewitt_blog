@@ -1,5 +1,26 @@
 [
   {
+    "path": "posts/2018-09-24-the-power-of-fake-data-simulations/",
+    "title": "the power of fake data simulations",
+    "description": "Looking at a blog post that Andrew Gelman posted on fake data simulations and HLM.\nThe power of fake data simulations is that it really makes you think twice about what kind\nof effect for which you are looking as well as the power of your research design to detect it.\nThis illustrates a really good practice for anyone looking to do this kind of analysis.\n",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-09-24",
+    "categories": [
+      "Bayes",
+      "r",
+      "Hierarchical Modeling",
+      "Fake Data",
+      "Causal Inference"
+    ],
+    "preview": "posts/2018-09-24-the-power-of-fake-data-simulations/the-power-of-fake-data-simulations_files/figure-html5/unnamed-chunk-4-1.png",
+    "last_modified": "2018-09-24T12:25:12-04:00"
+  },
+  {
     "path": "posts/2018-09-16-a-foray-into-network-analysis/",
     "title": "a foray into network analysis",
     "description": "Network analysis provides an way to analyse the interconnectedness of different networks.\nThis can provide insight into social networks, interconnected groups of text, tweets, etc.\nVisualisations help to show these relationships but also some numeric values to quantify them.\n",
