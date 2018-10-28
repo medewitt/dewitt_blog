@@ -21,7 +21,7 @@
   <!--radix_placeholder_meta_tags-->
 <title>Michael DeWitt: Bayesian Time Series Analysis with bsts</title>
 
-<meta property="description" itemprop="description" content="Exploring the bsts package and what it provides for Bayesian structural time series modeling&#10;"/>
+<meta property="description" itemprop="description" content="Exploring the bsts package and what it provides for Bayesian structural time series modeling"/>
 
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
@@ -33,20 +33,20 @@
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
 <meta property="og:title" content="Michael DeWitt: Bayesian Time Series Analysis with bsts"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Exploring the bsts package and what it provides for Bayesian structural time series modeling&#10;"/>
+<meta property="og:description" content="Exploring the bsts package and what it provides for Bayesian structural time series modeling"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Michael DeWitt"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
 <meta property="twitter:title" content="Michael DeWitt: Bayesian Time Series Analysis with bsts"/>
-<meta property="twitter:description" content="Exploring the bsts package and what it provides for Bayesian structural time series modeling&#10;"/>
+<meta property="twitter:description" content="Exploring the bsts package and what it provides for Bayesian structural time series modeling"/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","categories","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Bayesian Time Series Analysis with bsts"]},{"type":"character","attributes":{},"value":["Exploring the bsts package and what it provides for Bayesian structural time series modelingn"]},{"type":"character","attributes":{},"value":["forecasting","Bayes","r"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["07-05-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","categories","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Bayesian Time Series Analysis with bsts"]},{"type":"character","attributes":{},"value":["Exploring the bsts package and what it provides for Bayesian structural time series modeling"]},{"type":"character","attributes":{},"value":["forecasting","Bayes","r"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["07-05-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -411,6 +411,23 @@ body {
   padding-right: 16px;
 }
 
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
 .text-output {
   margin-top: 0;
   line-height: 1.5em;
@@ -426,6 +443,16 @@ d-article {
 
 d-appendix {
   padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
 }
 
 figure img.external {
@@ -530,6 +557,44 @@ pre.text-output {
 }
 }
 
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+
+
 /* Tweak 1000px media break to show more text */
 
 @media(min-width: 1000px) {
@@ -556,7 +621,7 @@ pre.text-output {
     font-size: 1.06rem;
     line-height: 1.7em;
   }
-  figure .caption {
+  figure .caption, .figure .caption, figure figcaption {
     font-size: 13px;
   }
 }
@@ -797,6 +862,19 @@ function on_load_complete() {
   // set body to visible
   document.body.style.visibility = 'visible';
 
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
   // trigger 'shown' so htmlwidgets resize
   $('d-article').trigger('shown');
 }
@@ -850,7 +928,7 @@ function init_distill() {
     var href = $(this).attr('href');
     var id = href.replace('#', '');
     var fn = $('#' + id);
-    var fn_p = $('#fn1>p');
+    var fn_p = $('#' + id + '>p');
     fn_p.find('.footnote-back').remove();
     var text = fn_p.text();
     var dtfn = $('<d-footnote></d-footnote>');
@@ -898,8 +976,18 @@ function init_distill() {
     var layout = $(this).attr('data-layout');
 
     // apply layout to markdown level block elements
-    $(this).children().not('d-code, pre.text-output')
-      .wrap($('<div class="' + layout + '"></div>'));
+    var elements = $(this).children().not('d-code, pre.text-output, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
 
     // unwrap the layout-chunk div
     $(this).children().unwrap();
@@ -1097,6 +1185,13 @@ function init_common() {
       $(this).attr('href', $(this).attr('href') + "index.html");
   });
 
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.radix-site-header a').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
   // add class to pandoc style tables
   $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
   $('.kable-table').children('table').addClass('pandoc-table');
@@ -1151,7 +1246,7 @@ gtag('config', 'UA-117944166-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Bayesian Time Series Analysis with bsts","description":"Exploring the bsts package and what it provides for Bayesian structural time series modeling\n","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2018-07-05T00:00:00.000-04:00","citationText":"DeWitt, 2018"}
+{"title":"Bayesian Time Series Analysis with bsts","description":"Exploring the bsts package and what it provides for Bayesian structural time series modeling","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2018-07-05T00:00:00.000-04:00","citationText":"DeWitt, 2018"}
 </script>
 
 <!--/radix_placeholder_front_matter-->

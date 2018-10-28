@@ -400,6 +400,23 @@
     padding-right: 16px;
   }
   
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .shaded-content {
+    background: white;
+  }
+  
   .text-output {
     margin-top: 0;
     line-height: 1.5em;
@@ -415,6 +432,16 @@
   
   d-appendix {
     padding-top: 30px;
+  }
+  
+  d-article>p>img {
+    width: 100%;
+  }
+  
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
   }
   
   figure img.external {
@@ -519,6 +546,44 @@
   }
   }
   
+  /* Figure */
+  
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+  
+  .figure img {
+    width: 100%;
+  }
+  
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+  
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+  
+  
+  
   /* Tweak 1000px media break to show more text */
   
   @media(min-width: 1000px) {
@@ -545,7 +610,7 @@
       font-size: 1.06rem;
       line-height: 1.7em;
     }
-    figure .caption {
+    figure .caption, .figure .caption, figure figcaption {
       font-size: 13px;
     }
   }
@@ -786,6 +851,19 @@
     // set body to visible
     document.body.style.visibility = 'visible';
   
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+  
     // trigger 'shown' so htmlwidgets resize
     $('d-article').trigger('shown');
   }
@@ -839,7 +917,7 @@
       var href = $(this).attr('href');
       var id = href.replace('#', '');
       var fn = $('#' + id);
-      var fn_p = $('#fn1>p');
+      var fn_p = $('#' + id + '>p');
       fn_p.find('.footnote-back').remove();
       var text = fn_p.text();
       var dtfn = $('<d-footnote></d-footnote>');
@@ -887,8 +965,18 @@
       var layout = $(this).attr('data-layout');
   
       // apply layout to markdown level block elements
-      $(this).children().not('d-code, pre.text-output')
-        .wrap($('<div class="' + layout + '"></div>'));
+      var elements = $(this).children().not('d-code, pre.text-output, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+  
   
       // unwrap the layout-chunk div
       $(this).children().unwrap();
@@ -1086,6 +1174,13 @@
         $(this).attr('href', $(this).attr('href') + "index.html");
     });
   
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.radix-site-header a').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+  
     // add class to pandoc style tables
     $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
     $('.kable-table').children('table').addClass('pandoc-table');
@@ -1211,6 +1306,12 @@
 
 .post-preview-last {
   border-bottom: none !important;
+}
+
+.posts-list .posts-list-caption {
+  grid-column: screen;
+  font-weight: 500;
+  font-size: 40px;
 }
 
 .posts-list .post-preview h2 {
@@ -1415,7 +1516,7 @@ function init_posts_list() {
     $('.categories .active').removeClass('active');
 
     // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children(), false);
+    set_posts_visible($('.posts-list').children('a'), false);
 
     // if we have a hash filter
     if (window.location.hash) {
@@ -1481,6 +1582,22 @@ function init_posts_list() {
 
 <div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
 <div class="posts-list">
+<a href="posts/2018-10-28-hierarchical-time-series-with-hts/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":["time series"]}</script>
+<div class="metadata">
+<div class="publishedDate">Oct. 28, 2018</div>
+</div>
+<div class="thumbnail">
+<img data-src="posts/2018-10-28-hierarchical-time-series-with-hts/hierarchical-time-series-with-hts_files/figure-html5/unnamed-chunk-5-1.png"/>
+</div>
+<div class="description">
+<h2>Hierarchical Time Series with hts</h2>
+<p>This is just a quick reproduction of the items discussed in the 
+hts package. This allows for hierarchical time series which is 
+an important feature when looking at data that take a hierarchical
+format like counties within a state or precincts within counties within states.</p>
+</div>
+</a>
 <a href="posts/2018-09-24-the-power-of-fake-data-simulations/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["Bayes","r","Hierarchical Modeling","Fake Data","Causal Inference"]}</script>
 <div class="metadata">
@@ -1494,8 +1611,7 @@ function init_posts_list() {
 <p>Looking at a blog post that Andrew Gelman posted on fake data simulations and HLM.
 The power of fake data simulations is that it really makes you think twice about what kind
 of effect for which you are looking as well as the power of your research design to detect it.
-This illustrates a really good practice for anyone looking to do this kind of analysis.
-</p>
+This illustrates a really good practice for anyone looking to do this kind of analysis.</p>
 </div>
 </a>
 <a href="posts/2018-09-16-a-foray-into-network-analysis/" class="post-preview">
@@ -1510,8 +1626,7 @@ This illustrates a really good practice for anyone looking to do this kind of an
 <h2>a foray into network analysis</h2>
 <p>Network analysis provides an way to analyse the interconnectedness of different networks.
 This can provide insight into social networks, interconnected groups of text, tweets, etc.
-Visualisations help to show these relationships but also some numeric values to quantify them.
-</p>
+Visualisations help to show these relationships but also some numeric values to quantify them.</p>
 </div>
 </a>
 <a href="posts/2018-09-16-models-of-microeconomics/" class="post-preview">
@@ -1524,8 +1639,7 @@ Visualisations help to show these relationships but also some numeric values to 
 </div>
 <div class="description">
 <h2>models of microeconomics</h2>
-<p>Exploring the examples in Kleiber and Zeileis' Applied Economics in R
-</p>
+<p>Exploring the examples in Kleiber and Zeileis' Applied Economics in R</p>
 </div>
 </a>
 <a href="posts/2018-07-19-analysis-of-short-time-series/" class="post-preview">
@@ -1538,8 +1652,7 @@ Visualisations help to show these relationships but also some numeric values to 
 </div>
 <div class="description">
 <h2>Analysis of Short Time Series</h2>
-<p>Using Fourier Transform as coefficients in short time series data helps with prediction.
-</p>
+<p>Using Fourier Transform as coefficients in short time series data helps with prediction.</p>
 </div>
 </a>
 <a href="posts/2018-07-12-make-your-own-api/" class="post-preview">
@@ -1552,8 +1665,7 @@ Visualisations help to show these relationships but also some numeric values to 
 </div>
 <div class="description">
 <h2>make your own api</h2>
-<p>Exploring the concept of developing internal APIs. An API could also be an R package that can be used by people in your organisation to more easily connect to common data sources. This is a good example of some internal tooling that can make data access easier.
-</p>
+<p>Exploring the concept of developing internal APIs. An API could also be an R package that can be used by people in your organisation to more easily connect to common data sources. This is a good example of some internal tooling that can make data access easier.</p>
 </div>
 </a>
 <a href="posts/2018-07-11-irt-and-the-rasch-model/" class="post-preview">
@@ -1566,8 +1678,7 @@ Visualisations help to show these relationships but also some numeric values to 
 </div>
 <div class="description">
 <h2>IRT and the Rasch Model</h2>
-<p>Item Response Theory (IRT) is a method by which item difficulty is assessed and used to measure latent factors. Classical test theory has a shortcoming where the test-taker's ability and the difficulty of the item cannot be separated. Thus there is a question of universalisability outside of the instrument. Additionally, the models make some assumptions that mathematically may not be justified. In come IRT which handles some of these issues.
-</p>
+<p>Item Response Theory (IRT) is a method by which item difficulty is assessed and used to measure latent factors. Classical test theory has a shortcoming where the test-taker's ability and the difficulty of the item cannot be separated. Thus there is a question of universalisability outside of the instrument. Additionally, the models make some assumptions that mathematically may not be justified. In come IRT which handles some of these issues.</p>
 </div>
 </a>
 <a href="posts/2018-07-10-test/" class="post-preview">
@@ -1580,8 +1691,7 @@ Visualisations help to show these relationships but also some numeric values to 
 </div>
 <div class="description">
 <h2>Radix</h2>
-<p>So I'm moving to radix
-</p>
+<p>So I'm moving to radix</p>
 </div>
 </a>
 <a href="posts/welcome/" class="post-preview">
@@ -1594,8 +1704,7 @@ Visualisations help to show these relationships but also some numeric values to 
 </div>
 <div class="description">
 <h2>Welcome to Michael DeWitt's Blog</h2>
-<p>Welcome to the rebooted blog!
-</p>
+<p>Welcome to the rebooted blog!</p>
 </div>
 </a>
 <a href="posts/2018-07-08-exploring-forecast/" class="post-preview">
@@ -1608,8 +1717,7 @@ Visualisations help to show these relationships but also some numeric values to 
 </div>
 <div class="description">
 <h2>Exploring forecast</h2>
-<p>Let's examine some of the functions inside for forecast
-</p>
+<p>Let's examine some of the functions inside for forecast</p>
 </div>
 </a>
 <a href="posts/2018-07-06-speed-it-up_files/" class="post-preview">
@@ -1622,8 +1730,7 @@ Visualisations help to show these relationships but also some numeric values to 
 </div>
 <div class="description">
 <h2>Speed it up!</h2>
-<p>This post explores how to see opportunities to make your code run faster.
-</p>
+<p>This post explores how to see opportunities to make your code run faster.</p>
 </div>
 </a>
 <a href="posts/2018-07-05-bayesian-time-series-analysis-with-bsts_files/" class="post-preview">
@@ -1636,8 +1743,7 @@ Visualisations help to show these relationships but also some numeric values to 
 </div>
 <div class="description">
 <h2>Bayesian Time Series Analysis with bsts</h2>
-<p>Exploring the bsts package and what it provides for Bayesian structural time series modeling
-</p>
+<p>Exploring the bsts package and what it provides for Bayesian structural time series modeling</p>
 </div>
 </a>
 <a href="posts/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/" class="post-preview">
@@ -1650,8 +1756,7 @@ Visualisations help to show these relationships but also some numeric values to 
 </div>
 <div class="description">
 <h2>ggrough</h2>
-<p>ggrough is a great package that can be used to make graphs that look hand-drawn. This can be a   great aesthetic choice when giving presentations and making handouts.
-</p>
+<p>ggrough is a great package that can be used to make graphs that look hand-drawn. This can be a   great aesthetic choice when giving presentations and making handouts.</p>
 </div>
 </a>
 <a href="posts/2018-07-04-gghighlight-for-the-win_files/" class="post-preview">
@@ -1664,8 +1769,7 @@ Visualisations help to show these relationships but also some numeric values to 
 </div>
 <div class="description">
 <h2>gghighlight for the win</h2>
-<p>Exploring the power of gghighlight package to automatically highlight charts
-</p>
+<p>Exploring the power of gghighlight package to automatically highlight charts</p>
 </div>
 </a>
 <a href="posts/2018-07-04-let-s-try-some-visualisation_files/" class="post-preview">
@@ -1678,8 +1782,7 @@ Visualisations help to show these relationships but also some numeric values to 
 </div>
 <div class="description">
 <h2>Let's Try Some Visualisation</h2>
-<p>An example of the value suppressing uncertainty scale. Great uses include forecast uncertainity.
-</p>
+<p>An example of the value suppressing uncertainty scale. Great uses include forecast uncertainity.</p>
 </div>
 </a>
 </div>
@@ -1780,7 +1883,7 @@ Visualisations help to show these relationships but also some numeric values to 
 </li>
 <li>
 <a href="#time_series">time series</a>
-<span class="category-count">(1)</span>
+<span class="category-count">(2)</span>
 </li>
 <li>
 <a href="#timeseries">timeseries</a>

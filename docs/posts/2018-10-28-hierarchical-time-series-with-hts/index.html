@@ -19,39 +19,39 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-<title>Michael DeWitt: make your own api</title>
+<title>Michael DeWitt: Hierarchical Time Series with hts</title>
 
-<meta property="description" itemprop="description" content="Exploring the concept of developing internal APIs. An API could also be an R package that can be used by people in your organisation to more easily connect to common data sources. This is a good example of some internal tooling that can make data access easier."/>
+<meta property="description" itemprop="description" content="This is just a quick reproduction of the items discussed in the &#10;hts package. This allows for hierarchical time series which is &#10;an important feature when looking at data that take a hierarchical&#10;format like counties within a state or precincts within counties within states."/>
 
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2018-07-12"/>
-<meta property="article:created" itemprop="dateCreated" content="2018-07-12"/>
+<meta property="article:published" itemprop="datePublished" content="2018-10-28"/>
+<meta property="article:created" itemprop="dateCreated" content="2018-10-28"/>
 <meta name="article:author" content="Michael DeWitt"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Michael DeWitt: make your own api"/>
+<meta property="og:title" content="Michael DeWitt: Hierarchical Time Series with hts"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Exploring the concept of developing internal APIs. An API could also be an R package that can be used by people in your organisation to more easily connect to common data sources. This is a good example of some internal tooling that can make data access easier."/>
+<meta property="og:description" content="This is just a quick reproduction of the items discussed in the &#10;hts package. This allows for hierarchical time series which is &#10;an important feature when looking at data that take a hierarchical&#10;format like counties within a state or precincts within counties within states."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Michael DeWitt"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Michael DeWitt: make your own api"/>
-<meta property="twitter:description" content="Exploring the concept of developing internal APIs. An API could also be an R package that can be used by people in your organisation to more easily connect to common data sources. This is a good example of some internal tooling that can make data access easier."/>
+<meta property="twitter:title" content="Michael DeWitt: Hierarchical Time Series with hts"/>
+<meta property="twitter:description" content="This is just a quick reproduction of the items discussed in the &#10;hts package. This allows for hierarchical time series which is &#10;an important feature when looking at data that take a hierarchical&#10;format like counties within a state or precincts within counties within states."/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","preview","categories","date","output"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["make your own api"]},{"type":"character","attributes":{},"value":["Exploring the concept of developing internal APIs. An API could also be an R package that can be used by people in your organisation to more easily connect to common data sources. This is a good example of some internal tooling that can make data access easier."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["mermaid.png"]},{"type":"character","attributes":{},"value":["r","apis","packages"]},{"type":"character","attributes":{},"value":["07-12-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","categories","date","output"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Hierarchical Time Series with hts"]},{"type":"character","attributes":{},"value":["This is just a quick reproduction of the items discussed in the \nhts package. This allows for hierarchical time series which is \nan important feature when looking at data that take a hierarchical\nformat like counties within a state or precincts within counties within states."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["time series"]},{"type":"character","attributes":{},"value":["10-28-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["make-your-own-api_files/bowser-1.9.3/bowser.min.js","make-your-own-api_files/chromatography-0.1/chromatography.js","make-your-own-api_files/chromatography-0.1/LICENSE","make-your-own-api_files/d3-3.3.8/d3.min.js","make-your-own-api_files/d3-3.3.8/LICENSE","make-your-own-api_files/dagre-0.4.0/dagre-d3.min.js","make-your-own-api_files/dagre-0.4.0/LICENSE","make-your-own-api_files/DiagrammeR-binding-1.0.0/DiagrammeR.js","make-your-own-api_files/DiagrammeR-binding-1.0.0/DiagrammeR.yaml","make-your-own-api_files/DiagrammeR-binding-1.0.0/grViz.js","make-your-own-api_files/DiagrammeR-binding-1.0.0/grViz.yaml","make-your-own-api_files/DiagrammeR-binding-1.0.0/lib/chromatography/chromatography.js","make-your-own-api_files/DiagrammeR-binding-1.0.0/lib/chromatography/LICENSE","make-your-own-api_files/DiagrammeR-binding-1.0.0/lib/d3/d3.min.js","make-your-own-api_files/DiagrammeR-binding-1.0.0/lib/d3/LICENSE","make-your-own-api_files/DiagrammeR-binding-1.0.0/lib/dagre-d3/dagre-d3.min.js","make-your-own-api_files/DiagrammeR-binding-1.0.0/lib/dagre-d3/LICENSE","make-your-own-api_files/DiagrammeR-binding-1.0.0/lib/mermaid/dist/mermaid.css","make-your-own-api_files/DiagrammeR-binding-1.0.0/lib/mermaid/dist/mermaid.slim.min.js","make-your-own-api_files/DiagrammeR-binding-1.0.0/lib/mermaid/LICENSE","make-your-own-api_files/DiagrammeR-binding-1.0.0/lib/styles/styles.css","make-your-own-api_files/DiagrammeR-binding-1.0.0/lib/viz/viz.js","make-your-own-api_files/DiagrammeR-styles-0.2/styles.css","make-your-own-api_files/distill-2.2.21/template.v2.js","make-your-own-api_files/htmlwidgets-1.2/htmlwidgets.js","make-your-own-api_files/jquery-1.11.3/jquery.min.js","make-your-own-api_files/mermaid-0.3.0/dist/mermaid.css","make-your-own-api_files/mermaid-0.3.0/dist/mermaid.slim.min.js","make-your-own-api_files/mermaid-0.3.0/LICENSE","make-your-own-api_files/webcomponents-2.0.0/webcomponents.js","mermaid.png"]}
+  {"type":"character","attributes":{},"value":["hierarchical-time-series-with-hts_files/bowser-1.9.3/bowser.min.js","hierarchical-time-series-with-hts_files/distill-2.2.21/template.v2.js","hierarchical-time-series-with-hts_files/figure-html5/unnamed-chunk-5-1.png","hierarchical-time-series-with-hts_files/jquery-1.11.3/jquery.min.js","hierarchical-time-series-with-hts_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1224,14 +1224,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/htmlwidgets-1.2/htmlwidgets.js"></script>
-  <script src="../../site_libs/d3-3.3.8/d3.min.js"></script>
-  <script src="../../site_libs/dagre-0.4.0/dagre-d3.min.js"></script>
-  <link href="../../site_libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
-  <script src="../../site_libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
-  <link href="../../site_libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
-  <script src="../../site_libs/chromatography-0.1/chromatography.js"></script>
-  <script src="../../site_libs/DiagrammeR-binding-1.0.0/DiagrammeR.js"></script>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
@@ -1254,7 +1246,7 @@ gtag('config', 'UA-117944166-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"make your own api","description":"Exploring the concept of developing internal APIs. An API could also be an R package that can be used by people in your organisation to more easily connect to common data sources. This is a good example of some internal tooling that can make data access easier.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2018-07-12T00:00:00.000-04:00","citationText":"DeWitt, 2018"}
+{"title":"Hierarchical Time Series with hts","description":"This is just a quick reproduction of the items discussed in the \nhts package. This allows for hierarchical time series which is \nan important feature when looking at data that take a hierarchical\nformat like counties within a state or precincts within counties within states.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2018-10-28T00:00:00.000-04:00","citationText":"DeWitt, 2018"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1280,53 +1272,152 @@ gtag('config', 'UA-117944166-1');
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>make your own api</h1>
-<p>Exploring the concept of developing internal APIs. An API could also be an R package that can be used by people in your organisation to more easily connect to common data sources. This is a good example of some internal tooling that can make data access easier.</p>
+<h1>Hierarchical Time Series with hts</h1>
+<p>This is just a quick reproduction of the items discussed in the hts package. This allows for hierarchical time series which is an important feature when looking at data that take a hierarchical format like counties within a state or precincts within counties within states.</p>
 </div>
 
 <div class="d-byline">
   Michael DeWitt <a href="https://michaeldewittjr.com" class="uri">https://michaeldewittjr.com</a> 
   
-<br/>07-12-2018
+<br/>10-28-2018
 </div>
 
 <div class="d-article">
-<h1 id="whats-in-an-api">What’s in an API?</h1>
-<p>An API is an application programming interface. It is basically a set of instructions for interfacing with a server. When working with web data you don’t need to render an entire website for viewing- you just want to get some raw data. You can do this through the API (often a REST) and talk to the server directly. Within this API you send a set of instructions that says what data you want and in what form you want it in. Then it sends you the data.</p>
-<div class="layout-chunk" data-layout="l-body">
-<div id="htmlwidget-9d35fd7a425bd18ce4fe" style="width:576px;height:200px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9d35fd7a425bd18ce4fe">{"x":{"diagram":"\ngraph LR\n  Server-->Browser\nBrowser -->Server\n  Browser-->Viewer\n  Server-->API\n  API-->Server\n"},"evals":[],"jsHooks":[]}</script>
-</div>
-<h1 id="what-about-internally">What about internally?</h1>
-<p>Often times in the business world, we don’t necessarily access internal data though a REST API (unless you are Amazon) <a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
-<p>If your company does internal APIs that is wonder. Quite honestly they aren’t too hard to set up and with a little help from <code>plumber</code> a data scientist could use R to set an API up. Not the best idea but it still stands, it can be done.</p>
-<h1 id="but-what-about-common-drives">But what about common drives</h1>
-<p>This is where I have developed some APIs for myself and others. Perhaps data is stored in flatfiles on a common drive. Instead of everyone mapping to the drive at the start of each script, write a package to function like your own API, something like:</p>
+<h2 id="mission">Mission</h2>
+<p>The mission is to reproduce the figures in the following article:</p>
+<p><a href="https://cran.r-project.org/web/packages/hts/vignettes/hts.pdf" class="uri">https://cran.r-project.org/web/packages/hts/vignettes/hts.pdf</a></p>
+<h2 id="load-required-libraries">Load Required Libraries</h2>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-get_internal_data &lt;- function(data_set){
-  path &lt;-&quot;path/to/internal/directory&quot;
-  
-  available_files &lt;- list.files(path, pattern = &quot;.csv$&quot;) %&gt;% 
-    gsub(pattern = &quot;.csv&quot;, replacement = &quot;&quot;, .)
-  
-  if(!data_setv %in% available_files){
-    stop(&quot;Data set not available&quot;)
-  }
-  
-  df &lt;- read_csv(file.path(path, data_set))
-  
-  df
-}</code></pre>
+library(hts)</code></pre>
 </div>
-<p>Now anyone can use your function to call a data set. This saves some typing, and if you use the absolute mappings then this makes it easier to share internal code. Additionally, you could wrap this function, perhaps with several other to different data sources into a package. That package can then be shared and everyone will have easy access to the data. If the storage of items changes, then you can update the package details (via a version control system) and have everyone load the new package. This <em>automatically</em> changes the internals so their function to access the data is redirected to the new location!</p>
-<p>This same kind of method could be used for accessing internal databases. Set you the connection and it provides you the tools to work with internal tools in an API-like fashion.</p>
-<section class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p>The story behind this is that Jeff Bezos in his brilliance made Amazon access everyones data internally through APIs. This vision allowed them to speed past the competition with Amazon web services because they had basically been doing it for years. By building this kind of infrastructure early, learning through bumps and bruising along the way they were ready to present an internal architecture to the public and make loads of money on it. More <a href="https://apievangelist.com/2012/01/12/the-secret-to-amazons-success-internal-apis/">here</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
-</ol>
-</section>
+<h3 id="note-on-formatting-data">Note on Formatting Data</h3>
+<p>This is important to understand in regard to how to format the data.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# bts is a time series matrix containing the bottom-level series
+# The first three series belong to one group, and the last two
+# series belong to a different group
+# nodes is a list containing the number of child nodes at each level.
+bts &lt;- ts(5 + matrix(sort(rnorm(500)), ncol=5, nrow=100))
+
+y &lt;- hts(bts, nodes=list(2, c(3, 2)))</code></pre>
+</div>
+<h2 id="the-data">The Data</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+infantgts</code></pre>
+<pre><code>
+Grouped Time Series 
+4 Levels 
+Number of groups at each level: 1 2 8 16 
+Total number of series: 27 
+Number of observations per series: 71 
+Top level series: 
+Time Series:
+Start = 1933 
+End = 2003 
+Frequency = 1 
+ [1] 4426 4795 4501 4813 4572 4627 4726 4897 5367 5435 5458 4819 4741
+[14] 5143 5231 4978 4621 4672 4910 4823 4743 4546 4571 4630 4751 4586
+[27] 4915 4667 4700 4861 4652 4403 4124 4065 4205 4293 4507 4620 4809
+[40] 4465 4088 3974 3341 3161 2834 2732 2557 2438 2365 2485 2349 2184
+[53] 2473 2162 2131 2143 2018 2149 1851 1848 1598 1524 1466 1467 1352
+[66] 1261 1413 1292 1313 1271 1207</code></pre>
+</div>
+<p>Use a bottom’s up forcasting method. There are several options from which to choose:</p>
+<ul>
+<li><strong>comb</strong> optimal combination</li>
+<li><strong>bu</strong> bottom’s up</li>
+<li><strong>mo</strong> middle out forecast</li>
+<li><strong>tdgsa</strong> Top-down forecasts based on the average historical proportions (Gross-Sohl method A)</li>
+<li><strong>tdgsf</strong> same as above but with averages</li>
+<li><strong>tdfp</strong> top down forecast using proportions</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# Forecast 10-step-ahead using the bottom-up method
+infantforecast &lt;- forecast(infantgts, h=10, method=&quot;bu&quot;)</code></pre>
+</div>
+<p>Now we can plot them:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# plot the forecasts including the last ten historical years
+plot(infantforecast, include=2)</code></pre>
+<p><img src="hierarchical-time-series-with-hts_files/figure-html5/unnamed-chunk-5-1.png" width="576" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+allts_infant &lt;- aggts(infantgts)
+allf &lt;- matrix(nrow=10, ncol=ncol(allts_infant))
+# Users can select their preferred time-series forecasting method
+# for each time series
+for(i in 1:ncol(allts_infant)){
+  allf[,i] &lt;- forecast(auto.arima(allts_infant[,i]), h=10, PI=FALSE)$mean
+}
+
+allf &lt;- ts(allf, start=2004)
+# combine the forecasts with the group matrix to get a gts object
+g &lt;- matrix(c(rep(1, 8), rep(2, 8), rep(1:8, 2)), nrow = 2, byrow = T)
+y.f &lt;- combinef(allf, groups = g)</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# set up the training sample and testing sample
+data &lt;- window(infantgts, start=1933, end=1993)
+test &lt;- window(infantgts, start=1994, end=2003)
+forecast &lt;- forecast(data, h=10, method=&quot;bu&quot;)
+# calculate ME, RMSE, MAE, MAPE, MPE and MASE
+accuracy.gts(forecast, test)</code></pre>
+<pre><code>
+           Total  Sex/female    Sex/male   State/NSW   State/VIC
+ME   -229.976631 -51.6732083 -178.303422 -61.6997671 -52.3224384
+RMSE  239.316716  54.8648206  186.952910  72.0726053  55.6797769
+MAE   229.976631  51.6732083  178.303422  61.6997671  52.3224384
+MAPE   17.383377   8.8573610   24.108196  14.8044550  17.2578539
+MPE   -17.383377  -8.8573610  -24.108196 -14.8044550 -17.2578539
+MASE    1.192825   0.5536415    1.634811   0.6922188   0.7123545
+      State/QLD    State/SA  State/WA  State/NT  State/ACT  State/TAS
+ME   -54.247885 -27.9688770 -34.22604 2.4214262 -10.200366  8.2673186
+RMSE  58.364656  31.4104773  37.80624 4.4008195  12.277985 14.1318898
+MAE   54.247885  28.3351016  34.22604 3.8128557  10.200366 11.2456064
+MAPE  19.807669  35.8611517  30.49142 9.3990903  58.625236 25.6532905
+MPE  -19.807669 -35.5481392 -30.49142 5.5716727 -58.625236 16.2664231
+MASE   1.170397   0.9229675   1.18361 0.3087333   1.577376  0.4954012
+     NSW female  VIC female QLD female   SA female   WA female
+ME   18.1060219 -19.2448216 -30.927587 -11.8395741  -9.4619072
+RMSE 29.4705103  22.4856212  34.825359  12.7759741  12.2693801
+MAE  22.6345181  19.2448216  30.927587  11.8395741  11.0295258
+MAPE 11.8532079  15.1713621  27.492021  34.9177563  23.1348356
+MPE   9.1030614 -15.1713621 -27.492021 -34.9177563 -20.8629247
+MASE  0.5199353   0.5338369   1.059769   0.6720666   0.6308594
+       NT female  ACT female TAS female   NSW male    VIC male
+ME    -3.6619739   1.2229746  4.1336593 -79.805789 -33.0776168
+RMSE   5.4356560   4.3972340  7.0659449  85.657539  35.4311830
+MAE    4.1036140   3.8000000  5.6228032  79.805789  33.0776168
+MAPE  31.0793050  49.8490801 25.6532905  34.527431  19.3380825
+MPE  -29.2280894 -15.2907568 16.2664231 -34.527431 -19.3380825
+MASE   0.5766202   0.9047619  0.4954012   1.431922   0.7569249
+        QLD male     SA male    WA male   NT male    ACT male
+ME   -23.3202978 -16.1293029 -24.764134  6.083400  -11.423341
+RMSE  27.7367318  20.5563716  28.118008  8.673554   12.089644
+MAE   23.3202978  17.9634424  25.771308  7.729126   11.423341
+MAPE  15.3395187  43.6968568  42.005272 34.820043  106.448479
+MPE  -15.3395187 -41.2835155 -40.987925 22.160616 -106.448479
+MASE   0.9676472   0.9396744   1.577835  1.120163    2.269538
+       TAS male
+ME    4.1336593
+RMSE  7.0659449
+MAE   5.6228032
+MAPE 25.6532905
+MPE  16.2664231
+MASE  0.4954012</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+fcasts &lt;- forecast(htseg1, h = 10, method = &quot;comb&quot;, fmethod = &quot;arima&quot;,
+weights = &quot;sd&quot;, keep.fitted = TRUE, parallel = TRUE)</code></pre>
+</div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

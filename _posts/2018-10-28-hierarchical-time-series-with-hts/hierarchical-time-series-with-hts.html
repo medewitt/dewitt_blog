@@ -19,361 +19,39 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>Michael DeWitt: About this blog</title>
+  <title>Hierarchical Time Series with hts</title>
   
-  <meta property="description" itemprop="description" content="This is a blog primarily for me."/>
+  <meta property="description" itemprop="description" content="This is just a quick reproduction of the items discussed in the &#10;hts package. This allows for hierarchical time series which is &#10;an important feature when looking at data that take a hierarchical&#10;format like counties within a state or precincts within counties within states."/>
   
-  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
   
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2018-10-28"/>
+  <meta property="article:created" itemprop="dateCreated" content="2018-10-28"/>
+  <meta name="article:author" content="Michael DeWitt"/>
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Michael DeWitt: About this blog"/>
+  <meta property="og:title" content="Hierarchical Time Series with hts"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="This is a blog primarily for me."/>
+  <meta property="og:description" content="This is just a quick reproduction of the items discussed in the &#10;hts package. This allows for hierarchical time series which is &#10;an important feature when looking at data that take a hierarchical&#10;format like counties within a state or precincts within counties within states."/>
   <meta property="og:locale" content="en_US"/>
-  <meta property="og:site_name" content="Michael DeWitt"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Michael DeWitt: About this blog"/>
-  <meta property="twitter:description" content="This is a blog primarily for me."/>
+  <meta property="twitter:title" content="Hierarchical Time Series with hts"/>
+  <meta property="twitter:description" content="This is just a quick reproduction of the items discussed in the &#10;hts package. This allows for hierarchical time series which is &#10;an important feature when looking at data that take a hierarchical&#10;format like counties within a state or precincts within counties within states."/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["About this blog"]},{"type":"character","attributes":{},"value":["This is a blog primarily for me."]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","categories","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Hierarchical Time Series with hts"]},{"type":"character","attributes":{},"value":["This is just a quick reproduction of the items discussed in the \nhts package. This allows for hierarchical time series which is \nan important feature when looking at data that take a hierarchical\nformat like counties within a state or precincts within counties within states.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["time series"]},{"type":"character","attributes":{},"value":["10-28-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
-  <!--radix_placeholder_navigation_in_header-->
   
-  <script type="application/javascript">
-  
-    window.headroom_prevent_pin = false;
-  
-    window.document.addEventListener("DOMContentLoaded", function (event) {
-  
-      // initialize headroom for banner
-      var header = $('header').get(0);
-      var headerHeight = header.offsetHeight;
-      var headroom = new Headroom(header, {
-        onPin : function() {
-          if (window.headroom_prevent_pin) {
-            window.headroom_prevent_pin = false;
-            headroom.unpin();
-          }
-        }
-      });
-      headroom.init();
-      if(window.location.hash)
-        headroom.unpin();
-      $(header).addClass('headroom--transition');
-  
-      // offset scroll location for banner on hash change
-      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
-      window.addEventListener("hashchange", function(event) {
-        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
-      });
-  
-      // responsive menu
-      $('.radix-site-header').each(function(i, val) {
-        var topnav = $(this);
-        var toggle = topnav.find('.nav-toggle');
-        toggle.on('click', function() {
-          topnav.toggleClass('responsive');
-        });
-      });
-  
-      // nav dropdowns
-      $('.nav-dropbtn').click(function(e) {
-        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
-        $(this).parent().siblings('.nav-dropdown')
-           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $("body").click(function(e){
-        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
-      });
-      $(".nav-dropdown").click(function(e){
-        e.stopPropagation();
-      });
-    });
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["hierarchical-time-series-with-hts_files/bowser-1.9.3/bowser.min.js","hierarchical-time-series-with-hts_files/distill-2.2.21/template.v2.js","hierarchical-time-series-with-hts_files/figure-html5/unnamed-chunk-5-1.png","hierarchical-time-series-with-hts_files/jquery-1.11.3/jquery.min.js","hierarchical-time-series-with-hts_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
-  
-  <style type="text/css">
-  
-  /* Theme (user-documented overrideables for nav appearance) */
-  
-  .radix-site-nav {
-    color: rgba(255, 255, 255, 0.8);
-    background-color: #455a64;
-    font-size: 15px;
-    font-weight: 300;
-  }
-  
-  .radix-site-nav a {
-    color: inherit;
-    text-decoration: none;
-  }
-  
-  .radix-site-nav a:hover {
-    color: white;
-  }
-  
-  @media print {
-    .radix-site-nav {
-      display: none;
-    }
-  }
-  
-  .radix-site-header {
-  
-  }
-  
-  .radix-site-footer {
-  
-  }
-  
-  
-  /* Site Header */
-  
-  .radix-site-header {
-    width: 100%;
-    box-sizing: border-box;
-    z-index: 3;
-  }
-  
-  .radix-site-header .nav-left {
-    display: inline-block;
-    margin-left: 8px;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .radix-site-header .nav-left {
-      margin-left: 0;
-    }
-  }
-  
-  
-  .radix-site-header .nav-right {
-    float: right;
-    margin-right: 8px;
-  }
-  
-  .radix-site-header a,
-  .radix-site-header .title {
-    display: inline-block;
-    text-align: center;
-    padding: 14px 10px 14px 10px;
-  }
-  
-  .radix-site-header .title {
-    font-size: 18px;
-  }
-  
-  .radix-site-header .logo {
-    padding: 0;
-  }
-  
-  .radix-site-header .logo img {
-    display: none;
-    max-height: 20px;
-    width: auto;
-    margin-bottom: -4px;
-  }
-  
-  .radix-site-header .nav-image img {
-    max-height: 18px;
-    width: auto;
-    display: inline-block;
-    margin-bottom: -3px;
-  }
-  
-  
-  
-  @media screen and (min-width: 1000px) {
-    .radix-site-header .logo img {
-      display: inline-block;
-    }
-    .radix-site-header .nav-left {
-      margin-left: 20px;
-    }
-    .radix-site-header .nav-right {
-      margin-right: 20px;
-    }
-    .radix-site-header .title {
-      padding-left: 12px;
-    }
-  }
-  
-  
-  .radix-site-header .nav-toggle {
-    display: none;
-  }
-  
-  .nav-dropdown {
-    display: inline-block;
-    position: relative;
-  }
-  
-  .nav-dropdown .nav-dropbtn {
-    border: none;
-    outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    padding: 16px 10px;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    margin: 0;
-    margin-top: 1px;
-    z-index: 2;
-  }
-  
-  .nav-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    min-width: 200px;
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-    z-index: 1;
-    margin-top: 2px;
-    white-space: nowrap;
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-  
-  .nav-dropdown-content hr {
-    margin-top: 4px;
-    margin-bottom: 4px;
-    border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  
-  .nav-dropdown-active {
-    display: block;
-  }
-  
-  .nav-dropdown-content a {
-    color: black;
-    padding: 6px 24px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .nav-dropdown:hover .nav-dropbtn {
-    color: white;
-  }
-  
-  .nav-dropdown-content a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
-  .nav-right .nav-dropdown-content {
-    margin-left: -45%;
-    right: 0;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .radix-site-header a, .radix-site-header .nav-dropdown  {display: none;}
-    .radix-site-header a.nav-toggle {
-      float: right;
-      display: block;
-    }
-    .radix-site-header .title {
-      margin-left: 0;
-    }
-    .radix-site-header .nav-right {
-      margin-right: 0;
-    }
-    .radix-site-header {
-      overflow: hidden;
-    }
-    .nav-right .nav-dropdown-content {
-      margin-left: 0;
-    }
-  }
-  
-  
-  @media screen and (max-width: 768px) {
-    .radix-site-header.responsive {position: relative;}
-    .radix-site-header.responsive a.nav-toggle {
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
-    .radix-site-header.responsive a,
-    .radix-site-header.responsive .nav-dropdown {
-      display: block;
-      text-align: left;
-    }
-    .radix-site-header.responsive .nav-left,
-    .radix-site-header.responsive .nav-right {
-      width: 100%;
-    }
-    .radix-site-header.responsive .nav-dropdown {float: none;}
-    .radix-site-header.responsive .nav-dropdown-content {position: relative;}
-    .radix-site-header.responsive .nav-dropdown .nav-dropbtn {
-      display: block;
-      width: 100%;
-      text-align: left;
-    }
-  }
-  
-  /* Site Footer */
-  
-  .radix-site-footer {
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-    z-index: 3;
-    margin-top: 30px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    text-align: center;
-  }
-  
-  /* Headroom */
-  
-  d-title {
-    padding-top: 6rem;
-  }
-  
-  @media print {
-    d-title {
-      padding-top: 4rem;
-    }
-  }
-  
-  .headroom {
-    z-index: 1000;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-  
-  .headroom--transition {
-    transition: all .4s ease-in-out;
-  }
-  
-  .headroom--unpinned {
-    top: -100px;
-  }
-  
-  .headroom--pinned {
-    top: 0;
-  }
-  
-  </style>
-  
-  <link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet"/>
-  <script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-  <script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
-  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+  <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
   
@@ -1216,18 +894,11 @@
   </script>
   
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
-  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
-  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
+  <script src="hierarchical-time-series-with-hts_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="hierarchical-time-series-with-hts_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="hierarchical-time-series-with-hts_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="hierarchical-time-series-with-hts_files/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117944166-1"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-117944166-1');
-  </script>
   <!--/radix_placeholder_site_in_header-->
 
 
@@ -1238,41 +909,162 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"About this blog","description":"This is a blog primarily for me.","authors":[]}
+{"title":"Hierarchical Time Series with hts","description":"This is just a quick reproduction of the items discussed in the \nhts package. This allows for hierarchical time series which is \nan important feature when looking at data that take a hierarchical\nformat like counties within a state or precincts within counties within states.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2018-10-28T00:00:00.000-04:00","citationText":"DeWitt, 2018"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
-<header class="header header--fixed" role="banner">
-<nav class="radix-site-nav radix-site-header">
-<div class="nav-left">
-<a href="index.html" class="title">Michael DeWitt</a>
-</div>
-<div class="nav-right">
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="https://michaeldewittjr.com">Main Site</a>
-<a href="index.xml">
-<i class="fa fa-rss"></i>
-</a>
-<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
-</div>
-</nav>
-</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>About this blog</h1>
-<p>This is a blog primarily for me.</p>
+<h1>Hierarchical Time Series with hts</h1>
+<p>This is just a quick reproduction of the items discussed in the hts package. This allows for hierarchical time series which is an important feature when looking at data that take a hierarchical format like counties within a state or precincts within counties within states.</p>
 </div>
 
+<div class="d-byline">
+  Michael DeWitt <a href="https://michaeldewittjr.com" class="uri">https://michaeldewittjr.com</a> 
+  
+<br/>10-28-2018
+</div>
 
 <div class="d-article">
-<p>I will be honest, the purpose of this blog is wholly self. I want a way to practice things I learn, repeat good examples, and keep up to date on statistics, data science and what have you. This provides a great way to do that.</p>
-<p>All this to say, that I cannot guarantee everything I post will work, be interesting or spelled correctly. I will do my best to make the blog the best it can be. This is a work in progress. I think I finally have found a platform that I like in the <code>radix</code> package.</p>
-<p>All thoughts and opinions are my own and not in any way affiliated with my employer.</p>
+<h2 id="mission">Mission</h2>
+<p>The mission is to reproduce the figures in the following article:</p>
+<p><a href="https://cran.r-project.org/web/packages/hts/vignettes/hts.pdf" class="uri">https://cran.r-project.org/web/packages/hts/vignettes/hts.pdf</a></p>
+<h2 id="load-required-libraries">Load Required Libraries</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(hts)</code></pre>
+</div>
+<h3 id="note-on-formatting-data">Note on Formatting Data</h3>
+<p>This is important to understand in regard to how to format the data.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# bts is a time series matrix containing the bottom-level series
+# The first three series belong to one group, and the last two
+# series belong to a different group
+# nodes is a list containing the number of child nodes at each level.
+bts &lt;- ts(5 + matrix(sort(rnorm(500)), ncol=5, nrow=100))
+
+y &lt;- hts(bts, nodes=list(2, c(3, 2)))</code></pre>
+</div>
+<h2 id="the-data">The Data</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+infantgts</code></pre>
+<pre><code>
+Grouped Time Series 
+4 Levels 
+Number of groups at each level: 1 2 8 16 
+Total number of series: 27 
+Number of observations per series: 71 
+Top level series: 
+Time Series:
+Start = 1933 
+End = 2003 
+Frequency = 1 
+ [1] 4426 4795 4501 4813 4572 4627 4726 4897 5367 5435 5458 4819 4741
+[14] 5143 5231 4978 4621 4672 4910 4823 4743 4546 4571 4630 4751 4586
+[27] 4915 4667 4700 4861 4652 4403 4124 4065 4205 4293 4507 4620 4809
+[40] 4465 4088 3974 3341 3161 2834 2732 2557 2438 2365 2485 2349 2184
+[53] 2473 2162 2131 2143 2018 2149 1851 1848 1598 1524 1466 1467 1352
+[66] 1261 1413 1292 1313 1271 1207</code></pre>
+</div>
+<p>Use a bottom’s up forcasting method. There are several options from which to choose:</p>
+<ul>
+<li><strong>comb</strong> optimal combination</li>
+<li><strong>bu</strong> bottom’s up</li>
+<li><strong>mo</strong> middle out forecast</li>
+<li><strong>tdgsa</strong> Top-down forecasts based on the average historical proportions (Gross-Sohl method A)</li>
+<li><strong>tdgsf</strong> same as above but with averages</li>
+<li><strong>tdfp</strong> top down forecast using proportions</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# Forecast 10-step-ahead using the bottom-up method
+infantforecast &lt;- forecast(infantgts, h=10, method=&quot;bu&quot;)</code></pre>
+</div>
+<p>Now we can plot them:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# plot the forecasts including the last ten historical years
+plot(infantforecast, include=2)</code></pre>
+<p><img src="hierarchical-time-series-with-hts_files/figure-html5/unnamed-chunk-5-1.png" width="576" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+allts_infant &lt;- aggts(infantgts)
+allf &lt;- matrix(nrow=10, ncol=ncol(allts_infant))
+# Users can select their preferred time-series forecasting method
+# for each time series
+for(i in 1:ncol(allts_infant)){
+  allf[,i] &lt;- forecast(auto.arima(allts_infant[,i]), h=10, PI=FALSE)$mean
+}
+
+allf &lt;- ts(allf, start=2004)
+# combine the forecasts with the group matrix to get a gts object
+g &lt;- matrix(c(rep(1, 8), rep(2, 8), rep(1:8, 2)), nrow = 2, byrow = T)
+y.f &lt;- combinef(allf, groups = g)</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# set up the training sample and testing sample
+data &lt;- window(infantgts, start=1933, end=1993)
+test &lt;- window(infantgts, start=1994, end=2003)
+forecast &lt;- forecast(data, h=10, method=&quot;bu&quot;)
+# calculate ME, RMSE, MAE, MAPE, MPE and MASE
+accuracy.gts(forecast, test)</code></pre>
+<pre><code>
+           Total  Sex/female    Sex/male   State/NSW   State/VIC
+ME   -229.976631 -51.6732083 -178.303422 -61.6997671 -52.3224384
+RMSE  239.316716  54.8648206  186.952910  72.0726053  55.6797769
+MAE   229.976631  51.6732083  178.303422  61.6997671  52.3224384
+MAPE   17.383377   8.8573610   24.108196  14.8044550  17.2578539
+MPE   -17.383377  -8.8573610  -24.108196 -14.8044550 -17.2578539
+MASE    1.192825   0.5536415    1.634811   0.6922188   0.7123545
+      State/QLD    State/SA  State/WA  State/NT  State/ACT  State/TAS
+ME   -54.247885 -27.9688770 -34.22604 2.4214262 -10.200366  8.2673186
+RMSE  58.364656  31.4104773  37.80624 4.4008195  12.277985 14.1318898
+MAE   54.247885  28.3351016  34.22604 3.8128557  10.200366 11.2456064
+MAPE  19.807669  35.8611517  30.49142 9.3990903  58.625236 25.6532905
+MPE  -19.807669 -35.5481392 -30.49142 5.5716727 -58.625236 16.2664231
+MASE   1.170397   0.9229675   1.18361 0.3087333   1.577376  0.4954012
+     NSW female  VIC female QLD female   SA female   WA female
+ME   18.1060219 -19.2448216 -30.927587 -11.8395741  -9.4619072
+RMSE 29.4705103  22.4856212  34.825359  12.7759741  12.2693801
+MAE  22.6345181  19.2448216  30.927587  11.8395741  11.0295258
+MAPE 11.8532079  15.1713621  27.492021  34.9177563  23.1348356
+MPE   9.1030614 -15.1713621 -27.492021 -34.9177563 -20.8629247
+MASE  0.5199353   0.5338369   1.059769   0.6720666   0.6308594
+       NT female  ACT female TAS female   NSW male    VIC male
+ME    -3.6619739   1.2229746  4.1336593 -79.805789 -33.0776168
+RMSE   5.4356560   4.3972340  7.0659449  85.657539  35.4311830
+MAE    4.1036140   3.8000000  5.6228032  79.805789  33.0776168
+MAPE  31.0793050  49.8490801 25.6532905  34.527431  19.3380825
+MPE  -29.2280894 -15.2907568 16.2664231 -34.527431 -19.3380825
+MASE   0.5766202   0.9047619  0.4954012   1.431922   0.7569249
+        QLD male     SA male    WA male   NT male    ACT male
+ME   -23.3202978 -16.1293029 -24.764134  6.083400  -11.423341
+RMSE  27.7367318  20.5563716  28.118008  8.673554   12.089644
+MAE   23.3202978  17.9634424  25.771308  7.729126   11.423341
+MAPE  15.3395187  43.6968568  42.005272 34.820043  106.448479
+MPE  -15.3395187 -41.2835155 -40.987925 22.160616 -106.448479
+MASE   0.9676472   0.9396744   1.577835  1.120163    2.269538
+       TAS male
+ME    4.1336593
+RMSE  7.0659449
+MAE   5.6228032
+MAPE 25.6532905
+MPE  16.2664231
+MASE  0.4954012</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+fcasts &lt;- forecast(htseg1, h = 10, method = &quot;comb&quot;, fmethod = &quot;arima&quot;,
+weights = &quot;sd&quot;, keep.fitted = TRUE, parallel = TRUE)</code></pre>
+</div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -1284,10 +1076,7 @@
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
 <!--radix_placeholder_appendices-->
-<div class="appendix-bottom">
-<h3 id="reuse">Reuse</h3>
-<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
-</div>
+<div class="appendix-bottom"></div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <!--/radix_placeholder_navigation_after_body-->

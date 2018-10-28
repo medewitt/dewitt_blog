@@ -1,8 +1,25 @@
 [
   {
+    "path": "posts/2018-10-28-hierarchical-time-series-with-hts/",
+    "title": "Hierarchical Time Series with hts",
+    "description": "This is just a quick reproduction of the items discussed in the \nhts package. This allows for hierarchical time series which is \nan important feature when looking at data that take a hierarchical\nformat like counties within a state or precincts within counties within states.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-10-28",
+    "categories": [
+      "time series"
+    ],
+    "preview": "posts/2018-10-28-hierarchical-time-series-with-hts/hierarchical-time-series-with-hts_files/figure-html5/unnamed-chunk-5-1.png",
+    "last_modified": "2018-10-28T18:34:42-04:00"
+  },
+  {
     "path": "posts/2018-09-24-the-power-of-fake-data-simulations/",
     "title": "the power of fake data simulations",
-    "description": "Looking at a blog post that Andrew Gelman posted on fake data simulations and HLM.\nThe power of fake data simulations is that it really makes you think twice about what kind\nof effect for which you are looking as well as the power of your research design to detect it.\nThis illustrates a really good practice for anyone looking to do this kind of analysis.\n",
+    "description": "Looking at a blog post that Andrew Gelman posted on fake data simulations and HLM.\nThe power of fake data simulations is that it really makes you think twice about what kind\nof effect for which you are looking as well as the power of your research design to detect it.\nThis illustrates a really good practice for anyone looking to do this kind of analysis.",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -23,7 +40,7 @@
   {
     "path": "posts/2018-09-16-a-foray-into-network-analysis/",
     "title": "a foray into network analysis",
-    "description": "Network analysis provides an way to analyse the interconnectedness of different networks.\nThis can provide insight into social networks, interconnected groups of text, tweets, etc.\nVisualisations help to show these relationships but also some numeric values to quantify them.\n",
+    "description": "Network analysis provides an way to analyse the interconnectedness of different networks.\nThis can provide insight into social networks, interconnected groups of text, tweets, etc.\nVisualisations help to show these relationships but also some numeric values to quantify them.",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -41,7 +58,7 @@
   {
     "path": "posts/2018-09-16-models-of-microeconomics/",
     "title": "models of microeconomics",
-    "description": "Exploring the examples in Kleiber and Zeileis' Applied Economics in R\n",
+    "description": "Exploring the examples in Kleiber and Zeileis' Applied Economics in R",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -60,7 +77,7 @@
   {
     "path": "posts/2018-07-19-analysis-of-short-time-series/",
     "title": "Analysis of Short Time Series",
-    "description": "Using Fourier Transform as coefficients in short time series data helps with prediction.\n",
+    "description": "Using Fourier Transform as coefficients in short time series data helps with prediction.",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -79,7 +96,7 @@
   {
     "path": "posts/2018-07-12-make-your-own-api/",
     "title": "make your own api",
-    "description": "Exploring the concept of developing internal APIs. An API could also be an R package that can be used by people in your organisation to more easily connect to common data sources. This is a good example of some internal tooling that can make data access easier.\n",
+    "description": "Exploring the concept of developing internal APIs. An API could also be an R package that can be used by people in your organisation to more easily connect to common data sources. This is a good example of some internal tooling that can make data access easier.",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -98,7 +115,7 @@
   {
     "path": "posts/2018-07-11-irt-and-the-rasch-model/",
     "title": "IRT and the Rasch Model",
-    "description": "Item Response Theory (IRT) is a method by which item difficulty is assessed and used to measure latent factors. Classical test theory has a shortcoming where the test-taker's ability and the difficulty of the item cannot be separated. Thus there is a question of universalisability outside of the instrument. Additionally, the models make some assumptions that mathematically may not be justified. In come IRT which handles some of these issues.\n",
+    "description": "Item Response Theory (IRT) is a method by which item difficulty is assessed and used to measure latent factors. Classical test theory has a shortcoming where the test-taker's ability and the difficulty of the item cannot be separated. Thus there is a question of universalisability outside of the instrument. Additionally, the models make some assumptions that mathematically may not be justified. In come IRT which handles some of these issues.",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -113,12 +130,12 @@
       "Survey Analysis"
     ],
     "preview": "posts/2018-07-11-irt-and-the-rasch-model/irt-and-the-rasch-model_files/figure-html5/unnamed-chunk-9-1.png",
-    "last_modified": "2018-07-19T06:35:40-04:00"
+    "last_modified": "2018-10-28T18:37:24-04:00"
   },
   {
     "path": "posts/2018-07-10-test/",
     "title": "Radix",
-    "description": "So I'm moving to radix\n",
+    "description": "So I'm moving to radix",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -137,7 +154,7 @@
   {
     "path": "posts/welcome/",
     "title": "Welcome to Michael DeWitt's Blog",
-    "description": "Welcome to the rebooted blog!\n",
+    "description": "Welcome to the rebooted blog!",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -152,7 +169,7 @@
   {
     "path": "posts/2018-07-08-exploring-forecast/",
     "title": "Exploring forecast",
-    "description": "Let's examine some of the functions inside for forecast\n",
+    "description": "Let's examine some of the functions inside for forecast",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -171,7 +188,7 @@
   {
     "path": "posts/2018-07-06-speed-it-up_files/",
     "title": "Speed it up!",
-    "description": "This post explores how to see opportunities to make your code run faster.\n",
+    "description": "This post explores how to see opportunities to make your code run faster.",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -189,7 +206,7 @@
   {
     "path": "posts/2018-07-05-bayesian-time-series-analysis-with-bsts_files/",
     "title": "Bayesian Time Series Analysis with bsts",
-    "description": "Exploring the bsts package and what it provides for Bayesian structural time series modeling\n",
+    "description": "Exploring the bsts package and what it provides for Bayesian structural time series modeling",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -208,7 +225,7 @@
   {
     "path": "posts/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/",
     "title": "ggrough",
-    "description": "ggrough is a great package that can be used to make graphs that look hand-drawn. This can be a   great aesthetic choice when giving presentations and making handouts.\n",
+    "description": "ggrough is a great package that can be used to make graphs that look hand-drawn. This can be a   great aesthetic choice when giving presentations and making handouts.",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -227,7 +244,7 @@
   {
     "path": "posts/2018-07-04-gghighlight-for-the-win_files/",
     "title": "gghighlight for the win",
-    "description": "Exploring the power of gghighlight package to automatically highlight charts\n",
+    "description": "Exploring the power of gghighlight package to automatically highlight charts",
     "author": [
       {
         "name": "Michael DeWitt",
@@ -246,7 +263,7 @@
   {
     "path": "posts/2018-07-04-let-s-try-some-visualisation_files/",
     "title": "Let's Try Some Visualisation",
-    "description": "An example of the value suppressing uncertainty scale. Great uses include forecast uncertainity.\n",
+    "description": "An example of the value suppressing uncertainty scale. Great uses include forecast uncertainity.",
     "author": [
       {
         "name": "Michael DeWitt",
