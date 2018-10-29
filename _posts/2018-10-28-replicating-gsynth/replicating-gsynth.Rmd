@@ -1,0 +1,131 @@
+---
+title: "Replicating gsynth"
+description: |
+  The purpose of this post is to replicate the examples in the gsynth package for synthetic controls. This is a methodology for causal inference especially at the state level.
+author:
+  - name: Michael DeWitt
+    url: https://michaeldewittjr.com
+categories:
+  - causal inference
+  - synthetic controls
+  - econometrics
+date: 10-28-2018
+output:
+  radix::radix_article:
+    self_contained: false
+    draft: true
+bibliography: bib.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+Synthethic methods are a method of causal inference that seeks to combine traditional difference-in-difference types studies with time series cross sectional differences with factor analysis for uncontrolled/ unobserved measures. This method has been growing our of work initially from Abadie [@Synth] and growing in importance/ research for state level policy analysis.
+
+## Package
+
+```{r}
+library(tidyverse)
+library(gsynth)
+library(panelView)
+```
+
+
+There is some basic data available in the package
+
+```{r}
+data(gsynth)
+```
+
+The data that will be initially used will be the `simdata` dataset
+
+```{r echo=FALSE}
+(simdata) %>%
+  sample_n(25) %>% 
+  knitr::kable(digits = 2)
+```
+
+
+
+It can be examined via the `panelView` package:
+
+```{r}
+panelView(Y ~ D, data = simdata,  index = c("id","time")) 
+```
+
+```{r}
+panelView(Y ~ D, data = simdata,  index = c("id","time"), type = "raw") 
+```
+
+## Modeling
+
+```{r}
+out <- gsynth(Y ~ D + X1 + X2, data = simdata, 
+                  index = c("id","time"), force = "two-way",
+                  CV = TRUE, r = c(0, 5), se = TRUE, 
+                  inference = "parametric", nboots = 1000,
+                  parallel = FALSE)
+```
+
+```{r}
+print(out)
+out$est.att
+out$est.avg
+out$est.beta
+
+```
+
+The default plot:
+
+```{r}
+plot(out) 
+```
+
+Modified:
+
+```{r}
+plot(out, theme.bw = TRUE) 
+```
+
+```{r}
+plot(out, type = "raw", theme.bw = TRUE)
+```
+
+```{r}
+plot(out,type = "raw", legendOff = TRUE, ylim=c(-10,40), main="")
+```
+
+```{r}
+plot(out, type = "counterfactual", raw = "none", main="")
+```
+
+```{r}
+plot(out, type = "counterfactual", raw = "band", xlab = "Time", 
+     ylim = c(-5,35), theme.bw = TRUE)
+```
+
+```{r}
+plot(out, type = "counterfactual", raw = "all")
+```
+
+```{r}
+plot(out, type = "factors", xlab = "Time")
+```
+
+
+## Now with Synth
+Now I want to try to replicate the previous case study used in `Synth` and see if it is possible.
+
+```{r}
+library(Synth)
+```
+
+```{r}
+data("basque")
+basque_treat <- basque %>% 
+  mutate(treat = ifelse(grepl(pattern = "Basque", x = regionname),1,0))
+```
+

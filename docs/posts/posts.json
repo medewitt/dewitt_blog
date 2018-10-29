@@ -17,6 +17,25 @@
     "last_modified": "2018-10-28T18:34:42-04:00"
   },
   {
+    "path": "posts/2018-10-28-replicating-gsynth/",
+    "title": "Replicating gsynth",
+    "description": "The purpose of this post is to replicate the examples in the gsynth package for synthetic controls. This is a methodology for causal inference especially at the state level.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-10-28",
+    "categories": [
+      "causal inference",
+      "synthetic controls",
+      "econometrics"
+    ],
+    "preview": "posts/2018-10-28-replicating-gsynth/replicating-gsynth_files/figure-html5/unnamed-chunk-4-1.png",
+    "last_modified": "2018-10-28T21:24:36-04:00"
+  },
+  {
     "path": "posts/2018-09-24-the-power-of-fake-data-simulations/",
     "title": "the power of fake data simulations",
     "description": "Looking at a blog post that Andrew Gelman posted on fake data simulations and HLM.\nThe power of fake data simulations is that it really makes you think twice about what kind\nof effect for which you are looking as well as the power of your research design to detect it.\nThis illustrates a really good practice for anyone looking to do this kind of analysis.",
