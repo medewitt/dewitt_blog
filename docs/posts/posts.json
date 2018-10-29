@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2018-10-28-replicating-gsynth/",
+    "title": "Replicating gsynth",
+    "description": "The purpose of this post is to replicate the examples in the gsynth package for synthetic controls. This is a methodology for causal inference especially at the state level.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-10-29",
+    "categories": [
+      "causal inference",
+      "synthetic controls",
+      "econometrics"
+    ],
+    "preview": "posts/2018-10-28-replicating-gsynth/replicating-gsynth_files/figure-html5/unnamed-chunk-4-1.png",
+    "last_modified": "2018-10-29T12:14:44-04:00"
+  },
+  {
     "path": "posts/2018-10-28-hierarchical-time-series-with-hts/",
     "title": "Hierarchical Time Series with hts",
     "description": "This is just a quick reproduction of the items discussed in the \nhts package. This allows for hierarchical time series which is \nan important feature when looking at data that take a hierarchical\nformat like counties within a state or precincts within counties within states.",
@@ -15,25 +34,6 @@
     ],
     "preview": "posts/2018-10-28-hierarchical-time-series-with-hts/hierarchical-time-series-with-hts_files/figure-html5/unnamed-chunk-5-1.png",
     "last_modified": "2018-10-28T18:34:42-04:00"
-  },
-  {
-    "path": "posts/2018-10-28-replicating-gsynth/",
-    "title": "Replicating gsynth",
-    "description": "The purpose of this post is to replicate the examples in the gsynth package for synthetic controls. This is a methodology for causal inference especially at the state level.",
-    "author": [
-      {
-        "name": "Michael DeWitt",
-        "url": "https://michaeldewittjr.com"
-      }
-    ],
-    "date": "2018-10-28",
-    "categories": [
-      "causal inference",
-      "synthetic controls",
-      "econometrics"
-    ],
-    "preview": "posts/2018-10-28-replicating-gsynth/replicating-gsynth_files/figure-html5/unnamed-chunk-4-1.png",
-    "last_modified": "2018-10-28T21:24:36-04:00"
   },
   {
     "path": "posts/2018-09-24-the-power-of-fake-data-simulations/",

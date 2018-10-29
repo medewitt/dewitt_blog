@@ -9,11 +9,10 @@ categories:
   - causal inference
   - synthetic controls
   - econometrics
-date: 10-28-2018
+date: 10-29-2018
 output:
   radix::radix_article:
     self_contained: false
-    draft: true
 bibliography: bib.bib
 ---
 
@@ -23,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction
 
-Synthethic methods are a method of causal inference that seeks to combine traditional difference-in-difference types studies with time series cross sectional differences with factor analysis for uncontrolled/ unobserved measures. This method has been growing our of work initially from Abadie [@Synth] and growing in importance/ research for state level policy analysis.
+Synthethic methods are a method of causal inference that seeks to combine traditional difference-in-difference types studies with time series cross sectional differences with factor analysis for uncontrolled/ unobserved measures. This method has been growing our of work initially from Abadie [@Synth] and growing in importance/ research for state level policy analysis. It is interesting from the fact that it combines some elements of factor analysis to develop predictors and regression analysis to try to capture explained and unexplained variance.
 
 ## Package
 
@@ -32,6 +31,16 @@ library(tidyverse)
 library(gsynth)
 library(panelView)
 ```
+
+## Method Assumptions
+This methodology makes several critical assumptions.
+
+1. The model takes the functional form of $$Y_{i,t}=\delta_{i,t}D_{i,t}+x_{i,t}^\prime\beta+\lambda_i^{\prime}f_i+\epsilon_{i,t}$$
+1. Strict exogeneity (e.g. the error terms are indepdent to D, X, $\lambda$ and f)
+1. Weak serial dependence of the error terms
+1. Regularity of conditions
+
+The method then uses bootstrapping for confidence intervals.
 
 
 There is some basic data available in the package
@@ -81,51 +90,128 @@ out$est.beta
 The default plot:
 
 ```{r}
-plot(out) 
+plot(out) +
+  theme(plot.title = element_text(size = 12))
 ```
 
 Modified:
 
 ```{r}
-plot(out, theme.bw = TRUE) 
+plot(out, theme.bw = TRUE) +
+  theme(plot.title = element_text(size = 12))
+```
+
+With the raw data:
+
+```{r}
+plot(out, type = "raw", theme.bw = TRUE)+
+  theme(plot.title = element_text(size = 12))
 ```
 
 ```{r}
-plot(out, type = "raw", theme.bw = TRUE)
+plot(out,type = "raw", legendOff = TRUE, ylim=c(-10,40), main="")+
+  theme(plot.title = element_text(size = 12))
 ```
 
 ```{r}
-plot(out,type = "raw", legendOff = TRUE, ylim=c(-10,40), main="")
-```
-
-```{r}
-plot(out, type = "counterfactual", raw = "none", main="")
+plot(out, type = "counterfactual", raw = "none", main="")+
+  theme(plot.title = element_text(size = 12))
 ```
 
 ```{r}
 plot(out, type = "counterfactual", raw = "band", xlab = "Time", 
-     ylim = c(-5,35), theme.bw = TRUE)
+     ylim = c(-5,35), theme.bw = TRUE)+
+  theme(plot.title = element_text(size = 12))
 ```
 
 ```{r}
-plot(out, type = "counterfactual", raw = "all")
+plot(out, type = "counterfactual", raw = "all")+
+  theme(plot.title = element_text(size = 12))
 ```
 
 ```{r}
-plot(out, type = "factors", xlab = "Time")
+plot(out, type = "factors", xlab = "Time")+
+  theme(plot.title = element_text(size = 12))
 ```
 
+# Voter Turnout
+
+Now I am going to try to reproduce the results from Xu's paper [xu_generalized_2017] and implemented in his package [@gsynth].
+
+## Data
+
+```{r echo=FALSE}
+head(turnout) %>% 
+  knitr::kable()
+```
+
+## Model
+
+The paper builds two models, one will only the impact of voter education, another with additional controls. For the sake of time I will build the model with all of the controls used.
+
+```{r}
+out <- gsynth(turnout ~ policy_edr + policy_mail_in + policy_motor, data = turnout, 
+                  index = c("abb","year"), force = "two-way",
+                  CV = TRUE, r = c(0, 5), se = TRUE, 
+                  inference = "parametric", nboots = 1000,
+                  parallel = FALSE)
+```
+
+The model completed and appeared that it did well. Now to examine the figures to see if they match:
+
+```{r}
+plot(out)
+```
+
+Now we can look at the estimated average treatment 
+```{r}
+out$est.avg %>% 
+  knitr::kable()
+```
+
+```{r}
+plot(out, type = "counterfactual", raw = "all")+
+  theme(plot.title = element_text(size = 12))
+```
 
 ## Now with Synth
-Now I want to try to replicate the previous case study used in `Synth` and see if it is possible.
+Now I want to try to replicate the previous case study used in `Synth` [@JSSv042i13] and see if it is possible.
 
 ```{r}
 library(Synth)
 ```
 
+I am going to recode some variable in order to fit with the methods used in `gsynth`. The `Synth` package uses a dataprep function in order to format the data into the requirements.
+
 ```{r}
 data("basque")
 basque_treat <- basque %>% 
-  mutate(treat = ifelse(grepl(pattern = "Basque", x = regionname),1,0))
+  mutate(treat = ifelse(grepl(pattern = "Basque", x = regionname) & year > 1969,1,0))
+head(basque_treat) %>% 
+  knitr::kable()
 ```
 
+```{r}
+out_basque <- gsynth(gdpcap ~ treat, data = basque_treat, index = c("regionname","year"), force = "two-way",
+                  CV = TRUE, r = c(0, 5), se = TRUE, 
+                  inference = "parametric", nboots = 1000,
+                  parallel = FALSE, )
+```
+
+Let's check the results
+
+```{r}
+plot(out_basque)+
+  theme(plot.title = element_text(size = 12))
+```
+
+```{r}
+plot(out_basque, type = "counterfactual", raw = "all")+
+  theme(plot.title = element_text(size = 12))
+```
+
+Interesting that this method lands on a slightly different estimate than the previous paper. I think that this is due to some missing covariates. It appears that `gsynth` doesn't handle missing data too well, which is ok.
+
+## Thoughts
+
+I think that a combination of Bayesian Hierarchical modeling with structural timeseries modeling could get somewhere close to the method, and take advantage of specifying knowns, group effects, etc. But the method is neat and a good way to do some quick analysis.
