@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2018-11-07-mrp-using-brms/",
+    "title": "MRP using brms",
+    "description": "This post explores MRP using brms and tidyverse modeling.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2018-11-07",
+    "categories": [
+      "bayes",
+      "mrp",
+      "prediction"
+    ],
+    "preview": "posts/2018-11-07-mrp-using-brms/mrp-using-brms_files/figure-html5/unnamed-chunk-7-1.png",
+    "last_modified": "2018-11-07T16:01:44-05:00"
+  },
+  {
     "path": "posts/2018-10-28-replicating-gsynth/",
     "title": "Replicating gsynth",
     "description": "The purpose of this post is to replicate the examples in the gsynth package for synthetic controls. This is a methodology for causal inference especially at the state level.",
