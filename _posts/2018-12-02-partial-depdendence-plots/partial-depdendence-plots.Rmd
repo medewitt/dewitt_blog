@@ -1,0 +1,117 @@
+---
+title: "partial depdendence plots"
+description: |
+  A short description of the post.
+author:
+  - name: Michael DeWitt
+    url: https://michaeldewittjr.com
+preview: "pdp"
+categories:
+  - multinomial
+  - plotting
+  - visualisations
+draft: true
+date: 12-02-2018
+output:
+  radix::radix_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+This post is shamelessly copied from Alex Hayes [blog](http://www.alexpghayes.com/blog/understanding-multinomial-regression-with-partial-dependence-plots/) looking at partial dependence plots. 
+
+```{r}
+library(tidyverse)
+
+data <- as_tibble(iris)
+```
+
+```{r}
+library(nnet)
+
+fit <- multinom(Species ~ ., data, trace = FALSE)
+fit
+```
+
+```{r}
+var <- quo(Sepal.Length)
+```
+
+
+```{r}
+x_s <- select(data, !!var)   # grid where we want partial dependencies
+x_c <- select(data, -!!var)  # other predictors
+```
+
+```{r}
+# if the training dataset is large, use a subsample of x_c instead
+grid <- crossing(x_s, x_c)
+```
+
+```{r}
+library(broom)
+
+augment.multinom <- function(object, newdata) {
+  newdata <- as_tibble(newdata)
+  class_probs <- predict(object, newdata, type = "prob")
+  bind_cols(newdata, as_tibble(class_probs))
+}
+
+au <- augment(fit, grid)
+au
+```
+
+```{r}
+pd <- au %>%
+  gather(class, prob, setosa, versicolor, virginica) %>% 
+  group_by(class, !!var) %>%
+  summarize(marginal_prob = mean(prob))
+pd
+```
+
+```{r}
+pd %>%
+  ggplot(aes(!!var, marginal_prob, color = class)) +
+  geom_line(size = 1) +
+  labs(title = paste("Partial dependence plot for", quo_name(var)),
+       y = "Average class probability across all other predictors",
+       x = quo_name(var)) +
+  theme_bw() +
+  scale_color_viridis_d()
+```
+
+```{r}
+partial_dependence <- function(predictor) {
+  
+  var <- ensym(predictor)
+  x_s <- select(data, !!var)
+  x_c <- select(data, -!!var)
+  grid <- crossing(x_s, x_c)
+
+  augment(fit, grid) %>% 
+    gather(class, prob, setosa, versicolor, virginica) %>% 
+    group_by(class, !!var) %>%
+    summarize(marginal_prob = mean(prob))
+}
+
+all_dependencies <- colnames(iris)[1:4] %>% 
+  map_dfr(partial_dependence) %>% 
+  gather(feature, feature_value, -class, -marginal_prob) %>% 
+  na.omit()
+```
+
+```{r pdp}
+all_dependencies %>% 
+  ggplot(aes(feature_value, marginal_prob, color = class)) +
+  geom_line(size = 1) +
+  facet_wrap(vars(feature), scales = "free_x") +
+  scale_color_viridis_d() +
+  labs(title = "Partial dependence plots for all features",
+       y = "Marginal probability of class",
+       x = "Value of feature") +
+  theme_bw()
+```
+

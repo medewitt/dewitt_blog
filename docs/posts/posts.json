@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2019-04-03-latex-in-ggplot2/",
+    "title": "Latex in ggplot2",
+    "description": "This is a quick overview of a trick to add LaTex in ggplot2.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2019-04-03",
+    "categories": [
+      "ggplot2",
+      "data visualisation",
+      "r"
+    ],
+    "preview": "posts/2019-04-03-latex-in-ggplot2/latex-in-ggplot2_files/figure-html5/unnamed-chunk-1-1.png",
+    "last_modified": "2019-04-03T15:56:13-04:00"
+  },
+  {
     "path": "posts/2018-11-07-mrp-using-brms/",
     "title": "MRP using brms",
     "description": "This post explores MRP using brms and tidyverse modeling.",
