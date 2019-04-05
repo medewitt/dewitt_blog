@@ -44,12 +44,12 @@
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","categories","date","output"]}},"value":[{"type":"character","attributes":{},"value":["MRP using brms"]},{"type":"character","attributes":{},"value":["This post explores MRP using brms and tidyverse modeling.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["bayes","mrp","prediction"]},{"type":"character","attributes":{},"value":["11-07-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","categories","date","output"]}},"value":[{"type":"character","attributes":{},"value":["MRP using brms"]},{"type":"character","attributes":{},"value":["This post explores MRP using brms and tidyverse modeling.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["Bayes","mrp","prediction"]},{"type":"character","attributes":{},"value":["11-07-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["gay_marriage_megapoll.dta","mrp-using-brms_files/bowser-1.9.3/bowser.min.js","mrp-using-brms_files/distill-2.2.21/template.v2.js","mrp-using-brms_files/figure-html5/unnamed-chunk-7-1.png","mrp-using-brms_files/jquery-1.11.3/jquery.min.js","mrp-using-brms_files/webcomponents-2.0.0/webcomponents.js","poststratification 2000.dta","state_level_update.dta"]}
+  {"type":"character","attributes":{},"value":["gay_marriage_megapoll.dta","Homework9.pdf","mrp-using-brms_files/bowser-1.9.3/bowser.min.js","mrp-using-brms_files/distill-2.2.21/template.v2.js","mrp-using-brms_files/figure-html5/unnamed-chunk-7-1.png","mrp-using-brms_files/jquery-1.11.3/jquery.min.js","mrp-using-brms_files/webcomponents-2.0.0/webcomponents.js","poststratification 2000.dta","state_level_update.dta"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -63,6 +63,10 @@
   
   .pandoc-table {
     width: 100%;
+  }
+  
+  .pandoc-table>caption {
+    margin-bottom: 10px;
   }
   
   .pandoc-table th:not([align]) {
@@ -79,6 +83,10 @@
   
   .l-screen-inset {
     padding-right: 16px;
+  }
+  
+  .l-screen .caption {
+    margin-left: 10px;
   }
   
   .shaded {
@@ -188,6 +196,10 @@
   /* Tweak code blocks (note that this CSS is repeated above in an injection
      into the d-code shadow dom) */
   
+  d-code {
+    overflow-x: auto !important;
+  }
+  
   pre.d-code code.d-code {
     padding-left: 10px;
     font-size: 12px;
@@ -218,6 +230,11 @@
   }
   
   @media(min-width: 768px) {
+  
+  d-code {
+    overflow-x: visible !important;
+  }
+  
   pre.d-code code.d-code  {
       padding-left: 18px;
       font-size: 14px;
@@ -600,9 +617,9 @@
       var fn = $('#' + id);
       var fn_p = $('#' + id + '>p');
       fn_p.find('.footnote-back').remove();
-      var text = fn_p.text();
+      var text = fn_p.html();
       var dtfn = $('<d-footnote></d-footnote>');
-      dtfn.text(text);
+      dtfn.html(text);
       $(this).replaceWith(dtfn);
     });
     // remove footnotes
@@ -628,7 +645,10 @@
       var clz = "";
       var language = pre.attr('class');
       if (language) {
-        if ($.inArray(language, ["r", "cpp", "c", "java"]) != -1)
+        // map unknown languages to "clike" (without this they just dissapear)
+        if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                                 "javascript", "js", "julia", "lua", "markdown",
+                                 "markup", "mathml", "python", "svg", "xml"]) == -1)
           language = "clike";
         language = ' language="' + language + '"';
         var dt_code = $('<d-code block' + language + clz + '></d-code>');
@@ -843,9 +863,19 @@
     // prevent underline for linked images
     $('a > img').parent().css({'border-bottom' : 'none'});
   
-    // mark figures created by knitr chunks as 100% width
+    // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
-      $(this).find('img, .html-widget').css('width', '100%');
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+  
+      }
     });
   
     // auto-append index.html to post-preview links in file: protocol
@@ -857,7 +887,7 @@
   
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
-      $('.radix-site-header a').each(function(i,val) {
+      $('.radix-site-header a[href]').each(function(i,val) {
         $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
       });
     }
@@ -866,6 +896,8 @@
     $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
     $('.kable-table').children('table').addClass('pandoc-table');
   
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
   
     // initialize posts list
     if (window.init_posts_list)
@@ -877,6 +909,7 @@
       $('#disqus_thread').toggleClass('hidden');
       if (!$('#disqus_thread').hasClass('hidden')) {
         var offset = $(this).offset();
+        $(window).resize();
         $('html, body').animate({
           scrollTop: offset.top - 35
         });
@@ -940,7 +973,34 @@ library(tidyverse)
 library(lme4)
 library(brms)
 library(rstan)
-devtools::install_github(&quot;hrbrmstr/albersusa&quot;)
+devtools::install_github(&quot;hrbrmstr/albersusa&quot;)</code></pre>
+<pre><code>
+  
+   checking for file ‘/private/var/folders/0x/6bnjy4n15kz8nbfbbwbyk3pr0000gn/T/Rtmp3SDOIg/remotes105a590b9a2b/hrbrmstr-albersusa-5b933bf/DESCRIPTION’ ...
+  
+✔  checking for file ‘/private/var/folders/0x/6bnjy4n15kz8nbfbbwbyk3pr0000gn/T/Rtmp3SDOIg/remotes105a590b9a2b/hrbrmstr-albersusa-5b933bf/DESCRIPTION’
+
+  
+─  preparing ‘albersusa’:
+
+  
+   checking DESCRIPTION meta-information ...
+  
+✔  checking DESCRIPTION meta-information
+
+  
+─  checking for LF line-endings in source and make files and shell scripts
+
+  
+─  checking for empty or unneeded directories
+
+  
+─  building ‘albersusa_0.3.1.tar.gz’
+
+  
+   
+</code></pre>
+<pre class="r"><code>
 library(albersusa)
 library(cowplot)
 
@@ -1013,186 +1073,6 @@ prior = c(
   set_prior(&quot;normal(0,0.2)&quot;, class = &quot;sd&quot;, group = &quot;region&quot;)
 ), iter = 1000, chains = 2, cores = 2, silent = TRUE
 )</code></pre>
-<pre><code>
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core.hpp:14:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core/matrix_vari.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat/fun/Eigen_NumTraits.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Dense:1:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Core:531:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/src/Core/util/ReenableStupidWarnings.h:10:30: warning: pragma diagnostic pop could not pop, no matching push [-Wunknown-pragmas]
-    #pragma clang diagnostic pop
-                             ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core.hpp:14:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core/matrix_vari.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat/fun/Eigen_NumTraits.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Dense:2:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/LU:47:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/src/Core/util/ReenableStupidWarnings.h:10:30: warning: pragma diagnostic pop could not pop, no matching push [-Wunknown-pragmas]
-    #pragma clang diagnostic pop
-                             ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core.hpp:14:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core/matrix_vari.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat/fun/Eigen_NumTraits.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Dense:3:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Cholesky:12:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Jacobi:29:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/src/Core/util/ReenableStupidWarnings.h:10:30: warning: pragma diagnostic pop could not pop, no matching push [-Wunknown-pragmas]
-    #pragma clang diagnostic pop
-                             ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core.hpp:14:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core/matrix_vari.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat/fun/Eigen_NumTraits.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Dense:3:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Cholesky:43:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/src/Core/util/ReenableStupidWarnings.h:10:30: warning: pragma diagnostic pop could not pop, no matching push [-Wunknown-pragmas]
-    #pragma clang diagnostic pop
-                             ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core.hpp:14:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core/matrix_vari.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat/fun/Eigen_NumTraits.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Dense:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/QR:17:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Householder:27:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/src/Core/util/ReenableStupidWarnings.h:10:30: warning: pragma diagnostic pop could not pop, no matching push [-Wunknown-pragmas]
-    #pragma clang diagnostic pop
-                             ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core.hpp:14:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core/matrix_vari.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat/fun/Eigen_NumTraits.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Dense:5:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/SVD:48:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/src/Core/util/ReenableStupidWarnings.h:10:30: warning: pragma diagnostic pop could not pop, no matching push [-Wunknown-pragmas]
-    #pragma clang diagnostic pop
-                             ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core.hpp:14:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core/matrix_vari.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat/fun/Eigen_NumTraits.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Dense:6:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Geometry:58:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/src/Core/util/ReenableStupidWarnings.h:10:30: warning: pragma diagnostic pop could not pop, no matching push [-Wunknown-pragmas]
-    #pragma clang diagnostic pop
-                             ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core.hpp:14:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core/matrix_vari.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat/fun/Eigen_NumTraits.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/Eigen.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Dense:7:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Eigenvalues:58:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/src/Core/util/ReenableStupidWarnings.h:10:30: warning: pragma diagnostic pop could not pop, no matching push [-Wunknown-pragmas]
-    #pragma clang diagnostic pop
-                             ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:12:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat.hpp:96:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/csr_extract_u.hpp:6:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Sparse:26:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/SparseCore:66:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/src/Core/util/ReenableStupidWarnings.h:10:30: warning: pragma diagnostic pop could not pop, no matching push [-Wunknown-pragmas]
-    #pragma clang diagnostic pop
-                             ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:12:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat.hpp:96:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/csr_extract_u.hpp:6:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Sparse:27:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/OrderingMethods:71:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/src/Core/util/ReenableStupidWarnings.h:10:30: warning: pragma diagnostic pop could not pop, no matching push [-Wunknown-pragmas]
-    #pragma clang diagnostic pop
-                             ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:12:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat.hpp:96:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/csr_extract_u.hpp:6:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Sparse:29:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/SparseCholesky:43:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/src/Core/util/ReenableStupidWarnings.h:10:30: warning: pragma diagnostic pop could not pop, no matching push [-Wunknown-pragmas]
-    #pragma clang diagnostic pop
-                             ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:12:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat.hpp:96:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/csr_extract_u.hpp:6:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Sparse:32:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/SparseQR:35:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/src/Core/util/ReenableStupidWarnings.h:10:30: warning: pragma diagnostic pop could not pop, no matching push [-Wunknown-pragmas]
-    #pragma clang diagnostic pop
-                             ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:12:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat.hpp:96:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/csr_extract_u.hpp:6:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/Sparse:33:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/IterativeLinearSolvers:46:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/RcppEigen/include/Eigen/src/Core/util/ReenableStupidWarnings.h:10:30: warning: pragma diagnostic pop could not pop, no matching push [-Wunknown-pragmas]
-    #pragma clang diagnostic pop
-                             ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core.hpp:44:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/core/set_zero_all_adjoints.hpp:14:13: warning: unused function &#39;set_zero_all_adjoints&#39; [-Wunused-function]
-static void set_zero_all_adjoints() {
-            ^
-In file included from file1d5d763e1d16.cpp:8:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/src/stan/model/model_header.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math.hpp:4:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/rev/mat.hpp:12:
-In file included from /Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat.hpp:70:
-/Library/Frameworks/R.framework/Versions/3.5/Resources/library/StanHeaders/include/stan/math/prim/mat/fun/autocorrelation.hpp:18:8: warning: function &#39;fft_next_good_size&#39; is not needed and will not be emitted [-Wunneeded-internal-declaration]
-size_t fft_next_good_size(size_t N) {
-       ^
-15 warnings generated.
-ld: warning: text-based stub file /System/Library/Frameworks//CoreFoundation.framework/CoreFoundation.tbd and library file /System/Library/Frameworks//CoreFoundation.framework/CoreFoundation are out of sync. Falling back to library file for linking.</code></pre>
 </div>
 <p>Examine the model output. If this were for a paper or a real prediction it would be important to run the model through a few more iterations with further diagnostic plots to ensure convergence.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1209,33 +1089,33 @@ Samples: 2 chains, each with iter = 1000; warmup = 500; thin = 1;
 Group-Level Effects: 
 ~age.cat (Number of levels: 4) 
               Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-sd(Intercept)     0.42      0.10     0.26     0.64       1133 1.00
+sd(Intercept)     0.42      0.10     0.26     0.64        829 1.00
 
 ~age.edu.cat (Number of levels: 16) 
               Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-sd(Intercept)     0.09      0.05     0.01     0.22        395 1.00
+sd(Intercept)     0.09      0.06     0.00     0.23        420 1.01
 
 ~edu.cat (Number of levels: 4) 
               Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-sd(Intercept)     0.32      0.09     0.17     0.51        788 1.00
+sd(Intercept)     0.32      0.09     0.18     0.53       1215 1.00
 
 ~race.female (Number of levels: 6) 
               Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-sd(Intercept)     0.23      0.08     0.12     0.43        549 1.00
+sd(Intercept)     0.23      0.07     0.12     0.40        652 1.00
 
 ~region (Number of levels: 5) 
               Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-sd(Intercept)     0.22      0.08     0.09     0.41        754 1.00
+sd(Intercept)     0.22      0.08     0.10     0.40        864 1.00
 
 ~state (Number of levels: 49) 
               Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-sd(Intercept)     0.06      0.04     0.00     0.16        394 1.00
+sd(Intercept)     0.06      0.04     0.00     0.16        387 1.00
 
 Population-Level Effects: 
           Estimate Est.Error l-95% CI u-95% CI Eff.Sample Rhat
-Intercept    -1.51      0.50    -2.54    -0.55        744 1.00
-p.relig      -0.01      0.01    -0.02    -0.00       1482 1.00
-kerry.04      0.02      0.01     0.00     0.03       1285 1.00
+Intercept    -1.49      0.49    -2.40    -0.56        923 1.00
+p.relig      -0.01      0.00    -0.02    -0.01       1469 1.00
+kerry.04      0.02      0.01     0.01     0.03       2111 1.00
 
 Samples were drawn using sampling(NUTS). For each parameter, Eff.Sample 
 is a crude measure of effective sample size, and Rhat is the potential 
@@ -1254,7 +1134,7 @@ bayes.mod %&gt;%
   ggridges::geom_density_ridges(aes(height=..density..),
                                 rel_min_height = 0.01, stat = &quot;density&quot;,
                                 scale=1.5)</code></pre>
-<p><img src="mrp-using-brms_files/figure-html5/unnamed-chunk-7-1.png" width="576" /></p>
+<p><img src="mrp-using-brms_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
 </div>
 <h2 id="now-bring-them-together">Now Bring them Together</h2>
 <p>The next step then is to combine the predictions from the Bayesian HLM with the postratified values. This can then be used to estimate support.</p>
@@ -1280,207 +1160,207 @@ ps.bayes.mod %&gt;%
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">AK</td>
-<td style="text-align: right;">0.3485767</td>
+<td style="text-align: right;">0.3466636</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">AL</td>
-<td style="text-align: right;">0.1796911</td>
+<td style="text-align: right;">0.1764107</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">AR</td>
-<td style="text-align: right;">0.1928406</td>
+<td style="text-align: right;">0.1876421</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">AZ</td>
-<td style="text-align: right;">0.3843419</td>
+<td style="text-align: right;">0.3879724</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">CA</td>
-<td style="text-align: right;">0.4435048</td>
+<td style="text-align: right;">0.4472327</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">CO</td>
-<td style="text-align: right;">0.4086243</td>
+<td style="text-align: right;">0.4052016</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">CT</td>
-<td style="text-align: right;">0.4283333</td>
+<td style="text-align: right;">0.4226956</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">DC</td>
-<td style="text-align: right;">0.5025021</td>
+<td style="text-align: right;">0.5028808</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">DE</td>
-<td style="text-align: right;">0.3341654</td>
+<td style="text-align: right;">0.3407151</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">FL</td>
-<td style="text-align: right;">0.2916442</td>
+<td style="text-align: right;">0.2899568</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">GA</td>
-<td style="text-align: right;">0.2418359</td>
+<td style="text-align: right;">0.2378031</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">HI</td>
-<td style="text-align: right;">0.4262868</td>
+<td style="text-align: right;">0.4288982</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">IA</td>
-<td style="text-align: right;">0.3082196</td>
+<td style="text-align: right;">0.3062509</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ID</td>
-<td style="text-align: right;">0.2690290</td>
+<td style="text-align: right;">0.2660855</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">IL</td>
-<td style="text-align: right;">0.3434259</td>
+<td style="text-align: right;">0.3523119</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">IN</td>
-<td style="text-align: right;">0.2672719</td>
+<td style="text-align: right;">0.2678527</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">KS</td>
-<td style="text-align: right;">0.2654287</td>
+<td style="text-align: right;">0.2650033</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">KY</td>
-<td style="text-align: right;">0.2039033</td>
+<td style="text-align: right;">0.2046088</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">LA</td>
-<td style="text-align: right;">0.2365566</td>
+<td style="text-align: right;">0.2364903</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">MA</td>
-<td style="text-align: right;">0.4617321</td>
+<td style="text-align: right;">0.4665508</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">MD</td>
-<td style="text-align: right;">0.3372964</td>
+<td style="text-align: right;">0.3383659</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">ME</td>
-<td style="text-align: right;">0.4008791</td>
+<td style="text-align: right;">0.4025905</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">MI</td>
-<td style="text-align: right;">0.3333913</td>
+<td style="text-align: right;">0.3285792</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">MN</td>
-<td style="text-align: right;">0.3316529</td>
+<td style="text-align: right;">0.3380396</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">MO</td>
-<td style="text-align: right;">0.2677795</td>
+<td style="text-align: right;">0.2666576</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">MS</td>
-<td style="text-align: right;">0.1888906</td>
+<td style="text-align: right;">0.1916718</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">MT</td>
-<td style="text-align: right;">0.3364495</td>
+<td style="text-align: right;">0.3340163</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NC</td>
-<td style="text-align: right;">0.2428647</td>
+<td style="text-align: right;">0.2443973</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ND</td>
-<td style="text-align: right;">0.2663054</td>
+<td style="text-align: right;">0.2694332</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NE</td>
-<td style="text-align: right;">0.2504163</td>
+<td style="text-align: right;">0.2474155</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NH</td>
-<td style="text-align: right;">0.4108103</td>
+<td style="text-align: right;">0.4137035</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NJ</td>
-<td style="text-align: right;">0.4172392</td>
+<td style="text-align: right;">0.4124982</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NM</td>
-<td style="text-align: right;">0.4009291</td>
+<td style="text-align: right;">0.3964261</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">NV</td>
-<td style="text-align: right;">0.3902550</td>
+<td style="text-align: right;">0.3893627</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">NY</td>
-<td style="text-align: right;">0.4345276</td>
+<td style="text-align: right;">0.4413092</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">OH</td>
-<td style="text-align: right;">0.3141982</td>
+<td style="text-align: right;">0.3231159</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">OK</td>
-<td style="text-align: right;">0.1752620</td>
+<td style="text-align: right;">0.1801253</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">OR</td>
-<td style="text-align: right;">0.4034067</td>
+<td style="text-align: right;">0.4013172</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">PA</td>
-<td style="text-align: right;">0.3683290</td>
+<td style="text-align: right;">0.3674844</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">RI</td>
-<td style="text-align: right;">0.4456297</td>
+<td style="text-align: right;">0.4470249</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">SC</td>
-<td style="text-align: right;">0.2188390</td>
+<td style="text-align: right;">0.2152091</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">SD</td>
-<td style="text-align: right;">0.2645502</td>
+<td style="text-align: right;">0.2621392</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">TN</td>
-<td style="text-align: right;">0.2081774</td>
+<td style="text-align: right;">0.2123831</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">TX</td>
-<td style="text-align: right;">0.2382514</td>
+<td style="text-align: right;">0.2371166</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">UT</td>
-<td style="text-align: right;">0.1906513</td>
+<td style="text-align: right;">0.1907503</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">VA</td>
-<td style="text-align: right;">0.2853395</td>
+<td style="text-align: right;">0.2821133</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">VT</td>
-<td style="text-align: right;">0.4449757</td>
+<td style="text-align: right;">0.4400084</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">WA</td>
-<td style="text-align: right;">0.4236827</td>
+<td style="text-align: right;">0.4206920</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">WI</td>
-<td style="text-align: right;">0.3247548</td>
+<td style="text-align: right;">0.3247024</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">WV</td>
-<td style="text-align: right;">0.2641926</td>
+<td style="text-align: right;">0.2618787</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">WY</td>
-<td style="text-align: right;">0.2915546</td>
+<td style="text-align: right;">0.2951907</td>
 </tr>
 </tbody>
 </table>

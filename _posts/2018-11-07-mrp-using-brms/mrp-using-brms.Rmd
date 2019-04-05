@@ -6,7 +6,7 @@ author:
   - name: Michael DeWitt
     url: https://michaeldewittjr.com
 categories:
-  - bayes
+  - Bayes
   - mrp
   - prediction
 date: 11-07-2018
