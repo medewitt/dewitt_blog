@@ -7,7 +7,16 @@
     <description>The thoughts and exploration of Michael DeWitt
 </description>
     <generator>Radix</generator>
-    <lastBuildDate>Thu, 04 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>MRP Redux</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2019-04-05-mrp-redux</link>
+      <description>Using fake data simulations to understand the our MRP model.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2019-04-05-mrp-redux</guid>
+      <pubDate>Fri, 05 Apr 2019 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-05-mrp-redux/mrp-redux_files/figure-html5/unnamed-chunk-8-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Speeding Things Up with Rcpp</title>
       <dc:creator>Michael DeWitt</dc:creator>

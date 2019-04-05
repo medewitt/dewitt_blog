@@ -1,5 +1,26 @@
 [
   {
+    "path": "posts/2019-04-05-mrp-redux/",
+    "title": "MRP Redux",
+    "description": "Using fake data simulations to understand the our MRP model.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2019-04-05",
+    "categories": [
+      "Bayes",
+      "MRP",
+      "brms"
+    ],
+    "preview": "posts/2019-04-05-mrp-redux/mrp-redux_files/figure-html5/unnamed-chunk-8-1.png",
+    "last_modified": "2019-04-05T16:21:23-04:00",
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
     "path": "posts/2019-04-04-speeding-things-up-with-rcpp/",
     "title": "Speeding Things Up with Rcpp",
     "description": "Metropolis Hasting samplers are typically slow in R because of inability to parallelise or vectorise operations. The Rcpp package allows a way to use C++ to conduct these MCMC operations at a much greater speed. This post explores how one would do this, achieving a >20x speed up.",
