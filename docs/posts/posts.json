@@ -1,5 +1,25 @@
 [
   {
+    "path": "posts/2019-04-04-speeding-things-up-with-rcpp/",
+    "title": "Speeding Things Up with Rcpp",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2019-04-04",
+    "categories": [
+      "Rcpp",
+      "Bayes"
+    ],
+    "preview": "posts/2019-04-04-speeding-things-up-with-rcpp/speeding-things-up-with-rcpp_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2019-04-04T20:42:44-04:00",
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
     "path": "posts/2019-04-03-latex-in-ggplot2/",
     "title": "Latex in ggplot2",
     "description": "This is a quick overview of a trick to add LaTex in ggplot2.",
@@ -16,7 +36,9 @@
       "r"
     ],
     "preview": "posts/2019-04-03-latex-in-ggplot2/latex-in-ggplot2_files/figure-html5/unnamed-chunk-1-1.png",
-    "last_modified": "2019-04-03T15:56:13-04:00"
+    "last_modified": "2019-04-03T15:56:14-04:00",
+    "preview_width": 1248,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-11-07-mrp-using-brms/",
@@ -35,7 +57,9 @@
       "prediction"
     ],
     "preview": "posts/2018-11-07-mrp-using-brms/mrp-using-brms_files/figure-html5/unnamed-chunk-7-1.png",
-    "last_modified": "2018-11-07T16:01:44-05:00"
+    "last_modified": "2018-11-07T16:01:44-05:00",
+    "preview_width": 1152,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-10-28-replicating-gsynth/",
@@ -54,7 +78,9 @@
       "econometrics"
     ],
     "preview": "posts/2018-10-28-replicating-gsynth/replicating-gsynth_files/figure-html5/unnamed-chunk-4-1.png",
-    "last_modified": "2018-10-29T12:14:44-04:00"
+    "last_modified": "2018-10-29T12:14:45-04:00",
+    "preview_width": 1152,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-10-28-hierarchical-time-series-with-hts/",
@@ -71,7 +97,9 @@
       "time series"
     ],
     "preview": "posts/2018-10-28-hierarchical-time-series-with-hts/hierarchical-time-series-with-hts_files/figure-html5/unnamed-chunk-5-1.png",
-    "last_modified": "2018-10-28T18:34:42-04:00"
+    "last_modified": "2018-10-28T18:34:42-04:00",
+    "preview_width": 1152,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-09-24-the-power-of-fake-data-simulations/",
@@ -92,7 +120,9 @@
       "Causal Inference"
     ],
     "preview": "posts/2018-09-24-the-power-of-fake-data-simulations/the-power-of-fake-data-simulations_files/figure-html5/unnamed-chunk-4-1.png",
-    "last_modified": "2018-09-24T12:25:12-04:00"
+    "last_modified": "2018-09-24T12:25:12-04:00",
+    "preview_width": 1152,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-09-16-a-foray-into-network-analysis/",
@@ -110,7 +140,9 @@
       "r"
     ],
     "preview": "posts/2018-09-16-a-foray-into-network-analysis/a-foray-into-network-analysis_files/figure-html5/unnamed-chunk-4-1.png",
-    "last_modified": "2018-09-20T12:06:55-04:00"
+    "last_modified": "2018-09-20T12:06:55-04:00",
+    "preview_width": 1152,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-09-16-models-of-microeconomics/",
@@ -129,7 +161,9 @@
       "modeling"
     ],
     "preview": "posts/2018-09-16-models-of-microeconomics/models-of-microeconomics_files/figure-html5/unnamed-chunk-5-1.png",
-    "last_modified": "2018-09-16T12:17:26-04:00"
+    "last_modified": "2018-09-16T12:17:26-04:00",
+    "preview_width": 1152,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-07-19-analysis-of-short-time-series/",
@@ -148,7 +182,9 @@
       "forecasting"
     ],
     "preview": "posts/2018-07-19-analysis-of-short-time-series/analysis-of-short-time-series_files/figure-html5/unnamed-chunk-4-1.png",
-    "last_modified": "2018-07-19T11:42:58-04:00"
+    "last_modified": "2018-07-19T11:42:58-04:00",
+    "preview_width": 1152,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-07-12-make-your-own-api/",
@@ -167,7 +203,9 @@
       "packages"
     ],
     "preview": "posts/2018-07-12-make-your-own-api/mermaid.png",
-    "last_modified": "2018-07-13T20:50:17-04:00"
+    "last_modified": "2018-07-13T20:50:17-04:00",
+    "preview_width": 1284,
+    "preview_height": 852
   },
   {
     "path": "posts/2018-07-11-irt-and-the-rasch-model/",
@@ -187,7 +225,9 @@
       "Survey Analysis"
     ],
     "preview": "posts/2018-07-11-irt-and-the-rasch-model/irt-and-the-rasch-model_files/figure-html5/unnamed-chunk-9-1.png",
-    "last_modified": "2018-10-28T18:37:24-04:00"
+    "last_modified": "2018-10-28T18:37:24-04:00",
+    "preview_width": 1152,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-07-10-test/",
@@ -240,7 +280,9 @@
       "r"
     ],
     "preview": "posts/2018-07-08-exploring-forecast/2018-07-08-exploring-forecast_files/figure-html5/unnamed-chunk-4-1.png",
-    "last_modified": "2018-07-10T21:08:31-04:00"
+    "last_modified": "2018-07-10T21:08:31-04:00",
+    "preview_width": 1152,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-07-06-speed-it-up_files/",
@@ -258,7 +300,9 @@
       "r"
     ],
     "preview": "posts/2018-07-06-speed-it-up_files/2018-07-06-speed-it-up_files/figure-html5/unnamed-chunk-2-1.png",
-    "last_modified": "2018-07-12T19:44:16-04:00"
+    "last_modified": "2018-07-12T19:44:16-04:00",
+    "preview_width": 1152,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-07-05-bayesian-time-series-analysis-with-bsts_files/",
@@ -277,7 +321,9 @@
       "r"
     ],
     "preview": "posts/2018-07-05-bayesian-time-series-analysis-with-bsts_files/2018-07-05-bayesian-time-series-analysis-with-bsts_files/figure-html5/unnamed-chunk-3-1.png",
-    "last_modified": "2018-07-12T19:44:16-04:00"
+    "last_modified": "2018-07-12T19:44:16-04:00",
+    "preview_width": 1152,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/",
@@ -296,7 +342,9 @@
       "r"
     ],
     "preview": "posts/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/figure-html5/unnamed-chunk-2-1.png",
-    "last_modified": "2018-07-12T19:44:16-04:00"
+    "last_modified": "2018-07-12T19:44:16-04:00",
+    "preview_width": 1152,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-07-04-gghighlight-for-the-win_files/",
@@ -315,7 +363,9 @@
       "r"
     ],
     "preview": "posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png",
-    "last_modified": "2018-07-12T19:44:16-04:00"
+    "last_modified": "2018-07-12T19:44:16-04:00",
+    "preview_width": 1152,
+    "preview_height": 768
   },
   {
     "path": "posts/2018-07-04-let-s-try-some-visualisation_files/",
@@ -334,6 +384,8 @@
       "r"
     ],
     "preview": "posts/2018-07-04-let-s-try-some-visualisation_files/2018-07-04-let-s-try-some-visualisation_files/figure-html5/unnamed-chunk-2-1.png",
-    "last_modified": "2018-07-12T19:44:16-04:00"
+    "last_modified": "2018-07-12T19:44:16-04:00",
+    "preview_width": 1152,
+    "preview_height": 768
   }
 ]

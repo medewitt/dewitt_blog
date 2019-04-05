@@ -3,8 +3,8 @@ title: "Michael DeWitt"
 description: |
   The thoughts and exploration of Michael DeWitt
 output_dir: "docs"
+base_url: https://michaeldewittjr.com/dewitt_blog
 collections:
-#base_url: https://michaeldewittjr.com/dewitt_blog/
   posts:
     subscribe: _subscribe.html
 navbar:

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Michael DeWitt</title>
+    <link>https://michaeldewittjr.com/dewitt_blog</link>
+    <atom:link href="https://michaeldewittjr.com/dewitt_blog/index.xml" rel="self" type="application/rss+xml"/>
+    <description>The thoughts and exploration of Michael DeWitt
+</description>
+    <generator>Radix</generator>
+    <lastBuildDate>Thu, 04 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Speeding Things Up with Rcpp</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2019-04-04-speeding-things-up-with-rcpp</link>
+      <description>A short description of the post.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2019-04-04-speeding-things-up-with-rcpp</guid>
+      <pubDate>Thu, 04 Apr 2019 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-04-speeding-things-up-with-rcpp/speeding-things-up-with-rcpp_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Latex in ggplot2</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2019-04-03-latex-in-ggplot2</link>
+      <description>This is a quick overview of a trick to add LaTex in ggplot2.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2019-04-03-latex-in-ggplot2</guid>
+      <pubDate>Wed, 03 Apr 2019 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-03-latex-in-ggplot2/latex-in-ggplot2_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>MRP using brms</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-11-07-mrp-using-brms</link>
+      <description>This post explores MRP using brms and tidyverse modeling.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-11-07-mrp-using-brms</guid>
+      <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-11-07-mrp-using-brms/mrp-using-brms_files/figure-html5/unnamed-chunk-7-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+    <item>
+      <title>Replicating gsynth</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-replicating-gsynth</link>
+      <description>The purpose of this post is to replicate the examples in the gsynth package for synthetic controls. This is a methodology for causal inference especially at the state level.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-replicating-gsynth</guid>
+      <pubDate>Mon, 29 Oct 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-replicating-gsynth/replicating-gsynth_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+    <item>
+      <title>Hierarchical Time Series with hts</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-hierarchical-time-series-with-hts</link>
+      <description>This is just a quick reproduction of the items discussed in the 
+hts package. This allows for hierarchical time series which is 
+an important feature when looking at data that take a hierarchical
+format like counties within a state or precincts within counties within states.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-hierarchical-time-series-with-hts</guid>
+      <pubDate>Sun, 28 Oct 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-hierarchical-time-series-with-hts/hierarchical-time-series-with-hts_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+    <item>
+      <title>the power of fake data simulations</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-09-24-the-power-of-fake-data-simulations</link>
+      <description>Looking at a blog post that Andrew Gelman posted on fake data simulations and HLM.
+The power of fake data simulations is that it really makes you think twice about what kind
+of effect for which you are looking as well as the power of your research design to detect it.
+This illustrates a really good practice for anyone looking to do this kind of analysis.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-09-24-the-power-of-fake-data-simulations</guid>
+      <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-09-24-the-power-of-fake-data-simulations/the-power-of-fake-data-simulations_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+    <item>
+      <title>a foray into network analysis</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-09-16-a-foray-into-network-analysis</link>
+      <description>Network analysis provides an way to analyse the interconnectedness of different networks.
+This can provide insight into social networks, interconnected groups of text, tweets, etc.
+Visualisations help to show these relationships but also some numeric values to quantify them.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-09-16-a-foray-into-network-analysis</guid>
+      <pubDate>Mon, 17 Sep 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-09-16-a-foray-into-network-analysis/a-foray-into-network-analysis_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+    <item>
+      <title>models of microeconomics</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-09-16-models-of-microeconomics</link>
+      <description>Exploring the examples in Kleiber and Zeileis' Applied Economics in R</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-09-16-models-of-microeconomics</guid>
+      <pubDate>Sun, 16 Sep 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-09-16-models-of-microeconomics/models-of-microeconomics_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+    <item>
+      <title>Analysis of Short Time Series</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-19-analysis-of-short-time-series</link>
+      <description>Using Fourier Transform as coefficients in short time series data helps with prediction.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-19-analysis-of-short-time-series</guid>
+      <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-19-analysis-of-short-time-series/analysis-of-short-time-series_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+    <item>
+      <title>make your own api</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-12-make-your-own-api</link>
+      <description>Exploring the concept of developing internal APIs. An API could also be an R package that can be used by people in your organisation to more easily connect to common data sources. This is a good example of some internal tooling that can make data access easier.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-12-make-your-own-api</guid>
+      <pubDate>Thu, 12 Jul 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-12-make-your-own-api/mermaid.png" medium="image" type="image/png" width="1284" height="852"/>
+    </item>
+    <item>
+      <title>IRT and the Rasch Model</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-11-irt-and-the-rasch-model</link>
+      <description>Item Response Theory (IRT) is a method by which item difficulty is assessed and used to measure latent factors. Classical test theory has a shortcoming where the test-taker's ability and the difficulty of the item cannot be separated. Thus there is a question of universalisability outside of the instrument. Additionally, the models make some assumptions that mathematically may not be justified. In come IRT which handles some of these issues.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-11-irt-and-the-rasch-model</guid>
+      <pubDate>Wed, 11 Jul 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-11-irt-and-the-rasch-model/irt-and-the-rasch-model_files/figure-html5/unnamed-chunk-9-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+    <item>
+      <title>Radix</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-10-test</link>
+      <description>So I'm moving to radix</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-10-test</guid>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Welcome to Michael DeWitt's Blog</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/welcome</link>
+      <description>Welcome to the rebooted blog!</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/welcome</guid>
+      <pubDate>Tue, 10 Jul 2018 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Exploring forecast</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-08-exploring-forecast</link>
+      <description>Let's examine some of the functions inside for forecast</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-08-exploring-forecast</guid>
+      <pubDate>Sat, 07 Jul 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-08-exploring-forecast/2018-07-08-exploring-forecast_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+    <item>
+      <title>Speed it up!</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-06-speed-it-up_files</link>
+      <description>This post explores how to see opportunities to make your code run faster.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-06-speed-it-up_files</guid>
+      <pubDate>Fri, 06 Jul 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-06-speed-it-up_files/2018-07-06-speed-it-up_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+    <item>
+      <title>Bayesian Time Series Analysis with bsts</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-05-bayesian-time-series-analysis-with-bsts_files</link>
+      <description>Exploring the bsts package and what it provides for Bayesian structural time series modeling</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-05-bayesian-time-series-analysis-with-bsts_files</guid>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-05-bayesian-time-series-analysis-with-bsts_files/2018-07-05-bayesian-time-series-analysis-with-bsts_files/figure-html5/unnamed-chunk-3-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+    <item>
+      <title>ggrough</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files</link>
+      <description>ggrough is a great package that can be used to make graphs that look hand-drawn. This can be a   great aesthetic choice when giving presentations and making handouts.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files</guid>
+      <pubDate>Thu, 05 Jul 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/2018-07-05-ggrough-a-good-way-make-graphics-look-user-generated_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+    <item>
+      <title>gghighlight for the win</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files</link>
+      <description>Exploring the power of gghighlight package to automatically highlight charts</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files</guid>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+    <item>
+      <title>Let's Try Some Visualisation</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-let-s-try-some-visualisation_files</link>
+      <description>An example of the value suppressing uncertainty scale. Great uses include forecast uncertainity.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-let-s-try-some-visualisation_files</guid>
+      <pubDate>Wed, 04 Jul 2018 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-let-s-try-some-visualisation_files/2018-07-04-let-s-try-some-visualisation_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1152" height="768"/>
+    </item>
+  </channel>
+</rss>
