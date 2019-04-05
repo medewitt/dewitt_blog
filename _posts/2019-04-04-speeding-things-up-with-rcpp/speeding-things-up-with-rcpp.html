@@ -21,7 +21,7 @@
   <!--radix_placeholder_meta_tags-->
   <title>Speeding Things Up with Rcpp</title>
   
-  <meta property="description" itemprop="description" content="A short description of the post."/>
+  <meta property="description" itemprop="description" content="Metropolis Hasting samplers are typically slow in R because of inability to parallelise or vectorise operations. The Rcpp package allows a way to use C++ to conduct these MCMC operations at a much greater speed. This post explores how one would do this, achieving a &gt;20x speed up."/>
   
   
   <!--  https://schema.org/Article -->
@@ -32,19 +32,19 @@
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Speeding Things Up with Rcpp"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="A short description of the post."/>
+  <meta property="og:description" content="Metropolis Hasting samplers are typically slow in R because of inability to parallelise or vectorise operations. The Rcpp package allows a way to use C++ to conduct these MCMC operations at a much greater speed. This post explores how one would do this, achieving a &gt;20x speed up."/>
   <meta property="og:locale" content="en_US"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Speeding Things Up with Rcpp"/>
-  <meta property="twitter:description" content="A short description of the post."/>
+  <meta property="twitter:description" content="Metropolis Hasting samplers are typically slow in R because of inability to parallelise or vectorise operations. The Rcpp package allows a way to use C++ to conduct these MCMC operations at a much greater speed. This post explores how one would do this, achieving a &gt;20x speed up."/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","categories","date","toc","output"]}},"value":[{"type":"character","attributes":{},"value":["Speeding Things Up with Rcpp"]},{"type":"character","attributes":{},"value":["A short description of the post.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["Rcpp","Bayes"]},{"type":"character","attributes":{},"value":["04-04-2019"]},{"type":"logical","attributes":{},"value":[true]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","categories","date","toc","output"]}},"value":[{"type":"character","attributes":{},"value":["Speeding Things Up with Rcpp"]},{"type":"character","attributes":{},"value":["Metropolis Hasting samplers are typically slow in R because of inability to parallelise or vectorise operations. The Rcpp package allows a way to use C++ to conduct these MCMC operations at a much greater speed. This post explores how one would do this, achieving a >20x speed up.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["Rcpp","Bayes"]},{"type":"character","attributes":{},"value":["04-04-2019"]},{"type":"logical","attributes":{},"value":[true]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -942,7 +942,7 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Speeding Things Up with Rcpp","description":"A short description of the post.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-04-04T00:00:00.000-04:00","citationText":"DeWitt, 2019"}
+{"title":"Speeding Things Up with Rcpp","description":"Metropolis Hasting samplers are typically slow in R because of inability to parallelise or vectorise operations. The Rcpp package allows a way to use C++ to conduct these MCMC operations at a much greater speed. This post explores how one would do this, achieving a >20x speed up.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-04-04T00:00:00.000-04:00","citationText":"DeWitt, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -953,7 +953,7 @@
 
 <div class="d-title">
 <h1>Speeding Things Up with Rcpp</h1>
-<p>A short description of the post.</p>
+<p>Metropolis Hasting samplers are typically slow in R because of inability to parallelise or vectorise operations. The Rcpp package allows a way to use C++ to conduct these MCMC operations at a much greater speed. This post explores how one would do this, achieving a &gt;20x speed up.</p>
 </div>
 
 <div class="d-byline">
@@ -981,15 +981,21 @@
 <h2 id="input-values">Input Values</h2>
 <p>We have been provided the following draws from the distribution:</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<pre class="r"><code>
+x &lt;- c(1.0, -3.4, 2.8, -0.5, 4.7, -1.9, 0.8, 3.2, -5.2, -0.9)</code></pre>
 </div>
 <h3 id="m-h-sampler">M-H Sampler</h3>
 <p>Now to build the Metropolis Hastings sampler we build the corresponding R functions.</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<pre class="r"><code>
+prior &lt;- function(theta){
+  1/sqrt(2*pi)*exp(-theta^2/2)
+}</code></pre>
 </div>
 <p>And an associated check to make sure it is providing logical values:</p>
 <div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+(test_prior &lt;- prior(theta = .1))</code></pre>
 <pre><code>
 [1] 0.3969525</code></pre>
 </div>
@@ -997,22 +1003,67 @@
 <p><span class="math display">\[l(x_i,...x_n|\theta) = log(1) - (n\log(pi)+\Sigma_{i=1}^nlog(1+(x_i-\theta)^2))\]</span></p>
 <p>The value from the log-likelihood can then be exponentiated in order to arrive at the likelihood.</p>
 <div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+likelihood &lt;- function(x, theta){
+  if(!is.vector(x)){
+    stop(&quot;Please supply a vector to this function&quot;)
+  }
+  # Log-likelihood
+  a &lt;- log(1)-(length(x)*log(pi) + sum(log(1+(x-theta)^2)))
+  
+  # Convert to likelihood
+  exp(a)
 
+}</code></pre>
 </div>
 <p>And finally we build the sampler.</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<pre class="r"><code>
+theta_sampler &lt;- function(x, niter, theta_start_val, theta_proposal_sd){
+  
+  theta &lt;- rep(0, niter)
+  theta[1] &lt;- theta_start_val
+  
+  for(i in 2:niter){
+    current_theta &lt;- theta[i-1]
+    
+    # Random Step
+    new_theta &lt;- current_theta + rnorm(1,0, theta_proposal_sd)
+    
+    # MH Ratio
+    r &lt;- prior(theta = new_theta) * likelihood(theta = new_theta, x = x)/
+      (prior(theta = current_theta)* likelihood(theta = current_theta, x = x))
+    
+    # Decide to keep proposed theta or take a step
+    if(runif(1)&lt;r){
+      theta[i] &lt;- new_theta
+    } else{
+      theta[i] &lt;- current_theta
+    }
+  }
+  return(theta)
+}</code></pre>
 </div>
 <p>We can then sample from the posterior distribution given the initial values and our data.</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<pre class="r"><code>
+set.seed(336)
+out &lt;- theta_sampler(x = x, niter = 5000, theta_start_val = 0, theta_proposal_sd = .5)</code></pre>
 </div>
 <p>We can then graph our associated draws.</p>
 <div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+hist(out[1000:5000], 
+     main = &quot;Histogram of Posterior Draws of theta&quot;, 
+     xlab = expression(Posterior~Value~of~theta),
+     breaks = 30)
+abline(v = mean(out[1000:5000]), col = &quot;red&quot;, lwd = 2)</code></pre>
 <p><img src="speeding-things-up-with-rcpp_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
 </div>
 <p>The posterior mean of <span class="math inline">\(\theta\)</span> is:</p>
 <div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+mean(out)</code></pre>
 <pre><code>
 [1] 0.1280924</code></pre>
 </div>
@@ -1086,15 +1137,27 @@ NumericVector make_posterior(NumericVector x, int niter,
 <h3 id="compilation-and-testing">Compilation and Testing</h3>
 <p>Now we need to compile the functions.</p>
 <div class="layout-chunk" data-layout="l-body">
-
+<pre class="r"><code>
+library(Rcpp)
+Rcpp::sourceCpp(&quot;mh_sampler.cpp&quot;)</code></pre>
 </div>
 <p>First we meed to test that the prior and likelihood functions return equivalent values between base R and C++.</p>
 <div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+all.equal(
+prior(theta = .1),
+Priorcpp(theta = .1)
+)</code></pre>
 <pre><code>
 [1] TRUE</code></pre>
 </div>
 <p>So Priors are returning the same values.</p>
 <div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+all.equal(
+likelihood(x = x, .1),
+Likelihoodcpp(x = x, theta = .1)
+)</code></pre>
 <pre><code>
 [1] TRUE</code></pre>
 </div>
@@ -1102,16 +1165,32 @@ NumericVector make_posterior(NumericVector x, int niter,
 <h3 id="inference-using-c">Inference using C++</h3>
 <p>Now we can go ahead and draw from the posterior distribution using our sampler.</p>
 <div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+set.seed(336)
+out2 &lt;- make_posterior(x = x, niter = 5000, theta_start_val = 0, 
+                       theta_proposal_sd = .5)
+
+hist(out2[1000:5000],
+     main = &quot;Histogram of Posterior Draws of theta&quot;, 
+     xlab = expression(Posterior~Value~of~theta),
+     breaks = 30)
+abline(v = mean(out2[1000:5000]), col = &quot;red&quot;, lwd =2)</code></pre>
 <p><img src="speeding-things-up-with-rcpp_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <p>The mean value, 0.127 is very similar to the base R version (some differences could be some differences in the random number generators used). However, we we compare the benchmark times we see that the C++ version of the sampler is roughly 20x faster.</p>
 <h2 id="benchmarking-performance">Benchmarking Performance</h2>
 <div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+microbenchmark::microbenchmark(
+  Rcpp = make_posterior(x = x, niter = 5000, 
+                        theta_start_val = 0, theta_proposal_sd = .5),
+  base= theta_sampler(x = x, niter = 5000, 
+                      theta_start_val = 0, theta_proposal_sd = .5))</code></pre>
 <pre><code>
 Unit: milliseconds
- expr       min        lq      mean    median        uq      max
- Rcpp  1.748648  1.818588  2.406612  1.867053  1.963994 11.65086
- base 32.003231 37.075893 41.047010 41.418284 44.072845 59.68256
+ expr       min        lq      mean    median        uq       max
+ Rcpp  1.764392  1.807469  2.251101  1.861361  1.937983  9.845288
+ base 34.051384 37.416221 41.263258 40.694392 44.393568 54.795664
  neval cld
    100  a 
    100   b</code></pre>
