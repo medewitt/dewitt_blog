@@ -7,7 +7,16 @@
     <description>The thoughts and exploration of Michael DeWitt
 </description>
     <generator>Radix</generator>
-    <lastBuildDate>Fri, 05 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Omitted Variable Bias</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2019-04-07-omitted-variable-bias</link>
+      <description>A short description of the post.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2019-04-07-omitted-variable-bias</guid>
+      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-07-omitted-variable-bias/omitted-variable-bias_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>MRP Redux</title>
       <dc:creator>Michael DeWitt</dc:creator>
