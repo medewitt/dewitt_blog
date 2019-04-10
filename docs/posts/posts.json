@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2019-04-08-re-districting-in-winston-salem/",
+    "title": "Re-districting in Winston-Salem",
+    "description": "In this post I explore a potential outcomes to the composition of the Winston-Salem city council.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2019-04-08",
+    "categories": [
+      "Political"
+    ],
+    "preview": {},
+    "last_modified": "2019-04-08T16:10:38-04:00"
+  },
+  {
     "path": "posts/2019-04-07-omitted-variable-bias/",
     "title": "Omitted Variable Bias",
     "description": "A short description of the post.",

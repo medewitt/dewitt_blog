@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="radix" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+<title>Michael DeWitt: Re-districting in Winston-Salem</title>
+
+<meta property="description" itemprop="description" content="In this post I explore a potential outcomes to the composition of the Winston-Salem city council."/>
+
+<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-08-re-districting-in-winston-salem/"/>
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2019-04-08"/>
+<meta property="article:created" itemprop="dateCreated" content="2019-04-08"/>
+<meta name="article:author" content="Michael DeWitt"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="Michael DeWitt: Re-districting in Winston-Salem"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="In this post I explore a potential outcomes to the composition of the Winston-Salem city council."/>
+<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-08-re-districting-in-winston-salem/"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Michael DeWitt"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary"/>
+<meta property="twitter:title" content="Michael DeWitt: Re-districting in Winston-Salem"/>
+<meta property="twitter:description" content="In this post I explore a potential outcomes to the composition of the Winston-Salem city council."/>
+<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-08-re-districting-in-winston-salem/"/>
+
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Michael DeWitt: Re-districting in Winston-Salem"/>
+<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-08-re-districting-in-winston-salem/"/>
+<meta name="citation_fulltext_world_readable" content=""/>
+<meta name="citation_online_date" content="2019/04/08"/>
+<meta name="citation_publication_date" content="2019/04/08"/>
+<meta name="citation_author" content="Michael DeWitt"/>
+<!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Elimination of straight-ticket voting could leave more ballots incomplete;citation_author=Harry Lynch"/>
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","categories","date","output","bibliography","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Re-districting in Winston-Salem"]},{"type":"character","attributes":{},"value":["In this post I explore a potential outcomes to the composition of the Winston-Salem city council."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["Political"]},{"type":"character","attributes":{},"value":["04-08-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["my_biblio.bib"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2019-04-08-re-districting-in-winston-salem/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2019-04-08-re-districting-in-winston-salem/"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["data/ncvhis34.txt","data/results_pct_20101102.txt","data/results_pct_20111108.txt","data/results_pct_20121106.txt","data/results_pct_20141104.txt","data/results_pct_20151103.txt","data/results_pct_20161108.txt","data/results_pct_20171107.txt","data/results_pct_20181106.txt","my_biblio.bib","re-districting-in-winston-salem_files/bowser-1.9.3/bowser.min.js","re-districting-in-winston-salem_files/distill-2.2.21/template.v2.js","re-districting-in-winston-salem_files/jquery-1.11.3/jquery.min.js","re-districting-in-winston-salem_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.radix-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.radix-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #455a64;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.radix-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.radix-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .radix-site-nav {
+    display: none;
+  }
+}
+
+.radix-site-header {
+
+}
+
+.radix-site-footer {
+
+}
+
+
+/* Site Header */
+
+.radix-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.radix-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .radix-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.radix-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.radix-site-header a,
+.radix-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.radix-site-header .title {
+  font-size: 18px;
+}
+
+.radix-site-header .logo {
+  padding: 0;
+}
+
+.radix-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.radix-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .radix-site-header .logo img {
+    display: inline-block;
+  }
+  .radix-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .radix-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .radix-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.radix-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .radix-site-header a, .radix-site-header .nav-dropdown  {display: none;}
+  .radix-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .radix-site-header .title {
+    margin-left: 0;
+  }
+  .radix-site-header .nav-right {
+    margin-right: 0;
+  }
+  .radix-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .radix-site-header.responsive {position: relative;}
+  .radix-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .radix-site-header.responsive a,
+  .radix-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .radix-site-header.responsive .nav-left,
+  .radix-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .radix-site-header.responsive .nav-dropdown {float: none;}
+  .radix-site-header.responsive .nav-dropdown-content {position: relative;}
+  .radix-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.radix-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+</style>
+
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for table of contents */
+
+.d-toc {
+  color: rgba(0,0,0,0.8);
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.d-toc-header {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.3em;
+}
+
+.d-toc a {
+  border-bottom: none;
+}
+
+.d-toc ul {
+  padding-left: 0;
+}
+
+.d-toc li>ul {
+  padding-top: 0.8em;
+  padding-left: 16px;
+  margin-bottom: 0.6em;
+}
+
+.d-toc ul,
+.d-toc li {
+  list-style-type: none;
+}
+
+.d-toc li {
+  margin-bottom: 0.9em;
+}
+
+.d-toc-separator {
+  margin-top: 20px;
+  margin-bottom: 2em;
+}
+
+.d-article-with-toc {
+  border-top: none;
+  padding-top: 0;
+}
+
+
+
+/* Tweak code blocks (note that this CSS is repeated above in an injection
+   into the d-code shadow dom) */
+
+d-code {
+  overflow-x: auto !important;
+}
+
+pre.d-code code.d-code {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+pre.text-output {
+
+  font-size: 12px;
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+@media(min-width: 768px) {
+
+d-code {
+  overflow-x: visible !important;
+}
+
+pre.d-code code.d-code  {
+    padding-left: 18px;
+    font-size: 14px;
+}
+pre.text-output {
+  font-size: 14px;
+}
+}
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // create d-bibliography
+  var bibliography = $('<d-bibliography></d-bibliography>');
+  $('#distill-bibliography').wrap(bibliography);
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace citations with <d-cite>
+  $('.citation').each(function(i, val) {
+    appendix = true;
+    var cites = $(this).attr('data-cites').split(" ");
+    var dt_cite = $('<d-cite></d-cite>');
+    dt_cite.attr('key', cites.join());
+    $(this).replaceWith(dt_cite);
+  });
+  // remove refs
+  $('#refs').remove();
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-toc a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // replace code blocks with d-code
+  $('pre>code').each(function(i, val) {
+    var code = $(this);
+    var pre = code.parent();
+    var clz = "";
+    var language = pre.attr('class');
+    if (language) {
+      // map unknown languages to "clike" (without this they just dissapear)
+      if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                               "javascript", "js", "julia", "lua", "markdown",
+                               "markup", "mathml", "python", "svg", "xml"]) == -1)
+        language = "clike";
+      language = ' language="' + language + '"';
+      var dt_code = $('<d-code block' + language + clz + '></d-code>');
+      dt_code.text(code.text());
+      pre.replaceWith(dt_code);
+    } else {
+      code.addClass('text-output').unwrap().changeElementType('pre');
+    }
+  });
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('d-code, pre.text-output, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // table of contents
+    if (have_authors) // adjust border if we are in authors
+      $('.d-toc').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+    $('d-code').each(function(i, val) {
+      var style = document.createElement('style');
+      style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                        '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+      if (this.shadowRoot)
+        this.shadowRoot.appendChild(style);
+    });
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-toc-header').remove();
+  $('.d-toc').remove();
+  $('.d-toc-separator').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.radix-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117944166-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-117944166-1');
+</script>
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Re-districting in Winston-Salem","description":"In this post I explore a potential outcomes to the composition of the Winston-Salem city council.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-04-08T00:00:00.000-04:00","citationText":"DeWitt, 2019"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="radix-site-nav radix-site-header">
+<div class="nav-left">
+<a href="../../index.html" class="title">Michael DeWitt</a>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Home</a>
+<a href="../../about.html">About</a>
+<a href="https://michaeldewittjr.com">Main Site</a>
+<a href="../../index.xml">
+<i class="fa fa-rss"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Re-districting in Winston-Salem</h1>
+<p>In this post I explore a potential outcomes to the composition of the Winston-Salem city council.</p>
+</div>
+
+<div class="d-byline">
+  Michael DeWitt <a href="https://michaeldewittjr.com" class="uri">https://michaeldewittjr.com</a> 
+  
+<br/>04-08-2019
+</div>
+
+<div class="d-article">
+<h2 id="introduction">Introduction</h2>
+<p>There was a recent bill introduced in the North Carolina General Assembly to reorganise the city counsel by two Republican state members of the General Assembly. The status quo is that there are a total of eight wards, each with a seat on the city counsel. The mayor votes only when there is a tie. As things are, the current city counsel is composed of four Black individuals and four white men, with a white man as mayor. The proposal from the General Assembly is to collapse several of the ward seats into five wards and then create three permanent at-large city counsel positions. Additionally, the mayor would have a vote on all matters, not just in ties.</p>
+<p>There is a lot going on here that this post cannot unpack. The biggest issue is truely the political landscape in North Carolina where the Supreme Court of the United States of America is actively hearing a case on gerrymandering where a member of the general assembly admitted to voter packing. Additionally, Winston-Salem has an interesting relationship with racial and political sorting. All of these elements are at play with this new proposed structure. Additionaly, the members whose wards would be collapsed would be the three Black women who are currently on the city counsel. This paired with reducing terms to two hears makes it logistically harder to run campaigns (shorter term lengths mean more campaigning, at-large positions favor people with cash to campaign all over the city, etc). Just a lot happening that can’t be completely unpacked. See <a href="https://www.journalnow.com/news/elections/local/ward-plan-puts-three-black-city-council-members-into-one/article_8cd889ea-90c2-5de2-832e-0b69c6b5ae5c.html">here</a> for more details.</p>
+<h2 id="analysis">Analysis</h2>
+<p>I am going to take some historical voting records and see given the new ward proposal how the seats would have fallen. Again, this is a quick analysis and more work could defitely be done on this.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(tidyverse)
+library(lubridate)</code></pre>
+</div>
+<h3 id="current-state">Current State</h3>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>And now because the records of each primary are made public, I will download them and read them in. Excuse the messiness; I imagine there is an easier way to do this, but the NC Board of Elections elected to change their output format between the years, so it is quicker just to read the files in one at a time as there aren’t too many of them. All of the data are available <a href="https://er.ncsbe.gov/downloads.html">here</a> if you would like to play along.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+my_files &lt;- list.files(&quot;data&quot;, full.names = T, pattern = &quot;results_&quot;)</code></pre>
+</div>
+<p>Now to read them in, fix a few things and then combine them. I will write a quick helper function though…</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+clean_ncbe &lt;- function(df){
+  df %&gt;% 
+  janitor::clean_names() %&gt;% 
+  rename(contest_name = contest, 
+         choice_party = party) %&gt;% 
+  select(county, precinct, contest_name, contest_type, 
+         total_votes, choice, choice_party)
+}</code></pre>
+</div>
+<p>Now to read them in.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+results_2010 &lt;- read_csv(my_files[[1]])%&gt;% 
+  clean_ncbe()
+results_2011 &lt;- read_csv(my_files[[2]])%&gt;% 
+  clean_ncbe()
+results_2012 &lt;- read_csv(my_files[[2]])%&gt;% 
+  clean_ncbe()
+
+results_2014 &lt;- read_tsv(my_files[[4]])%&gt;% janitor::clean_names()
+results_2015 &lt;- read_tsv(my_files[[5]])%&gt;% janitor::clean_names()
+results_2016 &lt;- read_tsv(my_files[[6]])%&gt;% janitor::clean_names()
+results_2017 &lt;- read_tsv(my_files[[7]])%&gt;% janitor::clean_names()
+results_2018 &lt;- read_tsv(my_files[[8]])%&gt;% janitor::clean_names()</code></pre>
+</div>
+<p>We can then put the data together as follows:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+all_results &lt;-bind_rows(results_2010, results_2011, 
+                        results_2012, results_2014,
+                        results_2015, results_2016, 
+                        results_2017, results_2018)</code></pre>
+</div>
+<p>This data frame includes <em>all</em> precinct level reporting for each election. For the sake of this analysis I want to reduce my scope down to just Forsyth County, the home county of Winston-Salem.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+forsyth_results &lt;- all_results %&gt;% 
+  filter(grepl(&quot;FORSYTH&quot;,county)) %&gt;% 
+  mutate(precinct = str_extract(precinct, &quot;\\d{2,}&quot;)) %&gt;% 
+  left_join(proposed_wards, by = c(&quot;precinct&quot; = &quot;pct_label&quot;)) %&gt;% 
+  mutate(my_date = lubridate::mdy(election_date),
+         election = lubridate::year(my_date))</code></pre>
+</div>
+<p>Upon inspection of the data it is interesting to note that straight party tickets were once allowed. This practice was outlawed by the North Carolina General Assembly in 2013 <span class="citation" data-cites="lynch_elimination_nodate">(Lynch <a href="#ref-lynch_elimination_nodate">n.d.</a>)</span>.</p>
+<p>Further, if I just wanted to look look a city counsel elections, the subject of this analysis I could do the following actions.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+city_consel_elections &lt;- forsyth_results %&gt;% 
+  filter(grepl(&quot;WARD&quot;, contest_name)) %&gt;% 
+  filter(!grepl(&quot;HIGH POINT&quot;, contest_name))</code></pre>
+</div>
+<p>Just as a reminder the last city counsel elections occured in 2016. Previous legislation moved the city counsel elections to presidential election years. Additionaly, citizens have the option of writing in candidates, so that can explain some of the votes for “others.”</p>
+<p>Looking at the overall 2016 city counsel elections we can see the following:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+city_consel_elections %&gt;% 
+  mutate(choice_party = ifelse(is.na(choice_party), &quot;Other&quot;, choice_party)) %&gt;% 
+  group_by(election, choice_party) %&gt;% 
+  summarise(total_vote = sum(total_votes, na.rm = T)) %&gt;% 
+  spread(choice_party, total_vote, 0) %&gt;% 
+  mutate(DEM_vote_share = scales::percent(DEM / (DEM + REP + Other))) %&gt;% 
+  knitr::kable(caption = &quot;Vote Share Overall, 2016 City Counsel Elections&quot;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-9">Table 1: </span>Vote Share Overall, 2016 City Counsel Elections</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">election</th>
+<th style="text-align: right;">DEM</th>
+<th style="text-align: right;">Other</th>
+<th style="text-align: right;">REP</th>
+<th style="text-align: left;">DEM_vote_share</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2016</td>
+<td style="text-align: right;">80697</td>
+<td style="text-align: right;">1656</td>
+<td style="text-align: right;">23660</td>
+<td style="text-align: left;">76.1%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>So all in all Winston-Salem has a strong lean towards the Democratic Party. Digging deeper we can look at the individual wards.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+city_consel_elections %&gt;% 
+  mutate(choice_party = ifelse(is.na(choice_party), &quot;Other&quot;, choice_party)) %&gt;% 
+  group_by(election, contest_name, choice_party) %&gt;% 
+  summarise(total_vote = sum(total_votes, na.rm = T)) %&gt;% 
+  spread(choice_party, total_vote, 0) %&gt;% 
+  ungroup() %&gt;% 
+  mutate(contest_name = str_remove(contest_name, &quot;WINSTON SALEM CITY COUNCIL - &quot;)) %&gt;% 
+  mutate(DEM_vote_share = scales::percent(DEM / (DEM + REP + Other))) %&gt;% 
+  knitr::kable(caption = &quot;Vote Share By Ward, 2016 City Counsel Elections&quot;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-10">Table 2: </span>Vote Share By Ward, 2016 City Counsel Elections</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">election</th>
+<th style="text-align: left;">contest_name</th>
+<th style="text-align: right;">DEM</th>
+<th style="text-align: right;">Other</th>
+<th style="text-align: right;">REP</th>
+<th style="text-align: left;">DEM_vote_share</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">EAST WARD</td>
+<td style="text-align: right;">11673</td>
+<td style="text-align: right;">204</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">98.3%</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">NORTH WARD</td>
+<td style="text-align: right;">15454</td>
+<td style="text-align: right;">209</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">98.7%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">NORTHEAST WARD</td>
+<td style="text-align: right;">13276</td>
+<td style="text-align: right;">397</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">97.1%</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">NORTHWEST WARD</td>
+<td style="text-align: right;">9410</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">5984</td>
+<td style="text-align: left;">61.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">SOUTH WARD</td>
+<td style="text-align: right;">9832</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">4374</td>
+<td style="text-align: left;">69.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">SOUTHEAST WARD</td>
+<td style="text-align: right;">9044</td>
+<td style="text-align: right;">184</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">98.0%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">SOUTHWEST WARD</td>
+<td style="text-align: right;">12008</td>
+<td style="text-align: right;">295</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">97.6%</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">WEST WARD</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">308</td>
+<td style="text-align: right;">13302</td>
+<td style="text-align: left;">0.0%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can see pretty easily from this analysis that Winston-Salem is pretty solidly democratic, with the exception of the West ward where not a single vote was cast of a democratic candidate. The only truly competitive districts were the South and Northwest wards which still strongly favoured democratic candidates. However, one of the major take-aways here is that there is evidence of strong population sorting occuring with solidly democratic neighborhoods and solidly republican neighborhoods.</p>
+<h3 id="new-proposal">New Proposal</h3>
+<p>So let’s see how this all plays out under the new proposed wards. If take the 2016 election and group by Wards we see that there still will only be one strong Republican ward, Ward 5. One thing that occludes a stronger take on this is that absentee ballots are not assigned to a precinct.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+city_consel_elections %&gt;% 
+  mutate(choice_party = ifelse(is.na(choice_party), &quot;Other&quot;, choice_party)) %&gt;% 
+  group_by(election, new_ward, choice_party) %&gt;% 
+  summarise(total_vote = sum(total_votes)) %&gt;% 
+  spread(choice_party, total_vote) %&gt;% 
+  ungroup() %&gt;% 
+  mutate(DEM_vote_share = scales::percent(DEM / (DEM + REP + Other))) %&gt;% 
+  knitr::kable(caption = &quot;Vote Share By Ward, 2016 City Counsel Elections&quot;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-11">Table 3: </span>Vote Share By Ward, 2016 City Counsel Elections</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;">election</th>
+<th style="text-align: left;">new_ward</th>
+<th style="text-align: right;">DEM</th>
+<th style="text-align: right;">Other</th>
+<th style="text-align: right;">REP</th>
+<th style="text-align: left;">DEM_vote_share</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">Ward 1</td>
+<td style="text-align: right;">16865</td>
+<td style="text-align: right;">228</td>
+<td style="text-align: right;">5396</td>
+<td style="text-align: left;">75.0%</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">Ward 2</td>
+<td style="text-align: right;">18669</td>
+<td style="text-align: right;">361</td>
+<td style="text-align: right;">58</td>
+<td style="text-align: left;">97.8%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">Ward 3</td>
+<td style="text-align: right;">15064</td>
+<td style="text-align: right;">308</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: left;">97.6%</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">Ward 4</td>
+<td style="text-align: right;">16376</td>
+<td style="text-align: right;">233</td>
+<td style="text-align: right;">3786</td>
+<td style="text-align: left;">80.3%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">Ward 5</td>
+<td style="text-align: right;">6904</td>
+<td style="text-align: right;">375</td>
+<td style="text-align: right;">11444</td>
+<td style="text-align: left;">36.9%</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2016</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">6819</td>
+<td style="text-align: right;">151</td>
+<td style="text-align: right;">2915</td>
+<td style="text-align: left;">69.0%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>And we can see that while many absentee votes are democratic the margins could say some of the above districts to be more competitive. Because of this it is probably worth looking and historical voting.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+city_consel_elections %&gt;% 
+  mutate(choice_party = ifelse(is.na(choice_party), &quot;Other&quot;, choice_party)) %&gt;% 
+  group_by(contest_name, choice_party) %&gt;% 
+  summarise( total_ab = sum(absentee_by_mail)) %&gt;% 
+  mutate(percent = scales::percent(total_ab/sum(total_ab))) %&gt;% 
+  mutate(metric = paste0(percent, &quot; n= &quot;, total_ab)) %&gt;% 
+  select(-total_ab, -percent) %&gt;% 
+  spread(choice_party, metric) %&gt;% 
+  knitr::kable(caption = &quot;Breakdown of Absentee Ballots, 2016 City Counsel Elections&quot;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-12">Table 4: </span>Breakdown of Absentee Ballots, 2016 City Counsel Elections</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">contest_name</th>
+<th style="text-align: left;">DEM</th>
+<th style="text-align: left;">Other</th>
+<th style="text-align: left;">REP</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">WINSTON SALEM CITY COUNCIL - EAST WARD</td>
+<td style="text-align: left;">98.1% n= 971</td>
+<td style="text-align: left;">1.9% n= 19</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WINSTON SALEM CITY COUNCIL - NORTH WARD</td>
+<td style="text-align: left;">98.2% n= 1043</td>
+<td style="text-align: left;">1.8% n= 19</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WINSTON SALEM CITY COUNCIL - NORTHEAST WARD</td>
+<td style="text-align: left;">98.1% n= 1194</td>
+<td style="text-align: left;">1.9% n= 23</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WINSTON SALEM CITY COUNCIL - NORTHWEST WARD</td>
+<td style="text-align: left;">58.0% n= 1070</td>
+<td style="text-align: left;">0.1% n= 2</td>
+<td style="text-align: left;">41.9% n= 773</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WINSTON SALEM CITY COUNCIL - SOUTH WARD</td>
+<td style="text-align: left;">59.7% n= 772</td>
+<td style="text-align: left;">0.4% n= 5</td>
+<td style="text-align: left;">40.0% n= 517</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WINSTON SALEM CITY COUNCIL - SOUTHEAST WARD</td>
+<td style="text-align: left;">97.9% n= 755</td>
+<td style="text-align: left;">2.1% n= 16</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">WINSTON SALEM CITY COUNCIL - SOUTHWEST WARD</td>
+<td style="text-align: left;">97.4% n= 1014</td>
+<td style="text-align: left;">2.6% n= 27</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">WINSTON SALEM CITY COUNCIL - WEST WARD</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">2.4% n= 40</td>
+<td style="text-align: left;">97.6% n= 1625</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="nc-voter-history">NC Voter History</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+nc_voter_vistory &lt;- read_tsv(&quot;data/ncvhis34.txt&quot;)</code></pre>
+</div>
+<p>Additionally, let’s use the 2016 presidential election using the voter history files from the NC Board of Elections <a href="https://dl.ncsbe.gov/index.html?prefix=data/">here</a>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+nc_voter_vistory %&gt;% 
+  left_join(proposed_wards) %&gt;% 
+  filter(!is.na(new_ward)) %&gt;% 
+  filter(election_desc == &quot;11/08/2016 GENERAL&quot;) %&gt;% 
+  filter(!is.na(voted_party_desc)) %&gt;% 
+  mutate(voted_party_desc = ifelse(voted_party_desc==&quot;LIBERTARIAN&quot;,
+                                   &quot;REPUBLICAN&quot;, voted_party_desc)) %&gt;% 
+  group_by(new_ward, voted_party_desc) %&gt;% 
+  summarise (n = n()) %&gt;% 
+  mutate(vote_share = round(n/sum(n)*100,0)) %&gt;% 
+  knitr::kable(caption = &quot;Vote Share By New Ward, 2016 Voters Party Affiliations&quot;)</code></pre>
+<table>
+<caption><span id="tab:unnamed-chunk-14">Table 5: </span>Vote Share By New Ward, 2016 Voters Party Affiliations</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">new_ward</th>
+<th style="text-align: left;">voted_party_desc</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">vote_share</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Ward 1</td>
+<td style="text-align: left;">DEMOCRATIC</td>
+<td style="text-align: right;">16212</td>
+<td style="text-align: right;">47</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ward 1</td>
+<td style="text-align: left;">REPUBLICAN</td>
+<td style="text-align: right;">9950</td>
+<td style="text-align: right;">29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ward 1</td>
+<td style="text-align: left;">UNAFFILIATED</td>
+<td style="text-align: right;">8307</td>
+<td style="text-align: right;">24</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ward 2</td>
+<td style="text-align: left;">DEMOCRATIC</td>
+<td style="text-align: right;">20381</td>
+<td style="text-align: right;">62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ward 2</td>
+<td style="text-align: left;">REPUBLICAN</td>
+<td style="text-align: right;">6449</td>
+<td style="text-align: right;">20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ward 2</td>
+<td style="text-align: left;">UNAFFILIATED</td>
+<td style="text-align: right;">5970</td>
+<td style="text-align: right;">18</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ward 3</td>
+<td style="text-align: left;">DEMOCRATIC</td>
+<td style="text-align: right;">14668</td>
+<td style="text-align: right;">47</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ward 3</td>
+<td style="text-align: left;">REPUBLICAN</td>
+<td style="text-align: right;">9429</td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ward 3</td>
+<td style="text-align: left;">UNAFFILIATED</td>
+<td style="text-align: right;">7106</td>
+<td style="text-align: right;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ward 4</td>
+<td style="text-align: left;">DEMOCRATIC</td>
+<td style="text-align: right;">12544</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ward 4</td>
+<td style="text-align: left;">REPUBLICAN</td>
+<td style="text-align: right;">6497</td>
+<td style="text-align: right;">25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ward 4</td>
+<td style="text-align: left;">UNAFFILIATED</td>
+<td style="text-align: right;">7269</td>
+<td style="text-align: right;">28</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ward 5</td>
+<td style="text-align: left;">DEMOCRATIC</td>
+<td style="text-align: right;">12856</td>
+<td style="text-align: right;">33</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ward 5</td>
+<td style="text-align: left;">REPUBLICAN</td>
+<td style="text-align: right;">15220</td>
+<td style="text-align: right;">39</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Ward 5</td>
+<td style="text-align: left;">UNAFFILIATED</td>
+<td style="text-align: right;">10896</td>
+<td style="text-align: right;">28</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Again, what is interesting here is that all but one of the Wards start with a clearly identified Democratic plurality.</p>
+<h2 id="voter-efficiency">Voter Efficiency</h2>
+<p>While not the best metric we can look at the <a href="https://en.wikipedia.org/wiki/Wasted_vote">efficiency gap</a>. So looking at the current situation we see that there is a:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+city_consel_elections %&gt;% 
+  mutate(choice_party = ifelse(choice_party %in% c(&quot;DEM&quot;, &quot;REP&quot;), choice_party,
+                               &quot;other&quot;)) %&gt;% 
+  group_by(election, contest_name, choice_party) %&gt;% 
+  summarise(total_vote = sum(total_votes, na.rm = T)) %&gt;% 
+  spread(choice_party, total_vote, 0) %&gt;% 
+  mutate(winning = (DEM+other+REP)/2+1) %&gt;% 
+  rowwise() %&gt;% 
+  mutate(DEM_wasted_vote = ifelse(DEM - winning&lt;0,DEM,DEM - winning),
+         REP_wasted_vote = ifelse(REP - winning&lt;0,REP,REP - winning)) %&gt;% 
+  ungroup() %&gt;% 
+  summarise(total_voter= sum(REP+other +DEM),
+            wasted_dem = sum(DEM_wasted_vote),
+            wasted_rep = sum(REP_wasted_vote)) -&gt; current_eff
+
+scales::percent((current_eff$wasted_rep-current_eff$wasted_dem)/current_eff$total_voter)</code></pre>
+<pre><code>
+[1] &quot;-16.6%&quot;</code></pre>
+</div>
+<p>And if we move to the proposed organization we see:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+forsyth_results %&gt;% 
+  filter(!is.na(new_ward)) %&gt;% 
+  filter(grepl(x = contest_name, &quot;PRESIDENT&quot;)) %&gt;% 
+  mutate(choice_party = ifelse(choice_party %in% c(&quot;DEM&quot;, &quot;REP&quot;), choice_party,
+                               &quot;other&quot;)) %&gt;% 
+  group_by(election, new_ward, choice_party) %&gt;% 
+  summarise(total = sum(total_votes)) %&gt;% 
+  ungroup() %&gt;% 
+  spread(choice_party, total) %&gt;% 
+  mutate(election = ifelse(is.na(election), 2012, election)) %&gt;% 
+  mutate(DEM_share = DEM/ (DEM+other+REP)) %&gt;% 
+  mutate(winning = (DEM+other+REP)/2+1) %&gt;% 
+  rowwise() %&gt;% 
+  mutate(DEM_wasted_vote = ifelse(DEM - winning&lt;0,DEM,DEM - winning),
+         REP_wasted_vote = ifelse(REP - winning&lt;0,REP,REP - winning)) %&gt;% 
+    ungroup() %&gt;% 
+  summarise(total_voter= sum(REP+other +DEM),
+            wasted_dem = sum(DEM_wasted_vote),
+            wasted_rep = sum(REP_wasted_vote))-&gt;efficiency
+
+scales::percent((efficiency$wasted_rep-efficiency$wasted_dem)/efficiency$total_voter)</code></pre>
+<pre><code>
+[1] &quot;16.4%&quot;</code></pre>
+</div>
+<p>So no real change in the efficiency gap.</p>
+<div id="refs" class="references">
+<div id="ref-lynch_elimination_nodate">
+<p>Lynch, Harry. n.d. “Elimination of Straight-Ticket Voting Could Leave More Ballots Incomplete.” <em>Newsobserver</em>. Accessed April 8, 2019. <a href="https://www.newsobserver.com/news/politics-government/election/article95286262.html">https://www.newsobserver.com/news/politics-government/election/article95286262.html</a>.</p>
+</div>
+</div>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Reall what I should be doing here is writing a function that inspects what kind of delimiter is being used in the file and then import accordingly. However, I’m a bit lazy at the moment and not going to do that. The plus sides for doing that method is most importantly it is more reprocible and scalable should I go back and look at previous data. Additionally, I could do a <code>map</code> function to read and apply the newly written function rather than writing piecemeal as I am now.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</section>
+<!--radix_placeholder_article_footer-->
+<div class="article-footer">
+  <p>
+    <div class="subscribe"><form method='post' action='https://blogtrottr.com'>
+  <p>Enjoy this blog? Get notified of new posts via email:</p>
+  <input type='text' name='btr_email' />
+  <input type='hidden' name='btr_url'
+         value='https:/michaeldewittjr.com/dewitt_blog/index.xml'/>
+  <input type='hidden' name='schedule_type' value='0' />
+  <input type='submit' value='Subscribe' />
+</form></div>
+  </p>
+</div>
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+  <h3 id="reuse">Reuse</h3>
+  <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">DeWitt (2019, April 8). Michael DeWitt: Re-districting in Winston-Salem. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2019-04-08-re-districting-in-winston-salem/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{dewitt2019re-districting,
+  author = {DeWitt, Michael},
+  title = {Michael DeWitt: Re-districting in Winston-Salem},
+  url = {https://michaeldewittjr.com/dewitt_blog/posts/2019-04-08-re-districting-in-winston-salem/},
+  year = {2019}
+}</pre>
+</div>
+<script id="distill-bibliography" type="text/bibtex">
+
+@misc{lynch_elimination_nodate,
+	title = {Elimination of straight-ticket voting could leave more ballots incomplete},
+	url = {https://www.newsobserver.com/news/politics-government/election/article95286262.html},
+	abstract = {The 4th U.S. Circuit Court of Appeals struck down North Carolina’s voter ID requirement but didn’t touch the elimination of straight-ticket voting. A widespread practice across the country before the 1960s, straight-ticket voting has been in decline for decades.},
+	language = {en},
+	urldate = {2019-04-08},
+	journal = {newsobserver},
+	author = {Lynch, Harry},
+	file = {Snapshot:/Users/michael/Zotero/storage/N2AVPMNP/article95286262.html:text/html}
+}
+</script>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
