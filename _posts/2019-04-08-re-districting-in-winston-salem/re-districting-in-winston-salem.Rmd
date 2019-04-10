@@ -12,6 +12,7 @@ output:
   radix::radix_article:
     self_contained: false
 bibliography: my_biblio.bib
+doi: "10.5281/zenodo.2635742"
 ---
 
 ```{r setup, include=FALSE}
