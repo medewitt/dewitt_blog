@@ -7,7 +7,16 @@
     <description>The thoughts and exploration of Michael DeWitt
 </description>
     <generator>Radix</generator>
-    <lastBuildDate>Mon, 08 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 May 2019 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>State Space Models for Poll Prediction</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2019-05-18-state-space-models-for-poll-prediction</link>
+      <description>In this section I replicate some state space poll modeling that James Savage and Peter Ellis used in a few different scenarios. State space modeling provides a great way to model times series effects when the data are collected at irregular intervals (e.g. opinion polling).</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2019-05-18-state-space-models-for-poll-prediction</guid>
+      <pubDate>Sat, 18 May 2019 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2019-05-18-state-space-models-for-poll-prediction/state-space-models-for-poll-prediction_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Re-districting in Winston-Salem</title>
       <dc:creator>Michael DeWitt</dc:creator>
