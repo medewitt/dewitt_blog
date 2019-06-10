@@ -6,8 +6,17 @@
     <atom:link href="https://michaeldewittjr.com/dewitt_blog/index.xml" rel="self" type="application/rss+xml"/>
     <description>The thoughts and exploration of Michael DeWitt
 </description>
-    <generator>Radix</generator>
-    <lastBuildDate>Sat, 18 May 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Distill</generator>
+    <lastBuildDate>Sun, 09 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Finding the Needle in the Haystack</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2019-06-09-finding-the-needle-in-the-haystack</link>
+      <description>Sometimes instead of accuracy we need to look at different metrics. One such metric is sensitivity, which is a measure of those who are actually targets how many does the model correctly identify. This can be the metric of choice over accuracy when you are dealing with a raw event such as a terrorist attack or even student retention. It is always important to understand what metrics you are optimising your models on.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2019-06-09-finding-the-needle-in-the-haystack</guid>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2019-06-09-finding-the-needle-in-the-haystack/finding-the-needle-in-the-haystack_files/figure-html5/unnamed-chunk-8-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>State Space Models for Poll Prediction</title>
       <dc:creator>Michael DeWitt</dc:creator>

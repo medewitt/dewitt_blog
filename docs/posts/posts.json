@@ -1,5 +1,25 @@
 [
   {
+    "path": "posts/2019-06-09-finding-the-needle-in-the-haystack/",
+    "title": "Finding the Needle in the Haystack",
+    "description": "Sometimes instead of accuracy we need to look at different metrics. One such metric is sensitivity, which is a measure of those who are actually targets how many does the model correctly identify. This can be the metric of choice over accuracy when you are dealing with a raw event such as a terrorist attack or even student retention. It is always important to understand what metrics you are optimising your models on.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2019-06-09",
+    "categories": [
+      "Sensitivity",
+      "Cost Benefit Analysis"
+    ],
+    "preview": "posts/2019-06-09-finding-the-needle-in-the-haystack/finding-the-needle-in-the-haystack_files/figure-html5/unnamed-chunk-8-1.png",
+    "last_modified": "2019-06-09T20:56:37-04:00",
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
     "path": "posts/2019-05-18-state-space-models-for-poll-prediction/",
     "title": "State Space Models for Poll Prediction",
     "description": "In this section I replicate some state space poll modeling that James Savage and Peter Ellis used in a few different scenarios. State space modeling provides a great way to model times series effects when the data are collected at irregular intervals (e.g. opinion polling).",
