@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2019-06-10-defining-a-project-workflow/",
+    "title": "Defining a Project Workflow",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2019-06-10",
+    "categories": [
+      "Tooling",
+      "GPP",
+      "Workflow"
+    ],
+    "preview": {},
+    "last_modified": "2019-06-16T18:19:44-04:00"
+  },
+  {
     "path": "posts/2019-06-09-finding-the-needle-in-the-haystack/",
     "title": "Finding the Needle in the Haystack",
     "description": "Sometimes instead of accuracy we need to look at different metrics. One such metric is sensitivity, which is a measure of those who are actually targets how many does the model correctly identify. This can be the metric of choice over accuracy when you are dealing with a raw event such as a terrorist attack or even student retention. It is always important to understand what metrics you are optimising your models on.",
