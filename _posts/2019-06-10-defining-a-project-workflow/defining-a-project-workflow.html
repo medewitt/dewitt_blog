@@ -1033,7 +1033,7 @@ REPORTDIR= ./report
 # List files for dependencies
 MUNGE_RFILES := $(wildcard $(MUNGEDIR)/*.R)
 SRC_RFILES := $(wildcard $(SRCDIR)/*.R)
-REPORT_RFILES := $(wildcard $(SRCDIR)/*.Rmd)
+REPORT_RFILES := $(wildcard $(REPORTDIR)/*.Rmd)
 
 # Indicator files to show R file has run
 MUNGE_OUT_FILES:= $(MUNGE_RFILES:.R=.Rout)
