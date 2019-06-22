@@ -18,5 +18,5 @@ navbar:
     - icon: fa fa-rss
       href: index.xml
 output: radix::radix_article
-google_analytics: 'UA-117944166-1'
+google_analytics: 'UA-110093032-1'
 creative_commons: CC BY

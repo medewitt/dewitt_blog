@@ -1,7 +1,7 @@
 ---
 title: "Defining a Project Workflow"
 description: |
-  A short description of the post.
+  Having a defined project workflow is important for many reasons. Consistency of design allows for easier sharing (you or other collaborators  don't have to look for things) and reduces some cognitive load by allowing you to focus on content and less on form. This is my lightly opinionated project structure. Of course these fews are ever evolving.
 author:
   - name: Michael DeWitt
     url: https://michaeldewittjr.com
@@ -151,3 +151,11 @@ clean:
 ```
 
 Of course, this is a general approach, but this is my every evolving attempt to document my approach.
+
+## Alternative Approachs
+
+Just to mention a few alternative approachs:
+
+* [ProjectTemplate](http://projecttemplate.net/) which in many ways inspired my own view on templating projects  
+
+* [rrtools](https://github.com/benmarwick/rrtools) which structures analysis projects in the form of an R project. It offers some nice components regarding use of continuous integration and allows the default components of R to ensure dependencies are loaded. I might try to integrate this into my own work at some point for these features.
