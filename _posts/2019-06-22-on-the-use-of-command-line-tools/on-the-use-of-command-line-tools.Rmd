@@ -1,0 +1,47 @@
+---
+title: "On the use of command line tools"
+description: |
+  A short description of the post.
+author:
+  - name: Michael DeWitt
+    url: https://michaeldewittjr.com
+date: 06-22-2019
+categories:
+  - CLI
+  - awk
+  - sed
+  - bash
+draft: TRUE
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Distill is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
+```{bash}
+head -n 40 court.txt
+```
+
+```{bash}
+
+cat court.txt | awk 'BEGIN{ FS = "      "} $1 ~ /,/ {print $1}' | 
+awk '$1 ~ /,/ NF {print $4}'|
+awk 'NF > 0' > defendants
+
+head defendants
+```
+
+```{bash}
+cat court.txt | awk 'BEGIN{ FS = " "} $5 ~ /,/ {print $5}' > complaints
+```
+
+
+
+
