@@ -18,12 +18,14 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web.
+What always amazes me is that years ago when memory was scarce and computational power was expensive, tools were developed to parse and manipulate data that fit these restrictions. Among these tools you find things like `AWK`, `SED`, and the `bourne` shell. I have begun to appreciate these tools for faciliating data work.
 
-Learn more about using Distill at <https://rstudio.github.io/distill>.
+## A motivating examples
+
+
 
 ```{bash}
 head -n 40 court.txt
