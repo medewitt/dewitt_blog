@@ -21,7 +21,7 @@
   <!--radix_placeholder_meta_tags-->
   <title>On the use of command line tools</title>
   
-  <meta property="description" itemprop="description" content="A short description of the post."/>
+  <meta property="description" itemprop="description" content="Using `AWK` to parse court calendars"/>
   
   
   <!--  https://schema.org/Article -->
@@ -32,24 +32,24 @@
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="On the use of command line tools"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="A short description of the post."/>
+  <meta property="og:description" content="Using `AWK` to parse court calendars"/>
   <meta property="og:locale" content="en_US"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="On the use of command line tools"/>
-  <meta property="twitter:description" content="A short description of the post."/>
+  <meta property="twitter:description" content="Using `AWK` to parse court calendars"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","draft","output"]}},"value":[{"type":"character","attributes":{},"value":["On the use of command line tools"]},{"type":"character","attributes":{},"value":["A short description of the post.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["06-22-2019"]},{"type":"character","attributes":{},"value":["CLI","awk","sed","bash"]},{"type":"logical","attributes":{},"value":[true]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","categories","draft","output"]}},"value":[{"type":"character","attributes":{},"value":["On the use of command line tools"]},{"type":"character","attributes":{},"value":["Using `AWK` to parse court calendars\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["06-22-2019"]},{"type":"character","attributes":{},"value":["CLI","awk","sed","bash"]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"NULL"}
+  {"type":"character","attributes":{},"value":["books.txt","complaints","court.txt","defendants","FORSYTH/criminal/DISTRICT.DISTRICT_COURT_.06.24.19.AM.003C.CAL.txt","FORSYTH_1560966710713.zip","on-the-use-of-command-line-tools_files/bowser-1.9.3/bowser.min.js","on-the-use-of-command-line-tools_files/distill-2.2.21/template.v2.js","on-the-use-of-command-line-tools_files/jquery-1.11.3/jquery.min.js","on-the-use-of-command-line-tools_files/webcomponents-2.0.0/webcomponents.js","out"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -942,7 +942,7 @@
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"On the use of command line tools","description":"A short description of the post.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-06-22T00:00:00.000-04:00","citationText":"DeWitt, 2019"}
+{"title":"On the use of command line tools","description":"Using `AWK` to parse court calendars","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-06-22T00:00:00.000-04:00","citationText":"DeWitt, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -953,7 +953,7 @@
 
 <div class="d-title">
 <h1>On the use of command line tools</h1>
-<p>A short description of the post.</p>
+<p>Using <code>AWK</code> to parse court calendars</p>
 </div>
 
 <div class="d-byline">
@@ -963,8 +963,99 @@
 </div>
 
 <div class="d-article">
-<p>Distill is a publication format for scientific and technical writing, native to the web.</p>
-<p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
+<p>What always amazes me is that years ago when memory was scarce and computational power was expensive, tools were developed to parse and manipulate data that fit these restrictions. Among these tools you find things like <code>AWK</code>, <code>SED</code>, and the <code>bourne</code> shell. I have begun to appreciate these tools for facilitating data work.</p>
+<h2 id="a-motivating-examples">A motivating examples</h2>
+<p>The Winston-Salem county court house publishes the court calendar roughly once a week. Unfortunately, the file that is made available is a terrible line-printed file. The data are not structured in a nice form, so it requires some parsing if one wants to do any kind of analysis on it.</p>
+<p>This becomes especially challenging if you have a lot of data (which in this case I do), with many files over several years. This is a great opportunity to use our friends from <code>AWK</code> to help parse and wrangle these data.</p>
+<h3 id="data-example">Data Example</h3>
+<p>Below is a picture of the data file. As you can see there is some repeatability with line spacing, but basically free form text.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="bash"><code>
+head -n 40 court.txt</code></pre>
+<pre><code>
+  RUN DATE: 06/19/19                                                        PAGE   1
+                             IN THE GENERAL COURT OF JUSTICE
+  LOCATION: WINSTON-SALEM        DISTRICT COURT DIVISION       COUNTY OF FORSYTH
+
+          COURT DATE: 06/24/19        TIME: 09:00 AM        COURTROOM NUMBER: 003C
+
+                  DOMESTIC COURT
+
+                     JUDGE PRESIDING :
+                     COURTROOM CLERK :
+                     PROSECUTOR      :
+                                     :
+                                     :
+                                     :
+                                     :
+
+  NO.  FILE NUMBER DEFENDANT NAME        COMPLAINANT       ATTORNEY               CONT
+  *************************************************************************************
+
+     1  18CR 060594 AARON,JOHN,AARON      SLOAN,J        SFF ATTY:GREENWOOD,DYLAN   3
+                    BOND:      $2,000 SEC
+        (M)DV PROTECTIVE ORDER VIOL (M)     PLEA:                VER:
+        CLS:A1 P:   L:      DOM VL: Y   JUDGMENT:
+
+
+
+
+     2  19CR 055098 ADAMO,ALICE,MARY      MOLINA,E       SFF
+                   ********  DEFENDANT NEEDS TO BE FINGERPRINTED
+                    BOND:             WPA
+        (M)SIMPLE ASSAULT                   PLEA:                VER:
+        CLS:2  P:   L:      DOM VL: Y   JUDGMENT:
+
+
+
+
+     3  19CR 052889 ANDRADE,TRICIA        NOLAN,CHRISTOP     P.D.:STEWART,LARAQUE   2
+                    BOND:      $1,500 UNS
+        (M)MISDEMEANOR STALKING             PLEA:                VER:</code></pre>
+</div>
+<h3 id="parsing-the-defendant-names">Parsing the Defendant Names</h3>
+<p>Here I am going to use <code>AWK</code> to use five spaces as the file separator, the pull the first record on each line (here the line with details about the case and the defendant). I then pipe this to another <code>AWK</code> line where I pull out the second, third, and fourth words and tab delineate them. Additionally, I remove any blank lines.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="bash"><code>
+cat court.txt | awk &#39;BEGIN{ FS = &quot;      &quot;} $1 ~ /,/ {print $1}&#39; | 
+awk &#39;$1 ~ /,/ NF {print $2 $3 &quot;\t&quot; $4}&#39; |
+awk &#39;NF &gt; 0&#39; &gt; defendants
+
+head defendants</code></pre>
+<pre><code>
+18CR060594  AARON,JOHN,AARON
+19CR055098  ADAMO,ALICE,MARY
+19CR052889  ANDRADE,TRICIA
+19CR055097  BAHLER,MICHELLE,KATHE
+19CR053129  CRAFT,SHEILA,RUTH
+17CR053102  GADSON,DAQUAN,MONTA
+18CR056597  GADSON,DAQUAN,MONTA
+18CR051024  GREEN,ALPHONSO,GWANTA
+19CR052451  HALL,JOHN,SEBASTIAN
+19CR053503  HALL,JOHN,SEBASTIAN</code></pre>
+</div>
+<p>I can then do something similar to parse the complainants.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="bash"><code>
+cat court.txt | awk &#39;BEGIN{ FS = &quot; &quot;} $5 ~ /,/ {print $5}&#39; &gt; complaints </code></pre>
+</div>
+<p>See below.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="bash"><code>
+head complaints</code></pre>
+<pre><code>
+SLOAN,J
+MOLINA,E
+NOLAN,CHRISTOP
+MOLINA,E
+AMMONS,D
+WILLIAMS,SHAWK
+WILKES,TYEKA,R
+DOBSON,KEONA,E
+MARSHALL,G
+HAMPTON,KAITLY</code></pre>
+</div>
+<p>Now I can read them in and parse them together</p>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

@@ -1,5 +1,25 @@
 [
   {
+    "path": "posts/2019-06-22-on-the-use-of-command-line-tools/",
+    "title": "On the use of command line tools",
+    "description": "Using `AWK` to parse court calendars",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2019-06-22",
+    "categories": [
+      "CLI",
+      "awk",
+      "sed",
+      "bash"
+    ],
+    "preview": {},
+    "last_modified": "2019-07-14T21:42:50-04:00"
+  },
+  {
     "path": "posts/2019-06-10-defining-a-project-workflow/",
     "title": "Defining a Project Workflow",
     "description": "Having a defined project workflow is important for many reasons. Consistency of design allows for easier sharing (you or other collaborators  don't have to look for things) and reduces some cognitive load by allowing you to focus on content and less on form. This is my lightly opinionated project structure. Of course these fews are ever evolving.",

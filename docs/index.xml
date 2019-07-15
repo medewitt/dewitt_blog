@@ -7,7 +7,15 @@
     <description>The thoughts and exploration of Michael DeWitt
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 10 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>On the use of command line tools</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2019-06-22-on-the-use-of-command-line-tools</link>
+      <description>Using `AWK` to parse court calendars</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2019-06-22-on-the-use-of-command-line-tools</guid>
+      <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Defining a Project Workflow</title>
       <dc:creator>Michael DeWitt</dc:creator>
