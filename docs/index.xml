@@ -7,7 +7,16 @@
     <description>The thoughts and exploration of Michael DeWitt
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sat, 22 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 19 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Remembering Apollo</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2019-07-19-remembering-apollo</link>
+      <description>A short description of the post.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2019-07-19-remembering-apollo</guid>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2019-07-19-remembering-apollo/fortran-tweet.png" medium="image" type="image/png" width="1248" height="1186"/>
+    </item>
     <item>
       <title>On the use of command line tools</title>
       <dc:creator>Michael DeWitt</dc:creator>
