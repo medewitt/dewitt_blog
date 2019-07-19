@@ -23,7 +23,9 @@ I do not underestimate the courage of the men who strapped themselves on the top
 
 >We didn't know failure, because we had never done something like this
 
-I think that sentiment is just amazing. Being smart, fearless, and taking responsibility. It is truly an engineering marvel.
+I think that sentiment is just amazing. Being smart, fearless, and taking responsibility. It is truly an engineering marvel. And as Jerry Bostic, FDO Flight Controller says^[See <https://en.wikipedia.org/wiki/Gene_Kranz>]:
+
+>One of their questions was "Weren't there times when everybody, or at least a few people, just panicked?" My answer was "No, when bad things happened, we just calmly laid out all the options, and failure was not one of them. We never panicked, and we never gave up on finding a solution."
 
 ## Why it Matters
 
