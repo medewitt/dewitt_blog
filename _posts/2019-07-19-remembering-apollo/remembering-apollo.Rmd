@@ -1,7 +1,7 @@
 ---
 title: "Remembering Apollo"
 description: |
-  A short description of the post.
+  Some ruminations about the legacy of Apollo and doing things when failure isn't an option.
 author:
   - name: Michael DeWitt
     url: https://michaeldewittjr.com
