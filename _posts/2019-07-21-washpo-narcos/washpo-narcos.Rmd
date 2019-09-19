@@ -1,0 +1,50 @@
+---
+title: "WashPo Narcos"
+description: |
+  A short description of the post.
+author:
+  - name: Michael DeWitt
+    url: https://michaeldewittjr.com
+date: 07-21-2019
+draft: TRUE
+categories:
+  -Data Vis
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+library(data.table)
+library(dplyr)
+library(R.utils)
+
+# JUST MASS 
+mass <- gunzip("arcos_all_washpost.tsv.gz")
+mass_opioids <- fread(file = 'arcos-ma-statewide-itemized.tsv')
+glimpse(mass_opioids) # 2,574,240 observations
+summary(mass_opioids)
+
+mass_opioids$DOSAGE_UNIT <- as.numeric(mass_opioids$DOSAGE_UNIT) # convert into numeric
+
+# First count total number of records by BUYER_DEA_NO
+worst_pharmacies_counts <- mass_opioids %>%
+  count(BUYER_DEA_NO, sort=TRUE, name = "total_records") %>%
+  glimpse()
+
+# Then group by individual pharmacies and calculate total DOSAGE_UNIT for each
+worst_pharmacies <- mass_opioids %>%
+  group_by(BUYER_DEA_NO, BUYER_NAME, BUYER_CITY) %>%
+  summarise(total_dosage_unit = sum(DOSAGE_UNIT)) %>%
+  arrange(desc(total_dosage_unit)) %>%
+  left_join(worst_pharmacies_counts, by="BUYER_DEA_NO") %>% # Merge in total_records counts
+  glimpse()
+
+worst_pharmacies
+```
+
+
