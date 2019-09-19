@@ -8,7 +8,7 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-I will be honest, the purpose of this blog is wholly self. I want a way to practice things I learn, repeat good examples, and keep up to date on statistics, data science and what have you. This provides a great way to do that.
+I will be honest, the purpose of this blog is wholly selfish. I want a way to practice things I learn, repeat good examples, and keep up to date on statistics, data science and what have you. This provides a great way to do that.
 
 All this to say, that I cannot guarantee everything I post will work, be interesting or spelled correctly. I will do my best to make the blog the best it can be. This is a work in progress. I think I finally have found a platform that I like in the `radix` package. 
 
