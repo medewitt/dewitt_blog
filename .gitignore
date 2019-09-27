@@ -4,3 +4,9 @@
 .Ruserdata
 *.txt
 *.tsv.gz
+.rdx
+.rdb
+.Rdata
+*.rdx
+*.rdb
+*.Rdata

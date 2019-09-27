@@ -7,7 +7,25 @@
     <description>The thoughts and exploration of Michael DeWitt
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 19 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Approval Rating Now?</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2019-09-26-approval-rating-now</link>
+      <description>Given the current controversy regarding President Trump, let's use a state-space Bayesian model to see what his approval rating currently is. As more surveys go into the field this will change, but let's just look now.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2019-09-26-approval-rating-now</guid>
+      <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2019-09-26-approval-rating-now/approval-rating-now_files/figure-html5/unnamed-chunk-7-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Integrating Over Your Loss Function</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2019-09-18-integrating-over-your-loss-function</link>
+      <description>Often times when doing an analysis, it is important to put the results in the context of the loss. For example, a small effect that is cheaply implemented might be the best use of resources. Using Bayesian modeling and loss functions we can better assess the impact and provide better information for decision-making when it comes to allocation of scarce resources (especially in the world of small effect sizes).</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2019-09-18-integrating-over-your-loss-function</guid>
+      <pubDate>Wed, 18 Sep 2019 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2019-09-18-integrating-over-your-loss-function/integrating-over-your-loss-function_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Remembering Apollo</title>
       <dc:creator>Michael DeWitt</dc:creator>
