@@ -1,5 +1,28 @@
 [
   {
+    "path": "posts/2020-03-04-airflow-on-windows-linux-subsystem/",
+    "title": "Airflow on Windows Linux Subsystem",
+    "description": "In this I detail the process for getting a working instance of Apache Airflow on Windows Linux Subsystem. This is a combination of several different posts spread across the internet. Apache Airflow is an exceptional program for scheduling and running tasks.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2020-03-04",
+    "categories": [
+      "airflow",
+      "wls",
+      "git",
+      "scheduling",
+      "apache airflow"
+    ],
+    "preview": "posts/2020-03-04-airflow-on-windows-linux-subsystem/airflow-logo.png",
+    "last_modified": "2020-03-04T12:12:29-05:00",
+    "preview_width": 200,
+    "preview_height": 200
+  },
+  {
     "path": "posts/2020-01-01-2020-plans/",
     "title": "2020 Plans",
     "description": "A preview of some of the items that I will try to write about in 2020.",

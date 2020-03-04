@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="radix" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Airflow on Windows Linux Subsystem</title>
+  
+  <meta property="description" itemprop="description" content="In this I detail the process for getting a working instance of Apache Airflow on Windows Linux Subsystem. This is a combination of several different posts spread across the internet. Apache Airflow is an exceptional program for scheduling and running tasks."/>
+  
+  <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+  
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2020-03-04"/>
+  <meta property="article:created" itemprop="dateCreated" content="2020-03-04"/>
+  <meta name="article:author" content="Michael DeWitt"/>
+  
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Airflow on Windows Linux Subsystem"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="In this I detail the process for getting a working instance of Apache Airflow on Windows Linux Subsystem. This is a combination of several different posts spread across the internet. Apache Airflow is an exceptional program for scheduling and running tasks."/>
+  <meta property="og:locale" content="en_US"/>
+  
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Airflow on Windows Linux Subsystem"/>
+  <meta property="twitter:description" content="In this I detail the process for getting a working instance of Apache Airflow on Windows Linux Subsystem. This is a combination of several different posts spread across the internet. Apache Airflow is an exceptional program for scheduling and running tasks."/>
+  
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","categories","date","preview","output","creative_commons"]}},"value":[{"type":"character","attributes":{},"value":["Airflow on Windows Linux Subsystem"]},{"type":"character","attributes":{},"value":["In this I detail the process for getting a working instance of Apache Airflow on Windows Linux Subsystem. This is a combination of several different posts spread across the internet. Apache Airflow is an exceptional program for scheduling and running tasks.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["airflow","wls","git","scheduling","apache airflow"]},{"type":"character","attributes":{},"value":["03-04-2020"]},{"type":"character","attributes":{},"value":["airflow-logo.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["CC BY"]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["airflow-logo.png","airflow-on-windows-linux-subsystem_files/bowser-1.9.3/bowser.min.js","airflow-on-windows-linux-subsystem_files/distill-2.2.21/template.v2.js","airflow-on-windows-linux-subsystem_files/jquery-1.11.3/jquery.min.js","airflow-on-windows-linux-subsystem_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+  
+  <style type="text/css">
+  
+  body {
+    background-color: white;
+  }
+  
+  .pandoc-table {
+    width: 100%;
+  }
+  
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+  
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+  
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+  
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+  
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+  
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+  
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .shaded-content {
+    background: white;
+  }
+  
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  d-article {
+    padding-bottom: 30px;
+  }
+  
+  d-appendix {
+    padding-top: 30px;
+  }
+  
+  d-article>p>img {
+    width: 100%;
+  }
+  
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+  
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  /* CSS for table of contents */
+  
+  .d-toc {
+    color: rgba(0,0,0,0.8);
+    font-size: 0.8em;
+    line-height: 1em;
+  }
+  
+  .d-toc-header {
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 1.3em;
+  }
+  
+  .d-toc a {
+    border-bottom: none;
+  }
+  
+  .d-toc ul {
+    padding-left: 0;
+  }
+  
+  .d-toc li>ul {
+    padding-top: 0.8em;
+    padding-left: 16px;
+    margin-bottom: 0.6em;
+  }
+  
+  .d-toc ul,
+  .d-toc li {
+    list-style-type: none;
+  }
+  
+  .d-toc li {
+    margin-bottom: 0.9em;
+  }
+  
+  .d-toc-separator {
+    margin-top: 20px;
+    margin-bottom: 2em;
+  }
+  
+  .d-article-with-toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  
+  
+  
+  /* Tweak code blocks (note that this CSS is repeated above in an injection
+     into the d-code shadow dom) */
+  
+  d-code {
+    overflow-x: auto !important;
+  }
+  
+  pre.d-code code.d-code {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+  
+  pre.text-output {
+  
+    font-size: 12px;
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  @media(min-width: 768px) {
+  
+  d-code {
+    overflow-x: visible !important;
+  }
+  
+  pre.d-code code.d-code  {
+      padding-left: 18px;
+      font-size: 14px;
+  }
+  pre.text-output {
+    font-size: 14px;
+  }
+  }
+  
+  /* Figure */
+  
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+  
+  .figure img {
+    width: 100%;
+  }
+  
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+  
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+  
+  
+  
+  /* Tweak 1000px media break to show more text */
+  
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+  
+    .grid {
+      grid-column-gap: 16px;
+    }
+  
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+  
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+  
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+  
+  
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+  
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  
+  /* Social footer */
+  
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+  
+  .disqus-comments {
+    margin-right: 30px;
+  }
+  
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+  
+  #disqus_thread {
+    margin-top: 30px;
+  }
+  
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+  
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+  
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+  
+  
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+  
+  
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+  
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+  
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+  
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+  
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+  
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+  
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+  
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+  
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+  
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  </style>
+  
+  <script type="application/javascript">
+  
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+  
+  // show body when load is complete
+  function on_load_complete() {
+  
+    // set body to visible
+    document.body.style.visibility = 'visible';
+  
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+  
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+  
+  function init_distill() {
+  
+    init_common();
+  
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+  
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+  
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+  
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+  
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+  
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+  
+    // create d-bibliography
+    var bibliography = $('<d-bibliography></d-bibliography>');
+    $('#distill-bibliography').wrap(bibliography);
+  
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+  
+    // replace citations with <d-cite>
+    $('.citation').each(function(i, val) {
+      appendix = true;
+      var cites = $(this).attr('data-cites').split(" ");
+      var dt_cite = $('<d-cite></d-cite>');
+      dt_cite.attr('key', cites.join());
+      $(this).replaceWith(dt_cite);
+    });
+    // remove refs
+    $('#refs').remove();
+  
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+  
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-toc a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+  
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+  
+    // replace code blocks with d-code
+    $('pre>code').each(function(i, val) {
+      var code = $(this);
+      var pre = code.parent();
+      var clz = "";
+      var language = pre.attr('class');
+      if (language) {
+        // map unknown languages to "clike" (without this they just dissapear)
+        if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                                 "javascript", "js", "julia", "lua", "markdown",
+                                 "markup", "mathml", "python", "svg", "xml"]) == -1)
+          language = "clike";
+        language = ' language="' + language + '"';
+        var dt_code = $('<d-code block' + language + clz + '></d-code>');
+        dt_code.text(code.text());
+        pre.replaceWith(dt_code);
+      } else {
+        code.addClass('text-output').unwrap().changeElementType('pre');
+      }
+    });
+  
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+  
+      // capture layout
+      var layout = $(this).attr('data-layout');
+  
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('d-code, pre.text-output, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+  
+  
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+  
+    // load distill framework
+    load_distill_framework();
+  
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+  
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+  
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+  
+      // table of contents
+      if (have_authors) // adjust border if we are in authors
+        $('.d-toc').parent().addClass('d-article-with-toc');
+  
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+  
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+  
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+  
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+  
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+  
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+  
+      // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+      $('d-code').each(function(i, val) {
+        var style = document.createElement('style');
+        style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                          '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+        if (this.shadowRoot)
+          this.shadowRoot.appendChild(style);
+      });
+  
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+  
+      // clear polling timer
+      clearInterval(tid);
+  
+      // show body now that everything is ready
+      on_load_complete();
+    }
+  
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+  
+  }
+  
+  function init_downlevel() {
+  
+    init_common();
+  
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+  
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+  
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+  
+    // remove toc
+    $('.d-toc-header').remove();
+    $('.d-toc').remove();
+    $('.d-toc-separator').remove();
+  
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+  
+  
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+  
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+  
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+  
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+  
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+  
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+  
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+  
+    $('body').addClass('downlevel');
+  
+    on_load_complete();
+  }
+  
+  
+  function init_common() {
+  
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+  
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+  
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+  
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+  
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+  
+      }
+    });
+  
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+  
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.radix-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+  
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+  
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+  
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+  
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+  
+  </script>
+  
+  <!--/radix_placeholder_distill-->
+  <script src="airflow-on-windows-linux-subsystem_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="airflow-on-windows-linux-subsystem_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="airflow-on-windows-linux-subsystem_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="airflow-on-windows-linux-subsystem_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Airflow on Windows Linux Subsystem","description":"In this I detail the process for getting a working instance of Apache Airflow on Windows Linux Subsystem. This is a combination of several different posts spread across the internet. Apache Airflow is an exceptional program for scheduling and running tasks.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-03-04T00:00:00.000-05:00","citationText":"DeWitt, 2020"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Airflow on Windows Linux Subsystem</h1>
+<p>In this I detail the process for getting a working instance of Apache Airflow on Windows Linux Subsystem. This is a combination of several different posts spread across the internet. Apache Airflow is an exceptional program for scheduling and running tasks.</p>
+</div>
+
+<div class="d-byline">
+  Michael DeWitt <a href="https://michaeldewittjr.com" class="uri">https://michaeldewittjr.com</a> 
+  
+<br/>03-04-2020
+</div>
+
+<div class="d-article">
+<h1 id="why-do-this">Why Do This?</h1>
+<p>Like it or not, there are a lot of Windows shops out there. However, many super useful tools are Linux native and don’t really bridge into the Windows world (for good reason). That being said Windows and Microsoft (I think) are acknowledging this gap and have provided the Windows Linux Subsystem as a bridge between these two dominate platforms. This allows us little people to take advantage of some of the high powered tools available.</p>
+<h1 id="special-thanks">Special Thanks</h1>
+<p>This post stands on the back of a lot of really well written articles which I will link to. Additionally, the code here is good as of Feb 2020 so things are always subject to change.</p>
+<h1 id="start-with-wls">Start with WLS</h1>
+<p>Assuming you are on a Windows box, you’ll need to enable Windows Linux Subsystem. This will allow you to run a lightweight virtual machine that also has access to your root machine file system if you so choose. The instructions are pretty decent <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">at this link</a>, but here are the high points.</p>
+<h2 id="enable-wsl">Enable WSL</h2>
+<p>You need to enable your features via <strong>Powershell</strong> in administrator mode. If you are on a server or VM, you can do this by adding the features using the usual methods by selecting the additional features.</p>
+<pre class="markdown"><code>
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</code></pre>
+<h2 id="get-the-distro">Get the Distro</h2>
+<p>Now you can download your distribution of choice (I like Ubuntu 18.04). There is some weirdness with some of the versions, so be careful what you choice. For instance when I installed Ubuntu 16LTS I could not upgrade to Python3.6, which I needed, so I had to burn it down and install another.</p>
+<pre class="markdown"><code>
+Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing
+Add-AppxPackage .\Ubuntu.appx</code></pre>
+<h3 id="burn-it-down-huh">Burn it Down? Huh?</h3>
+<p>So this is a little aside. Sometimes you mess up and the instal doesn’t go as expected. It is surprisingly hard to remove an old distribution and restart (though some tutorials say that it is). Here is a trick, again in powershell</p>
+<pre class="markdown"><code>
+wslconfig /l</code></pre>
+<p>Which will allow you to see what is installed. If you want to reset your distribution, which I had to do, do the following:</p>
+<pre class="markdown"><code>
+wslconfig /u Ubuntu18-04</code></pre>
+<p>This will unlist the distribution and you can install it afresh, otherwise it will continue to live on in your system.</p>
+<h2 id="now-start-ubuntu">Now Start Ubuntu</h2>
+<p>Assuming your install went ok, now go to the start button (or whatever it is called now) and type “Ubuntu”. You should see the familiar logo. Select it and it will run. You’ll also have to name yourself (which can be anything you want).</p>
+<p>As always a good practice it to give your new Ubuntu instance an update and upgrade:</p>
+<pre class="bash"><code>
+sudo apt updade &amp;&amp; sudo apt upgrade</code></pre>
+<p>Additionally, and this is important, you want to automount your Windows directories. You can typically access them via <code>/mnt/c/Users...</code>, but a lot of programs don’t like this and won’t run from a mounted drive. because of this you will need to update a configuration file:<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<pre class="bash"><code>
+sudo nano /etc/wsl.conf</code></pre>
+<p>Then type the following into the configuration file:</p>
+<pre class="markdown"><code>
+[automount]
+root = /
+options = &quot;metadata&quot;</code></pre>
+<p>Now write out the file <code>CTRL + O</code>, then exit with <code>CTRL + X</code></p>
+<p>Now if you type the following, you should see your C drive listed in the directories:</p>
+<pre class="markdown"><code>
+ls /l</code></pre>
+<h1 id="postgres">Postgres</h1>
+<p><a href="https://en.wikipedia.org/wiki/PostgreSQL">Postgres</a> is an open source database, which works great with Airflow and is relatively easy to use. Aiflow will run out of the box on a local sqlite database, but it always seems to get corrupted and have IO errors which are hard to depug.</p>
+<h2 id="installing-postgres">Installing Postgres</h2>
+<p>In the Ubuntu terminal type the following to get postgres<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<pre class="bash"><code>
+sudo apt-get install postgresql</code></pre>
+<p>The user account for postgres is <code>postgres</code> (easy enough to remember)</p>
+<p>You’ll need to make a password by the following:</p>
+<pre class="bash"><code>
+sudo passwd postgres</code></pre>
+<p>Then close Ubuntu and open it back up. Type the following to see if the server is running:</p>
+<pre class="bash"><code>
+sudo service postgresql start</code></pre>
+<h2 id="create-a-postgres-user-and-database">Create a Postgres User and Database</h2>
+<p>First we’ll create a user for the postgres database. This is how Airflow will connect:</p>
+<pre class="bash"><code>
+sudo -u postgres createuser airflow
+sudo -u postgres createdb airflowdb</code></pre>
+<p>Now you want to jump into the postgres database that you started and provide rights and a password to <code>airflow</code></p>
+<pre class="bash"><code>
+sudo -u postgres psql</code></pre>
+<p>Now in the pqsl area (looks like psql=#)</p>
+<pre class="psql"><code>
+alter user airflow with encrypted password &#39;securepassword&#39;;
+grant all privileges on database airflowdb to airflow ; 
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO airflow;</code></pre>
+<p>Now you can hit <code>CTRL + Z</code> and exit the postgres prompt. Congrats, you now have an airflowdb postgres database.</p>
+<p>To verify that everything went as expected, again in the command line type:</p>
+<pre class="bash"><code>
+psql -d airflow</code></pre>
+<p>Then in the airflow prompt type:</p>
+<pre class="psql"><code>
+\conninfo</code></pre>
+<p>Note the port that it is serving on (typically 5432, but could be something different for you). Exit out back to the bash terminal.</p>
+<h2 id="config-for-postgres">Config for Postgres</h2>
+<p>Now, thanks to <a href="https://medium.com/@taufiq_ibrahim/apache-airflow-installation-on-ubuntu-ddc087482c14">this post</a> we will update some configuration files so that Airflow and postgres can communicate.</p>
+<p>First we need to change the pg_hba.conf file. <strong>Note</strong> that you may need to change your path depending on what version of postgres you have.</p>
+<pre class="bash"><code>
+sudo nano /etc/postgresql/10/main/pg_hba.conf</code></pre>
+<p>Now that you have that file open, chage the IPv4 connections to as follows:</p>
+<pre class="markdown"><code>
+host all all 0.0.0.0/0 trust</code></pre>
+<p>Write out those changes and then exit. Now restart the server with:</p>
+<pre class="bash"><code>
+sudo service postgresql restart</code></pre>
+<p>Now one more configuration file change, this time at:</p>
+<pre class="bash"><code>
+sudo nano /etc/postgresql/9.5/main/postgresql.conf</code></pre>
+<p>Here change the <code>listen_addresses</code> field to look like that below:</p>
+<pre class="markdown"><code>
+listen_addresses = ‘*’ # for Airflow connection</code></pre>
+<p>Then restart the server once more:</p>
+<pre class="bash"><code>
+sudo service postgresql restart</code></pre>
+<h1 id="now-airflow">Now Airflow</h1>
+<p>Wow, we went through a good bit just to get here. Worry not though, almost done.</p>
+<h2 id="change-airflowhome">Change Airflowhome</h2>
+<p>First we need to make sure that Airflow goes to a real drive on the local machine and not in the WLS. To ensure this happens, I like to add the path to my .bashrc file.</p>
+<pre class="bash"><code>
+sudo nano ~/.bashrc</code></pre>
+<p>Find an empty line and include the line below, changing the “user_name” for whatever username you have. Important here is that you have write access and know that the dags for airflow will be in this case under the AirflowHome directory on your C drive.</p>
+<pre class="markdown"><code>
+export AIRFLOW_HOME=/c/Users/user_name/AirflowHome</code></pre>
+<p>Write out this change and then exit with the normal keystrokes. Additionally, source your bashrc file or exit Ubuntu and re open it.</p>
+<h2 id="python">Python?</h2>
+<p>It is important to make sure that we have a version of pythong3.6 or newer. This ships with Ubuntu 18-04, but worth checking with the following:</p>
+<pre class="bash"><code>
+python --version</code></pre>
+<p>If we don’t have python then we will need to install it with:</p>
+<pre class="bash"><code>
+sudo apt get python3</code></pre>
+<p>If we do have it, we need to verify that we have pip</p>
+<pre class="bash"><code>
+pip3 --version</code></pre>
+<p>If not, install it as above.</p>
+<h2 id="install-airflow-finally">Install Airflow (finally)</h2>
+<p>Now that all the pre-reqs have been accomplished we can install airflow with the following:</p>
+<pre class="bash"><code>
+pip3 install apache-airflow[postgres, mssql, celery, rabbitmq]</code></pre>
+<p>This will install Airflow as well as all the packages that support connecting to postgres, MS Sql and running multiple operators. Depending what packages you have, this might take a bit.</p>
+<h2 id="configuring-airflow">Configuring Airflow</h2>
+<p>Once everything is installed, we need to update the configuration for airflow to point it to our prefered destinations.</p>
+<p>We an do this with:</p>
+<pre class="bash"><code>
+sudo nano ${AIRFLOW_HOME}/airflow.cfg</code></pre>
+<p>(This also tests that our path was successful).</p>
+<p>Once there we need to alter two fields.</p>
+<ol type="1">
+<li>Update our database to our fancy postgres instance as shown below:</li>
+</ol>
+<pre class="markdown"><code>
+sql_alchemy_conn = postgresql+psycopg2://airflow:secure_password@localhost:5432/airflowdb</code></pre>
+<ol start="2" type="1">
+<li>Change our executor to:</li>
+</ol>
+<pre class="markdown"><code>
+executor = LocalExecutor</code></pre>
+<p>In theory we should be able to use the CeleryExecutor, but I wasn’t sucessful with it and didn’t want to fight that anymore.</p>
+<p>You should scan through this configuration file to see if everything is correct and if you want to make any changes. For example you might want to change the timezone as <a href="https://www.ryanmerlin.com/2019/07/apache-airflow-installation-on-ubuntu-18-04-18-10/">the author of this post did</a></p>
+<pre class="markdown"><code>
+default_timezone = America/New_York</code></pre>
+<h2 id="serving-it-up">Serving it Up</h2>
+<p>Now you can exit the configuration file by writing out your changes.</p>
+<p>Now you can start serving Airflow with the following:</p>
+<pre class="bash"><code>
+airflow initdb</code></pre>
+<p>Now the database has been initialized. Next step is to start the scheduler:</p>
+<pre class="bash"><code>
+airflow scheduler</code></pre>
+<p>This will start the scheduler (and it might take up the whole window with logs, so just open another instance of Ubunutu).</p>
+<p>Then start the webserver:</p>
+<pre class="bash"><code>
+airflow webserver</code></pre>
+<p>Again, this might take another terminal over completely, but don’t worry. If everything worked, you should be able to navigate to localhost:8080 and see your Airflow instance running in your favourite browser.</p>
+<p>This will have the default dags loaded by default, so you should see several dags. Turn one of the tutorials one, then manually trigger the DAG to see how it works.</p>
+<h1 id="running-a-dag-on-the-local-machine">Running A Dag on the Local Machine</h1>
+<p>The whole prupose of Airflow is to schedule tasks. Ideally, you can use all of your windows credentials, Active Directory, looking at you and manipulate files on shared drives. Here’s where it gets tricky; you will call your Windows host machine to run your tasks in your DAG files.</p>
+<h2 id="an-example">An Example</h2>
+<p>I manage my dags through a Git repository. This provides me all the power of version control and lets other users submit PRs with new DAGs. If need to make changes, I just push to my local repository with my new dag or changed dag. Airflow then pulls this repository on a schedule, checks them, and turns any shell scripts into executables.</p>
+<pre class="python"><code>
+# -*- coding: utf-8 -*-
+
+from builtins import range
+from datetime import timedelta
+import airflow
+from airflow.models import DAG
+from airflow.operators.bash_operator import BashOperator
+from airflow.operators.dummy_operator import DummyOperator
+
+args = {
+    &#39;owner&#39;: &#39;michael&#39;,
+    &#39;start_date&#39;: airflow.utils.dates.days_ago(2),
+}
+
+dag = DAG(
+    dag_id=&#39;pull_scheduler_updates&#39;,
+    default_args=args,
+    schedule_interval=&#39;2 4 * * *&#39;,
+    dagrun_timeout=timedelta(minutes=20),
+)
+
+update_repo = BashOperator(
+    task_id=&#39;update_repo&#39;,
+    bash_command=&#39;cd /c/Users/mike/AirflowHome; /c/Program\ Files/Git/cmd/git.exe checkout -f; /c/Program\ Files/Git/cmd/git.exe pull origin master; &#39;,
+    dag=dag,
+)
+
+convert_unix = BashOperator(
+    task_id=&#39;convert_to_unix&#39;,
+    bash_command=&#39;cd /c/Users/mike/AirflowHome/src; find . -type f -print0 | xargs -0 dos2unix; &#39;,
+    dag=dag,
+)
+
+make_exec = BashOperator(
+    task_id=&#39;make_exec&#39;,
+    bash_command=&quot;cd /c/Users/mike/AirflowHome/src; ls -l | awk &#39;{k=0;for(i=0;i&lt;=8;i++)k+=((substr($1,i+2,1)~/[rwx]/) *2^(8-i));if(k)printf(\&quot;%0o \&quot;,k);print}&#39;; &quot;,
+    dag=dag,
+)
+
+update_repo &gt;&gt;  convert_unix
+convert_unix &gt;&gt; make_exec
+
+if __name__ == &quot;__main__&quot;:
+    dag.cli()
+</code></pre>
+<p>The important part here to note is that I am changing directory to a place on my C drive, then calling <a href="https://git-scm.com/download/win">Windows Git</a> explicitly from my host system files. This allows my Windows machine to handle this process and not count on Ubuntu WLS to execute these tasks.</p>
+<p>Similarly, if I had a shell script that looked like the following:</p>
+<pre class="bash"><code>
+echo &quot;starting&quot;
+echo $(pwd)
+
+# Set Location
+cd /c/Users/mike/cool_project
+/c/Program\ Files/R/R-3.6.1/bin/x64/Rscript.exe really_long_script.R
+
+echo &quot;Done!&quot;</code></pre>
+<p>This would allow me to call R directly on the host machine to run my long script. Ideally, I would set common system commands as alias (eg. Rscript = /c/Program Files/R/R-3.6.1/bin/x64/Rscript.exe or something like this). I might go down that road, but not right now (or I will put it at the top of the bash script and have templates).</p>
+<pre class="bash"><code>
+echo &quot;starting&quot;
+echo $(pwd)
+Rscript = /c/Program\ Files/R/R-3.6.1/bin/x64/Rscript.exe
+# Set Location
+cd /c/Users/mike/cool_project
+${Rscript] really_long_script.R
+
+echo &quot;Done!&quot;</code></pre>
+<p>Creating variables with the path names is what I have done in Makefiles (because I am old school and love GNUmake). In this way I can still navigate to a directory and issue the <code>make</code> command in the DAG.</p>
+<h2 id="rmarkdown">Rmarkdown</h2>
+<p>One thing to consider when dealing with RMarkdown is that you need to explicitly define the path the pandoc when the script is being run by Airflow.</p>
+<pre class="r"><code>
+Sys.setenv(RSTUDIO_PANDOC=&quot;C:/Program Files/RStudio/bin/pandoc&quot;)</code></pre>
+<p>This typically my scripts for R being run by Airflow will look like:</p>
+<pre class="bash"><code>
+echo &quot;starting&quot;
+echo $(pwd)
+Rscript = /c/Program\ Files/R/R-3.6.1/bin/x64/Rscript.exe
+
+# Set Location
+cd /c/Users/mike/cool_project
+${Rscript} -e &#39;Sys.setenv(RSTUDIO_PANDOC=&quot;C:/Program Files/RStudio/bin/pandoc&quot;); rmarkdown::render(&quot;cool_report.Rmd&quot;)&#39;
+
+echo &quot;Done!&quot;
+</code></pre>
+<h1 id="issues">Issues…</h1>
+<p>Sometimes Airflow will die or you will submit a bad DAG and get things messed up. Don’t worry, there are plenty of tricks:</p>
+<ol type="1">
+<li>Reset your database</li>
+</ol>
+<pre class="bash"><code>
+airflow resetdb</code></pre>
+<p>This will clear out and reset your database. For extra reset power, go ahead and use the <code>airflow initdb</code>.</p>
+<p>You might need to start the server and the scheduler again as well.</p>
+<ol start="2" type="1">
+<li>Kill orphan processes. I have found that if something fails while Airflow is running a process, it can get hung up and won’t resart correctly.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
+</ol>
+<p>When that happens you might need to kill the processes manually, then restart the airflow database, scheulder, and webserver.</p>
+<pre class="bash"><code>
+ps -aux | grep scheduler</code></pre>
+<p>Will list the processes. Scan them and see if anything needs to be killed as shown below.</p>
+<pre class="bash"><code>
+kill -9 3400</code></pre>
+<p>Update DAGs. If you don’t automatically update the DAGs as I have done and are waiting for a new DAG to appear, you can try the following on the bash shell:</p>
+<pre class="bash"><code>
+python3 -c &quot;from airflow.models import DagBag; d = DagBag();&quot;</code></pre>
+<h1 id="conclusion">Conclusion</h1>
+<p>Airflow is great and I love it. You will have to learn how to use it with Windows, but the pain is worth it for the convenience and transparency of your job.</p>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Learned this great tidbit here <a href="https://www.astronomer.io/guides/airflow-wsl/" class="uri">https://www.astronomer.io/guides/airflow-wsl/</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Special thanks to this blog post <a href="https://medium.com/@harshityadav95/postgresql-in-windows-subsystem-for-linux-wsl-6dc751ac1ff3" class="uri">https://medium.com/@harshityadav95/postgresql-in-windows-subsystem-for-linux-wsl-6dc751ac1ff3</a><a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>See this post <a href="https://stackoverflow.com/questions/59080796/airflow-scheduler-periodically-complains-no-heartbeat" class="uri">https://stackoverflow.com/questions/59080796/airflow-scheduler-periodically-complains-no-heartbeat</a> for an example<a href="#fnref3" class="footnote-back">↩</a></p></li>
+</ol>
+</section>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+<h3 id="reuse">Reuse</h3>
+<p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
