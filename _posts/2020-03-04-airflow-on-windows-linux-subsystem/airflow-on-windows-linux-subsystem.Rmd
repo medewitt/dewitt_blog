@@ -243,7 +243,7 @@ Additionally, source your bashrc file or exit Ubuntu and re open it.
 
 ## Python?
 
-It is important to make sure that we have a version of pythong3.6 or newer.
+It is important to make sure that we have a version of Python 3.6 or newer.
 This ships with Ubuntu 18-04, but worth checking with the following:
 
 ```bash
