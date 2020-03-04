@@ -423,7 +423,7 @@ echo $(pwd)
 Rscript = /c/Program\ Files/R/R-3.6.1/bin/x64/Rscript.exe
 # Set Location
 cd /c/Users/mike/cool_project
-${Rscript] really_long_script.R
+$(Rscript) really_long_script.R
 
 echo "Done!"
 ```
@@ -447,7 +447,7 @@ Rscript = /c/Program\ Files/R/R-3.6.1/bin/x64/Rscript.exe
 
 # Set Location
 cd /c/Users/mike/cool_project
-${Rscript} -e 'Sys.setenv(RSTUDIO_PANDOC="C:/Program Files/RStudio/bin/pandoc"); rmarkdown::render("cool_report.Rmd")'
+$(Rscript) -e 'Sys.setenv(RSTUDIO_PANDOC="C:/Program Files/RStudio/bin/pandoc"); rmarkdown::render("cool_report.Rmd")'
 
 echo "Done!"
 

@@ -1564,7 +1564,7 @@ echo $(pwd)
 Rscript = /c/Program\ Files/R/R-3.6.1/bin/x64/Rscript.exe
 # Set Location
 cd /c/Users/mike/cool_project
-${Rscript] really_long_script.R
+$(Rscript) really_long_script.R
 
 echo &quot;Done!&quot;</code></pre>
 <p>Creating variables with the path names is what I have done in Makefiles (because I am old school and love GNUmake). In this way I can still navigate to a directory and issue the <code>make</code> command in the DAG.</p>
@@ -1580,7 +1580,7 @@ Rscript = /c/Program\ Files/R/R-3.6.1/bin/x64/Rscript.exe
 
 # Set Location
 cd /c/Users/mike/cool_project
-${Rscript} -e &#39;Sys.setenv(RSTUDIO_PANDOC=&quot;C:/Program Files/RStudio/bin/pandoc&quot;); rmarkdown::render(&quot;cool_report.Rmd&quot;)&#39;
+$(Rscript) -e &#39;Sys.setenv(RSTUDIO_PANDOC=&quot;C:/Program Files/RStudio/bin/pandoc&quot;); rmarkdown::render(&quot;cool_report.Rmd&quot;)&#39;
 
 echo &quot;Done!&quot;
 </code></pre>
