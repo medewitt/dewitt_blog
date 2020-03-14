@@ -29,7 +29,7 @@ I have been saddened that the local department of public health has been underes
 Just using some of the numbers that have been floating around (and cited in some recent literature that when I am not tired I will cite^[Like this study: Zhang, S, Diao M, et al (2020)]) one can quickly simulate possible infections.
 **I am not an epidemiologist**, but I do have a strong appreciation for exponential growth.
 
-To build the model, I am going to take a repoductive rate of 2.28.
+To build the model, I am going to take a reproductive rate of 2.28.
 Additionally, we can add some noise to it in order to simulate 1,000 different scenarios.
 We know that we have two initial cases (more now as I write), so we'll take that as $x_0$
 
@@ -39,7 +39,7 @@ $$y_{infected}=x_0*(R_0)^t$$
 Where:
 
 $$x_0 = \text{initial number of cases}$$
-$$R_0 = \text{Repductive Number}$$
+$$R_0 = \text{Reproductive Number}$$
 $$t = \text{time period}$$
 
 Additionally, for this simulation we will assume:
@@ -92,7 +92,7 @@ p
 ```
 
 
-Now when we talk about flattening the curve, if we can reduce the repoductive rate mean value from above 2 to one, we can see the following:
+Now when we talk about flattening the curve, if we can reduce the reproductive rate mean value from above 2 to one, we can see the following:
 
 ```{r layout="l-body-outset", fig.cap="Number of Infections in Forsyth County with Reproductive Rate of 1"}
 r0 <- rnorm(1000, 1,.5)
@@ -133,7 +133,7 @@ For the sake of this simulation let's assume that about 20% of the staffed beds 
 Additionally, assume that there is some additional admit/discharge capacity. 
 Here I mean how fast can the hospital actually process people (e.g. it takes time to move a patient, find a bed for them, go through the admission process. On the discharge there is some time spend arranging for placement, finding transportation, etc).
 
-Now we can simulate the rough cenus or volume of patients in the hospital at any given time using the following simulation.
+Now we can simulate the rough census or volume of patients in the hospital at any given time using the following simulation.
 
 This is a very rough approximation of a hospital operations.
 
@@ -142,7 +142,7 @@ We have:
 * Total number of beds  
 * Total number of staffed beds  
 * Our flow (generally speaking 20% of the hospital turns over per day)  
-* Convert flow to an hourly rate (which we will assume is poisson distributed )  
+* Convert flow to an hourly rate (which we will assume is Poisson distributed )  
 * Processing rate (which we will assume in normally distributed)  
 * Time horizon, here 28 days  
 
@@ -219,7 +219,7 @@ abline(h=n_beds, lty = "dashed", col = "orange")
 ```
 
 Now here is where it is important to flatten the curve.
-If we can lower the repductive rate through the normal pathways: hand washing, social distancing, etc, we can see we will still have an issue:
+If we can lower the reproductive rate through the normal pathways: hand washing, social distancing, etc, we can see we will still have an issue:
 
 ```{r}
 hospitalization_rate <- .2
@@ -254,4 +254,4 @@ abline(h=n_beds, lty = "dashed", col = "orange")
 ## Conclusion
 
 Pandemics are real, and locally we can control our own destiny.
-We need to be cautios and exericse care when dealing with these kinds of things and do our part to "flatten the curve".
+We need to be cautious and exercise care when dealing with these kinds of things and do our part to "flatten the curve".
