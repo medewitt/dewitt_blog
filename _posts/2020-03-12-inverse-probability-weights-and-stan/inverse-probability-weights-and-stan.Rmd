@@ -1,0 +1,151 @@
+---
+title: "Inverse Probability Weights and Stan"
+description: |
+  A short description of the post.
+author:
+  - name: Michael DeWitt
+    url: https://michaeldewittjr.com
+categories:
+  -Stan
+date: 03-12-2020
+draft: true
+output:
+  radix::radix_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Radix is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Radix at <https://rstudio.github.io/radix>.
+
+```{r fake-data}
+library(tidyverse)
+set.seed(42)
+n <- 1000
+num_pred <- 3
+rho <- 0
+Sigma_star <- matrix(rep(rho, num_pred^2), 
+                       nrow = num_pred)
+
+diag(Sigma_star) <- 1
+
+
+
+X <- mvtnorm::rmvnorm(n, 
+                      mean = c(0.5, 1, -.25),
+                      sigma = Sigma_star)
+
+participate <- rbinom(n, size = 1, arm::invlogit(X %*% c(1, -.2, -.05)))
+
+```
+
+So the next step is to look and see how our probability of participation model does.
+
+
+```{r}
+summary(propensity <- glm(participate ~ X,family = "binomial"))
+```
+
+Now we can simulate an intervention effect, here `0.5` to keep things easy.
+We will also assume that X1 attenuates the treatment effect.
+
+```{r}
+effect <- rnorm(n, participate*.5+ X[,1] * -.1, .1)
+```
+
+Now we can combine the data.
+
+```{r}
+dat <- tibble(participate , effect) %>% 
+  bind_cols(as.data.frame(X))
+```
+
+It is interesting to first look at our omitted variable bias.
+We know that the true effect is 0.5, but looking at a naive OLS regression we can see that the effect is less than the effected. 
+This makes sense and is a good example of omitted variable bias.
+
+```{r}
+lm(effect ~ participate, dat)
+```
+
+We can go even further:
+
+```{r}
+lm(effect ~ participate + V1, dat)
+```
+
+```{r}
+dat_weighted <- dat %>% 
+  modelr::add_predictions(propensity, 
+                          var ="propensity_score", 
+                          type = "response") %>% 
+  mutate(
+    w_ate = (participate / propensity_score) + 
+      ((1 - participate) / (1 - propensity_score)),
+    w_att = ((propensity_score * participate) / propensity_score) + 
+      ((propensity_score * (1 - participate)) / (1 - propensity_score)))
+```
+
+```{stan output.var="stanwls"}
+data {
+  int<lower=0> N;   // number of data items
+  int<lower=0> K;   // number of predictors
+  int<lower=0> p;   // number of propensity predictors
+  matrix[N, K] x;   // predictor matrix for effect
+  int<lower=0,upper=1> treated[N];
+  matrix[N, p] z;   // predictor for propensity
+  vector[N] y;      // outcome vector
+}
+parameters {
+  real alpha1;           // intercept
+  real alpha2;           // intercept
+  vector[K] beta;
+  vector[p] theta;
+  real<lower=0> sigma;  // error scale
+}
+model {
+  real weights[N];
+  real w_ate[N];
+  // Model Propensity
+  for (n in 1:N)
+  treated[n] ~ bernoulli_logit(alpha1 +  z * theta);
+  
+  for(n in 1:N)
+  weights[n] = inv_logit(alpha1 + z[n] * theta);
+  
+  for( n in 1:N)
+  w_ate[n] = y[n]/weights[n] + (1-treated[n])/(1-weights[n]);
+
+  y[N] ~ normal(x * beta + alpha2, sigma*w_ate[N]);  // likelihood
+}
+
+```
+
+
+```{r}
+library(rstan)
+
+stan_dat <- list(
+  N = nrow(dat),
+  K = 4L,
+  x = select(dat_weighted, participate, V1:V3),
+  w = pull(dat_weighted, w_ate),
+  y = pull(dat_weighted, effect)
+)
+
+fit <- sampling(stanwls, 
+                 data = stan_dat, iter = 1000, 
+                 chains = 2, cores = 2, refresh = 0)
+
+print(fit)
+```
+
+```{r}
+lm(effect ~ V1+V2+V3+participate, 
+                    data = dat_weighted, weights = w_ate)
+```
+

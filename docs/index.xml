@@ -7,7 +7,16 @@
     <description>The thoughts and exploration of Michael DeWitt
 </description>
     <generator>Radix</generator>
-    <lastBuildDate>Wed, 04 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Mar 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Flatten the Curve</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2020-03-13-flatten-the-curve</link>
+      <description>In the post I explore the potential growth rate of Covid-19 to Forsyth County, NC. This also includes looking at the kind of load that this virus could place on our existing healthcare systems. I strongly advocate for acting to delay to flood of potential community acquired infections.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2020-03-13-flatten-the-curve</guid>
+      <pubDate>Fri, 13 Mar 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2020-03-13-flatten-the-curve/flatten-the-curve_files/figure-html5/unnamed-chunk-1-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Airflow on Windows Linux Subsystem</title>
       <dc:creator>Michael DeWitt</dc:creator>
