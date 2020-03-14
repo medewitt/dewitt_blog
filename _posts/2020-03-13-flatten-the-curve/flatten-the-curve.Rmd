@@ -189,7 +189,7 @@ Let's also assume that each patient stays for 7 days.
 This means that we admit patients for seven days before they are discharged.
 
 ```{r}
-hospitalization_rate <- .2
+hospitalization_rate <- .05
 covid_discharges <- rep(lag(results$avg, 
                             n = 7, default = 0)/24, 
                         each = 24)*hospitalization_rate
@@ -222,7 +222,7 @@ Now here is where it is important to flatten the curve.
 If we can lower the reproductive rate through the normal pathways: hand washing, social distancing, etc, we can see we will still have an issue:
 
 ```{r}
-hospitalization_rate <- .2
+hospitalization_rate <- .05
 covid_discharges <- rep(lag(results_abetment$avg, 
                             n = 7, default = 0)/24, 
                         each = 24)*hospitalization_rate

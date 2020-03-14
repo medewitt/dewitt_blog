@@ -1110,7 +1110,7 @@ Figure 3: Hospital Census No Pandemic
 <p>Now we can our above pandemic simulation. Let’s also assume that each patient stays for 7 days. This means that we admit patients for seven days before they are discharged.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-hospitalization_rate &lt;- .2
+hospitalization_rate &lt;- .05
 covid_discharges &lt;- rep(lag(results$avg, 
                             n = 7, default = 0)/24, 
                         each = 24)*hospitalization_rate
@@ -1127,7 +1127,7 @@ for(i in 2:horizon_t){
 
 saturation &lt;- round(which(queue_pan&gt;n_beds)[1]/24)</code></pre>
 </div>
-<p>We can see very quickly that saturates the healthcare system (actually the number patients outnumbers the number of beds available by day 7).</p>
+<p>We can see very quickly that saturates the healthcare system (actually the number patients outnumbers the number of beds available by day 9).</p>
 <div class="layout-chunk" data-layout="l-body-outset">
 <pre class="r"><code>
 plot(queue_pan, ylim= c(800, 2000), 
@@ -1146,7 +1146,7 @@ Figure 4: Hospital Census With Uncontrolled Pandemic
 <p>Now here is where it is important to flatten the curve. If we can lower the reproductive rate through the normal pathways: hand washing, social distancing, etc, we can see we will still have an issue:</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-hospitalization_rate &lt;- .2
+hospitalization_rate &lt;- .05
 covid_discharges &lt;- rep(lag(results_abetment$avg, 
                             n = 7, default = 0)/24, 
                         each = 24)*hospitalization_rate
@@ -1164,7 +1164,7 @@ for(i in 2:horizon_t){
 
 saturation &lt;- round(which(queue_pan&gt;n_beds)[1]/24)</code></pre>
 </div>
-<p>We can see that we still saturate the system by day 12, but at least we have a few more days. In reality, all of these models are approximations</p>
+<p>We can see that we still saturate the system by day 15, but at least we have a few more days. In reality, all of these models are approximations</p>
 <div class="layout-chunk" data-layout="l-body-outset">
 <pre class="r"><code>
 plot(queue_pan, ylim= c(800, 2000), 
