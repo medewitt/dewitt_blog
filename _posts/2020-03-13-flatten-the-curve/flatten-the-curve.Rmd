@@ -30,7 +30,7 @@ Just using some of the numbers that have been floating around (and cited in some
 **I am not an epidemiologist**, but I do have a strong appreciation for exponential growth.
 
 To build the model, I am going to take a reproductive rate of 2.28.
-Additionally, we can add some noise to it in order to simulate 1,000 different scenarios.
+Additionally, we can add some noise to this estimate in order to simulate 1,000 different scenarios.
 We know that we have two initial cases (more now as I write), so we'll take that as $x_0$
 
 So we take the following model:
@@ -46,7 +46,7 @@ Additionally, for this simulation we will assume:
 
 $$R_0 \sim N(2.28,.5)$$
 
-Normal might not be the best probability distribution to assume for this number (here's where a [split or two piece distribution](https://en.wikipedia.org/wiki/Split_normal_distribution) would make sense because we know it might not be much lower but could be much higher.)
+The Normal distribution might not be the best probability distribution to assume for this number (here's where a [split or two piece distribution](https://en.wikipedia.org/wiki/Split_normal_distribution) would make sense because we know it might not be much lower but could be much higher.), but it will be a good start at least to get a sign and magnitude feel for the situation.
 
 ```{r layout="l-body-outset", fig.cap="Estimation of Number of Infections in Forsyth County with 90% Confidence Intervals Shown"}
 library(dplyr)
@@ -92,7 +92,7 @@ p
 ```
 
 
-Now when we talk about flattening the curve, if we can reduce the reproductive rate mean value from above 2 to one, we can see the following:
+Now when we talk about **flattening the curve**, if we can reduce the reproductive rate mean value from above 2 to one, we can see the following:
 
 ```{r layout="l-body-outset", fig.cap="Number of Infections in Forsyth County with Reproductive Rate of 1"}
 r0 <- rnorm(1000, 1,.5)
@@ -116,15 +116,15 @@ p+
 ```
 
 This is a much better situation.
-Regardless, we are still looking at a lot of people sick.
-The entire county could quite possibly be infected, but at least there is some delay. 
+Regardless, we are still looking at a lot of sick people.
+The entire county could quite possibly be infected within the month, but at least there is some delay to allow our health system to compensate and put plans into place.
 
 ## Hospital Capacity
 
 Which really is the main point of it all: massive increases in the sick put huge stress on the hospitals and health care systems in general.
 
 In Forsyth county we have two main hospitals Novant Forsyth (921 registered beds) and Wake Forest Baptist Medical Center (885 registered beds). 
-All in that gives up `r 921 + 885` beds.
+All in that gives us `r 921 + 885` beds.
 In reality, most hospitals operate at 80% capacity be it through staffing decisions (or inability to find nursing, etc) or through protection of surge capacity for just these types of issues. 
 
 ## Flow

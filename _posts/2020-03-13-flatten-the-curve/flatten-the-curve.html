@@ -967,13 +967,13 @@
 <p>I just wanted to write up a quick exponential growth model for my county. I have been saddened that the local department of public health has been underestimating the power of exponential growth.</p>
 <h2 id="setting-up-the-model">Setting Up the Model</h2>
 <p>Just using some of the numbers that have been floating around (and cited in some recent literature that when I am not tired I will cite<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>) one can quickly simulate possible infections. <strong>I am not an epidemiologist</strong>, but I do have a strong appreciation for exponential growth.</p>
-<p>To build the model, I am going to take a reproductive rate of 2.28. Additionally, we can add some noise to it in order to simulate 1,000 different scenarios. We know that we have two initial cases (more now as I write), so we’ll take that as <span class="math inline">\(x_0\)</span></p>
+<p>To build the model, I am going to take a reproductive rate of 2.28. Additionally, we can add some noise to this estimate in order to simulate 1,000 different scenarios. We know that we have two initial cases (more now as I write), so we’ll take that as <span class="math inline">\(x_0\)</span></p>
 <p>So we take the following model:</p>
 <p><span class="math display">\[y_{infected}=x_0*(R_0)^t\]</span> Where:</p>
 <p><span class="math display">\[x_0 = \text{initial number of cases}\]</span> <span class="math display">\[R_0 = \text{Reproductive Number}\]</span> <span class="math display">\[t = \text{time period}\]</span></p>
 <p>Additionally, for this simulation we will assume:</p>
 <p><span class="math display">\[R_0 \sim N(2.28,.5)\]</span></p>
-<p>Normal might not be the best probability distribution to assume for this number (here’s where a <a href="https://en.wikipedia.org/wiki/Split_normal_distribution">split or two piece distribution</a> would make sense because we know it might not be much lower but could be much higher.)</p>
+<p>The Normal distribution might not be the best probability distribution to assume for this number (here’s where a <a href="https://en.wikipedia.org/wiki/Split_normal_distribution">split or two piece distribution</a> would make sense because we know it might not be much lower but could be much higher.), but it will be a good start at least to get a sign and magnitude feel for the situation.</p>
 <div class="layout-chunk" data-layout="l-body-outset">
 <pre class="r"><code>
 library(dplyr)
@@ -1018,7 +1018,7 @@ Figure 1: Estimation of Number of Infections in Forsyth County with 90% Confiden
 </p>
 </div>
 </div>
-<p>Now when we talk about flattening the curve, if we can reduce the reproductive rate mean value from above 2 to one, we can see the following:</p>
+<p>Now when we talk about <strong>flattening the curve</strong>, if we can reduce the reproductive rate mean value from above 2 to one, we can see the following:</p>
 <div class="layout-chunk" data-layout="l-body-outset">
 <pre class="r"><code>
 r0 &lt;- rnorm(1000, 1,.5)
@@ -1046,10 +1046,10 @@ Figure 2: Number of Infections in Forsyth County with Reproductive Rate of 1
 </p>
 </div>
 </div>
-<p>This is a much better situation. Regardless, we are still looking at a lot of people sick. The entire county could quite possibly be infected, but at least there is some delay.</p>
+<p>This is a much better situation. Regardless, we are still looking at a lot of sick people. The entire county could quite possibly be infected within the month, but at least there is some delay to allow our health system to compensate and put plans into place.</p>
 <h2 id="hospital-capacity">Hospital Capacity</h2>
 <p>Which really is the main point of it all: massive increases in the sick put huge stress on the hospitals and health care systems in general.</p>
-<p>In Forsyth county we have two main hospitals Novant Forsyth (921 registered beds) and Wake Forest Baptist Medical Center (885 registered beds). All in that gives up 1806 beds. In reality, most hospitals operate at 80% capacity be it through staffing decisions (or inability to find nursing, etc) or through protection of surge capacity for just these types of issues.</p>
+<p>In Forsyth county we have two main hospitals Novant Forsyth (921 registered beds) and Wake Forest Baptist Medical Center (885 registered beds). All in that gives us 1806 beds. In reality, most hospitals operate at 80% capacity be it through staffing decisions (or inability to find nursing, etc) or through protection of surge capacity for just these types of issues.</p>
 <h2 id="flow">Flow</h2>
 <p>For the sake of this simulation let’s assume that about 20% of the staffed beds turn over each day. Additionally, assume that there is some additional admit/discharge capacity. Here I mean how fast can the hospital actually process people (e.g. it takes time to move a patient, find a bed for them, go through the admission process. On the discharge there is some time spend arranging for placement, finding transportation, etc).</p>
 <p>Now we can simulate the rough census or volume of patients in the hospital at any given time using the following simulation.</p>
@@ -1127,7 +1127,7 @@ for(i in 2:horizon_t){
 
 saturation &lt;- round(which(queue_pan&gt;n_beds)[1]/24)</code></pre>
 </div>
-<p>We can see very quickly that saturates the healthcare system (actually the number patients outnumbers the number of beds available by day 9).</p>
+<p>We can see very quickly that saturates the healthcare system (actually the number patients outnumbers the number of beds available by day 8).</p>
 <div class="layout-chunk" data-layout="l-body-outset">
 <pre class="r"><code>
 plot(queue_pan, ylim= c(800, 2000), 
@@ -1164,7 +1164,7 @@ for(i in 2:horizon_t){
 
 saturation &lt;- round(which(queue_pan&gt;n_beds)[1]/24)</code></pre>
 </div>
-<p>We can see that we still saturate the system by day 15, but at least we have a few more days. In reality, all of these models are approximations</p>
+<p>We can see that we still saturate the system by day 14, but at least we have a few more days. In reality, all of these models are approximations</p>
 <div class="layout-chunk" data-layout="l-body-outset">
 <pre class="r"><code>
 plot(queue_pan, ylim= c(800, 2000), 
