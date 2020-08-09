@@ -10,3 +10,4 @@
 *.rdx
 *.rdb
 *.Rdata
+*.DS_Store

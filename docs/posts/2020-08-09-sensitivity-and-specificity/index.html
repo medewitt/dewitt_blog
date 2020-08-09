@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="radix" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+<title>Michael DeWitt: Sensitivity and Specificity</title>
+
+<meta property="description" itemprop="description" content="Here I explore the implications of different levels of sensitivity and specificity in a Bayesian framework. All of this work is based on Gelman and Carpenter."/>
+
+<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity/"/>
+<link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2020-08-09"/>
+<meta property="article:created" itemprop="dateCreated" content="2020-08-09"/>
+<meta name="article:author" content="Michael DeWitt"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="Michael DeWitt: Sensitivity and Specificity"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="Here I explore the implications of different levels of sensitivity and specificity in a Bayesian framework. All of this work is based on Gelman and Carpenter."/>
+<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity/"/>
+<meta property="og:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity/sensitivity-and-specificity_files/figure-html5/unnamed-chunk-7-1.png"/>
+<meta property="og:image:width" content="1248"/>
+<meta property="og:image:height" content="768"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Michael DeWitt"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:title" content="Michael DeWitt: Sensitivity and Specificity"/>
+<meta property="twitter:description" content="Here I explore the implications of different levels of sensitivity and specificity in a Bayesian framework. All of this work is based on Gelman and Carpenter."/>
+<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity/"/>
+<meta property="twitter:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity/sensitivity-and-specificity_files/figure-html5/unnamed-chunk-7-1.png"/>
+<meta property="twitter:image:width" content="1248"/>
+<meta property="twitter:image:height" content="768"/>
+
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Michael DeWitt: Sensitivity and Specificity"/>
+<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity/"/>
+<meta name="citation_fulltext_world_readable" content=""/>
+<meta name="citation_online_date" content="2020/08/09"/>
+<meta name="citation_publication_date" content="2020/08/09"/>
+<meta name="citation_author" content="Michael DeWitt"/>
+<!--/radix_placeholder_meta_tags-->
+  
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","categories","bibliography","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Sensitivity and Specificity"]},{"type":"character","attributes":{},"value":["Here I explore the implications of different levels of sensitivity and specificity in a Bayesian framework. All of this work is based on Gelman and Carpenter."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["08-09-2020"]},{"type":"character","attributes":{},"value":["pandemic","bayes","sensitivity"]},{"type":"character","attributes":{},"value":["mybib.bib"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity/"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["mybib.bib","sensitivity-and-specificity_files/bowser-1.9.3/bowser.min.js","sensitivity-and-specificity_files/distill-2.2.21/template.v2.js","sensitivity-and-specificity_files/figure-html5/unnamed-chunk-10-1.png","sensitivity-and-specificity_files/figure-html5/unnamed-chunk-12-1.png","sensitivity-and-specificity_files/figure-html5/unnamed-chunk-14-1.png","sensitivity-and-specificity_files/figure-html5/unnamed-chunk-7-1.png","sensitivity-and-specificity_files/jquery-1.11.3/jquery.min.js","sensitivity-and-specificity_files/webcomponents-2.0.0/webcomponents.js","seroprevalence","seroprevalence.stan"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.radix-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.radix-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #455a64;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.radix-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.radix-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .radix-site-nav {
+    display: none;
+  }
+}
+
+.radix-site-header {
+
+}
+
+.radix-site-footer {
+
+}
+
+
+/* Site Header */
+
+.radix-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.radix-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .radix-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.radix-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.radix-site-header a,
+.radix-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.radix-site-header .title {
+  font-size: 18px;
+}
+
+.radix-site-header .logo {
+  padding: 0;
+}
+
+.radix-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.radix-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .radix-site-header .logo img {
+    display: inline-block;
+  }
+  .radix-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .radix-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .radix-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.radix-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .radix-site-header a, .radix-site-header .nav-dropdown  {display: none;}
+  .radix-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .radix-site-header .title {
+    margin-left: 0;
+  }
+  .radix-site-header .nav-right {
+    margin-right: 0;
+  }
+  .radix-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .radix-site-header.responsive {position: relative;}
+  .radix-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .radix-site-header.responsive a,
+  .radix-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .radix-site-header.responsive .nav-left,
+  .radix-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .radix-site-header.responsive .nav-dropdown {float: none;}
+  .radix-site-header.responsive .nav-dropdown-content {position: relative;}
+  .radix-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.radix-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+</style>
+
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for table of contents */
+
+.d-toc {
+  color: rgba(0,0,0,0.8);
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.d-toc-header {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.3em;
+}
+
+.d-toc a {
+  border-bottom: none;
+}
+
+.d-toc ul {
+  padding-left: 0;
+}
+
+.d-toc li>ul {
+  padding-top: 0.8em;
+  padding-left: 16px;
+  margin-bottom: 0.6em;
+}
+
+.d-toc ul,
+.d-toc li {
+  list-style-type: none;
+}
+
+.d-toc li {
+  margin-bottom: 0.9em;
+}
+
+.d-toc-separator {
+  margin-top: 20px;
+  margin-bottom: 2em;
+}
+
+.d-article-with-toc {
+  border-top: none;
+  padding-top: 0;
+}
+
+
+
+/* Tweak code blocks (note that this CSS is repeated above in an injection
+   into the d-code shadow dom) */
+
+d-code {
+  overflow-x: auto !important;
+}
+
+pre.d-code code.d-code {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+pre.text-output {
+
+  font-size: 12px;
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+@media(min-width: 768px) {
+
+d-code {
+  overflow-x: visible !important;
+}
+
+pre.d-code code.d-code  {
+    padding-left: 18px;
+    font-size: 14px;
+}
+pre.text-output {
+  font-size: 14px;
+}
+}
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // create d-bibliography
+  var bibliography = $('<d-bibliography></d-bibliography>');
+  $('#distill-bibliography').wrap(bibliography);
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace citations with <d-cite>
+  $('.citation').each(function(i, val) {
+    appendix = true;
+    var cites = $(this).attr('data-cites').split(" ");
+    var dt_cite = $('<d-cite></d-cite>');
+    dt_cite.attr('key', cites.join());
+    $(this).replaceWith(dt_cite);
+  });
+  // remove refs
+  $('#refs').remove();
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-toc a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // replace code blocks with d-code
+  $('pre>code').each(function(i, val) {
+    var code = $(this);
+    var pre = code.parent();
+    var clz = "";
+    var language = pre.attr('class');
+    if (language) {
+      // map unknown languages to "clike" (without this they just dissapear)
+      if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                               "javascript", "js", "julia", "lua", "markdown",
+                               "markup", "mathml", "python", "svg", "xml"]) == -1)
+        language = "clike";
+      language = ' language="' + language + '"';
+      var dt_code = $('<d-code block' + language + clz + '></d-code>');
+      dt_code.text(code.text());
+      pre.replaceWith(dt_code);
+    } else {
+      code.addClass('text-output').unwrap().changeElementType('pre');
+    }
+  });
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('d-code, pre.text-output, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // table of contents
+    if (have_authors) // adjust border if we are in authors
+      $('.d-toc').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+    $('d-code').each(function(i, val) {
+      var style = document.createElement('style');
+      style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                        '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+      if (this.shadowRoot)
+        this.shadowRoot.appendChild(style);
+    });
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-toc-header').remove();
+  $('.d-toc').remove();
+  $('.d-toc-separator').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.radix-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110093032-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-110093032-1');
+</script>
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Sensitivity and Specificity","description":"Here I explore the implications of different levels of sensitivity and specificity in a Bayesian framework. All of this work is based on Gelman and Carpenter.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-08-09T00:00:00.000-04:00","citationText":"DeWitt, 2020"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="radix-site-nav radix-site-header">
+<div class="nav-left">
+<a href="../../index.html" class="title">Michael DeWitt</a>
+</div>
+<div class="nav-right">
+<a href="../../index.html">Home</a>
+<a href="../../about.html">About</a>
+<a href="https://michaeldewittjr.com">Main Site</a>
+<a href="../../index.xml">
+<i class="fa fa-rss"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Sensitivity and Specificity</h1>
+<p>Here I explore the implications of different levels of sensitivity and specificity in a Bayesian framework. All of this work is based on Gelman and Carpenter.</p>
+</div>
+
+<div class="d-byline">
+  Michael DeWitt <a href="https://michaeldewittjr.com" class="uri">https://michaeldewittjr.com</a> 
+  
+<br/>08-09-2020
+</div>
+
+<div class="d-article">
+<p>One important concept that is discuss often is the role of sensitivity and specificity in testing. Here we are looking at the ability of a given diagnostic test to correctly identify true positives and correctly identify false positives. If you always forget which one is sensitivity and which one is specifity, no worries, I feel like everyone googles it.</p>
+<p>There has been a lot written already about this topic, and I certainly won’t add anymore than has already been written. Regardless, I would like to just do some</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(rstan)
+library(cmdstanr)
+library(ggplot2)
+theme_set(theme_minimal())</code></pre>
+</div>
+<p>First, I’ll start with the model from <a href="http://www.stat.columbia.edu/~gelman/research/published/specificity.pdf">Gelman and Carpenter</a> and make a few tweaks, and then explore the results.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+writeLines(readLines(&quot;seroprevalence.stan&quot;))</code></pre>
+<pre><code>
+// The input data is a vector &#39;y&#39; of length &#39;N&#39;.
+data {
+  int&lt;lower = 0&gt; y_sample;
+  int&lt;lower = 0&gt; n_sample;
+  real sensitivity;
+  real specificity;
+  real sensitivity_sd;
+  real specificity_sd;
+}
+
+// The parameters accepted by the model. Our model
+// accepts two parameters &#39;mu&#39; and &#39;sigma&#39;.
+parameters {
+  real&lt;lower=0, upper = 1&gt; p;
+  real&lt;lower=0, upper = 1&gt; spec;
+  real&lt;lower=0, upper = 1&gt; sens;
+}
+
+// The positivites observed are a function of 
+// sensitivity and specificity of test then
+// drawn from a bininomial distribution
+model {
+  real p_sample = p * sens + (1 - p) * (1 - spec);
+  y_sample ~ binomial(n_sample, p_sample);
+  
+  // Use Priors for Sensitivity and Specificity
+  // Truncated Normal Because That&#39;s What is 
+  // Available
+  
+  spec ~ normal(specificity, specificity_sd);
+  sens ~ normal(sensitivity, sensitivity_sd);
+  
+}</code></pre>
+</div>
+<p>I made a slight tweak in that the sensitivity and specificity mean and variance are set by the user rather than estimating them from data. Most of the time we don’t have data like these in the hospital where we swab someone multiple times and know the ground “truth.” This would be the equivalent of reading these testing stats off of the proverbial box.</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>We can go ahead and compile our model using <code>cmdstan_model</code>. You’ll note that I am using the <a href="https://mc-stan.org/cmdstanr/">cmdstanr</a> package rather than <a href="https://mc-stan.org/rstan/">rstan</a> for compiling and sampling from Stan. This decision is intentional…mainly because I chronically have issues with upgrading rstan on every platform. cmstand seeks to ameliorate this by being a thin wrapper to the command line version of stan. It’s an easy switch, but there are a few differences.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+mod &lt;- cmdstan_model(&quot;seroprevalence.stan&quot;)</code></pre>
+</div>
+<p>Wake Forest University Baptist Medical Center is doing <a href="https://www.wakehealth.edu/Coronavirus/COVID-19-Community-Research-Partnership/Updates-and-Data">a large study for seroprevalence in North Carolina</a> so that is a good place to start.</p>
+<p>They list 19,057 study participants, but this is a multi-part study where not all the persons receive a test kit to test for antibodies. The participants receive a daily questionaire for symptoms and SARS-CoV-2 positive contacts (it doesn’t use that language, just Covid-19 but recall that’s the disease and not the virus). Let’s just assume 25% of the participants receive a test kit. Based on their numbers 9% on average (8-10%) have tested positive. This is somewhat inline with existing seroprevalence studies <span class="citation" data-cites="stringhini_repeated_2020 pollan_prevalence_2020 havers_seroprevalence_2020">(Stringhini et al. <a href="#ref-stringhini_repeated_2020">2020</a>; Pollán et al. <a href="#ref-pollan_prevalence_2020">2020</a>; Havers et al. <a href="#ref-havers_seroprevalence_2020">2020</a>)</span>.</p>
+<h2 id="running-through-scenarios">Running Through Scenarios</h2>
+<p>So I looked up the <a href="https://www.centerforhealthsecurity.org/resources/COVID-19/serology/Serology-based-tests-for-COVID-19.html">sensitivity and specificity for the antibody test being used in this study (Scanwell)</a> and plugged in those initial values.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+postitives &lt;- 19057*.09*.25
+n &lt;- as.integer(19057*.25)
+
+dat_medium_sensi &lt;- list(
+    y_sample = as.integer(postitives),
+    n_sample = n,
+    sensitivity = .863,
+    specificity = .999,
+    sensitivity_sd = .01,
+    specificity_sd= .01
+)
+
+fit_medium_sensi &lt;- mod$sample(data = dat_medium_sensi,chains = 2,
+                  iter_warmup = 500, refresh = 0,
+                  iter_sampling = 1000, 
+                  adapt_delta = .95)</code></pre>
+<pre><code>
+Running MCMC with 2 sequential chains...
+
+Chain 1 finished in 0.2 seconds.
+Chain 2 finished in 0.1 seconds.
+
+Both chains finished successfully.
+Mean chain execution time: 0.2 seconds.
+Total execution time: 0.4 seconds.</code></pre>
+</div>
+<p>So let’s see where this gives us:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+knitr::kable(fit_medium_sensi$summary(&quot;p&quot;)[,c(&quot;mean&quot;, &quot;q5&quot;, &quot;q95&quot;)], digits = 3)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">q5</th>
+<th style="text-align: right;">q95</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.095</td>
+<td style="text-align: right;">0.08</td>
+<td style="text-align: right;">0.108</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+bayesplot::mcmc_hist(fit_medium_sensi$draws(&quot;p&quot;))+
+  labs(
+    title = &quot;Posterior Draws for P&quot;,
+    subtitle = &quot;Seroprevalence&quot;
+  )+
+  geom_vline(xintercept = .09, lty = &quot;dashed&quot;, colour = &quot;red&quot;)</code></pre>
+<p><img src="sensitivity-and-specificity_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+</div>
+<p>Which puts us right in the error range that Wake reported. That’s good.</p>
+<p>Now let’s test to see what happens if we losen the test. Let’s say that the sensivity is lower…closer to 65% which some reason (could be that many people have below antibody titers below the lower detection threshold. This means that there would be false negative).</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+dat_low_sensi &lt;- list(
+    y_sample = as.integer(postitives),
+    n_sample = n,
+    sensitivity = .65,
+    specificity = .999,
+    sensitivity_sd = .05,
+    specificity_sd= .01
+)
+
+fit_low_sensi &lt;- mod$sample(data = dat_low_sensi,chains = 2,
+                  iter_warmup = 500, refresh = 0,
+                  iter_sampling = 1000, 
+                  adapt_delta = .95)</code></pre>
+<pre><code>
+Running MCMC with 2 sequential chains...
+
+Chain 1 finished in 0.1 seconds.
+Chain 2 finished in 0.1 seconds.
+
+Both chains finished successfully.
+Mean chain execution time: 0.1 seconds.
+Total execution time: 0.2 seconds.</code></pre>
+</div>
+<p>Now we can look at the results:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+knitr::kable(fit_low_sensi$summary(&quot;p&quot;)[,c(&quot;mean&quot;, &quot;q5&quot;, &quot;q95&quot;)], digits = 3)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">q5</th>
+<th style="text-align: right;">q95</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.129</td>
+<td style="text-align: right;">0.104</td>
+<td style="text-align: right;">0.153</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Yikes! Here we see that we could be under-estimating prevalence.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+bayesplot::mcmc_hist(fit_low_sensi$draws(&quot;p&quot;))+
+  labs(
+    title = &quot;Posterior Draws for P&quot;,
+    subtitle = &quot;Seroprevalence&quot;
+  )+
+  geom_vline(xintercept = .09, lty = &quot;dashed&quot;, colour = &quot;red&quot;)</code></pre>
+<p><img src="sensitivity-and-specificity_files/figure-html5/unnamed-chunk-10-1.png" width="624" /></p>
+</div>
+<p>Now maybe another scenario, is that the sensitivity is the same as the “box” value, but there is some additional noise from testing error.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+dat_medi_low_sensi &lt;- list(
+    y_sample = as.integer(postitives),
+    n_sample = n,
+    sensitivity = .85,
+    specificity = .999,
+    sensitivity_sd = .05,
+    specificity_sd= .01
+)
+
+fit_medi_low_sensi &lt;- mod$sample(data = dat_medi_low_sensi,
+                            chains = 2,
+                  iter_warmup = 500, refresh = 0,
+                  iter_sampling = 1000, 
+                  adapt_delta = .95)</code></pre>
+<pre><code>
+Running MCMC with 2 sequential chains...
+
+Chain 1 finished in 0.1 seconds.
+Chain 2 finished in 0.1 seconds.
+
+Both chains finished successfully.
+Mean chain execution time: 0.1 seconds.
+Total execution time: 0.2 seconds.</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+bayesplot::mcmc_hist(fit_medi_low_sensi$draws(&quot;p&quot;))+
+  labs(
+    title = &quot;Posterior Draws for P&quot;,
+    subtitle = &quot;Seroprevalence&quot;
+  )+
+  geom_vline(xintercept = .09, lty = &quot;dashed&quot;, colour = &quot;red&quot;)</code></pre>
+<p><img src="sensitivity-and-specificity_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+</div>
+<p>We could still be missing some folks.</p>
+<h2 id="specificity">Specificity?</h2>
+<p>Just for completeness, it is worth looking at what happens if specificity degrades. This is generally unlikely in many of these tests (especially the case in PCR tests where if there is viral RNA present, it will grow..e.g. if you have a positive tests you are positive).</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+dat_low_spec &lt;- list(
+    y_sample = as.integer(postitives),
+    n_sample = n,
+    sensitivity = .85,
+    specificity = .90,
+    sensitivity_sd = .05,
+    specificity_sd= .01
+)
+
+fit_low_spec &lt;- mod$sample(data = dat_low_spec,
+                            chains = 2,
+                  iter_warmup = 500, refresh = 0,
+                  iter_sampling = 1000, 
+                  adapt_delta = .95)</code></pre>
+<pre><code>
+Running MCMC with 2 sequential chains...
+
+Chain 1 finished in 0.1 seconds.
+Chain 2 finished in 0.1 seconds.
+
+Both chains finished successfully.
+Mean chain execution time: 0.1 seconds.
+Total execution time: 0.2 seconds.</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+bayesplot::mcmc_hist(fit_low_spec$draws(&quot;p&quot;))+
+  labs(
+    title = &quot;Posterior Draws for P&quot;,
+    subtitle = &quot;Seroprevalence&quot;
+  )+
+  geom_vline(xintercept = .09, lty = &quot;dashed&quot;, colour = &quot;red&quot;)</code></pre>
+<p><img src="sensitivity-and-specificity_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+</div>
+<p>Yikes! This shows the importance of having high specificity!!!</p>
+<div id="refs" class="references">
+<div id="ref-havers_seroprevalence_2020">
+<p>Havers, Fiona P., Carrie Reed, Travis Lim, Joel M. Montgomery, John D. Klena, Aron J. Hall, Alicia M. Fry, et al. 2020. “Seroprevalence of Antibodies to SARS-CoV-2 in 10 Sites in the United States, March 23-May 12, 2020.” <em>JAMA Internal Medicine</em>, July. <a href="https://doi.org/10.1001/jamainternmed.2020.4130">https://doi.org/10.1001/jamainternmed.2020.4130</a>.</p>
+</div>
+<div id="ref-pollan_prevalence_2020">
+<p>Pollán, Marina, Beatriz Pérez-Gómez, Roberto Pastor-Barriuso, Jesús Oteo, Miguel A. Hernán, Mayte Pérez-Olmeda, Jose L. Sanmartín, et al. 2020. “Prevalence of SARS-CoV-2 in Spain (ENE-COVID): A Nationwide, Population-Based Seroepidemiological Study.” <em>The Lancet</em> 0 (0). <a href="https://doi.org/10.1016/S0140-6736(20)31483-5">https://doi.org/10.1016/S0140-6736(20)31483-5</a>.</p>
+</div>
+<div id="ref-stringhini_repeated_2020">
+<p>Stringhini, Silvia, Ania Wisniak, Giovanni Piumatti, Andrew S Azman, Stephen A Lauer, Helene Baysson, David De Ridder, et al. 2020. “Repeated Seroprevalence of Anti-SARS-CoV-2 IgG Antibodies in a Population-Based Sample from Geneva, Switzerland.” Preprint. Infectious Diseases (except HIV/AIDS). <a href="https://doi.org/10.1101/2020.05.02.20088898">https://doi.org/10.1101/2020.05.02.20088898</a>.</p>
+</div>
+</div>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Note that there was another study that found in a clinical setting the results were worse, but that’s why we have simulations.<a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</section>
+<!--radix_placeholder_article_footer-->
+<div class="article-footer">
+  <p>
+    <div class="subscribe"><form method='post' action='https://blogtrottr.com'>
+  <p>Enjoy this blog? Get notified of new posts via email:</p>
+  <input type='text' name='btr_email' />
+  <input type='hidden' name='btr_url'
+         value='https:/michaeldewittjr.com/dewitt_blog/index.xml'/>
+  <input type='hidden' name='schedule_type' value='0' />
+  <input type='submit' value='Subscribe' />
+</form></div>
+  </p>
+</div>
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+  <h3 id="reuse">Reuse</h3>
+  <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">DeWitt (2020, Aug. 9). Michael DeWitt: Sensitivity and Specificity. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{dewitt2020sensitivity,
+  author = {DeWitt, Michael},
+  title = {Michael DeWitt: Sensitivity and Specificity},
+  url = {https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity/},
+  year = {2020}
+}</pre>
+</div>
+<script id="distill-bibliography" type="text/bibtex">
+
+@techreport{stringhini_repeated_2020,
+	type = {preprint},
+	title = {Repeated seroprevalence of anti-{SARS}-{CoV}-2 {IgG} antibodies in a population-based sample from {Geneva}, {Switzerland}},
+	url = {http://medrxiv.org/lookup/doi/10.1101/2020.05.02.20088898},
+	abstract = {Background: Assessing the burden of COVID-19 based on medically-attended case counts is suboptimal given its reliance on testing strategy, changing case definitions and the wide spectrum of disease presentation. Population-based serosurveys provide one avenue for estimating infection rates and monitoring the progression of the epidemic, overcoming many of these limitations.
+
+Methods: Taking advantage of a pool of adult participants from population-representative surveys conducted in Geneva, Switzerland, we implemented a study consisting of 8 weekly serosurveys among these participants and their household members older than 5 years. We tested each participant for anti-SARS-CoV-2-IgG antibodies using a commercially available enzyme-linked immunosorbent assay (Euroimmun AG, Lubeck, Germany). We estimated seroprevalence using a Bayesian regression model taking into account test performance and adjusting for the age and sex of Geneva's population. 
+
+Results: In the first three weeks, we enrolled 1335 participants coming from 633 households, with 16\% {\textless}20 years of age and 53.6\% female, a distribution similar to that of Geneva. In the first week, we estimated a seroprevalence of 3.1\% (95\% CI 0.2-5.99, n=343). This increased to 6.1\% (95\% CI 2.6-9.33, n=416) in the second, and to 9.7\% (95\% CI 6.1-13.11, n=576) in the third week. We found that 5-19 year-olds (6.0\%, 95\% CI 2.3-10.2\%) had similar seroprevalence to 20-49 year olds (8.5\%, 95\%CI 4.99-11.7), while significantly lower seroprevalence was observed among those 50 and older (3.7\%, 95\% CI 0.99-6.0, p=0.0008).
+
+Interpretation: Assuming that the presence of IgG antibodies is at least in the short-term associated with immunity, these results highlight that the epidemic is far from burning out simply due to herd immunity. Further, no differences in seroprevalence between children and middle age adults are observed. These results must be considered as Switzerland and the world look towards easing restrictions aimed at curbing transmission.},
+	language = {en},
+	urldate = {2020-06-23},
+	institution = {Infectious Diseases (except HIV/AIDS)},
+	author = {Stringhini, Silvia and Wisniak, Ania and Piumatti, Giovanni and Azman, Andrew S and Lauer, Stephen A and Baysson, Helene and De Ridder, David and Petrovic, Dusan and Schrempft, Stephanie and Marcus, Kailing and Arm-Vernez, Isabelle and Yerly, Sabine and Keiser, Olivia and Hurst, Samia and Posfay-Barbe, Klara and Trono, Didier and Pittet, Didier and Getaz, Laurent and Chappuis, Francois and Eckerle, Isabella and Vuilleumier, Nicolas and Meyer, Benjamin and Flahault, Antoine and Kaiser, Laurent and Guessous, Idris},
+	month = may,
+	year = {2020},
+	doi = {10.1101/2020.05.02.20088898},
+	file = {Stringhini et al. - 2020 - Repeated seroprevalence of anti-SARS-CoV-2 IgG ant.pdf:/Users/michael/Zotero/storage/6EZJUVB4/Stringhini et al. - 2020 - Repeated seroprevalence of anti-SARS-CoV-2 IgG ant.pdf:application/pdf}
+}
+
+@article{pollan_prevalence_2020,
+	title = {Prevalence of {SARS}-{CoV}-2 in {Spain} ({ENE}-{COVID}): a nationwide, population-based seroepidemiological study},
+	volume = {0},
+	issn = {0140-6736, 1474-547X},
+	shorttitle = {Prevalence of {SARS}-{CoV}-2 in {Spain} ({ENE}-{COVID})},
+	url = {https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(20)31483-5/abstract},
+	doi = {10.1016/S0140-6736(20)31483-5},
+	abstract = {{\textless}h2{\textgreater}Summary{\textless}/h2{\textgreater}{\textless}h3{\textgreater}Background{\textless}/h3{\textgreater}{\textless}p{\textgreater}Spain is one of the European countries most affected by the COVID-19 pandemic. Serological surveys are a valuable tool to assess the extent of the epidemic, given the existence of asymptomatic cases and little access to diagnostic tests. This nationwide population-based study aims to estimate the seroprevalence of SARS-CoV-2 infection in Spain at national and regional level.{\textless}/p{\textgreater}{\textless}h3{\textgreater}Methods{\textless}/h3{\textgreater}{\textless}p{\textgreater}35 883 households were selected from municipal rolls using two-stage random sampling stratified by province and municipality size, with all residents invited to participate. From April 27 to May 11, 2020, 61 075 participants (75·1\% of all contacted individuals within selected households) answered a questionnaire on history of symptoms compatible with COVID-19 and risk factors, received a point-of-care antibody test, and, if agreed, donated a blood sample for additional testing with a chemiluminescent microparticle immunoassay. Prevalences of IgG antibodies were adjusted using sampling weights and post-stratification to allow for differences in non-response rates based on age group, sex, and census-tract income. Using results for both tests, we calculated a seroprevalence range maximising either specificity (positive for both tests) or sensitivity (positive for either test).{\textless}/p{\textgreater}{\textless}h3{\textgreater}Findings{\textless}/h3{\textgreater}{\textless}p{\textgreater}Seroprevalence was 5·0\% (95\% CI 4·7–5·4) by the point-of-care test and 4·6\% (4·3–5·0) by immunoassay, with a specificity–sensitivity range of 3·7\% (3·3–4·0; both tests positive) to 6·2\% (5·8–6·6; either test positive), with no differences by sex and lower seroprevalence in children younger than 10 years ({\textless}3·1\% by the point-of-care test). There was substantial geographical variability, with higher prevalence around Madrid ({\textgreater}10\%) and lower in coastal areas ({\textless}3\%). Seroprevalence among 195 participants with positive PCR more than 14 days before the study visit ranged from 87·6\% (81·1–92·1; both tests positive) to 91·8\% (86·3–95·3; either test positive). In 7273 individuals with anosmia or at least three symptoms, seroprevalence ranged from 15·3\% (13·8–16·8) to 19·3\% (17·7–21·0). Around a third of seropositive participants were asymptomatic, ranging from 21·9\% (19·1–24·9) to 35·8\% (33·1–38·5). Only 19·5\% (16·3–23·2) of symptomatic participants who were seropositive by both the point-of-care test and immunoassay reported a previous PCR test.{\textless}/p{\textgreater}{\textless}h3{\textgreater}Interpretation{\textless}/h3{\textgreater}{\textless}p{\textgreater}The majority of the Spanish population is seronegative to SARS-CoV-2 infection, even in hotspot areas. Most PCR-confirmed cases have detectable antibodies, but a substantial proportion of people with symptoms compatible with COVID-19 did not have a PCR test and at least a third of infections determined by serology were asymptomatic. These results emphasise the need for maintaining public health measures to avoid a new epidemic wave.{\textless}/p{\textgreater}{\textless}h3{\textgreater}Funding{\textless}/h3{\textgreater}{\textless}p{\textgreater}Spanish Ministry of Health, Institute of Health Carlos III, and Spanish National Health System.{\textless}/p{\textgreater}},
+	language = {English},
+	number = {0},
+	urldate = {2020-07-07},
+	journal = {The Lancet},
+	author = {Pollán, Marina and Pérez-Gómez, Beatriz and Pastor-Barriuso, Roberto and Oteo, Jesús and Hernán, Miguel A. and Pérez-Olmeda, Mayte and Sanmartín, Jose L. and Fernández-García, Aurora and Cruz, Israel and Larrea, Nerea Fernández de and Molina, Marta and Rodríguez-Cabrera, Francisco and Martín, Mariano and Merino-Amador, Paloma and Paniagua, Jose León and Muñoz-Montalvo, Juan F. and Blanco, Faustino and Yotti, Raquel and Blanco, Faustino and Fernández, Rodrigo Gutiérrez and Martín, Mariano and Navarro, Saturnino Mezcua and Molina, Marta and Muñoz-Montalvo, Juan F. and Hernández, Matías Salinero and Sanmartín, Jose L. and Cuenca-Estrella, Manuel and Yotti, Raquel and Paniagua, José León and Larrea, Nerea Fernández de and Fernández-Navarro, Pablo and Pastor-Barriuso, Roberto and Pérez-Gómez, Beatriz and Pollán, Marina and Avellón, Ana and Fedele, Giovanni and Fernández-García, Aurora and Iglesias, Jesús Oteo and Olmeda, María Teresa Pérez and Cruz, Israel and Martinez, Maria Elena Fernandez and Rodríguez-Cabrera, Francisco D. and Hernán, Miguel A. and Fernández, Susana Padrones and Aguirre, José Manuel Rumbao and Marí, José M. Navarro and Borrás, Begoña Palop and Jiménez, Ana Belén Pérez and Rodríguez-Iglesias, Manuel and Gascón, Ana María Calvo and Alcaine, María Luz Lou and Suárez, Ignacio Donate and Álvarez, Oscar Suárez and Pérez, Mercedes Rodríguez and Sanchís, Margarita Cases and Gomila, Carlos Javier Villafáfila and Saladrigas, Lluis Carbo and Fernández, Adoración Hurtado and Oliver, Antonio and Feliciano, Elías Castro and Quintana, María Noemí González and Fernández, José María Barrasa and Betancor, María Araceli Hernández and Febles, Melisa Hernández and Martín, Leopoldo Martín and López, Luis-Mariano López and Miota, Teresa Ugarte and Población, Inés De Benito and Pérez, María Sagrario Celada and Fernández, María Natalia Vallés and Enríquez, Tomás Maté and Arranz, Miguel Villa and González, Marta Domínguez-Gil and Fernández-Natal, Isabel and Lobón, Gregoria Megías and Bellido, Juan Luis Muñoz and Ciruela, Pilar and Casals, Ariadna Mas i and Botías, Maria Doladé and Maeso, M. Angeles Marcos and Campo, Dúnia Pérez del and Castro, Antonio Félix de and Ramírez, Ramón Limón and Retamosa, Maria Francisca Elías and González, Manuela Rubio and Lobeiras, María Sinda Blanco and Losada, Alberto Fuentes and Aguilera, Antonio and Bou, German and Caro, Yolanda and Marauri, Noemí and Blanco, Luis Miguel Soria and González, Isabel del Cura and Pascual, Montserrat Hernández and Fernández, Roberto Alonso and Merino-Amador, Paloma and Castro, Natalia Cabrera and Lizcano, Aurora Tomás and Almagro, Cristóbal Ramírez and Hernández, Manuel Segovia and Elizaga, Nieves Ascunce and Sanz, María Ederra and Baquedano, Carmen Ezpeleta and Bascaran, Ana Bustinduy and Tamayo, Susana Iglesias and Otazua, Luis Elorduy and Benarroch, Rebeca Benarroch and Flores, Jesús Lopera and Villa, Antonia Vázquez de la},
+	month = jul,
+	year = {2020},
+	note = {Publisher: Elsevier},
+	file = {Full Text PDF:/Users/michael/Zotero/storage/YMNI6NCV/Pollán et al. - 2020 - Prevalence of SARS-CoV-2 in Spain (ENE-COVID) a n.pdf:application/pdf;Snapshot:/Users/michael/Zotero/storage/655GMGQ4/fulltext.html:text/html}
+}
+
+@article{havers_seroprevalence_2020,
+	title = {Seroprevalence of {Antibodies} to {SARS}-{CoV}-2 in 10 {Sites} in the {United} {States}, {March} 23-{May} 12, 2020},
+	url = {https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2768834},
+	doi = {10.1001/jamainternmed.2020.4130},
+	abstract = {{\textless}h3{\textgreater}Importance{\textless}/h3{\textgreater}{\textless}p{\textgreater}Reported cases of severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) infection likely underestimate the prevalence of infection in affected communities. Large-scale seroprevalence studies provide better estimates of the proportion of the population previously infected.{\textless}/p{\textgreater}{\textless}h3{\textgreater}Objective{\textless}/h3{\textgreater}{\textless}p{\textgreater}To estimate prevalence of SARS-CoV-2 antibodies in convenience samples from several geographic sites in the US.{\textless}/p{\textgreater}{\textless}h3{\textgreater}Design, Setting, and Participants{\textless}/h3{\textgreater}{\textless}p{\textgreater}This cross-sectional study performed serologic testing on a convenience sample of residual sera obtained from persons of all ages. The serum was collected from March 23 through May 12, 2020, for routine clinical testing by 2 commercial laboratory companies. Sites of collection were San Francisco Bay area, California; Connecticut; south Florida; Louisiana; Minneapolis-St Paul-St Cloud metro area, Minnesota; Missouri; New York City metro area, New York; Philadelphia metro area, Pennsylvania; Utah; and western Washington State.{\textless}/p{\textgreater}{\textless}h3{\textgreater}Exposures{\textless}/h3{\textgreater}{\textless}p{\textgreater}Infection with SARS-CoV-2.{\textless}/p{\textgreater}{\textless}h3{\textgreater}Main Outcomes and Measures{\textless}/h3{\textgreater}{\textless}p{\textgreater}The presence of antibodies to SARS-CoV-2 spike protein was estimated using an enzyme-linked immunosorbent assay, and estimates were standardized to the site populations by age and sex. Estimates were adjusted for test performance characteristics (96.0\% sensitivity and 99.3\% specificity). The number of infections in each site was estimated by extrapolating seroprevalence to site populations; estimated infections were compared with the number of reported coronavirus disease 2019 (COVID-19) cases as of last specimen collection date.{\textless}/p{\textgreater}{\textless}h3{\textgreater}Results{\textless}/h3{\textgreater}{\textless}p{\textgreater}Serum samples were tested from 16 025 persons, 8853 (55.2\%) of whom were women; 1205 (7.5\%) were 18 years or younger and 5845 (36.2\%) were 65 years or older. Most specimens from each site had no evidence of antibodies to SARS-CoV-2. Adjusted estimates of the proportion of persons seroreactive to the SARS-CoV-2 spike protein antibodies ranged from 1.0\% in the San Francisco Bay area (collected April 23-27) to 6.9\% of persons in New York City (collected March 23-April 1). The estimated number of infections ranged from 6 to 24 times the number of reported cases; for 7 sites (Connecticut, Florida, Louisiana, Missouri, New York City metro area, Utah, and western Washington State), an estimated greater than 10 times more SARS-CoV-2 infections occurred than the number of reported cases.{\textless}/p{\textgreater}{\textless}h3{\textgreater}Conclusions and Relevance{\textless}/h3{\textgreater}{\textless}p{\textgreater}During March to early May 2020, most persons in 10 diverse geographic sites in the US had not been infected with SARS-CoV-2 virus. The estimated number of infections, however, was much greater than the number of reported cases in all sites. The findings may reflect the number of persons who had mild or no illness or who did not seek medical care or undergo testing but who still may have contributed to ongoing virus transmission in the population.{\textless}/p{\textgreater}},
+	language = {en},
+	urldate = {2020-07-21},
+	journal = {JAMA Internal Medicine},
+	author = {Havers, Fiona P. and Reed, Carrie and Lim, Travis and Montgomery, Joel M. and Klena, John D. and Hall, Aron J. and Fry, Alicia M. and Cannon, Deborah L. and Chiang, Cheng-Feng and Gibbons, Aridth and Krapiunaya, Inna and Morales-Betoulle, Maria and Roguski, Katherine and Rasheed, Mohammad Ata Ur and Freeman, Brandi and Lester, Sandra and Mills, Lisa and Carroll, Darin S. and Owen, S. Michele and Johnson, Jeffrey A. and Semenova, Vera and Blackmore, Carina and Blog, Debra and Chai, Shua J. and Dunn, Angela and Hand, Julie and Jain, Seema and Lindquist, Scott and Lynfield, Ruth and Pritchard, Scott and Sokol, Theresa and Sosa, Lynn and Turabelidze, George and Watkins, Sharon M. and Wiesman, John and Williams, Randall W. and Yendell, Stephanie and Schiffer, Jarad and Thornburg, Natalie J.},
+	month = jul,
+	year = {2020},
+	file = {Full Text PDF:/Users/michael/Zotero/storage/CKEBX5Y8/Havers et al. - 2020 - Seroprevalence of Antibodies to SARS-CoV-2 in 10 S.pdf:application/pdf;Snapshot:/Users/michael/Zotero/storage/EVZ2BV4P/2768834.html:text/html}
+}
+
+@article{champagne_structure_2016,
+	title = {Structure in the variability of the basic reproductive number ({R0}) for {Zika} epidemics in the {Pacific} islands},
+	volume = {5},
+	issn = {2050-084X},
+	url = {https://elifesciences.org/articles/19874},
+	doi = {10.7554/eLife.19874},
+	abstract = {Before the outbreak that reached the Americas in 2015, Zika virus (ZIKV) circulated in Asia and the Pacific: these past epidemics can be highly informative on the key parameters driving virus transmission, such as the basic reproduction number (
+              
+                
+                  R
+                  0
+                
+              
+              ). We compare two compartmental models with different mosquito representations, using surveillance and seroprevalence data for several ZIKV outbreaks in Pacific islands (Yap, Micronesia 2007, Tahiti and Moorea, French Polynesia 2013-2014, New Caledonia 2014). Models are estimated in a stochastic framework with recent Bayesian techniques.
+              
+                
+                  R
+                  0
+                
+              
+              for the Pacific ZIKV epidemics is estimated between 1.5 and 4.1, the smallest islands displaying higher and more variable values. This relatively low range of
+              
+                
+                  R
+                  0
+                
+              
+              suggests that intervention strategies developed for other flaviviruses should enable as, if not more effective control of ZIKV. Our study also highlights the importance of seroprevalence data for precise quantitative analysis of pathogen propagation, to design prevention and control strategies.
+            
+          , 
+            Zika virus is an infectious disease primarily transmitted between people by mosquitoes. While most people develop mild flu-like symptoms, infection during pregnancy can interfere with how the baby’s head and brain develop. Until recently, the virus had only been seen sporadically in Africa and Asia, but since 2007, outbreaks have been recorded on several Pacific islands. In 2015, the Zika virus reached the Americas, and within six months over 1.5 million cases had been reported in Brazil alone.
+            There is an urgent need to understand how the Zika virus moves within a population in order to help policymakers, and public health professionals, plan treatment and control of outbreaks of the disease. Researchers often use predictive models to estimate how a disease will spread. A parameter commonly calculated by these models is the “basic reproductive number”, or R0, which represents the average number of additional cases of the disease caused by one infected individual.
+            Using models that incorporated data from Zika virus outbreaks that occurred on several Pacific islands, Champagne et al. have produced estimates of R0 that range from 1.5-4.1.
+            The R0 values are greater than one, indicating that infection will spread within a population, but in the same range as those obtained for dengue fever, another closely related mosquito-borne disease. This suggests that by taking appropriate measures, the spread of Zika and dengue can be controlled to similar extents.
+            A closer look at the relationship between the population size and the predicted R0 value for each Pacific island revealed an unexpected inverse relationship: the smaller the population, the larger the value of R0. Since other regional factors may also explain these large differences between settings, further work is needed to disentangle context-specific from disease-specific factors. In this respect, data about seroprevalence (the number of people whose blood shows evidence of a past infection) in different populations is crucial for precisely analyzing the spread of Zika virus.},
+	language = {en},
+	urldate = {2020-07-31},
+	journal = {eLife},
+	author = {Champagne, Clara and Salthouse, David Georges and Paul, Richard and Cao-Lormeau, Van-Mai and Roche, Benjamin and Cazelles, Bernard},
+	month = nov,
+	year = {2016},
+	pages = {e19874},
+	file = {Champagne et al. - 2016 - Structure in the variability of the basic reproduc.pdf:/Users/michael/Zotero/storage/QLA8YX9X/Champagne et al. - 2016 - Structure in the variability of the basic reproduc.pdf:application/pdf}
+}
+
+@article{science_erratum_2020,
+	title = {Erratum for the {Report}: “{Estimating} the burden of {SARS}-{CoV}-2 in {France},” by {H}. {Salje}, {C}. {Tran} {Kiem}, {N}. {Lefrancq}, {N}. {Courtejoie}, {P}. {Bosetti}, {J}. {Paireau}, {A}. {Andronico}, {N}. {Hozé}, {J}. {Richet}, {C}.-{L}. {Dubost}, {Y}. {Le} {Strat}, {J}. {Lessler}, {D}. {Levy}-{Bruhl}, {A}. {Fontanet}, {L}. {Opatowski}, {P}.-{Y}. {Boelle}, {S}. {Cauchemez}},
+	volume = {368},
+	copyright = {Copyright © 2020, American Association for the Advancement of Science},
+	issn = {0036-8075, 1095-9203},
+	shorttitle = {Erratum for the {Report}},
+	url = {https://science.sciencemag.org/content/368/6498/eabd4246},
+	doi = {10.1126/science.abd4246},
+	abstract = {In the Report “[Estimating the burden of SARS-CoV-2 in France][1],” the authors used data from the coronavirus disease 2019 outbreak aboard the Diamond Princess cruise ship to help calibrate their model. They made the assumption that in addition to the 14 deaths already recorded, the four individuals still in the intensive care unit (ICU) after 2 months would also ultimately die from their infection. This assumption was arrived at after speaking to physicians about long-term outcomes for those in the ICU. However, since the First Release version of this Report was posted, three of those four individuals have left the ICU.
+
+In the final published version of the Report, the authors include this new information. They assume that the one passenger still in the ICU will ultimately die, and they present a sensitivity analysis where this passenger survives. This change reduces their estimates of the infection fatality rate (from 0.65\% down to 0.53\%) and increases the proportion infected on 11 May 2020 (from 4.4\% up to 5.3\%). The estimates of R  and the impact of the lockdown as well as all conclusions are unchanged.
+
+ [1]: https://science.sciencemag.org/content/early/2020/05/12/science.abc3517},
+	language = {en},
+	number = {6498},
+	urldate = {2020-08-05},
+	journal = {Science},
+	author = {Science, American Association for the Advancement of},
+	month = jun,
+	year = {2020},
+	pmid = {32586992},
+	note = {Publisher: American Association for the Advancement of Science
+Section: Erratum},
+	keywords = {Estimating the burden of SARS-CoV-2 in France, Seroprevalence},
+	file = {Full Text:/Users/michael/Zotero/storage/S7EHV92V/Science - 2020 - Erratum for the Report “Estimating the burden of .pdf:application/pdf;Snapshot:/Users/michael/Zotero/storage/WWPB7GFX/eabd4246.html:text/html}
+}
+</script>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
