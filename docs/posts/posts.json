@@ -42,6 +42,29 @@
     "preview_height": 768
   },
   {
+    "path": "posts/2020-08-09-julia-abm-sir/",
+    "title": "julia ABM SIR",
+    "description": "Use Julia and R to run agent based models in Julia and visualise them in R.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2020-08-09",
+    "categories": [
+      "pandemic",
+      "scenarios",
+      "curve statistics",
+      "julia",
+      "agent based models"
+    ],
+    "preview": "posts/2020-08-09-julia-abm-sir/julia-abm-sir_files/figure-html5/unnamed-chunk-6-1.png",
+    "last_modified": "2020-08-09T21:33:21-04:00",
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
     "path": "posts/2020-03-13-flatten-the-curve/",
     "title": "Flatten the Curve",
     "description": "In the post I explore the potential growth rate of Covid-19 to Forsyth County, NC. This also includes looking at the kind of load that this virus could place on our existing healthcare systems. I strongly advocate for acting to delay to flood of potential community acquired infections.",
