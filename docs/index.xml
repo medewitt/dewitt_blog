@@ -7,7 +7,16 @@
     <description>The thoughts and exploration of Michael DeWitt
 </description>
     <generator>Radix</generator>
-    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Optimisation with Stan</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2020-08-27-optimisation-with-stan</link>
+      <description>Using Stan for optimization.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2020-08-27-optimisation-with-stan</guid>
+      <pubDate>Thu, 27 Aug 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-27-optimisation-with-stan/optimisation-with-stan_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Sensitivity and Specificity</title>
       <dc:creator>Michael DeWitt</dc:creator>
