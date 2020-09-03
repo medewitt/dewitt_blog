@@ -1,0 +1,113 @@
+---
+title: "Bayesian SIR"
+description: |
+  A short description of the post.
+author:
+  - name: Michael DeWitt
+    url: https://michaeldewittjr.com
+date: 08-28-2020
+categories:
+  - Bayes
+  - SIR
+  - Compartmental Model
+  - Epidemiology
+output:
+  radix::radix_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(cmdstanr)
+library(magrittr)
+library(ggplot2)
+library(data.table)
+```
+
+
+```{r}
+library(outbreaks)
+set.seed(336) # for reproductibility
+
+# time series of cases
+case_dat <- nccovid::get_covid_state(select_county = "Forsyth") # Number of students in bed
+
+case_dat[cases_daily>0]
+
+cases <- case_dat[date>=as.Date("2020-03-12")][["cases_daily"]]
+
+policy <- data.table::fread("https://raw.githubusercontent.com/COVID19StatePolicy/SocialDistancing/master/data/USstatesCov19distancingpolicy.csv")
+
+nc_policies <-policy[StatePostal=="NC"]
+
+nc_policies <- nc_policies[,DateEnacted:=as.Date(as.character(DateEnacted), 
+                                                 format = "%Y%m%d")]
+
+nc_policies <- nc_policies[,DateExpiry:=as.Date(as.character(DateExpiry), 
+                                                 format = "%Y%m%d")]
+
+nc_policies <- nc_policies[StateWide==1]
+
+mask_mandate <- which(case_dat$date==nc_policies[StatePolicy=="PublicMask"&Mandate==1][,DateEnacted])
+# total count
+N <- 240000;
+
+# times
+n_days <- length(cases) +1
+t <- seq(0, n_days, by = 1)
+t0 = 0 
+t <- t[-1]
+
+#initial conditions
+i0 <- 1
+s0 <- N - i0
+r0 <- 0
+y0 = c(S = s0, I = i0, R = r0)
+
+# data for Stan
+data_sir <- list(n_days = n_days, y0 = y0, 
+								 t0 = t0, ts = t, N = N, cases = cases,
+								 mask_mandate = mask_mandate)
+
+# number of MCMC steps
+niter <- 2000
+
+```
+
+```{r}
+m <- cmdstan_model("sir.stan")
+```
+
+```{r}
+m$print()
+```
+
+
+```{r}
+fit <- m$sample(data = data_sir, 
+                chains = 2, parallel_chains = 2,
+                adapt_delta = .9, show_messages = FALSE,
+                refresh = 500)
+```
+```{r}
+pars=c('beta', 'gamma', "R0", "recovery_time")
+fit$summary(variables = pars)
+```
+
+```{r}
+output <- as.data.frame(
+fit$summary(variables = "pred_cases" )[,c("median", "q5", "q95")],
+)
+output <- cbind(output, cases = cases, t = 1:nrow(output))
+output %>% 
+ggplot(mapping = aes(x = t)) +
+  geom_ribbon(aes(ymin = q5, ymax = q95), fill = "orange", alpha = 0.6) +
+  geom_line(mapping = aes(x = t, y = median)) + 
+  geom_point(mapping = aes(y = cases)) +
+  labs(x = "Day", y = "Number of Cases Reported")+
+  theme_minimal()
+```
+
