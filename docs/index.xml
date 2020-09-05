@@ -7,7 +7,16 @@
     <description>The thoughts and exploration of Michael DeWitt
 </description>
     <generator>Radix</generator>
-    <lastBuildDate>Tue, 01 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Bayesian SIR</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2020-08-28-bayesian-sir</link>
+      <description>In this post I review how to build a compartmental model using the Stan probabilistic computing language. This is based largely by the case study, [Bayesian workflow for disease transmission modeling in Stan](https://mc-stan.org/users/documentation/case-studies/boarding_school_case_study.html) which has been expanded to include a second compartment for exposed individuals as well as utilise case incidence data rather than prevalence.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2020-08-28-bayesian-sir</guid>
+      <pubDate>Sat, 05 Sep 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-28-bayesian-sir/bayesian-sir_files/figure-html5/unnamed-chunk-10-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Negative Binomial Distribution and Epidemics</title>
       <dc:creator>Michael DeWitt</dc:creator>

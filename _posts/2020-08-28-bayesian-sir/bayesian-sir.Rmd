@@ -5,7 +5,7 @@ description: |
 author:
   - name: Michael DeWitt
     url: https://michaeldewittjr.com
-date: 08-28-2020
+date: 09-05-2020
 categories:
   - Bayes
   - SIR
@@ -16,7 +16,7 @@ output:
     self_contained: false
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE, layout="l-page")
 ```
 
@@ -39,7 +39,7 @@ This post is largely an extension of [Bayesian workflow for disease transmission
 
 First we need to define our data generating process. 
 Here we will start with a four compartment model with no births or deaths.
-This will represent an imunizing infection with a latent phase.
+This will represent an immunizing infection with a latent phase.
 
 ```{r}
 library(DiagrammeR)
@@ -118,7 +118,7 @@ cases <- cases[-length(cases)]
 Now let's calculate our basic reproduction number or $R_0$
 
 ```{r}
-beta_value/gamma
+beta_value/gamma_value
 ```
 
 ## Build Model in Stan
@@ -159,7 +159,7 @@ y0 = c(S = s0, E = e0, I = i0, R = r0)
 
 Then we can run it using CmdStanR.
 
-```{r}
+```{r cache=T}
 # number of MCMC steps
 niter <- 2000
 
@@ -170,7 +170,7 @@ data_sir<- list(n_days = n_days,
                         t0 = t0, ts = t, 
                         N = N, cases = cases,
                         n_pred = n_pred,delta_mu=.2,
-                        ts_pred = seq(n_days+1, n_days+n_pred, by = 1),
+                        ts_pred = seq(n_days+1, n_days+n_pred, by = 1)
                         )
 
 fit <- mod$sample(data = data_sir,
@@ -200,7 +200,10 @@ fit$summary(variables = pars)
 
 ## Visualise the Epidemic Curve
 
-```{r}
+Finally, we can visualise our model outputs and see if we capture our actual cases. 
+Additionally, I am using ggdist to capture the full range of possibilities as discussed in [in my previous blog post](https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-ggdist-and-epidemic-curves/.)
+
+```{r preview=TRUE}
 library(rstan)
 library(ggdist)
 library(dplyr)
@@ -225,3 +228,5 @@ extract(fit_sir, pars = "pred_cases")[[1]] %>%
   theme_minimal()
 ```
 
+Looks like this model adequately captured our fake data!
+Part 2 will fit some real data.

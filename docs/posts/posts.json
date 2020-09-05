@@ -1,5 +1,27 @@
 [
   {
+    "path": "posts/2020-08-28-bayesian-sir/",
+    "title": "Bayesian SIR",
+    "description": "In this post I review how to build a compartmental model using the Stan probabilistic computing language. This is based largely by the case study, [Bayesian workflow for disease transmission modeling in Stan](https://mc-stan.org/users/documentation/case-studies/boarding_school_case_study.html) which has been expanded to include a second compartment for exposed individuals as well as utilise case incidence data rather than prevalence.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2020-09-05",
+    "categories": [
+      "Bayes",
+      "SIR",
+      "Compartmental Model",
+      "Epidemiology"
+    ],
+    "preview": "posts/2020-08-28-bayesian-sir/bayesian-sir_files/figure-html5/unnamed-chunk-10-1.png",
+    "last_modified": "2020-09-05T10:23:39-04:00",
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
     "path": "posts/2020-08-30-negative-binomial-distribution-and-epidemics/",
     "title": "Negative Binomial Distribution and Epidemics",
     "description": "Super-spreading events can be characterised by a single case spreading to a larger than expected number of people. This phenomenon can be well-represented by a negative binomial distribution versus a standard Poisson distribution. In this post I review the overdispersion factor and how it can be parameterised in a model.",
