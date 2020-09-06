@@ -19,55 +19,55 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-<title>Michael DeWitt: Speeding Things Up with Rcpp</title>
+<title>Michael DeWitt: gghighlight for the win</title>
 
-<meta property="description" itemprop="description" content="Metropolis Hasting samplers are typically slow in R because of inability to parallelise or vectorise operations. The Rcpp package allows a way to use C++ to conduct these MCMC operations at a much greater speed. This post explores how one would do this, achieving a &gt;20x speed up."/>
+<meta property="description" itemprop="description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
 
-<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-04-speeding-things-up-with-rcpp/"/>
+<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2019-04-04"/>
-<meta property="article:created" itemprop="dateCreated" content="2019-04-04"/>
+<meta property="article:published" itemprop="datePublished" content="2018-07-04"/>
+<meta property="article:created" itemprop="dateCreated" content="2018-07-04"/>
 <meta name="article:author" content="Michael DeWitt"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Michael DeWitt: Speeding Things Up with Rcpp"/>
+<meta property="og:title" content="Michael DeWitt: gghighlight for the win"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Metropolis Hasting samplers are typically slow in R because of inability to parallelise or vectorise operations. The Rcpp package allows a way to use C++ to conduct these MCMC operations at a much greater speed. This post explores how one would do this, achieving a &gt;20x speed up."/>
-<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-04-speeding-things-up-with-rcpp/"/>
-<meta property="og:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-04-speeding-things-up-with-rcpp/speeding-things-up-with-rcpp_files/figure-html5/unnamed-chunk-2-1.png"/>
-<meta property="og:image:width" content="1248"/>
+<meta property="og:description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
+<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
+<meta property="og:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png"/>
+<meta property="og:image:width" content="1152"/>
 <meta property="og:image:height" content="768"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Michael DeWitt"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Michael DeWitt: Speeding Things Up with Rcpp"/>
-<meta property="twitter:description" content="Metropolis Hasting samplers are typically slow in R because of inability to parallelise or vectorise operations. The Rcpp package allows a way to use C++ to conduct these MCMC operations at a much greater speed. This post explores how one would do this, achieving a &gt;20x speed up."/>
-<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-04-speeding-things-up-with-rcpp/"/>
-<meta property="twitter:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-04-speeding-things-up-with-rcpp/speeding-things-up-with-rcpp_files/figure-html5/unnamed-chunk-2-1.png"/>
-<meta property="twitter:image:width" content="1248"/>
+<meta property="twitter:title" content="Michael DeWitt: gghighlight for the win"/>
+<meta property="twitter:description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
+<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
+<meta property="twitter:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png"/>
+<meta property="twitter:image:width" content="1152"/>
 <meta property="twitter:image:height" content="768"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Michael DeWitt: Speeding Things Up with Rcpp"/>
-<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2019-04-04-speeding-things-up-with-rcpp/"/>
+<meta name="citation_title" content="Michael DeWitt: gghighlight for the win"/>
+<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
 <meta name="citation_fulltext_world_readable" content=""/>
-<meta name="citation_online_date" content="2019/04/04"/>
-<meta name="citation_publication_date" content="2019/04/04"/>
+<meta name="citation_online_date" content="2018/07/04"/>
+<meta name="citation_publication_date" content="2018/07/04"/>
 <meta name="citation_author" content="Michael DeWitt"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","categories","date","toc","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Speeding Things Up with Rcpp"]},{"type":"character","attributes":{},"value":["Metropolis Hasting samplers are typically slow in R because of inability to parallelise or vectorise operations. The Rcpp package allows a way to use C++ to conduct these MCMC operations at a much greater speed. This post explores how one would do this, achieving a >20x speed up."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["Rcpp","Bayes"]},{"type":"character","attributes":{},"value":["04-04-2019"]},{"type":"logical","attributes":{},"value":[true]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2019-04-04-speeding-things-up-with-rcpp/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2019-04-04-speeding-things-up-with-rcpp/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","categories","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["gghighlight for the win"]},{"type":"character","attributes":{},"value":["Exploring the power of gghighlight package to automatically highlight charts"]},{"type":"character","attributes":{},"value":["ggplot2","data visualisation","r"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["07-04-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["mh_sampler.cpp","speeding-things-up-with-rcpp_files/bowser-1.9.3/bowser.min.js","speeding-things-up-with-rcpp_files/distill-2.2.21/template.v2.js","speeding-things-up-with-rcpp_files/figure-html5/unnamed-chunk-2-1.png","speeding-things-up-with-rcpp_files/figure-html5/unnamed-chunk-6-1.png","speeding-things-up-with-rcpp_files/jquery-1.11.3/jquery.min.js","speeding-things-up-with-rcpp_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["2018-07-04-gghighlight-for-the-win_files/bowser-1.9.3/bowser.min.js","2018-07-04-gghighlight-for-the-win_files/distill-2.2.21/template.v2.js","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-3-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-4-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-6-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-7-1.png","2018-07-04-gghighlight-for-the-win_files/jquery-1.11.3/jquery.min.js","2018-07-04-gghighlight-for-the-win_files/webcomponents-2.0.0/webcomponents.js","figure-html/unnamed-chunk-3-1.png","figure-html/unnamed-chunk-4-1.png","figure-html/unnamed-chunk-5-1.png","figure-html/unnamed-chunk-6-1.png","figure-html/unnamed-chunk-7-1.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1304,7 +1304,7 @@ gtag('config', 'UA-110093032-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Speeding Things Up with Rcpp","description":"Metropolis Hasting samplers are typically slow in R because of inability to parallelise or vectorise operations. The Rcpp package allows a way to use C++ to conduct these MCMC operations at a much greater speed. This post explores how one would do this, achieving a >20x speed up.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-04-04T00:00:00.000-04:00","citationText":"DeWitt, 2019"}
+{"title":"gghighlight for the win","description":"Exploring the power of gghighlight package to automatically highlight charts","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2018-07-04T00:00:00.000-04:00","citationText":"DeWitt, 2018"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1330,249 +1330,82 @@ gtag('config', 'UA-110093032-1');
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Speeding Things Up with Rcpp</h1>
-<p>Metropolis Hasting samplers are typically slow in R because of inability to parallelise or vectorise operations. The Rcpp package allows a way to use C++ to conduct these MCMC operations at a much greater speed. This post explores how one would do this, achieving a &gt;20x speed up.</p>
+<h1>gghighlight for the win</h1>
+<p>Exploring the power of gghighlight package to automatically highlight charts</p>
 </div>
 
 <div class="d-byline">
   Michael DeWitt <a href="https://michaeldewittjr.com" class="uri">https://michaeldewittjr.com</a> 
   
-<br/>04-04-2019
+<br/>07-04-2018
 </div>
 
 <div class="d-article">
-<h3 class="d-toc-header">Table of Contents</h3>
-<nav class="d-toc" id="TOC">
+<p>gghighlight is a package that is on cran that allows one to highlight certain features ones finds valuable. Right now I typically do this with some custom color coding, then pass that into the <code>ggplot2</code> arguments. This might serve as a good way to more easily automate this task. Additionally, this could be super handy during exploratory analysis where this is much more iterative to find patterns.</p>
+<p>Our libraries of course….</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(ggplot2)
+library(gghighlight)</code></pre>
+</div>
+<p>This code is copied directly from <a href="https://yutani.rbind.io/post/2017-10-06-gghighlight/">here</a>.</p>
+<p>Build some data which is more some white noise with a random walk.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+set.seed(2)
+d &lt;- purrr::map_dfr(
+  letters,
+  ~ data.frame(idx = 1:400,
+               value = cumsum(runif(400, -1, 1)),
+               type = .,
+               stringsAsFactors = FALSE))</code></pre>
+</div>
+<p>Definitely some messiness and colour overload!</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+ggplot(d) +
+  geom_line(aes(idx, value, colour = type))</code></pre>
+<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-3-1.png" width="576" /></p>
+</div>
+<p>The way I would do it…</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(dplyr, warn.conflicts = FALSE)
 
-</nav>
-<hr class="d-toc-separator"/>
-<h2 id="introduction">Introduction</h2>
-<p>I worked on something that started in R and then I wanted to speed it up. MCMC is generally a slow process in base R because it can’t be parallelised easily as each state depends on the previous state. <code>Rcpp</code> is a wonderful avenue to speed things up.</p>
-<h2 id="the-problem">The problem</h2>
-<p>The purpose of this exercise is to build a Metropolis-Hastings sampler in R. The goal is to return the posterior mean of <span class="math inline">\(\theta\)</span> given a vector of values, a likelihood function, and a prior distribution.</p>
-<h2 id="data-generating-process">Data Generating Process</h2>
-<p>As always we hypothesise a likelihood function and then a prior.</p>
-<h3 id="likelihood">Likelihood</h3>
-<p><span class="math display">\[f(x_i,...,x_n|\theta)=\frac{1}{\pi^n(1+\Pi_{i=1}^n(x_i-\theta)^2)} \ for \  -\infty&lt;x&lt;\infty\]</span></p>
-<h3 id="prior-distribution">Prior Distribution</h3>
-<p><span class="math display">\[p(\theta)=\frac{1}{\sqrt{2\pi}}exp(-\theta^2/2)\]</span></p>
-<h2 id="input-values">Input Values</h2>
-<p>We have been provided the following draws from the distribution:</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-x &lt;- c(1.0, -3.4, 2.8, -0.5, 4.7, -1.9, 0.8, 3.2, -5.2, -0.9)</code></pre>
-</div>
-<h3 id="m-h-sampler">M-H Sampler</h3>
-<p>Now to build the Metropolis Hastings sampler we build the corresponding R functions.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-prior &lt;- function(theta){
-  1/sqrt(2*pi)*exp(-theta^2/2)
-}</code></pre>
-</div>
-<p>And an associated check to make sure it is providing logical values:</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-(test_prior &lt;- prior(theta = .1))</code></pre>
-<pre><code>
-[1] 0.3969525</code></pre>
-</div>
-<p>Then we build the likelihood function. In order to prevent integer underflow I have converted the function to log-likelihood. I then exponentiate the final value. The log-likelihood is then describved as</p>
-<p><span class="math display">\[l(x_i,...x_n|\theta) = log(1) - (n\log(pi)+\Sigma_{i=1}^nlog(1+(x_i-\theta)^2))\]</span></p>
-<p>The value from the log-likelihood can then be exponentiated in order to arrive at the likelihood.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-likelihood &lt;- function(x, theta){
-  if(!is.vector(x)){
-    stop(&quot;Please supply a vector to this function&quot;)
-  }
-  # Log-likelihood
-  a &lt;- log(1)-(length(x)*log(pi) + sum(log(1+(x-theta)^2)))
-  
-  # Convert to likelihood
-  exp(a)
+d_filtered &lt;- d %&gt;%
+  group_by(type) %&gt;% 
+  filter(max(value) &gt; 20) %&gt;%
+  ungroup()
 
-}</code></pre>
+ggplot() +
+  # draw the original data series with grey
+  geom_line(aes(idx, value, group = type), data = d, colour = alpha(&quot;grey&quot;, 0.7)) +
+  # colourise only the filtered data
+  geom_line(aes(idx, value, colour = type), data = d_filtered)</code></pre>
+<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-4-1.png" width="576" /></p>
 </div>
-<p>And finally we build the sampler.</p>
+<p>Now with this handy package we can do the following:</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-theta_sampler &lt;- function(x, niter, theta_start_val, theta_proposal_sd){
-  
-  theta &lt;- rep(0, niter)
-  theta[1] &lt;- theta_start_val
-  
-  for(i in 2:niter){
-    current_theta &lt;- theta[i-1]
-    
-    # Random Step
-    new_theta &lt;- current_theta + rnorm(1,0, theta_proposal_sd)
-    
-    # MH Ratio
-    r &lt;- prior(theta = new_theta) * likelihood(theta = new_theta, x = x)/
-      (prior(theta = current_theta)* likelihood(theta = current_theta, x = x))
-    
-    # Decide to keep proposed theta or take a step
-    if(runif(1)&lt;r){
-      theta[i] &lt;- new_theta
-    } else{
-      theta[i] &lt;- current_theta
-    }
-  }
-  return(theta)
-}</code></pre>
+gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
+  theme_minimal()</code></pre>
+<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png" width="576" data-radix-preview=1 /></p>
 </div>
-<p>We can then sample from the posterior distribution given the initial values and our data.</p>
+<p>And because it is a <code>ggplot</code> object we can add things to it.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-set.seed(336)
-out &lt;- theta_sampler(x = x, niter = 5000, theta_start_val = 0, theta_proposal_sd = .5)</code></pre>
+gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
+  facet_wrap(~ type)</code></pre>
+<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-6-1.png" width="576" /></p>
 </div>
-<p>We can then graph our associated draws.</p>
+<p>And some additional cool stuff:</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-hist(out[1000:5000], 
-     main = &quot;Histogram of Posterior Draws of theta&quot;, 
-     xlab = expression(Posterior~Value~of~theta),
-     breaks = 30)
-abline(v = mean(out[1000:5000]), col = &quot;red&quot;, lwd = 2)</code></pre>
-<p><img src="speeding-things-up-with-rcpp_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
+gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
+                 max_highlight = 6)</code></pre>
+<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-7-1.png" width="576" /></p>
 </div>
-<p>The posterior mean of <span class="math inline">\(\theta\)</span> is:</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-mean(out)</code></pre>
-<pre><code>
-[1] 0.1280924</code></pre>
-</div>
-<h2 id="c-version">C++ Version</h2>
-<p>This is just an experiment to see if I can make the program a little faster using Rcpp.</p>
-<h3 id="c-code">C++ Code</h3>
-<p>This code is nearly identical to the R code, just utilising C++. Astute readers will see that I really could drop some of the constants in the prior and the likelihood function because they will fall out when calculating the MH ratio, <em>r</em>. Additionally, it is worth noting that I have converted the equations to a log scale to avoid computations on very small numbers.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre><code>
-#include &lt;Rcpp.h&gt;
-using namespace Rcpp;
-
-// [[Rcpp::export]]
-double Priorcpp(double theta) {
-  return 1/sqrt(2*M_PI)*exp(-pow(theta,2)/2);
-}
-
-// [[Rcpp::export]]
-double Likelihoodcpp(NumericVector x, double theta) {
-  double likelihood;
-  double loglike;
-  int n = x.size();
-  
-  loglike = log(1) - (n*log(M_PI)+sum(log(1+pow((x-theta),2))));
-  likelihood = exp(loglike);
-  return likelihood;
-}
-
-// [[Rcpp::export]]
-
-NumericVector make_posterior(NumericVector x, int niter, 
-                             double theta_start_val, double theta_proposal_sd){
-  NumericVector theta(niter);
-  double current_theta;
-  double new_theta;
-  double r;
-  double rand_val;
-  double thresh;
-  
-  theta[0] = theta_start_val;
-  
-  for(int i = 1; i &lt; niter; i++){
-    
-    current_theta = theta[i-1];
-    
-    rand_val = rnorm(1,0, theta_proposal_sd)[0];
-    
-    new_theta = current_theta + rand_val;
-    
-    
-    r = Priorcpp(new_theta) * Likelihoodcpp(x, new_theta)/
-      (Priorcpp(current_theta)* Likelihoodcpp(x, current_theta));
-    
-    
-    thresh = runif(1)[0];
-    
-    theta[i] = new_theta;
-    
-    
-    if(thresh&lt;r){
-      theta[i] = new_theta;
-    } else{
-      theta[i] = current_theta;
-    }
-    
-    
-  }
-  return theta;
-}</code></pre>
-</div>
-<h3 id="compilation-and-testing">Compilation and Testing</h3>
-<p>Now we need to compile the functions.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(Rcpp)
-Rcpp::sourceCpp(&quot;mh_sampler.cpp&quot;)</code></pre>
-</div>
-<p>First we meed to test that the prior and likelihood functions return equivalent values between base R and C++.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-all.equal(
-prior(theta = .1),
-Priorcpp(theta = .1)
-)</code></pre>
-<pre><code>
-[1] TRUE</code></pre>
-</div>
-<p>So Priors are returning the same values.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-all.equal(
-likelihood(x = x, .1),
-Likelihoodcpp(x = x, theta = .1)
-)</code></pre>
-<pre><code>
-[1] TRUE</code></pre>
-</div>
-<p>The likelihoods are returning the samples values. Now we have confidence that our C++ function is returning the same values.</p>
-<h3 id="inference-using-c">Inference using C++</h3>
-<p>Now we can go ahead and draw from the posterior distribution using our sampler.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-set.seed(336)
-out2 &lt;- make_posterior(x = x, niter = 5000, theta_start_val = 0, 
-                       theta_proposal_sd = .5)
-
-hist(out2[1000:5000],
-     main = &quot;Histogram of Posterior Draws of theta&quot;, 
-     xlab = expression(Posterior~Value~of~theta),
-     breaks = 30)
-abline(v = mean(out2[1000:5000]), col = &quot;red&quot;, lwd =2)</code></pre>
-<p><img src="speeding-things-up-with-rcpp_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
-</div>
-<p>The mean value, 0.127 is very similar to the base R version (some differences could be some differences in the random number generators used). However, we we compare the benchmark times we see that the C++ version of the sampler is roughly 20x faster.</p>
-<h2 id="benchmarking-performance">Benchmarking Performance</h2>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-microbenchmark::microbenchmark(
-  Rcpp = make_posterior(x = x, niter = 5000, 
-                        theta_start_val = 0, theta_proposal_sd = .5),
-  base= theta_sampler(x = x, niter = 5000, 
-                      theta_start_val = 0, theta_proposal_sd = .5))</code></pre>
-<pre><code>
-Unit: milliseconds
- expr       min        lq      mean    median        uq       max
- Rcpp  1.764392  1.807469  2.251101  1.861361  1.937983  9.845288
- base 34.051384 37.416221 41.263258 40.694392 44.393568 54.795664
- neval cld
-   100  a 
-   100   b</code></pre>
-</div>
+<p>The package author does offer a caveat that the package can run slowly with lots of data and filtering and to go back to using <code>dplyr</code> in a discrete step. I imagine it is because of all the grouped operations? Dunno, but this is a neat package to use for exploratory work.</p>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p>
@@ -1580,7 +1413,7 @@ Unit: milliseconds
   <p>Enjoy this blog? Get notified of new posts via email:</p>
   <input type='text' name='btr_email' />
   <input type='hidden' name='btr_url'
-         value='https:/michaeldewittjr.com/dewitt_blog/index.xml'/>
+         value='https://michaeldewittjr.com/dewitt_blog/index.xml'/>
   <input type='hidden' name='schedule_type' value='0' />
   <input type='submit' value='Subscribe' />
 </form></div>
@@ -1592,15 +1425,6 @@ Unit: milliseconds
 <div class="d-appendix">
 </div>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
@@ -1610,13 +1434,13 @@ Unit: milliseconds
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">DeWitt (2019, April 4). Michael DeWitt: Speeding Things Up with Rcpp. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2019-04-04-speeding-things-up-with-rcpp/</pre>
+  <pre class="citation-appendix short">DeWitt (2018, July 4). Michael DeWitt: gghighlight for the win. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{dewitt2019speeding,
+  <pre class="citation-appendix long">@misc{dewitt2018gghighlight,
   author = {DeWitt, Michael},
-  title = {Michael DeWitt: Speeding Things Up with Rcpp},
-  url = {https://michaeldewittjr.com/dewitt_blog/posts/2019-04-04-speeding-things-up-with-rcpp/},
-  year = {2019}
+  title = {Michael DeWitt: gghighlight for the win},
+  url = {https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/},
+  year = {2018}
 }</pre>
 </div>
 <!--/radix_placeholder_appendices-->

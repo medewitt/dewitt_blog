@@ -6,7 +6,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
-  <meta name="generator" content="distill" />
+  <meta name="generator" content="radix" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -19,55 +19,55 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-<title>Michael DeWitt: Finding the Needle in the Haystack</title>
+<title>Michael DeWitt: gghighlight for the win</title>
 
-<meta property="description" itemprop="description" content="Sometimes instead of accuracy we need to look at different metrics. One such metric is sensitivity, which is a measure of those who are actually targets how many does the model correctly identify. This can be the metric of choice over accuracy when you are dealing with a raw event such as a terrorist attack or even student retention. It is always important to understand what metrics you are optimising your models on."/>
+<meta property="description" itemprop="description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
 
-<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2019-06-09-finding-the-needle-in-the-haystack/"/>
+<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2019-06-09"/>
-<meta property="article:created" itemprop="dateCreated" content="2019-06-09"/>
+<meta property="article:published" itemprop="datePublished" content="2018-07-04"/>
+<meta property="article:created" itemprop="dateCreated" content="2018-07-04"/>
 <meta name="article:author" content="Michael DeWitt"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Michael DeWitt: Finding the Needle in the Haystack"/>
+<meta property="og:title" content="Michael DeWitt: gghighlight for the win"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Sometimes instead of accuracy we need to look at different metrics. One such metric is sensitivity, which is a measure of those who are actually targets how many does the model correctly identify. This can be the metric of choice over accuracy when you are dealing with a raw event such as a terrorist attack or even student retention. It is always important to understand what metrics you are optimising your models on."/>
-<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2019-06-09-finding-the-needle-in-the-haystack/"/>
-<meta property="og:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2019-06-09-finding-the-needle-in-the-haystack/finding-the-needle-in-the-haystack_files/figure-html5/unnamed-chunk-8-1.png"/>
-<meta property="og:image:width" content="1248"/>
+<meta property="og:description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
+<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
+<meta property="og:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png"/>
+<meta property="og:image:width" content="1152"/>
 <meta property="og:image:height" content="768"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Michael DeWitt"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Michael DeWitt: Finding the Needle in the Haystack"/>
-<meta property="twitter:description" content="Sometimes instead of accuracy we need to look at different metrics. One such metric is sensitivity, which is a measure of those who are actually targets how many does the model correctly identify. This can be the metric of choice over accuracy when you are dealing with a raw event such as a terrorist attack or even student retention. It is always important to understand what metrics you are optimising your models on."/>
-<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2019-06-09-finding-the-needle-in-the-haystack/"/>
-<meta property="twitter:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2019-06-09-finding-the-needle-in-the-haystack/finding-the-needle-in-the-haystack_files/figure-html5/unnamed-chunk-8-1.png"/>
-<meta property="twitter:image:width" content="1248"/>
+<meta property="twitter:title" content="Michael DeWitt: gghighlight for the win"/>
+<meta property="twitter:description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
+<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
+<meta property="twitter:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png"/>
+<meta property="twitter:image:width" content="1152"/>
 <meta property="twitter:image:height" content="768"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Michael DeWitt: Finding the Needle in the Haystack"/>
-<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2019-06-09-finding-the-needle-in-the-haystack/"/>
+<meta name="citation_title" content="Michael DeWitt: gghighlight for the win"/>
+<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
 <meta name="citation_fulltext_world_readable" content=""/>
-<meta name="citation_online_date" content="2019/06/09"/>
-<meta name="citation_publication_date" content="2019/06/09"/>
+<meta name="citation_online_date" content="2018/07/04"/>
+<meta name="citation_publication_date" content="2018/07/04"/>
 <meta name="citation_author" content="Michael DeWitt"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","categories","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Finding the Needle in the Haystack"]},{"type":"character","attributes":{},"value":["Sometimes instead of accuracy we need to look at different metrics. One such metric is sensitivity, which is a measure of those who are actually targets how many does the model correctly identify. This can be the metric of choice over accuracy when you are dealing with a raw event such as a terrorist attack or even student retention. It is always important to understand what metrics you are optimising your models on."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["Sensitivity","Cost Benefit Analysis"]},{"type":"character","attributes":{},"value":["06-09-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2019-06-09-finding-the-needle-in-the-haystack/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2019-06-09-finding-the-needle-in-the-haystack/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","categories","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["gghighlight for the win"]},{"type":"character","attributes":{},"value":["Exploring the power of gghighlight package to automatically highlight charts"]},{"type":"character","attributes":{},"value":["ggplot2","data visualisation","r"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["07-04-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["finding-the-needle-in-the-haystack_files/bowser-1.9.3/bowser.min.js","finding-the-needle-in-the-haystack_files/distill-2.2.21/template.v2.js","finding-the-needle-in-the-haystack_files/figure-html5/unnamed-chunk-8-1.png","finding-the-needle-in-the-haystack_files/jquery-1.11.3/jquery.min.js","finding-the-needle-in-the-haystack_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["2018-07-04-gghighlight-for-the-win_files/bowser-1.9.3/bowser.min.js","2018-07-04-gghighlight-for-the-win_files/distill-2.2.21/template.v2.js","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-3-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-4-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-6-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-7-1.png","2018-07-04-gghighlight-for-the-win_files/jquery-1.11.3/jquery.min.js","2018-07-04-gghighlight-for-the-win_files/webcomponents-2.0.0/webcomponents.js","figure-html/unnamed-chunk-3-1.png","figure-html/unnamed-chunk-4-1.png","figure-html/unnamed-chunk-5-1.png","figure-html/unnamed-chunk-6-1.png","figure-html/unnamed-chunk-7-1.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1304,7 +1304,7 @@ gtag('config', 'UA-110093032-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Finding the Needle in the Haystack","description":"Sometimes instead of accuracy we need to look at different metrics. One such metric is sensitivity, which is a measure of those who are actually targets how many does the model correctly identify. This can be the metric of choice over accuracy when you are dealing with a raw event such as a terrorist attack or even student retention. It is always important to understand what metrics you are optimising your models on.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-06-09T00:00:00.000-04:00","citationText":"DeWitt, 2019"}
+{"title":"gghighlight for the win","description":"Exploring the power of gghighlight package to automatically highlight charts","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2018-07-04T00:00:00.000-04:00","citationText":"DeWitt, 2018"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1330,163 +1330,82 @@ gtag('config', 'UA-110093032-1');
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Finding the Needle in the Haystack</h1>
-<p>Sometimes instead of accuracy we need to look at different metrics. One such metric is sensitivity, which is a measure of those who are actually targets how many does the model correctly identify. This can be the metric of choice over accuracy when you are dealing with a raw event such as a terrorist attack or even student retention. It is always important to understand what metrics you are optimising your models on.</p>
+<h1>gghighlight for the win</h1>
+<p>Exploring the power of gghighlight package to automatically highlight charts</p>
 </div>
 
 <div class="d-byline">
   Michael DeWitt <a href="https://michaeldewittjr.com" class="uri">https://michaeldewittjr.com</a> 
   
-<br/>06-09-2019
+<br/>07-04-2018
 </div>
 
 <div class="d-article">
-<p>One of the challenges in any kind of prediction problem is understand the impact of a) <em>not</em> identifying the target and b) the impact of <em>falsely indentifying</em> the target. To put it into context, if you are trying to use an algorithm to indentify those with ebola, whats the risk of missing someone (they could infect others with the disease) vs identifying someone who does not have the disease as having the disease (they get quarantined and have their life disrupted). Which is worse? That isn’t a statistical question, it is a context, and even an ethical question (ok, yes, you could also apply a loss function here and use that to find a global minimum value should it exist, but then again that is a choice).</p>
-<p>Typically we use two terms to talk about this problem, sensitivity (of all “targets” how many did the model correctly identify) and specificity (of those who were not targets, what proportion were correctly identified as not a target).</p>
-<h2 id="data-generating-process">Data Generating Process</h2>
-<p>As always, I want to build some simulated data to understand this problem. Let’s assume that we are trying to identify methanol levels in moonshine. <a href="https://en.wikipedia.org/wiki/Moonshine">Moonshine</a> is typically homemade, illicit, high alcohol spirits. The alcohol level is increase through distillation. Ethanol, the desired alcohol boils at something like 78 deg C while methanol boils at 65 deg C. Methanol has some toxic side effects so you really don’t want any in your cocktail. So let’s make some fake data with some measurements.</p>
+<p>gghighlight is a package that is on cran that allows one to highlight certain features ones finds valuable. Right now I typically do this with some custom color coding, then pass that into the <code>ggplot2</code> arguments. This might serve as a good way to more easily automate this task. Additionally, this could be super handy during exploratory analysis where this is much more iterative to find patterns.</p>
+<p>Our libraries of course….</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-n &lt;- 500
-
-pot_temp &lt;- rnorm(n, 78, 10)
-mash_wt &lt;- rnorm(n, 50, 2)
-ambient_temp &lt;- rnorm(n, 30, 7)
-ambient_humidity &lt;- rnorm(n, 82, 12)
-
-methanol_content &lt;- ifelse(pot_temp &lt;65, .5 * mash_wt - ambient_humidity*(ambient_humidity)/1000, 
-                           .2* mash_wt - ambient_humidity*(ambient_humidity)/1000)
-
-moonshine_data &lt;- tibble(pot_temp,
-                         mash_wt,
-                         ambient_temp,
-                         ambient_humidity,
-                         methanol_content)</code></pre>
+library(ggplot2)
+library(gghighlight)</code></pre>
 </div>
-<p>Let’s also assume that methanol content greater than 17 is toxic (these numbers are completely made up).</p>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
-<p>So Let’s see what we have in our data:</p>
-<div class="layout-chunk" data-layout="l-body">
-<table>
-<caption><span id="tab:unnamed-chunk-2">Table 1: </span>Incidence of Toxicity in Total Data Set</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Toxicity</th>
-<th style="text-align: right;">Count</th>
-<th style="text-align: left;">Percent</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">466</td>
-<td style="text-align: left;">93.2%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">34</td>
-<td style="text-align: left;">6.8%</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Yikes! We have a raw case problem. Given our data, what we are targetting doesn’t happen very often. So let’s see what happens when we try to model this:</p>
+<p>This code is copied directly from <a href="https://yutani.rbind.io/post/2017-10-06-gghighlight/">here</a>.</p>
+<p>Build some data which is more some white noise with a random walk.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-dat_training &lt;- sample_frac(moonshine_data, .7)
-dat_testing &lt;- setdiff(moonshine_data, dat_training)</code></pre>
+set.seed(2)
+d &lt;- purrr::map_dfr(
+  letters,
+  ~ data.frame(idx = 1:400,
+               value = cumsum(runif(400, -1, 1)),
+               type = .,
+               stringsAsFactors = FALSE))</code></pre>
 </div>
-<p>We could build a very simple binomial regression, but it could guess that every sample will pass and be correct &gt;90% of the time!</p>
+<p>Definitely some messiness and colour overload!</p>
 <div class="layout-chunk" data-layout="l-body">
-<table>
-<caption><span id="tab:unnamed-chunk-4">Table 2: </span>Incidence of Toxicity in Training Data</caption>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Toxicity</th>
-<th style="text-align: right;">Count</th>
-<th style="text-align: left;">Percent</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">323</td>
-<td style="text-align: left;">92.3%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: left;">7.7%</td>
-</tr>
-</tbody>
-</table>
+<pre class="r"><code>
+ggplot(d) +
+  geom_line(aes(idx, value, colour = type))</code></pre>
+<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-3-1.png" width="576" /></p>
 </div>
+<p>The way I would do it…</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>
-[1] 0.001986915</code></pre>
+<pre class="r"><code>
+library(dplyr, warn.conflicts = FALSE)
+
+d_filtered &lt;- d %&gt;%
+  group_by(type) %&gt;% 
+  filter(max(value) &gt; 20) %&gt;%
+  ungroup()
+
+ggplot() +
+  # draw the original data series with grey
+  geom_line(aes(idx, value, group = type), data = d, colour = alpha(&quot;grey&quot;, 0.7)) +
+  # colourise only the filtered data
+  geom_line(aes(idx, value, colour = type), data = d_filtered)</code></pre>
+<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-4-1.png" width="576" /></p>
 </div>
-<p>Let’s see what our model extracted:</p>
+<p>Now with this handy package we can do the following:</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>
-5 x 1 sparse Matrix of class &quot;dgCMatrix&quot;
-                           1
-(Intercept)      30.80897725
-ambient_humidity -0.08563842
-ambient_temp     -0.02641847
-mash_wt           0.29155874
-pot_temp         -0.59700118</code></pre>
+<pre class="r"><code>
+gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
+  theme_minimal()</code></pre>
+<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png" width="576" data-radix-preview=1 /></p>
 </div>
+<p>And because it is a <code>ggplot</code> object we can add things to it.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>
-          
-           Positive Negative
-  Positive        3        2
-  Negative        4      141</code></pre>
-<table>
-<caption><span id="tab:unnamed-chunk-7">Table 3: </span>Estimates from Elastic Net Fit</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">.metric</th>
-<th style="text-align: left;">.estimator</th>
-<th style="text-align: right;">.estimate</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">accuracy</td>
-<td style="text-align: left;">binary</td>
-<td style="text-align: right;">0.96</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">kap</td>
-<td style="text-align: left;">binary</td>
-<td style="text-align: right;">0.48</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">sens</td>
-<td style="text-align: left;">binary</td>
-<td style="text-align: right;">0.43</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">spec</td>
-<td style="text-align: left;">binary</td>
-<td style="text-align: right;">0.99</td>
-</tr>
-</tbody>
-</table>
+<pre class="r"><code>
+gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
+  facet_wrap(~ type)</code></pre>
+<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-6-1.png" width="576" /></p>
 </div>
-<p>So the estimates looks good for sensitivity meaning that the model only correctly identified a little over half of the toxic batches. Is this good enough? Well for a consumer with no knowledge about the potential risk, I don’t think so. The next steps then would be to tune the model to improve the <em>sensitivity</em> in order to reach an acceptable level. This could be as easy as accepting a higher false positive rating. We can look at this with the ROC curve.</p>
+<p>And some additional cool stuff:</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-8"></span>
-<img src="finding-the-needle-in-the-haystack_files/figure-html5/unnamed-chunk-8-1.png" alt="ROC Curve for Fitted Model" width="624" />
-<p class="caption">
-Figure 1: ROC Curve for Fitted Model
-</p>
+<pre class="r"><code>
+gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
+                 max_highlight = 6)</code></pre>
+<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-7-1.png" width="576" /></p>
 </div>
-</div>
-<p>Still not great. So then what do we do? Accept a higher false positive rate? Or now to we build a better model with different data? What if we could inform the brewer about the process parameters that matter. Then we could fix the problem at the source. Perhaps that’s the best bet….</p>
+<p>The package author does offer a caveat that the package can run slowly with lots of data and filtering and to go back to using <code>dplyr</code> in a discrete step. I imagine it is because of all the grouped operations? Dunno, but this is a neat package to use for exploratory work.</p>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p>
@@ -1494,7 +1413,7 @@ Figure 1: ROC Curve for Fitted Model
   <p>Enjoy this blog? Get notified of new posts via email:</p>
   <input type='text' name='btr_email' />
   <input type='hidden' name='btr_url'
-         value='https:/michaeldewittjr.com/dewitt_blog/index.xml'/>
+         value='https://michaeldewittjr.com/dewitt_blog/index.xml'/>
   <input type='hidden' name='schedule_type' value='0' />
   <input type='submit' value='Subscribe' />
 </form></div>
@@ -1515,13 +1434,13 @@ Figure 1: ROC Curve for Fitted Model
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">DeWitt (2019, June 9). Michael DeWitt: Finding the Needle in the Haystack. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2019-06-09-finding-the-needle-in-the-haystack/</pre>
+  <pre class="citation-appendix short">DeWitt (2018, July 4). Michael DeWitt: gghighlight for the win. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{dewitt2019finding,
+  <pre class="citation-appendix long">@misc{dewitt2018gghighlight,
   author = {DeWitt, Michael},
-  title = {Michael DeWitt: Finding the Needle in the Haystack},
-  url = {https://michaeldewittjr.com/dewitt_blog/posts/2019-06-09-finding-the-needle-in-the-haystack/},
-  year = {2019}
+  title = {Michael DeWitt: gghighlight for the win},
+  url = {https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/},
+  year = {2018}
 }</pre>
 </div>
 <!--/radix_placeholder_appendices-->
