@@ -19,24 +19,24 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-<title>Michael DeWitt: gghighlight for the win</title>
+<title>Michael DeWitt: Hierarchical Time Series with hts</title>
 
-<meta property="description" itemprop="description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
+<meta property="description" itemprop="description" content="This is just a quick reproduction of the items discussed in the &#10;hts package. This allows for hierarchical time series which is &#10;an important feature when looking at data that take a hierarchical&#10;format like counties within a state or precincts within counties within states."/>
 
-<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
+<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-hierarchical-time-series-with-hts/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2018-07-04"/>
-<meta property="article:created" itemprop="dateCreated" content="2018-07-04"/>
+<meta property="article:published" itemprop="datePublished" content="2018-10-28"/>
+<meta property="article:created" itemprop="dateCreated" content="2018-10-28"/>
 <meta name="article:author" content="Michael DeWitt"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Michael DeWitt: gghighlight for the win"/>
+<meta property="og:title" content="Michael DeWitt: Hierarchical Time Series with hts"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
-<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
-<meta property="og:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png"/>
+<meta property="og:description" content="This is just a quick reproduction of the items discussed in the &#10;hts package. This allows for hierarchical time series which is &#10;an important feature when looking at data that take a hierarchical&#10;format like counties within a state or precincts within counties within states."/>
+<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-hierarchical-time-series-with-hts/"/>
+<meta property="og:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-hierarchical-time-series-with-hts/hierarchical-time-series-with-hts_files/figure-html5/unnamed-chunk-5-1.png"/>
 <meta property="og:image:width" content="1152"/>
 <meta property="og:image:height" content="768"/>
 <meta property="og:locale" content="en_US"/>
@@ -44,30 +44,30 @@
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Michael DeWitt: gghighlight for the win"/>
-<meta property="twitter:description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
-<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
-<meta property="twitter:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png"/>
+<meta property="twitter:title" content="Michael DeWitt: Hierarchical Time Series with hts"/>
+<meta property="twitter:description" content="This is just a quick reproduction of the items discussed in the &#10;hts package. This allows for hierarchical time series which is &#10;an important feature when looking at data that take a hierarchical&#10;format like counties within a state or precincts within counties within states."/>
+<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-hierarchical-time-series-with-hts/"/>
+<meta property="twitter:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-hierarchical-time-series-with-hts/hierarchical-time-series-with-hts_files/figure-html5/unnamed-chunk-5-1.png"/>
 <meta property="twitter:image:width" content="1152"/>
 <meta property="twitter:image:height" content="768"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Michael DeWitt: gghighlight for the win"/>
-<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
+<meta name="citation_title" content="Michael DeWitt: Hierarchical Time Series with hts"/>
+<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-hierarchical-time-series-with-hts/"/>
 <meta name="citation_fulltext_world_readable" content=""/>
-<meta name="citation_online_date" content="2018/07/04"/>
-<meta name="citation_publication_date" content="2018/07/04"/>
+<meta name="citation_online_date" content="2018/10/28"/>
+<meta name="citation_publication_date" content="2018/10/28"/>
 <meta name="citation_author" content="Michael DeWitt"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","categories","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["gghighlight for the win"]},{"type":"character","attributes":{},"value":["Exploring the power of gghighlight package to automatically highlight charts"]},{"type":"character","attributes":{},"value":["ggplot2","data visualisation","r"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["07-04-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","categories","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Hierarchical Time Series with hts"]},{"type":"character","attributes":{},"value":["This is just a quick reproduction of the items discussed in the \nhts package. This allows for hierarchical time series which is \nan important feature when looking at data that take a hierarchical\nformat like counties within a state or precincts within counties within states."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["time series"]},{"type":"character","attributes":{},"value":["10-28-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-hierarchical-time-series-with-hts/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-hierarchical-time-series-with-hts/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["2018-07-04-gghighlight-for-the-win_files/bowser-1.9.3/bowser.min.js","2018-07-04-gghighlight-for-the-win_files/distill-2.2.21/template.v2.js","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-3-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-4-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-6-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-7-1.png","2018-07-04-gghighlight-for-the-win_files/jquery-1.11.3/jquery.min.js","2018-07-04-gghighlight-for-the-win_files/webcomponents-2.0.0/webcomponents.js","figure-html/unnamed-chunk-3-1.png","figure-html/unnamed-chunk-4-1.png","figure-html/unnamed-chunk-5-1.png","figure-html/unnamed-chunk-6-1.png","figure-html/unnamed-chunk-7-1.png"]}
+  {"type":"character","attributes":{},"value":["hierarchical-time-series-with-hts_files/bowser-1.9.3/bowser.min.js","hierarchical-time-series-with-hts_files/distill-2.2.21/template.v2.js","hierarchical-time-series-with-hts_files/figure-html5/unnamed-chunk-5-1.png","hierarchical-time-series-with-hts_files/jquery-1.11.3/jquery.min.js","hierarchical-time-series-with-hts_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1304,7 +1304,7 @@ gtag('config', 'UA-110093032-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"gghighlight for the win","description":"Exploring the power of gghighlight package to automatically highlight charts","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2018-07-04T00:00:00.000-04:00","citationText":"DeWitt, 2018"}
+{"title":"Hierarchical Time Series with hts","description":"This is just a quick reproduction of the items discussed in the \nhts package. This allows for hierarchical time series which is \nan important feature when looking at data that take a hierarchical\nformat like counties within a state or precincts within counties within states.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2018-10-28T00:00:00.000-04:00","citationText":"DeWitt, 2018"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1330,82 +1330,152 @@ gtag('config', 'UA-110093032-1');
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>gghighlight for the win</h1>
-<p>Exploring the power of gghighlight package to automatically highlight charts</p>
+<h1>Hierarchical Time Series with hts</h1>
+<p>This is just a quick reproduction of the items discussed in the hts package. This allows for hierarchical time series which is an important feature when looking at data that take a hierarchical format like counties within a state or precincts within counties within states.</p>
 </div>
 
 <div class="d-byline">
   Michael DeWitt <a href="https://michaeldewittjr.com" class="uri">https://michaeldewittjr.com</a> 
   
-<br/>07-04-2018
+<br/>10-28-2018
 </div>
 
 <div class="d-article">
-<p>gghighlight is a package that is on cran that allows one to highlight certain features ones finds valuable. Right now I typically do this with some custom color coding, then pass that into the <code>ggplot2</code> arguments. This might serve as a good way to more easily automate this task. Additionally, this could be super handy during exploratory analysis where this is much more iterative to find patterns.</p>
-<p>Our libraries of course….</p>
+<h2 id="mission">Mission</h2>
+<p>The mission is to reproduce the figures in the following article:</p>
+<p><a href="https://cran.r-project.org/web/packages/hts/vignettes/hts.pdf" class="uri">https://cran.r-project.org/web/packages/hts/vignettes/hts.pdf</a></p>
+<h2 id="load-required-libraries">Load Required Libraries</h2>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-library(ggplot2)
-library(gghighlight)</code></pre>
+library(hts)</code></pre>
 </div>
-<p>This code is copied directly from <a href="https://yutani.rbind.io/post/2017-10-06-gghighlight/">here</a>.</p>
-<p>Build some data which is more some white noise with a random walk.</p>
+<h3 id="note-on-formatting-data">Note on Formatting Data</h3>
+<p>This is important to understand in regard to how to format the data.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-set.seed(2)
-d &lt;- purrr::map_dfr(
-  letters,
-  ~ data.frame(idx = 1:400,
-               value = cumsum(runif(400, -1, 1)),
-               type = .,
-               stringsAsFactors = FALSE))</code></pre>
-</div>
-<p>Definitely some messiness and colour overload!</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-ggplot(d) +
-  geom_line(aes(idx, value, colour = type))</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-3-1.png" width="576" /></p>
-</div>
-<p>The way I would do it…</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(dplyr, warn.conflicts = FALSE)
+# bts is a time series matrix containing the bottom-level series
+# The first three series belong to one group, and the last two
+# series belong to a different group
+# nodes is a list containing the number of child nodes at each level.
+bts &lt;- ts(5 + matrix(sort(rnorm(500)), ncol=5, nrow=100))
 
-d_filtered &lt;- d %&gt;%
-  group_by(type) %&gt;% 
-  filter(max(value) &gt; 20) %&gt;%
-  ungroup()
+y &lt;- hts(bts, nodes=list(2, c(3, 2)))</code></pre>
+</div>
+<h2 id="the-data">The Data</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+infantgts</code></pre>
+<pre><code>
+Grouped Time Series 
+4 Levels 
+Number of groups at each level: 1 2 8 16 
+Total number of series: 27 
+Number of observations per series: 71 
+Top level series: 
+Time Series:
+Start = 1933 
+End = 2003 
+Frequency = 1 
+ [1] 4426 4795 4501 4813 4572 4627 4726 4897 5367 5435 5458 4819 4741
+[14] 5143 5231 4978 4621 4672 4910 4823 4743 4546 4571 4630 4751 4586
+[27] 4915 4667 4700 4861 4652 4403 4124 4065 4205 4293 4507 4620 4809
+[40] 4465 4088 3974 3341 3161 2834 2732 2557 2438 2365 2485 2349 2184
+[53] 2473 2162 2131 2143 2018 2149 1851 1848 1598 1524 1466 1467 1352
+[66] 1261 1413 1292 1313 1271 1207</code></pre>
+</div>
+<p>Use a bottom’s up forcasting method. There are several options from which to choose:</p>
+<ul>
+<li><strong>comb</strong> optimal combination</li>
+<li><strong>bu</strong> bottom’s up</li>
+<li><strong>mo</strong> middle out forecast</li>
+<li><strong>tdgsa</strong> Top-down forecasts based on the average historical proportions (Gross-Sohl method A)</li>
+<li><strong>tdgsf</strong> same as above but with averages</li>
+<li><strong>tdfp</strong> top down forecast using proportions</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# Forecast 10-step-ahead using the bottom-up method
+infantforecast &lt;- forecast(infantgts, h=10, method=&quot;bu&quot;)</code></pre>
+</div>
+<p>Now we can plot them:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# plot the forecasts including the last ten historical years
+plot(infantforecast, include=2)</code></pre>
+<p><img src="hierarchical-time-series-with-hts_files/figure-html5/unnamed-chunk-5-1.png" width="576" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+allts_infant &lt;- aggts(infantgts)
+allf &lt;- matrix(nrow=10, ncol=ncol(allts_infant))
+# Users can select their preferred time-series forecasting method
+# for each time series
+for(i in 1:ncol(allts_infant)){
+  allf[,i] &lt;- forecast(auto.arima(allts_infant[,i]), h=10, PI=FALSE)$mean
+}
 
-ggplot() +
-  # draw the original data series with grey
-  geom_line(aes(idx, value, group = type), data = d, colour = alpha(&quot;grey&quot;, 0.7)) +
-  # colourise only the filtered data
-  geom_line(aes(idx, value, colour = type), data = d_filtered)</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-4-1.png" width="576" /></p>
+allf &lt;- ts(allf, start=2004)
+# combine the forecasts with the group matrix to get a gts object
+g &lt;- matrix(c(rep(1, 8), rep(2, 8), rep(1:8, 2)), nrow = 2, byrow = T)
+y.f &lt;- combinef(allf, groups = g)</code></pre>
 </div>
-<p>Now with this handy package we can do the following:</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
-  theme_minimal()</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png" width="576" data-radix-preview=1 /></p>
+# set up the training sample and testing sample
+data &lt;- window(infantgts, start=1933, end=1993)
+test &lt;- window(infantgts, start=1994, end=2003)
+forecast &lt;- forecast(data, h=10, method=&quot;bu&quot;)
+# calculate ME, RMSE, MAE, MAPE, MPE and MASE
+accuracy.gts(forecast, test)</code></pre>
+<pre><code>
+           Total  Sex/female    Sex/male   State/NSW   State/VIC
+ME   -229.976631 -51.6732083 -178.303422 -61.6997671 -52.3224384
+RMSE  239.316716  54.8648206  186.952910  72.0726053  55.6797769
+MAE   229.976631  51.6732083  178.303422  61.6997671  52.3224384
+MAPE   17.383377   8.8573610   24.108196  14.8044550  17.2578539
+MPE   -17.383377  -8.8573610  -24.108196 -14.8044550 -17.2578539
+MASE    1.192825   0.5536415    1.634811   0.6922188   0.7123545
+      State/QLD    State/SA  State/WA  State/NT  State/ACT  State/TAS
+ME   -54.247885 -27.9688770 -34.22604 2.4214262 -10.200366  8.2673186
+RMSE  58.364656  31.4104773  37.80624 4.4008195  12.277985 14.1318898
+MAE   54.247885  28.3351016  34.22604 3.8128557  10.200366 11.2456064
+MAPE  19.807669  35.8611517  30.49142 9.3990903  58.625236 25.6532905
+MPE  -19.807669 -35.5481392 -30.49142 5.5716727 -58.625236 16.2664231
+MASE   1.170397   0.9229675   1.18361 0.3087333   1.577376  0.4954012
+     NSW female  VIC female QLD female   SA female   WA female
+ME   18.1060219 -19.2448216 -30.927587 -11.8395741  -9.4619072
+RMSE 29.4705103  22.4856212  34.825359  12.7759741  12.2693801
+MAE  22.6345181  19.2448216  30.927587  11.8395741  11.0295258
+MAPE 11.8532079  15.1713621  27.492021  34.9177563  23.1348356
+MPE   9.1030614 -15.1713621 -27.492021 -34.9177563 -20.8629247
+MASE  0.5199353   0.5338369   1.059769   0.6720666   0.6308594
+       NT female  ACT female TAS female   NSW male    VIC male
+ME    -3.6619739   1.2229746  4.1336593 -79.805789 -33.0776168
+RMSE   5.4356560   4.3972340  7.0659449  85.657539  35.4311830
+MAE    4.1036140   3.8000000  5.6228032  79.805789  33.0776168
+MAPE  31.0793050  49.8490801 25.6532905  34.527431  19.3380825
+MPE  -29.2280894 -15.2907568 16.2664231 -34.527431 -19.3380825
+MASE   0.5766202   0.9047619  0.4954012   1.431922   0.7569249
+        QLD male     SA male    WA male   NT male    ACT male
+ME   -23.3202978 -16.1293029 -24.764134  6.083400  -11.423341
+RMSE  27.7367318  20.5563716  28.118008  8.673554   12.089644
+MAE   23.3202978  17.9634424  25.771308  7.729126   11.423341
+MAPE  15.3395187  43.6968568  42.005272 34.820043  106.448479
+MPE  -15.3395187 -41.2835155 -40.987925 22.160616 -106.448479
+MASE   0.9676472   0.9396744   1.577835  1.120163    2.269538
+       TAS male
+ME    4.1336593
+RMSE  7.0659449
+MAE   5.6228032
+MAPE 25.6532905
+MPE  16.2664231
+MASE  0.4954012</code></pre>
 </div>
-<p>And because it is a <code>ggplot</code> object we can add things to it.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
-  facet_wrap(~ type)</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-6-1.png" width="576" /></p>
+fcasts &lt;- forecast(htseg1, h = 10, method = &quot;comb&quot;, fmethod = &quot;arima&quot;,
+weights = &quot;sd&quot;, keep.fitted = TRUE, parallel = TRUE)</code></pre>
 </div>
-<p>And some additional cool stuff:</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
-                 max_highlight = 6)</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-7-1.png" width="576" /></p>
-</div>
-<p>The package author does offer a caveat that the package can run slowly with lots of data and filtering and to go back to using <code>dplyr</code> in a discrete step. I imagine it is because of all the grouped operations? Dunno, but this is a neat package to use for exploratory work.</p>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p>
@@ -1413,7 +1483,7 @@ gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
   <p>Enjoy this blog? Get notified of new posts via email:</p>
   <input type='text' name='btr_email' />
   <input type='hidden' name='btr_url'
-         value='https://michaeldewittjr.com/dewitt_blog/index.xml'/>
+         value='https:/michaeldewittjr.com/dewitt_blog/index.xml'/>
   <input type='hidden' name='schedule_type' value='0' />
   <input type='submit' value='Subscribe' />
 </form></div>
@@ -1434,12 +1504,12 @@ gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">DeWitt (2018, July 4). Michael DeWitt: gghighlight for the win. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/</pre>
+  <pre class="citation-appendix short">DeWitt (2018, Oct. 28). Michael DeWitt: Hierarchical Time Series with hts. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-hierarchical-time-series-with-hts/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{dewitt2018gghighlight,
+  <pre class="citation-appendix long">@misc{dewitt2018hierarchical,
   author = {DeWitt, Michael},
-  title = {Michael DeWitt: gghighlight for the win},
-  url = {https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/},
+  title = {Michael DeWitt: Hierarchical Time Series with hts},
+  url = {https://michaeldewittjr.com/dewitt_blog/posts/2018-10-28-hierarchical-time-series-with-hts/},
   year = {2018}
 }</pre>
 </div>

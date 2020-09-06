@@ -19,55 +19,55 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-<title>Michael DeWitt: gghighlight for the win</title>
+<title>Michael DeWitt: Airflow on Windows Linux Subsystem</title>
 
-<meta property="description" itemprop="description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
+<meta property="description" itemprop="description" content="In this I detail the process for getting a working instance of Apache Airflow on Windows Linux Subsystem. This is a combination of several different posts spread across the internet. Apache Airflow is an exceptional program for scheduling and running tasks."/>
 
-<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
+<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2020-03-04-airflow-on-windows-linux-subsystem/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2018-07-04"/>
-<meta property="article:created" itemprop="dateCreated" content="2018-07-04"/>
+<meta property="article:published" itemprop="datePublished" content="2020-03-04"/>
+<meta property="article:created" itemprop="dateCreated" content="2020-03-04"/>
 <meta name="article:author" content="Michael DeWitt"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Michael DeWitt: gghighlight for the win"/>
+<meta property="og:title" content="Michael DeWitt: Airflow on Windows Linux Subsystem"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
-<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
-<meta property="og:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png"/>
-<meta property="og:image:width" content="1152"/>
-<meta property="og:image:height" content="768"/>
+<meta property="og:description" content="In this I detail the process for getting a working instance of Apache Airflow on Windows Linux Subsystem. This is a combination of several different posts spread across the internet. Apache Airflow is an exceptional program for scheduling and running tasks."/>
+<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-03-04-airflow-on-windows-linux-subsystem/"/>
+<meta property="og:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-03-04-airflow-on-windows-linux-subsystem/airflow-logo.png"/>
+<meta property="og:image:width" content="200"/>
+<meta property="og:image:height" content="200"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Michael DeWitt"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Michael DeWitt: gghighlight for the win"/>
-<meta property="twitter:description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
-<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
-<meta property="twitter:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png"/>
-<meta property="twitter:image:width" content="1152"/>
-<meta property="twitter:image:height" content="768"/>
+<meta property="twitter:title" content="Michael DeWitt: Airflow on Windows Linux Subsystem"/>
+<meta property="twitter:description" content="In this I detail the process for getting a working instance of Apache Airflow on Windows Linux Subsystem. This is a combination of several different posts spread across the internet. Apache Airflow is an exceptional program for scheduling and running tasks."/>
+<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-03-04-airflow-on-windows-linux-subsystem/"/>
+<meta property="twitter:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-03-04-airflow-on-windows-linux-subsystem/airflow-logo.png"/>
+<meta property="twitter:image:width" content="200"/>
+<meta property="twitter:image:height" content="200"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Michael DeWitt: gghighlight for the win"/>
-<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
+<meta name="citation_title" content="Michael DeWitt: Airflow on Windows Linux Subsystem"/>
+<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-03-04-airflow-on-windows-linux-subsystem/"/>
 <meta name="citation_fulltext_world_readable" content=""/>
-<meta name="citation_online_date" content="2018/07/04"/>
-<meta name="citation_publication_date" content="2018/07/04"/>
+<meta name="citation_online_date" content="2020/03/04"/>
+<meta name="citation_publication_date" content="2020/03/04"/>
 <meta name="citation_author" content="Michael DeWitt"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","categories","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["gghighlight for the win"]},{"type":"character","attributes":{},"value":["Exploring the power of gghighlight package to automatically highlight charts"]},{"type":"character","attributes":{},"value":["ggplot2","data visualisation","r"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["07-04-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","categories","date","preview","output","creative_commons","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Airflow on Windows Linux Subsystem"]},{"type":"character","attributes":{},"value":["In this I detail the process for getting a working instance of Apache Airflow on Windows Linux Subsystem. This is a combination of several different posts spread across the internet. Apache Airflow is an exceptional program for scheduling and running tasks."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["airflow","wls","git","scheduling","apache airflow"]},{"type":"character","attributes":{},"value":["03-04-2020"]},{"type":"character","attributes":{},"value":["airflow-logo.png"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2020-03-04-airflow-on-windows-linux-subsystem/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2020-03-04-airflow-on-windows-linux-subsystem/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["2018-07-04-gghighlight-for-the-win_files/bowser-1.9.3/bowser.min.js","2018-07-04-gghighlight-for-the-win_files/distill-2.2.21/template.v2.js","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-3-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-4-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-6-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-7-1.png","2018-07-04-gghighlight-for-the-win_files/jquery-1.11.3/jquery.min.js","2018-07-04-gghighlight-for-the-win_files/webcomponents-2.0.0/webcomponents.js","figure-html/unnamed-chunk-3-1.png","figure-html/unnamed-chunk-4-1.png","figure-html/unnamed-chunk-5-1.png","figure-html/unnamed-chunk-6-1.png","figure-html/unnamed-chunk-7-1.png"]}
+  {"type":"character","attributes":{},"value":["airflow-logo.png","airflow-on-windows-linux-subsystem_files/bowser-1.9.3/bowser.min.js","airflow-on-windows-linux-subsystem_files/distill-2.2.21/template.v2.js","airflow-on-windows-linux-subsystem_files/jquery-1.11.3/jquery.min.js","airflow-on-windows-linux-subsystem_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1304,7 +1304,7 @@ gtag('config', 'UA-110093032-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"gghighlight for the win","description":"Exploring the power of gghighlight package to automatically highlight charts","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2018-07-04T00:00:00.000-04:00","citationText":"DeWitt, 2018"}
+{"title":"Airflow on Windows Linux Subsystem","description":"In this I detail the process for getting a working instance of Apache Airflow on Windows Linux Subsystem. This is a combination of several different posts spread across the internet. Apache Airflow is an exceptional program for scheduling and running tasks.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-03-04T00:00:00.000-05:00","citationText":"DeWitt, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1330,82 +1330,291 @@ gtag('config', 'UA-110093032-1');
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>gghighlight for the win</h1>
-<p>Exploring the power of gghighlight package to automatically highlight charts</p>
+<h1>Airflow on Windows Linux Subsystem</h1>
+<p>In this I detail the process for getting a working instance of Apache Airflow on Windows Linux Subsystem. This is a combination of several different posts spread across the internet. Apache Airflow is an exceptional program for scheduling and running tasks.</p>
 </div>
 
 <div class="d-byline">
   Michael DeWitt <a href="https://michaeldewittjr.com" class="uri">https://michaeldewittjr.com</a> 
   
-<br/>07-04-2018
+<br/>03-04-2020
 </div>
 
 <div class="d-article">
-<p>gghighlight is a package that is on cran that allows one to highlight certain features ones finds valuable. Right now I typically do this with some custom color coding, then pass that into the <code>ggplot2</code> arguments. This might serve as a good way to more easily automate this task. Additionally, this could be super handy during exploratory analysis where this is much more iterative to find patterns.</p>
-<p>Our libraries of course….</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(ggplot2)
-library(gghighlight)</code></pre>
-</div>
-<p>This code is copied directly from <a href="https://yutani.rbind.io/post/2017-10-06-gghighlight/">here</a>.</p>
-<p>Build some data which is more some white noise with a random walk.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-set.seed(2)
-d &lt;- purrr::map_dfr(
-  letters,
-  ~ data.frame(idx = 1:400,
-               value = cumsum(runif(400, -1, 1)),
-               type = .,
-               stringsAsFactors = FALSE))</code></pre>
-</div>
-<p>Definitely some messiness and colour overload!</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-ggplot(d) +
-  geom_line(aes(idx, value, colour = type))</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-3-1.png" width="576" /></p>
-</div>
-<p>The way I would do it…</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(dplyr, warn.conflicts = FALSE)
+<h1 id="why-do-this">Why Do This?</h1>
+<p>Like it or not, there are a lot of Windows shops out there. However, many super useful tools are Linux native and don’t really bridge into the Windows world (for good reason). That being said Windows and Microsoft (I think) are acknowledging this gap and have provided the Windows Linux Subsystem as a bridge between these two dominate platforms. This allows us little people to take advantage of some of the high powered tools available.</p>
+<h1 id="special-thanks">Special Thanks</h1>
+<p>This post stands on the back of a lot of really well written articles which I will link to. Additionally, the code here is good as of Feb 2020 so things are always subject to change.</p>
+<h1 id="start-with-wls">Start with WLS</h1>
+<p>Assuming you are on a Windows box, you’ll need to enable Windows Linux Subsystem. This will allow you to run a lightweight virtual machine that also has access to your root machine file system if you so choose. The instructions are pretty decent <a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">at this link</a>, but here are the high points.</p>
+<h2 id="enable-wsl">Enable WSL</h2>
+<p>You need to enable your features via <strong>Powershell</strong> in administrator mode. If you are on a server or VM, you can do this by adding the features using the usual methods by selecting the additional features.</p>
+<pre class="markdown"><code>
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux</code></pre>
+<h2 id="get-the-distro">Get the Distro</h2>
+<p>Now you can download your distribution of choice (I like Ubuntu 18.04). There is some weirdness with some of the versions, so be careful what you choice. For instance when I installed Ubuntu 16LTS I could not upgrade to Python3.6, which I needed, so I had to burn it down and install another.</p>
+<pre class="markdown"><code>
+Invoke-WebRequest -Uri https://aka.ms/wsl-ubuntu-1804 -OutFile Ubuntu.appx -UseBasicParsing
+Add-AppxPackage .\Ubuntu.appx</code></pre>
+<h3 id="burn-it-down-huh">Burn it Down? Huh?</h3>
+<p>So this is a little aside. Sometimes you mess up and the instal doesn’t go as expected. It is surprisingly hard to remove an old distribution and restart (though some tutorials say that it is). Here is a trick, again in powershell</p>
+<pre class="markdown"><code>
+wslconfig /l</code></pre>
+<p>Which will allow you to see what is installed. If you want to reset your distribution, which I had to do, do the following:</p>
+<pre class="markdown"><code>
+wslconfig /u Ubuntu18-04</code></pre>
+<p>This will unlist the distribution and you can install it afresh, otherwise it will continue to live on in your system.</p>
+<h2 id="now-start-ubuntu">Now Start Ubuntu</h2>
+<p>Assuming your install went ok, now go to the start button (or whatever it is called now) and type “Ubuntu”. You should see the familiar logo. Select it and it will run. You’ll also have to name yourself (which can be anything you want).</p>
+<p>As always a good practice it to give your new Ubuntu instance an update and upgrade:</p>
+<pre class="bash"><code>
+sudo apt updade &amp;&amp; sudo apt upgrade</code></pre>
+<p>Additionally, and this is important, you want to automount your Windows directories. You can typically access them via <code>/mnt/c/Users...</code>, but a lot of programs don’t like this and won’t run from a mounted drive. because of this you will need to update a configuration file:<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
+<pre class="bash"><code>
+sudo nano /etc/wsl.conf</code></pre>
+<p>Then type the following into the configuration file:</p>
+<pre class="markdown"><code>
+[automount]
+root = /
+options = &quot;metadata&quot;</code></pre>
+<p>Now write out the file <code>CTRL + O</code>, then exit with <code>CTRL + X</code></p>
+<p>Now if you type the following, you should see your C drive listed in the directories:</p>
+<pre class="markdown"><code>
+ls /l</code></pre>
+<h1 id="postgres">Postgres</h1>
+<p><a href="https://en.wikipedia.org/wiki/PostgreSQL">Postgres</a> is an open source database, which works great with Airflow and is relatively easy to use. Aiflow will run out of the box on a local sqlite database, but it always seems to get corrupted and have IO errors which are hard to depug.</p>
+<h2 id="installing-postgres">Installing Postgres</h2>
+<p>In the Ubuntu terminal type the following to get postgres<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
+<pre class="bash"><code>
+sudo apt-get install postgresql</code></pre>
+<p>The user account for postgres is <code>postgres</code> (easy enough to remember)</p>
+<p>You’ll need to make a password by the following:</p>
+<pre class="bash"><code>
+sudo passwd postgres</code></pre>
+<p>Then close Ubuntu and open it back up. Type the following to see if the server is running:</p>
+<pre class="bash"><code>
+sudo service postgresql start</code></pre>
+<h2 id="create-a-postgres-user-and-database">Create a Postgres User and Database</h2>
+<p>First we’ll create a user for the postgres database. This is how Airflow will connect:</p>
+<pre class="bash"><code>
+sudo -u postgres createuser airflow
+sudo -u postgres createdb airflowdb</code></pre>
+<p>Now you want to jump into the postgres database that you started and provide rights and a password to <code>airflow</code></p>
+<pre class="bash"><code>
+sudo -u postgres psql</code></pre>
+<p>Now in the pqsl area (looks like psql=#)</p>
+<pre class="psql"><code>
+alter user airflow with encrypted password &#39;securepassword&#39;;
+grant all privileges on database airflowdb to airflow ; 
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO airflow;</code></pre>
+<p>Now you can hit <code>CTRL + Z</code> and exit the postgres prompt. Congrats, you now have an airflowdb postgres database.</p>
+<p>To verify that everything went as expected, again in the command line type:</p>
+<pre class="bash"><code>
+psql -d airflow</code></pre>
+<p>Then in the airflow prompt type:</p>
+<pre class="psql"><code>
+\conninfo</code></pre>
+<p>Note the port that it is serving on (typically 5432, but could be something different for you). Exit out back to the bash terminal.</p>
+<h2 id="config-for-postgres">Config for Postgres</h2>
+<p>Now, thanks to <a href="https://medium.com/@taufiq_ibrahim/apache-airflow-installation-on-ubuntu-ddc087482c14">this post</a> we will update some configuration files so that Airflow and postgres can communicate.</p>
+<p>First we need to change the pg_hba.conf file. <strong>Note</strong> that you may need to change your path depending on what version of postgres you have.</p>
+<pre class="bash"><code>
+sudo nano /etc/postgresql/10/main/pg_hba.conf</code></pre>
+<p>Now that you have that file open, chage the IPv4 connections to as follows:</p>
+<pre class="markdown"><code>
+host all all 0.0.0.0/0 trust</code></pre>
+<p>Write out those changes and then exit. Now restart the server with:</p>
+<pre class="bash"><code>
+sudo service postgresql restart</code></pre>
+<p>Now one more configuration file change, this time at:</p>
+<pre class="bash"><code>
+sudo nano /etc/postgresql/9.5/main/postgresql.conf</code></pre>
+<p>Here change the <code>listen_addresses</code> field to look like that below:</p>
+<pre class="markdown"><code>
+listen_addresses = ‘*’ # for Airflow connection</code></pre>
+<p>Then restart the server once more:</p>
+<pre class="bash"><code>
+sudo service postgresql restart</code></pre>
+<h1 id="now-airflow">Now Airflow</h1>
+<p>Wow, we went through a good bit just to get here. Worry not though, almost done.</p>
+<h2 id="change-airflowhome">Change Airflowhome</h2>
+<p>First we need to make sure that Airflow goes to a real drive on the local machine and not in the WLS. To ensure this happens, I like to add the path to my .bashrc file.</p>
+<pre class="bash"><code>
+sudo nano ~/.bashrc</code></pre>
+<p>Find an empty line and include the line below, changing the “user_name” for whatever username you have. Important here is that you have write access and know that the dags for airflow will be in this case under the AirflowHome directory on your C drive.</p>
+<pre class="markdown"><code>
+export AIRFLOW_HOME=/c/Users/user_name/AirflowHome</code></pre>
+<p>Write out this change and then exit with the normal keystrokes. Additionally, source your bashrc file or exit Ubuntu and re open it.</p>
+<h2 id="python">Python?</h2>
+<p>It is important to make sure that we have a version of Python 3.6 or newer. This ships with Ubuntu 18-04, but worth checking with the following:</p>
+<pre class="bash"><code>
+python --version</code></pre>
+<p>If we don’t have python then we will need to install it with:</p>
+<pre class="bash"><code>
+sudo apt get python3</code></pre>
+<p>If we do have it, we need to verify that we have pip</p>
+<pre class="bash"><code>
+pip3 --version</code></pre>
+<p>If not, install it as above.</p>
+<h2 id="install-airflow-finally">Install Airflow (finally)</h2>
+<p>Now that all the pre-reqs have been accomplished we can install airflow with the following:</p>
+<pre class="bash"><code>
+pip3 install apache-airflow[postgres, mssql, celery, rabbitmq]</code></pre>
+<p>This will install Airflow as well as all the packages that support connecting to postgres, MS Sql and running multiple operators. Depending what packages you have, this might take a bit.</p>
+<h2 id="configuring-airflow">Configuring Airflow</h2>
+<p>Once everything is installed, we need to update the configuration for airflow to point it to our prefered destinations.</p>
+<p>We an do this with:</p>
+<pre class="bash"><code>
+sudo nano ${AIRFLOW_HOME}/airflow.cfg</code></pre>
+<p>(This also tests that our path was successful).</p>
+<p>Once there we need to alter two fields.</p>
+<ol type="1">
+<li>Update our database to our fancy postgres instance as shown below:</li>
+</ol>
+<pre class="markdown"><code>
+sql_alchemy_conn = postgresql+psycopg2://airflow:secure_password@localhost:5432/airflowdb</code></pre>
+<ol start="2" type="1">
+<li>Change our executor to:</li>
+</ol>
+<pre class="markdown"><code>
+executor = LocalExecutor</code></pre>
+<p>In theory we should be able to use the CeleryExecutor, but I wasn’t sucessful with it and didn’t want to fight that anymore.</p>
+<p>You should scan through this configuration file to see if everything is correct and if you want to make any changes. For example you might want to change the timezone as <a href="https://www.ryanmerlin.com/2019/07/apache-airflow-installation-on-ubuntu-18-04-18-10/">the author of this post did</a></p>
+<pre class="markdown"><code>
+default_timezone = America/New_York</code></pre>
+<h2 id="serving-it-up">Serving it Up</h2>
+<p>Now you can exit the configuration file by writing out your changes.</p>
+<p>Now you can start serving Airflow with the following:</p>
+<pre class="bash"><code>
+airflow initdb</code></pre>
+<p>Now the database has been initialized. Next step is to start the scheduler:</p>
+<pre class="bash"><code>
+airflow scheduler</code></pre>
+<p>This will start the scheduler (and it might take up the whole window with logs, so just open another instance of Ubunutu).</p>
+<p>Then start the webserver:</p>
+<pre class="bash"><code>
+airflow webserver</code></pre>
+<p>Again, this might take another terminal over completely, but don’t worry. If everything worked, you should be able to navigate to localhost:8080 and see your Airflow instance running in your favourite browser.</p>
+<p>This will have the default dags loaded by default, so you should see several dags. Turn one of the tutorials one, then manually trigger the DAG to see how it works.</p>
+<h1 id="running-a-dag-on-the-local-machine">Running A Dag on the Local Machine</h1>
+<p>The whole prupose of Airflow is to schedule tasks. Ideally, you can use all of your windows credentials, Active Directory, looking at you and manipulate files on shared drives. Here’s where it gets tricky; you will call your Windows host machine to run your tasks in your DAG files.</p>
+<h2 id="an-example">An Example</h2>
+<p>I manage my dags through a Git repository. This provides me all the power of version control and lets other users submit PRs with new DAGs. If need to make changes, I just push to my local repository with my new dag or changed dag. Airflow then pulls this repository on a schedule, checks them, and turns any shell scripts into executables.</p>
+<pre class="python"><code>
+# -*- coding: utf-8 -*-
 
-d_filtered &lt;- d %&gt;%
-  group_by(type) %&gt;% 
-  filter(max(value) &gt; 20) %&gt;%
-  ungroup()
+from builtins import range
+from datetime import timedelta
+import airflow
+from airflow.models import DAG
+from airflow.operators.bash_operator import BashOperator
+from airflow.operators.dummy_operator import DummyOperator
 
-ggplot() +
-  # draw the original data series with grey
-  geom_line(aes(idx, value, group = type), data = d, colour = alpha(&quot;grey&quot;, 0.7)) +
-  # colourise only the filtered data
-  geom_line(aes(idx, value, colour = type), data = d_filtered)</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-4-1.png" width="576" /></p>
-</div>
-<p>Now with this handy package we can do the following:</p>
-<div class="layout-chunk" data-layout="l-body">
+args = {
+    &#39;owner&#39;: &#39;michael&#39;,
+    &#39;start_date&#39;: airflow.utils.dates.days_ago(2),
+}
+
+dag = DAG(
+    dag_id=&#39;pull_scheduler_updates&#39;,
+    default_args=args,
+    schedule_interval=&#39;2 4 * * *&#39;,
+    dagrun_timeout=timedelta(minutes=20),
+)
+
+update_repo = BashOperator(
+    task_id=&#39;update_repo&#39;,
+    bash_command=&#39;cd /c/Users/mike/AirflowHome; /c/Program\ Files/Git/cmd/git.exe checkout -f; /c/Program\ Files/Git/cmd/git.exe pull origin master; &#39;,
+    dag=dag,
+)
+
+convert_unix = BashOperator(
+    task_id=&#39;convert_to_unix&#39;,
+    bash_command=&#39;cd /c/Users/mike/AirflowHome/src; find . -type f -print0 | xargs -0 dos2unix; &#39;,
+    dag=dag,
+)
+
+make_exec = BashOperator(
+    task_id=&#39;make_exec&#39;,
+    bash_command=&quot;cd /c/Users/mike/AirflowHome/src; ls -l | awk &#39;{k=0;for(i=0;i&lt;=8;i++)k+=((substr($1,i+2,1)~/[rwx]/) *2^(8-i));if(k)printf(\&quot;%0o \&quot;,k);print}&#39;; &quot;,
+    dag=dag,
+)
+
+update_repo &gt;&gt;  convert_unix
+convert_unix &gt;&gt; make_exec
+
+if __name__ == &quot;__main__&quot;:
+    dag.cli()
+</code></pre>
+<p>The important part here to note is that I am changing directory to a place on my C drive, then calling <a href="https://git-scm.com/download/win">Windows Git</a> explicitly from my host system files. This allows my Windows machine to handle this process and not count on Ubuntu WLS to execute these tasks.</p>
+<p>Similarly, if I had a shell script that looked like the following:</p>
+<pre class="bash"><code>
+echo &quot;starting&quot;
+echo $(pwd)
+
+# Set Location
+cd /c/Users/mike/cool_project
+/c/Program\ Files/R/R-3.6.1/bin/x64/Rscript.exe really_long_script.R
+
+echo &quot;Done!&quot;</code></pre>
+<p>This would allow me to call R directly on the host machine to run my long script. Ideally, I would set common system commands as alias (eg. Rscript = /c/Program Files/R/R-3.6.1/bin/x64/Rscript.exe or something like this). I might go down that road, but not right now (or I will put it at the top of the bash script and have templates).</p>
+<pre class="bash"><code>
+echo &quot;starting&quot;
+echo $(pwd)
+Rscript = /c/Program\ Files/R/R-3.6.1/bin/x64/Rscript.exe
+# Set Location
+cd /c/Users/mike/cool_project
+$(Rscript) really_long_script.R
+
+echo &quot;Done!&quot;</code></pre>
+<p>Creating variables with the path names is what I have done in Makefiles (because I am old school and love GNUmake). In this way I can still navigate to a directory and issue the <code>make</code> command in the DAG.</p>
+<h2 id="rmarkdown">Rmarkdown</h2>
+<p>One thing to consider when dealing with RMarkdown is that you need to explicitly define the path the pandoc when the script is being run by Airflow.</p>
 <pre class="r"><code>
-gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
-  theme_minimal()</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png" width="576" data-radix-preview=1 /></p>
-</div>
-<p>And because it is a <code>ggplot</code> object we can add things to it.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
-  facet_wrap(~ type)</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-6-1.png" width="576" /></p>
-</div>
-<p>And some additional cool stuff:</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
-                 max_highlight = 6)</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-7-1.png" width="576" /></p>
-</div>
-<p>The package author does offer a caveat that the package can run slowly with lots of data and filtering and to go back to using <code>dplyr</code> in a discrete step. I imagine it is because of all the grouped operations? Dunno, but this is a neat package to use for exploratory work.</p>
+Sys.setenv(RSTUDIO_PANDOC=&quot;C:/Program Files/RStudio/bin/pandoc&quot;)</code></pre>
+<p>This typically my scripts for R being run by Airflow will look like:</p>
+<pre class="bash"><code>
+echo &quot;starting&quot;
+echo $(pwd)
+Rscript = /c/Program\ Files/R/R-3.6.1/bin/x64/Rscript.exe
+
+# Set Location
+cd /c/Users/mike/cool_project
+$(Rscript) -e &#39;Sys.setenv(RSTUDIO_PANDOC=&quot;C:/Program Files/RStudio/bin/pandoc&quot;); rmarkdown::render(&quot;cool_report.Rmd&quot;)&#39;
+
+echo &quot;Done!&quot;
+</code></pre>
+<h1 id="issues">Issues…</h1>
+<p>Sometimes Airflow will die or you will submit a bad DAG and get things messed up. Don’t worry, there are plenty of tricks:</p>
+<ol type="1">
+<li>Reset your database</li>
+</ol>
+<pre class="bash"><code>
+airflow resetdb</code></pre>
+<p>This will clear out and reset your database. For extra reset power, go ahead and use the <code>airflow initdb</code>.</p>
+<p>You might need to start the server and the scheduler again as well.</p>
+<ol start="2" type="1">
+<li>Kill orphan processes. I have found that if something fails while Airflow is running a process, it can get hung up and won’t resart correctly.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
+</ol>
+<p>When that happens you might need to kill the processes manually, then restart the airflow database, scheulder, and webserver.</p>
+<pre class="bash"><code>
+ps -aux | grep scheduler</code></pre>
+<p>Will list the processes. Scan them and see if anything needs to be killed as shown below.</p>
+<pre class="bash"><code>
+kill -9 3400</code></pre>
+<p>Update DAGs. If you don’t automatically update the DAGs as I have done and are waiting for a new DAG to appear, you can try the following on the bash shell:</p>
+<pre class="bash"><code>
+python3 -c &quot;from airflow.models import DagBag; d = DagBag();&quot;</code></pre>
+<h1 id="conclusion">Conclusion</h1>
+<p>Airflow is great and I love it. You will have to learn how to use it with Windows, but the pain is worth it for the convenience and transparency of your job.</p>
+<section class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Learned this great tidbit here <a href="https://www.astronomer.io/guides/airflow-wsl/" class="uri">https://www.astronomer.io/guides/airflow-wsl/</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+<li id="fn2"><p>Special thanks to this blog post <a href="https://medium.com/@harshityadav95/postgresql-in-windows-subsystem-for-linux-wsl-6dc751ac1ff3" class="uri">https://medium.com/@harshityadav95/postgresql-in-windows-subsystem-for-linux-wsl-6dc751ac1ff3</a><a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn3"><p>See this post <a href="https://stackoverflow.com/questions/59080796/airflow-scheduler-periodically-complains-no-heartbeat" class="uri">https://stackoverflow.com/questions/59080796/airflow-scheduler-periodically-complains-no-heartbeat</a> for an example<a href="#fnref3" class="footnote-back">↩</a></p></li>
+</ol>
+</section>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p>
@@ -1413,7 +1622,7 @@ gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
   <p>Enjoy this blog? Get notified of new posts via email:</p>
   <input type='text' name='btr_email' />
   <input type='hidden' name='btr_url'
-         value='https://michaeldewittjr.com/dewitt_blog/index.xml'/>
+         value='https:/michaeldewittjr.com/dewitt_blog/index.xml'/>
   <input type='hidden' name='schedule_type' value='0' />
   <input type='submit' value='Subscribe' />
 </form></div>
@@ -1434,13 +1643,13 @@ gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">DeWitt (2018, July 4). Michael DeWitt: gghighlight for the win. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/</pre>
+  <pre class="citation-appendix short">DeWitt (2020, March 4). Michael DeWitt: Airflow on Windows Linux Subsystem. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2020-03-04-airflow-on-windows-linux-subsystem/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{dewitt2018gghighlight,
+  <pre class="citation-appendix long">@misc{dewitt2020airflow,
   author = {DeWitt, Michael},
-  title = {Michael DeWitt: gghighlight for the win},
-  url = {https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/},
-  year = {2018}
+  title = {Michael DeWitt: Airflow on Windows Linux Subsystem},
+  url = {https://michaeldewittjr.com/dewitt_blog/posts/2020-03-04-airflow-on-windows-linux-subsystem/},
+  year = {2020}
 }</pre>
 </div>
 <!--/radix_placeholder_appendices-->

@@ -19,55 +19,60 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-<title>Michael DeWitt: gghighlight for the win</title>
+<title>Michael DeWitt: Negative Binomial Distribution and Epidemics</title>
 
-<meta property="description" itemprop="description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
+<meta property="description" itemprop="description" content="Super-spreading events can be characterised by a single case spreading to a larger than expected number of people. This phenomenon can be well-represented by a negative binomial distribution versus a standard Poisson distribution. In this post I review the overdispersion factor and how it can be parameterised in a model."/>
 
-<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
+<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-30-negative-binomial-distribution-and-epidemics/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2018-07-04"/>
-<meta property="article:created" itemprop="dateCreated" content="2018-07-04"/>
+<meta property="article:published" itemprop="datePublished" content="2020-09-01"/>
+<meta property="article:created" itemprop="dateCreated" content="2020-09-01"/>
 <meta name="article:author" content="Michael DeWitt"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Michael DeWitt: gghighlight for the win"/>
+<meta property="og:title" content="Michael DeWitt: Negative Binomial Distribution and Epidemics"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
-<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
-<meta property="og:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png"/>
-<meta property="og:image:width" content="1152"/>
+<meta property="og:description" content="Super-spreading events can be characterised by a single case spreading to a larger than expected number of people. This phenomenon can be well-represented by a negative binomial distribution versus a standard Poisson distribution. In this post I review the overdispersion factor and how it can be parameterised in a model."/>
+<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-30-negative-binomial-distribution-and-epidemics/"/>
+<meta property="og:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-30-negative-binomial-distribution-and-epidemics/negative-binomial-distribution-and-epidemics_files/figure-html5/unnamed-chunk-2-1.png"/>
+<meta property="og:image:width" content="1248"/>
 <meta property="og:image:height" content="768"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Michael DeWitt"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Michael DeWitt: gghighlight for the win"/>
-<meta property="twitter:description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
-<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
-<meta property="twitter:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png"/>
-<meta property="twitter:image:width" content="1152"/>
+<meta property="twitter:title" content="Michael DeWitt: Negative Binomial Distribution and Epidemics"/>
+<meta property="twitter:description" content="Super-spreading events can be characterised by a single case spreading to a larger than expected number of people. This phenomenon can be well-represented by a negative binomial distribution versus a standard Poisson distribution. In this post I review the overdispersion factor and how it can be parameterised in a model."/>
+<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-30-negative-binomial-distribution-and-epidemics/"/>
+<meta property="twitter:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-30-negative-binomial-distribution-and-epidemics/negative-binomial-distribution-and-epidemics_files/figure-html5/unnamed-chunk-2-1.png"/>
+<meta property="twitter:image:width" content="1248"/>
 <meta property="twitter:image:height" content="768"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Michael DeWitt: gghighlight for the win"/>
-<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
+<meta name="citation_title" content="Michael DeWitt: Negative Binomial Distribution and Epidemics"/>
+<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-30-negative-binomial-distribution-and-epidemics/"/>
 <meta name="citation_fulltext_world_readable" content=""/>
-<meta name="citation_online_date" content="2018/07/04"/>
-<meta name="citation_publication_date" content="2018/07/04"/>
+<meta name="citation_online_date" content="2020/09/01"/>
+<meta name="citation_publication_date" content="2020/09/01"/>
 <meta name="citation_author" content="Michael DeWitt"/>
 <!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Ebola superspreading;citation_publication_date=2015;citation_volume=15;citation_doi=10.1016/S1473-3099(15)70135-0;citation_issn=1473-3099, 1474-4457;citation_author=Christian L. Althaus"/>
+  <meta name="citation_reference" content="citation_title=Factors that make an infectious disease outbreak controllable;citation_publication_date=2004;citation_volume=101;citation_doi=10.1073/pnas.0307506101;citation_issn=0027-8424, 1091-6490;citation_author=Christophe Fraser;citation_author=Steven Riley;citation_author=Roy M. Anderson;citation_author=Neil M. Ferguson"/>
+  <meta name="citation_reference" content="citation_title=Superspreading and the effect of individual variation on disease emergence;citation_publication_date=2005;citation_volume=438;citation_doi=10.1038/nature04153;citation_issn=1476-4687;citation_author=J. O. Lloyd-Smith;citation_author=S. J. Schreiber;citation_author=P. E. Kopp;citation_author=W. M. Getz"/>
+  <meta name="citation_reference" content="citation_title=Estimating the overdispersion in COVID-19 transmission using outbreak sizes outside China;citation_publication_date=2020;citation_volume=5;citation_doi=10.12688/wellcomeopenres.15842.1;citation_issn=2398-502X;citation_author=Akira Endo;citation_author=Sam Abbott;citation_author=Adam J. Kucharski;citation_author=Sebastian Funk;citation_author=Estimating the overdispersion in COVID-19 transmission using outbreak sizes outside China"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","categories","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["gghighlight for the win"]},{"type":"character","attributes":{},"value":["Exploring the power of gghighlight package to automatically highlight charts"]},{"type":"character","attributes":{},"value":["ggplot2","data visualisation","r"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["07-04-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","output","bibliography","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["Negative Binomial Distribution and Epidemics"]},{"type":"character","attributes":{},"value":["Super-spreading events can be characterised by a single case spreading to a larger than expected number of people. This phenomenon can be well-represented by a negative binomial distribution versus a standard Poisson distribution. In this post I review the overdispersion factor and how it can be parameterised in a model."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["09-01-2020"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["library.bib"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2020-08-30-negative-binomial-distribution-and-epidemics/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2020-08-30-negative-binomial-distribution-and-epidemics/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["2018-07-04-gghighlight-for-the-win_files/bowser-1.9.3/bowser.min.js","2018-07-04-gghighlight-for-the-win_files/distill-2.2.21/template.v2.js","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-3-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-4-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-6-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-7-1.png","2018-07-04-gghighlight-for-the-win_files/jquery-1.11.3/jquery.min.js","2018-07-04-gghighlight-for-the-win_files/webcomponents-2.0.0/webcomponents.js","figure-html/unnamed-chunk-3-1.png","figure-html/unnamed-chunk-4-1.png","figure-html/unnamed-chunk-5-1.png","figure-html/unnamed-chunk-6-1.png","figure-html/unnamed-chunk-7-1.png"]}
+  {"type":"character","attributes":{},"value":["Exported Items.bib","library.bib","negative-binomial-distribution-and-epidemics_files/bowser-1.9.3/bowser.min.js","negative-binomial-distribution-and-epidemics_files/distill-2.2.21/template.v2.js","negative-binomial-distribution-and-epidemics_files/figure-html5/unnamed-chunk-2-1.png","negative-binomial-distribution-and-epidemics_files/figure-html5/unnamed-chunk-3-1.png","negative-binomial-distribution-and-epidemics_files/figure-html5/unnamed-chunk-4-1.png","negative-binomial-distribution-and-epidemics_files/figure-html5/unnamed-chunk-5-1.png","negative-binomial-distribution-and-epidemics_files/jquery-1.11.3/jquery.min.js","negative-binomial-distribution-and-epidemics_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1304,7 +1309,7 @@ gtag('config', 'UA-110093032-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"gghighlight for the win","description":"Exploring the power of gghighlight package to automatically highlight charts","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2018-07-04T00:00:00.000-04:00","citationText":"DeWitt, 2018"}
+{"title":"Negative Binomial Distribution and Epidemics","description":"Super-spreading events can be characterised by a single case spreading to a larger than expected number of people. This phenomenon can be well-represented by a negative binomial distribution versus a standard Poisson distribution. In this post I review the overdispersion factor and how it can be parameterised in a model.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-09-01T00:00:00.000-04:00","citationText":"DeWitt, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1330,82 +1335,192 @@ gtag('config', 'UA-110093032-1');
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>gghighlight for the win</h1>
-<p>Exploring the power of gghighlight package to automatically highlight charts</p>
+<h1>Negative Binomial Distribution and Epidemics</h1>
+<p>Super-spreading events can be characterised by a single case spreading to a larger than expected number of people. This phenomenon can be well-represented by a negative binomial distribution versus a standard Poisson distribution. In this post I review the overdispersion factor and how it can be parameterised in a model.</p>
 </div>
 
 <div class="d-byline">
   Michael DeWitt <a href="https://michaeldewittjr.com" class="uri">https://michaeldewittjr.com</a> 
   
-<br/>07-04-2018
+<br/>09-01-2020
 </div>
 
 <div class="d-article">
-<p>gghighlight is a package that is on cran that allows one to highlight certain features ones finds valuable. Right now I typically do this with some custom color coding, then pass that into the <code>ggplot2</code> arguments. This might serve as a good way to more easily automate this task. Additionally, this could be super handy during exploratory analysis where this is much more iterative to find patterns.</p>
-<p>Our libraries of course….</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(ggplot2)
-library(gghighlight)</code></pre>
-</div>
-<p>This code is copied directly from <a href="https://yutani.rbind.io/post/2017-10-06-gghighlight/">here</a>.</p>
-<p>Build some data which is more some white noise with a random walk.</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-set.seed(2)
-d &lt;- purrr::map_dfr(
-  letters,
-  ~ data.frame(idx = 1:400,
-               value = cumsum(runif(400, -1, 1)),
-               type = .,
-               stringsAsFactors = FALSE))</code></pre>
-</div>
-<p>Definitely some messiness and colour overload!</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-ggplot(d) +
-  geom_line(aes(idx, value, colour = type))</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-3-1.png" width="576" /></p>
-</div>
-<p>The way I would do it…</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(dplyr, warn.conflicts = FALSE)
+<p>This is partially just for me to remember how to parameterise a <a href="https://en.wikipedia.org/wiki/Negative_binomial_distribution">Negative Binomial distribution</a>. Typically, the Negative Binomial is used for the number of Bernoulli trials before the first success or number of successes is achieved (and thus a discrete distribution). For some probability of success, <span class="math inline">\(p\)</span>, given <span class="math inline">\(r\)</span> failures and <span class="math inline">\(k\)</span> successes we can define the probability mass function as:</p>
+<p><span class="math display">\[
+{k + r - 1 \choose k} * (1-p)^r*p^k
+\]</span></p>
+<p>That is at least the textbook definition. Typically we encounter the negative binomial distribution as a way to deal with over-dispersed Poisson processes (and thus is really a mixture model of gamma and poison distributions).</p>
+<h2 id="basic-reproduction-number-and-dispersion">Basic Reproduction Number and Dispersion</h2>
+<p>In outbreaks and epidemics we are typically interested in the basic reproduction number, <span class="math inline">\(R_0\)</span>, which represents the average number of secondary infections caused by an index infection in a fully susceptible population. One could simulate such a branching process using a Poisson branching process.</p>
+<div class="layout-chunk" data-layout="l-page">
 
-d_filtered &lt;- d %&gt;%
-  group_by(type) %&gt;% 
-  filter(max(value) &gt; 20) %&gt;%
-  ungroup()
+</div>
+<p>Borrowing some simulation code from <span class="citation" data-cites="althaus_ebola_2015">Althaus (<a href="#ref-althaus_ebola_2015">2015</a>)</span> we can first simulate tranmission chains with a Poisson distribution and an R of .8.</p>
+<div class="layout-chunk" data-layout="l-page">
+<pre class="r"><code>
+R0 &lt;- 2.5
+k &lt;- 1
 
-ggplot() +
-  # draw the original data series with grey
-  geom_line(aes(idx, value, group = type), data = d, colour = alpha(&quot;grey&quot;, 0.7)) +
-  # colourise only the filtered data
-  geom_line(aes(idx, value, colour = type), data = d_filtered)</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-4-1.png" width="576" /></p>
+gamma_params &lt;- epitrix::gamma_mucv2shapescale(mu = 3,cv = .5)
+
+serial_interval &lt;- distcrete::distcrete(name = &quot;gamma&quot;, gamma_params$scale,
+                                        shape =gamma_params$shape,
+                                        w = 0)
+# Set seed for random number generator
+set.seed(645)
+# Number of simulation runs
+runs &lt;- 1e2
+# Number of initial cases
+seed &lt;- 1
+# Initialize plot
+plot(NA,xlim=c(0,100),ylim=c(0,100),xlab=&quot;Time (days)&quot;,
+ylab=&quot;Cumulative number of cases&quot;,frame=FALSE)
+# Set color scheme for different trajectories
+cols &lt;- sample(terrain.colors(runs))
+# Simulate outbreak trajectories
+for(i in 1:runs) {
+  cases &lt;- seed
+  t &lt;- rep(0, seed)
+  times &lt;- t
+  while (cases &gt; 0) {
+    secondary &lt;- rpois(cases,.8)
+    t.new &lt;- numeric()
+    for (j in 1:length(secondary)) {
+      t.new &lt;-
+        c(
+          t.new,
+          t[j] + serial_interval$r(secondary[j])
+        )
+    }
+    cases &lt;- length(t.new)
+    t &lt;- t.new
+    times &lt;- c(times, t.new)
+  }
+  lines(sort(times),
+        1:length(times),
+        col = cols[i],
+        lwd = 1)
+  points(max(times), length(times), col = cols[i], pch = 16)
+}</code></pre>
+<p><img src="negative-binomial-distribution-and-epidemics_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
 </div>
-<p>Now with this handy package we can do the following:</p>
-<div class="layout-chunk" data-layout="l-body">
+<h3 id="super-spreading">Super-Spreading</h3>
+<p>One of the buzzwords with the SARS-CoV-2 Pandemic has been super-spreading, and there is evidence that super-spreading events play a large role in the transmission of SARS-CoV-2 <span class="citation" data-cites="endo_estimating_2020">(Endo et al. <a href="#ref-endo_estimating_2020">2020</a>)</span>. Super-spreading refers to those index cases which transmit to a larger number of people than would have been expected <span class="citation" data-cites="lloyd_smith_superspreading_2005">(Lloyd-Smith et al. <a href="#ref-lloyd_smith_superspreading_2005">2005</a>)</span>. Larger than expected is a bit of a loose definition, do have a way of measuring this using our reproduction number (or even the basic reproduction number). Now it is true that the reproduction number and basic reproduction number are both estimated themselves from the data with associated measurement and missing data problems, but this is a thought exercise so let’s assume we know them.</p>
+<p>We measure the degree of super-spreading using the dispersion parameter called k (or <span class="math inline">\(\phi\)</span>). The closer the dispersion parameter is to 1, the more Poisson-like is the branching process. Conversely, as k the dispersion parameter approaches 0, the more super-spreading events there will be. We can see this as we incease the number of samples that the negative binomial with <span class="math inline">\(\phi\)</span> converges to the mean of Poisson distribution, while the smaller <span class="math inline">\(\phi\)</span> does not converge.</p>
+<div class="layout-chunk" data-layout="l-page">
 <pre class="r"><code>
-gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
-  theme_minimal()</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png" width="576" data-radix-preview=1 /></p>
+sims &lt;- data.frame(
+ran_poi &lt;- purrr::map_dbl(1:1000, ~mean(rpois(.x, R0))),
+ran_nb &lt;-  purrr::map_dbl(1:1000, ~mean(rnbinom(.x, 1, mu = R0))),
+ran_nb_ss &lt;- purrr::map_dbl(1:1000, ~mean(rnbinom(.x, .1, mu = R0)))
+)
+
+matplot(sims, type = &quot;l&quot;,
+       main = &quot;Convergence of Mean&quot;,
+       xlab = &quot;Samples&quot;, ylab = &quot;Mean&quot;, adj = 0, ylim = c(0,10))
+legend(&quot;topright&quot;, fill = c(1,2,3),legend = c(&quot;Poisson&quot;, 
+                                        &quot;NB with K=1&quot;, 
+                                        &quot;NB with k=.1&quot;))</code></pre>
+<p><img src="negative-binomial-distribution-and-epidemics_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
-<p>And because it is a <code>ggplot</code> object we can add things to it.</p>
-<div class="layout-chunk" data-layout="l-body">
+<p>With the same reproduction number, but a dispersion of 0.1, we can see that some of the transmission chains are much larger. Thus is could be said that super-spreading transmission might be slow to take hold (easy to have chains that terminate quickly), but it can start wildfires; this tranmission pattern and its effect on controlling epidemics is discussed in <span class="citation" data-cites="fraser_factors_2004">Fraser et al. (<a href="#ref-fraser_factors_2004">2004</a>)</span>.</p>
+<div class="layout-chunk" data-layout="l-page">
 <pre class="r"><code>
-gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
-  facet_wrap(~ type)</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-6-1.png" width="576" /></p>
+gamma_params &lt;- epitrix::gamma_mucv2shapescale(mu = 3,cv = .5)
+
+serial_interval &lt;- distcrete::distcrete(name = &quot;gamma&quot;, gamma_params$scale,
+                                        shape =gamma_params$shape,
+                                        w = 0)
+# Set seed for random number generator
+set.seed(645)
+# Number of simulation runs
+runs &lt;- 1e2
+# Number of initial cases
+seed &lt;- 1
+# Initialize plot
+plot(NA,xlim=c(0,100),ylim=c(0,100),xlab=&quot;Time (days)&quot;,
+ylab=&quot;Cumulative number of cases&quot;,frame=FALSE)
+# Set color scheme for different trajectories
+cols &lt;- sample(terrain.colors(runs))
+# Simulate outbreak trajectories
+
+collector &lt;- list()
+for(i in 1:runs) {
+  cases &lt;- seed
+  t &lt;- rep(0, seed)
+  times &lt;- t
+  while (cases &gt; 0) {
+    secondary &lt;-
+      rnbinom(cases,
+              .1,
+              mu = .9)
+    t.new &lt;- numeric()
+    for (j in 1:length(secondary)) {
+      t.new &lt;-
+        c(
+          t.new,
+          t[j] + serial_interval$r(
+            secondary[j]
+          )
+        )
+    }
+    cases &lt;- length(t.new)
+    t &lt;- t.new
+    times &lt;- c(times, t.new)
+  }
+  collector[[i]] &lt;- length(times) 
+  lines(sort(times),
+        1:length(times),
+        col = cols[i],
+        lwd = 1)
+  points(max(times), length(times), col = cols[i], pch = 16)
+}</code></pre>
+<p><img src="negative-binomial-distribution-and-epidemics_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
-<p>And some additional cool stuff:</p>
-<div class="layout-chunk" data-layout="l-body">
+<div class="layout-chunk" data-layout="l-page">
 <pre class="r"><code>
-gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
-                 max_highlight = 6)</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-7-1.png" width="576" /></p>
+transmission_chains &lt;- do.call(rbind, collector) - 1
+hist(transmission_chains, 
+     breaks = 30, 
+     main = &quot;Number of Secondary Cases&quot;, 
+     adj = 0, col = &quot;steelblue&quot;, xlab = &quot;Secondary Cases&quot;)</code></pre>
+<p><img src="negative-binomial-distribution-and-epidemics_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
-<p>The package author does offer a caveat that the package can run slowly with lots of data and filtering and to go back to using <code>dplyr</code> in a discrete step. I imagine it is because of all the grouped operations? Dunno, but this is a neat package to use for exploratory work.</p>
+<h2 id="proportion-responsible">Proportion Responsible</h2>
+<p>Again, borrowing code from <span class="citation" data-cites="endo_estimating_2020">Endo et al. (<a href="#ref-endo_estimating_2020">2020</a>)</span> to estimate the proportion of infections that are responsible for a given proportion of cases.</p>
+<div class="layout-chunk" data-layout="l-page">
+<pre class="r"><code>
+nb_fit &lt;- fitdistrplus::fitdist(data =as.vector(transmission_chains), distr = &quot;nbinom&quot; )</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-page">
+<pre class="r"><code>
+prop_responsible=function(R0,k,prop){
+    qm1=qnbinom(1-prop,k+1,mu=R0*(k+1)/k)
+    remq=1-prop-pnbinom(qm1-1,k+1,mu=R0*(k+1)/k)
+    remx=remq/dnbinom(qm1,k+1,mu=R0*(k+1)/k)
+    q=qm1+1
+    1-pnbinom(q-1,k,mu=R0)-dnbinom(q,k,mu=R0)*remx
+}
+
+prop_responsible(nb_fit$estimate[[2]],nb_fit$estimate[[1]],.8)</code></pre>
+<pre><code>
+[1] 0.02311288</code></pre>
+</div>
+<div id="refs" class="references">
+<div id="ref-althaus_ebola_2015">
+<p>Althaus, Christian L. 2015. “Ebola Superspreading.” <em>The Lancet Infectious Diseases</em> 15 (5): 507–8. <a href="https://doi.org/10.1016/S1473-3099(15)70135-0">https://doi.org/10.1016/S1473-3099(15)70135-0</a>.</p>
+</div>
+<div id="ref-endo_estimating_2020">
+<p>Endo, Akira, Centre for the Mathematical Modelling of Infectious Diseases COVID-19 Working Group, Sam Abbott, Adam J. Kucharski, and Sebastian Funk. 2020. “Estimating the Overdispersion in COVID-19 Transmission Using Outbreak Sizes Outside China.” <em>Wellcome Open Research</em> 5 (April): 67. <a href="https://doi.org/10.12688/wellcomeopenres.15842.1">https://doi.org/10.12688/wellcomeopenres.15842.1</a>.</p>
+</div>
+<div id="ref-fraser_factors_2004">
+<p>Fraser, Christophe, Steven Riley, Roy M. Anderson, and Neil M. Ferguson. 2004. “Factors That Make an Infectious Disease Outbreak Controllable.” <em>Proceedings of the National Academy of Sciences</em> 101 (16): 6146–51. <a href="https://doi.org/10.1073/pnas.0307506101">https://doi.org/10.1073/pnas.0307506101</a>.</p>
+</div>
+<div id="ref-lloyd_smith_superspreading_2005">
+<p>Lloyd-Smith, J. O., S. J. Schreiber, P. E. Kopp, and W. M. Getz. 2005. “Superspreading and the Effect of Individual Variation on Disease Emergence.” <em>Nature</em> 438 (7066): 355–59. <a href="https://doi.org/10.1038/nature04153">https://doi.org/10.1038/nature04153</a>.</p>
+</div>
+</div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p>
@@ -1413,7 +1528,7 @@ gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
   <p>Enjoy this blog? Get notified of new posts via email:</p>
   <input type='text' name='btr_email' />
   <input type='hidden' name='btr_url'
-         value='https://michaeldewittjr.com/dewitt_blog/index.xml'/>
+         value='https:/michaeldewittjr.com/dewitt_blog/index.xml'/>
   <input type='hidden' name='schedule_type' value='0' />
   <input type='submit' value='Subscribe' />
 </form></div>
@@ -1425,6 +1540,15 @@ gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
@@ -1434,18 +1558,127 @@ gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">DeWitt (2018, July 4). Michael DeWitt: gghighlight for the win. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/</pre>
+  <pre class="citation-appendix short">DeWitt (2020, Sept. 1). Michael DeWitt: Negative Binomial Distribution and Epidemics. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2020-08-30-negative-binomial-distribution-and-epidemics/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{dewitt2018gghighlight,
+  <pre class="citation-appendix long">@misc{dewitt2020negative,
   author = {DeWitt, Michael},
-  title = {Michael DeWitt: gghighlight for the win},
-  url = {https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/},
-  year = {2018}
+  title = {Michael DeWitt: Negative Binomial Distribution and Epidemics},
+  url = {https://michaeldewittjr.com/dewitt_blog/posts/2020-08-30-negative-binomial-distribution-and-epidemics/},
+  year = {2020}
 }</pre>
 </div>
+<script id="distill-bibliography" type="text/bibtex">
+
+@article{althaus_ebola_2015,
+	title = {Ebola superspreading},
+	volume = {15},
+	issn = {1473-3099, 1474-4457},
+	url = {https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(15)70135-0/abstract},
+	doi = {10.1016/S1473-3099(15)70135-0},
+	abstract = {Ousmane Faye and colleagues1 recently described the chains of transmission for 152
+individuals infected with Ebola virus diseases in Guinea. The resulting transmission
+trees provide unique insights into the individual variation in the number of secondary
+cases generated by an infected index case. A better understanding of this variation
+provides crucial information about epidemic spread, the expected number of superspreading
+events, and the effects of control measures.2},
+	language = {English},
+	number = {5},
+	urldate = {2020-09-01},
+	journal = {The Lancet Infectious Diseases},
+	author = {Althaus, Christian L.},
+	month = may,
+	year = {2015},
+	pmid = {25932579},
+	note = {Publisher: Elsevier},
+	pages = {507--508},
+	file = {Full Text PDF:/Users/michael/Zotero/storage/X9FWQ7HV/Althaus - 2015 - Ebola superspreading.pdf:application/pdf;Snapshot:/Users/michael/Zotero/storage/P3UGLLSM/fulltext.html:text/html}
+}
+
+@article{fraser_factors_2004,
+	title = {Factors that make an infectious disease outbreak controllable},
+	volume = {101},
+	copyright = {Copyright © 2004, The National Academy of Sciences},
+	issn = {0027-8424, 1091-6490},
+	url = {https://www.pnas.org/content/101/16/6146},
+	doi = {10.1073/pnas.0307506101},
+	abstract = {The aim of this study is to identify general properties of emerging infectious agents that determine the likely success of two simple public health measures in controlling outbreaks, namely (i) isolating symptomatic individuals and (ii) tracing and quarantining their contacts. Because these measures depend on the recognition of specific disease symptoms, we investigate the relative timing of infectiousness and the appearance of symptoms by using a mathematical model. We show that the success of these control measures is determined as much by the proportion of transmission occurring prior to the onset of overt clinical symptoms (or via asymptomatic infection) as the inherent transmissibility of the etiological agent (measured by the reproductive number R 0). From published studies, we estimate these quantities for two moderately transmissible viruses, severe acute respiratory syndrome coronavirus and HIV, and for two highly transmissible viruses, smallpox and pandemic influenza. We conclude that severe acute respiratory syndrome and smallpox are easier to control using these simple public health measures. Direct estimation of the proportion of asymptomatic and presymptomatic infections is achievable by contact tracing and should be a priority during an outbreak of a novel infectious agent.},
+	language = {en},
+	number = {16},
+	urldate = {2020-07-08},
+	journal = {Proceedings of the National Academy of Sciences},
+	author = {Fraser, Christophe and Riley, Steven and Anderson, Roy M. and Ferguson, Neil M.},
+	month = apr,
+	year = {2004},
+	pmid = {15071187},
+	note = {Publisher: National Academy of Sciences
+Section: Biological Sciences},
+	keywords = {epidemiology, HIV, influenza, severe acute respiratory syndrome, smallpox},
+	pages = {6146--6151},
+	file = {Full Text PDF:/Users/michael/Zotero/storage/G7CTXMMW/Fraser et al. - 2004 - Factors that make an infectious disease outbreak c.pdf:application/pdf;Snapshot:/Users/michael/Zotero/storage/IFM9549M/6146.html:text/html}
+}
+
+@article{lloyd_smith_superspreading_2005,
+	title = {Superspreading and the effect of individual variation on disease emergence},
+	volume = {438},
+	copyright = {2005 Nature Publishing Group},
+	issn = {1476-4687},
+	url = {https://www.nature.com/articles/nature04153},
+	doi = {10.1038/nature04153},
+	abstract = {From Typhoid Mary to SARS, it has long been known that some people spread disease more than others. But for diseases transmitted via casual contact, contagiousness arises from a plethora of social and physiological factors, so epidemiologists have tended to rely on population averages to assess a disease's potential to spread. A new analysis of outbreak data shows that individual differences in infectiousness exert powerful influences on the epidemiology of ten deadly diseases. SARS and measles (and perhaps avian influenza) show strong tendencies towards ‘superspreading events’ that can ignite explosive epidemics — but this same volatility makes outbreaks more likely to fizzle out. Smallpox and pneumonic plague, two potential bioterrorism agents, show steadier growth but still differ markedly from the traditional average-based view. These findings are relevant to how emerging diseases are detected and controlled.},
+	language = {en},
+	number = {7066},
+	urldate = {2020-05-08},
+	journal = {Nature},
+	author = {Lloyd-Smith, J. O. and Schreiber, S. J. and Kopp, P. E. and Getz, W. M.},
+	month = nov,
+	year = {2005},
+	note = {Number: 7066
+Publisher: Nature Publishing Group},
+	pages = {355--359},
+	file = {Full Text PDF:/Users/michael/Zotero/storage/8X8SFAFZ/Lloyd-Smith et al. - 2005 - Superspreading and the effect of individual variat.pdf:application/pdf;Snapshot:/Users/michael/Zotero/storage/WAFVLNQZ/nature04153.html:text/html}
+}
+
+@article{endo_estimating_2020,
+	title = {Estimating the overdispersion in {COVID}-19 transmission using outbreak sizes outside {China}},
+	volume = {5},
+	issn = {2398-502X},
+	url = {https://wellcomeopenresearch.org/articles/5-67/v1},
+	doi = {10.12688/wellcomeopenres.15842.1},
+	abstract = {Background: A novel coronavirus disease (COVID-19) outbreak has now spread to a number of countries worldwide. While sustained transmission chains of human-to-human transmission suggest high basic reproduction number R0, variation in the number of secondary transmissions (often characterised by so-called superspreading events) may be large as some countries have observed fewer local transmissions than others.
+Methods: We quantified individual-level variation in COVID-19 transmission by applying a mathematical model to observed outbreak sizes in affected countries. We extracted the number of imported and local cases in the affected countries from the World Health Organization situation report and applied a branching process model where the number of secondary transmissions was assumed to follow a negative-binomial distribution.
+Results: Our model suggested a high degree of individual-level variation in the transmission of COVID-19. Within the current consensus range of R0 (2-3), the overdispersion parameter k of a negative-binomial distribution was estimated to be around 0.1 (median estimate 0.1; 95\% CrI: 0.05-0.2 for R0 = 2.5), suggesting that 80\% of secondary transmissions may have been caused by a small fraction of infectious individuals ({\textasciitilde}10\%). A joint estimation yielded likely ranges for R0 and k (95\% CrIs: R0 1.4-12; k 0.04-0.2); however, the upper bound of R0 was not well informed by the model and data, which did not notably differ from that of the prior distribution.
+Conclusions: Our finding of a highly-overdispersed offspring distribution highlights a potential benefit to focusing intervention efforts on superspreading. As most infected individuals do not contribute to the expansion of an epidemic, the effective reproduction number could be drastically reduced by preventing relatively rare superspreading events.},
+	language = {en},
+	urldate = {2020-06-16},
+	journal = {Wellcome Open Research},
+	author = {Endo, Akira and {Centre for the Mathematical Modelling of Infectious Diseases COVID-19 Working Group} and Abbott, Sam and Kucharski, Adam J. and Funk, Sebastian},
+	month = apr,
+	year = {2020},
+	pages = {67},
+	file = {Endo et al. - 2020 - Estimating the overdispersion in COVID-19 transmis.pdf:/Users/michael/Zotero/storage/6YM2AQTE/Endo et al. - 2020 - Estimating the overdispersion in COVID-19 transmis.pdf:application/pdf}
+}
+
+</script>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
+<div class="radix-site-nav radix-site-footer">
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    
+    
+    var t = setInterval(function(){
+      var resizeEvent = new Event('resize');
+      window.dispatchEvent(resizeEvent);  
+    }, 1000);
+ 
+    
+  });
+  
+  
+</script>
+</div>
 <!--/radix_placeholder_navigation_after_body-->
+
 
 </body>
 

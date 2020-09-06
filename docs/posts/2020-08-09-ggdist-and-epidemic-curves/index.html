@@ -19,55 +19,59 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-<title>Michael DeWitt: gghighlight for the win</title>
+<title>Michael DeWitt: ggdist and Epidemic Curves</title>
 
-<meta property="description" itemprop="description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
+<meta property="description" itemprop="description" content="This post explores using tools to summarise curves rather than fixed time summary methods. This includes using odin and ggdist to explore the risk of underestimating epidemic curves."/>
 
-<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
+<link rel="canonical" href="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-ggdist-and-epidemic-curves/"/>
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2018-07-04"/>
-<meta property="article:created" itemprop="dateCreated" content="2018-07-04"/>
+<meta property="article:published" itemprop="datePublished" content="2020-08-09"/>
+<meta property="article:created" itemprop="dateCreated" content="2020-08-09"/>
 <meta name="article:author" content="Michael DeWitt"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Michael DeWitt: gghighlight for the win"/>
+<meta property="og:title" content="Michael DeWitt: ggdist and Epidemic Curves"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
-<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
-<meta property="og:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png"/>
-<meta property="og:image:width" content="1152"/>
+<meta property="og:description" content="This post explores using tools to summarise curves rather than fixed time summary methods. This includes using odin and ggdist to explore the risk of underestimating epidemic curves."/>
+<meta property="og:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-ggdist-and-epidemic-curves/"/>
+<meta property="og:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-ggdist-and-epidemic-curves/ggdist-and-epidemic-curves_files/figure-html5/unnamed-chunk-4-1.png"/>
+<meta property="og:image:width" content="1248"/>
 <meta property="og:image:height" content="768"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Michael DeWitt"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary_large_image"/>
-<meta property="twitter:title" content="Michael DeWitt: gghighlight for the win"/>
-<meta property="twitter:description" content="Exploring the power of gghighlight package to automatically highlight charts"/>
-<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
-<meta property="twitter:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png"/>
-<meta property="twitter:image:width" content="1152"/>
+<meta property="twitter:title" content="Michael DeWitt: ggdist and Epidemic Curves"/>
+<meta property="twitter:description" content="This post explores using tools to summarise curves rather than fixed time summary methods. This includes using odin and ggdist to explore the risk of underestimating epidemic curves."/>
+<meta property="twitter:url" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-ggdist-and-epidemic-curves/"/>
+<meta property="twitter:image" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-ggdist-and-epidemic-curves/ggdist-and-epidemic-curves_files/figure-html5/unnamed-chunk-4-1.png"/>
+<meta property="twitter:image:width" content="1248"/>
 <meta property="twitter:image:height" content="768"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Michael DeWitt: gghighlight for the win"/>
-<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"/>
+<meta name="citation_title" content="Michael DeWitt: ggdist and Epidemic Curves"/>
+<meta name="citation_fulltext_html_url" content="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-ggdist-and-epidemic-curves/"/>
 <meta name="citation_fulltext_world_readable" content=""/>
-<meta name="citation_online_date" content="2018/07/04"/>
-<meta name="citation_publication_date" content="2018/07/04"/>
+<meta name="citation_online_date" content="2020/08/09"/>
+<meta name="citation_publication_date" content="2020/08/09"/>
 <meta name="citation_author" content="Michael DeWitt"/>
 <!--/radix_placeholder_meta_tags-->
+  
+  <meta name="citation_reference" content="citation_title=Fixed-time descriptive statistics underestimate extremes of epidemic curve ensembles;citation_publication_date=2020;citation_author=Jonas L. Juul;citation_author=Kaare Græsbøll;citation_author=Lasse Engbo Christiansen;citation_author=Sune Lehmann"/>
+  <meta name="citation_reference" content="citation_title=Odin: ODE generation and integration;citation_publication_date=2019;citation_author=Rich FitzJohn"/>
+  <meta name="citation_reference" content="citation_title=&lt;span class=&quot;nocase&quot;&gt;ggdist&lt;/span&gt;: Visualizations of distributions and uncertainty;citation_publication_date=2020;citation_doi=10.5281/zenodo.3879620;citation_author=Matthew Kay"/>
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","categories","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["gghighlight for the win"]},{"type":"character","attributes":{},"value":["Exploring the power of gghighlight package to automatically highlight charts"]},{"type":"character","attributes":{},"value":["ggplot2","data visualisation","r"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["07-04-2018"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["creative_commons","title","description","author","date","bibliography","categories","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":["ggdist and Epidemic Curves"]},{"type":"character","attributes":{},"value":["This post explores using tools to summarise curves rather than fixed time summary methods. This includes using odin and ggdist to explore the risk of underestimating epidemic curves."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Michael DeWitt"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com"]}]}]},{"type":"character","attributes":{},"value":["08-09-2020"]},{"type":"character","attributes":{},"value":["mybib.bib"]},{"type":"character","attributes":{},"value":["pandemic","scenarios","curve statistics"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-ggdist-and-epidemic-curves/"]},{"type":"character","attributes":{},"value":["https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-ggdist-and-epidemic-curves/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["2018-07-04-gghighlight-for-the-win_files/bowser-1.9.3/bowser.min.js","2018-07-04-gghighlight-for-the-win_files/distill-2.2.21/template.v2.js","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-3-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-4-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-6-1.png","2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-7-1.png","2018-07-04-gghighlight-for-the-win_files/jquery-1.11.3/jquery.min.js","2018-07-04-gghighlight-for-the-win_files/webcomponents-2.0.0/webcomponents.js","figure-html/unnamed-chunk-3-1.png","figure-html/unnamed-chunk-4-1.png","figure-html/unnamed-chunk-5-1.png","figure-html/unnamed-chunk-6-1.png","figure-html/unnamed-chunk-7-1.png"]}
+  {"type":"character","attributes":{},"value":["ggdist-and-epidemic-curves_files/bowser-1.9.3/bowser.min.js","ggdist-and-epidemic-curves_files/distill-2.2.21/template.v2.js","ggdist-and-epidemic-curves_files/figure-html5/unnamed-chunk-4-1.png","ggdist-and-epidemic-curves_files/figure-html5/unnamed-chunk-5-1.png","ggdist-and-epidemic-curves_files/figure-html5/unnamed-chunk-6-1.png","ggdist-and-epidemic-curves_files/jquery-1.11.3/jquery.min.js","ggdist-and-epidemic-curves_files/webcomponents-2.0.0/webcomponents.js","mybib.bib"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1304,7 +1308,7 @@ gtag('config', 'UA-110093032-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"gghighlight for the win","description":"Exploring the power of gghighlight package to automatically highlight charts","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2018-07-04T00:00:00.000-04:00","citationText":"DeWitt, 2018"}
+{"title":"ggdist and Epidemic Curves","description":"This post explores using tools to summarise curves rather than fixed time summary methods. This includes using odin and ggdist to explore the risk of underestimating epidemic curves.","authors":[{"author":"Michael DeWitt","authorURL":"https://michaeldewittjr.com","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-08-09T00:00:00.000-04:00","citationText":"DeWitt, 2020"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1330,82 +1334,146 @@ gtag('config', 'UA-110093032-1');
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>gghighlight for the win</h1>
-<p>Exploring the power of gghighlight package to automatically highlight charts</p>
+<h1>ggdist and Epidemic Curves</h1>
+<p>This post explores using tools to summarise curves rather than fixed time summary methods. This includes using odin and ggdist to explore the risk of underestimating epidemic curves.</p>
 </div>
 
 <div class="d-byline">
   Michael DeWitt <a href="https://michaeldewittjr.com" class="uri">https://michaeldewittjr.com</a> 
   
-<br/>07-04-2018
+<br/>08-09-2020
 </div>
 
 <div class="d-article">
-<p>gghighlight is a package that is on cran that allows one to highlight certain features ones finds valuable. Right now I typically do this with some custom color coding, then pass that into the <code>ggplot2</code> arguments. This might serve as a good way to more easily automate this task. Additionally, this could be super handy during exploratory analysis where this is much more iterative to find patterns.</p>
-<p>Our libraries of course….</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 library(ggplot2)
-library(gghighlight)</code></pre>
+library(dplyr)
+library(tidyr)
+library(ggdist)
+library(odin)
+theme_set(theme_minimal())</code></pre>
 </div>
-<p>This code is copied directly from <a href="https://yutani.rbind.io/post/2017-10-06-gghighlight/">here</a>.</p>
-<p>Build some data which is more some white noise with a random walk.</p>
+<p>This little post is based on a recent paper by <span class="citation" data-cites="juul_fixed_time_2020">Juul et al. (<a href="#ref-juul_fixed_time_2020">2020</a>)</span>. For infectious disease modelling we are often running many scenarios through the models. Why? Because there are many parameters to estimate, but very few things that we actually observe (cases by day or <em>incidence</em>) so in some sense our models all suffer from identifiability issues. Additionally, many of the parameters that we do measure have some uncertainty around them. For this reason it is very common to run models with different parameters estimates or distributions in order to understand a range of possible values. A simple way to summarise these models is through point-wise quantiles through time. The genius of Juul’s paper is that this can underestimate many outcomes because it might pick up the beginning of one epidemic curve and miss the peak.</p>
+<p>Enter curve estimates. These measures actually look at the curves proper through the trajectory rather than at discrete time points. Here we can rank the entire curve and capture the contribution of the curve rather than the point-wise estimate.</p>
+<p>To see this let’s run a simple example from the odin package <span class="citation" data-cites="odin">(FitzJohn <a href="#ref-odin">2019</a>)</span>. Additionally, the amazing ggdist <span class="citation" data-cites="ggdist">(Kay <a href="#ref-ggdist">2020</a>)</span> provides an easy way to summarise curves.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-set.seed(2)
-d &lt;- purrr::map_dfr(
-  letters,
-  ~ data.frame(idx = 1:400,
-               value = cumsum(runif(400, -1, 1)),
-               type = .,
-               stringsAsFactors = FALSE))</code></pre>
-</div>
-<p>Definitely some messiness and colour overload!</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-ggplot(d) +
-  geom_line(aes(idx, value, colour = type))</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-3-1.png" width="576" /></p>
-</div>
-<p>The way I would do it…</p>
-<div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(dplyr, warn.conflicts = FALSE)
+sir_model &lt;- system.file(&quot;examples/discrete_stochastic_sir_arrays.R&quot;, package = &quot;odin&quot;)
 
-d_filtered &lt;- d %&gt;%
-  group_by(type) %&gt;% 
-  filter(max(value) &gt; 20) %&gt;%
-  ungroup()
+writeLines(readLines(sir_model))</code></pre>
+<pre><code>
+## Core equations for transitions between compartments:
+update(S[]) &lt;- S[i] - n_SI[i]
+update(I[]) &lt;- I[i] + n_SI[i] - n_IR[i]
+update(R[]) &lt;- R[i] + n_IR[i]
 
-ggplot() +
-  # draw the original data series with grey
-  geom_line(aes(idx, value, group = type), data = d, colour = alpha(&quot;grey&quot;, 0.7)) +
-  # colourise only the filtered data
-  geom_line(aes(idx, value, colour = type), data = d_filtered)</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-4-1.png" width="576" /></p>
+## Individual probabilities of transition:
+p_SI[] &lt;- 1 - exp(-beta * I[i] / N[i])
+p_IR &lt;- 1 - exp(-gamma)
+
+## Draws from binomial distributions for numbers changing between
+## compartments:
+n_SI[] &lt;- rbinom(S[i], p_SI[i])
+n_IR[] &lt;- rbinom(I[i], p_IR)
+
+## Total population size
+N[] &lt;- S[i] + I[i] + R[i]
+
+## Initial states:
+initial(S[]) &lt;- S_ini
+initial(I[]) &lt;- I_ini
+initial(R[]) &lt;- 0
+
+## User defined parameters - default in parentheses:
+S_ini &lt;- user(1000)
+I_ini &lt;- user(1)
+beta &lt;- user(0.2)
+gamma &lt;- user(0.1)
+
+## Number of replicates
+nsim &lt;- user(100)
+dim(N) &lt;- nsim
+dim(S) &lt;- nsim
+dim(I) &lt;- nsim
+dim(R) &lt;- nsim
+dim(p_SI) &lt;- nsim
+dim(n_SI) &lt;- nsim
+dim(n_IR) &lt;- nsim</code></pre>
 </div>
-<p>Now with this handy package we can do the following:</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
-  theme_minimal()</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-5-1.png" width="576" data-radix-preview=1 /></p>
+x &lt;- odin(sir_model)</code></pre>
+<pre><code>
+clang -I&quot;/Library/Frameworks/R.framework/Resources/include&quot; -DNDEBUG   -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -I/usr/local/include  -fPIC  -Wall -g -O2  -c discrete_stochastic_sir_arrays_ac73d6bb.c -o discrete_stochastic_sir_arrays_ac73d6bb.o
+clang -dynamiclib -Wl,-headerpad_max_install_names -undefined dynamic_lookup -single_module -multiply_defined suppress -L/Library/Frameworks/R.framework/Resources/lib -L/usr/local/lib -o discrete_stochastic_sir_arrays_ac73d6bb.so discrete_stochastic_sir_arrays_ac73d6bb.o -F/Library/Frameworks/R.framework/.. -framework R -Wl,-framework -Wl,CoreFoundation</code></pre>
+<pre class="r"><code>
+fit &lt;- x()
+
+sampz &lt;- as.data.frame(fit$run(step = 100))</code></pre>
 </div>
-<p>And because it is a <code>ggplot</code> object we can add things to it.</p>
+<p>Now that we have values, a simple analysis would look like the following:</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-gghighlight_line(d, aes(idx, value, colour = type), max(value) &gt; 20) +
-  facet_wrap(~ type)</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-6-1.png" width="576" /></p>
+val_long &lt;- sampz %&gt;% 
+  select(step, contains(&quot;I&quot;)) %&gt;% 
+  tidyr::gather(key, value, -step) %&gt;% 
+  mutate(.draw = readr::parse_number(stringr::str_extract(key,&quot;\\d+&quot;)))
+
+sumz_point &lt;- val_long %&gt;% 
+  group_by(step) %&gt;% 
+  summarise(q05 = quantile(value, probs = .05),
+            q95 = quantile(value, probs = .95))
+
+val_long %&gt;% 
+  ggplot(aes(step, y = value, group = .draw))+
+  geom_line(alpha = .2)+
+  geom_ribbon(data = sumz_point, 
+              aes(x = step, ymin = q05, ymax = q95), 
+              inherit.aes = FALSE, fill = &quot;orange&quot;, alpha =.2)+
+  labs(
+    title = &quot;Simulated SIR Curve for Infections&quot;
+  )</code></pre>
+<p><img src="ggdist-and-epidemic-curves_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
-<p>And some additional cool stuff:</p>
+<p>If we take the curve distribution approach we can see the following</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
-                 max_highlight = 6)</code></pre>
-<p><img src="2018-07-04-gghighlight-for-the-win_files/figure-html5/unnamed-chunk-7-1.png" width="576" /></p>
+p &lt;- val_long %&gt;% 
+  group_by(step) %&gt;%
+  curve_interval(value, .width = c(.5, .8, .95)) %&gt;%
+  ggplot(aes(x = step, y = value)) +
+  geom_hline(yintercept = 1, color = &quot;gray75&quot;, linetype = &quot;dashed&quot;) +
+  geom_lineribbon(aes(ymin = .lower, ymax = .upper)) +
+  scale_fill_brewer() +
+  labs(
+    title = &quot;Simulated SIR Curve for Infections&quot;
+  )
+
+p</code></pre>
+<p><img src="ggdist-and-epidemic-curves_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
-<p>The package author does offer a caveat that the package can run slowly with lots of data and filtering and to go back to using <code>dplyr</code> in a discrete step. I imagine it is because of all the grouped operations? Dunno, but this is a neat package to use for exploratory work.</p>
+<p>Now when we lay these ontop of one another, we see the issue with using the time interval method:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+p+
+  geom_ribbon(data = sumz_point, 
+              aes(x = step, ymin = q05, ymax = q95), 
+              inherit.aes = FALSE, fill = &quot;orange&quot;, alpha =.5)</code></pre>
+<p><img src="ggdist-and-epidemic-curves_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+</div>
+<p>We see that using the fixed time method we underestimate the peak much of the time! This is very dangerous and important when setting policy and establishing needs.</p>
+<div id="refs" class="references">
+<div id="ref-odin">
+<p>FitzJohn, Rich. 2019. <em>Odin: ODE Generation and Integration</em>. <a href="https://CRAN.R-project.org/package=odin">https://CRAN.R-project.org/package=odin</a>.</p>
+</div>
+<div id="ref-juul_fixed_time_2020">
+<p>Juul, Jonas L., Kaare Græsbøll, Lasse Engbo Christiansen, and Sune Lehmann. 2020. “Fixed-Time Descriptive Statistics Underestimate Extremes of Epidemic Curve Ensembles.” <em>arXiv:2007.05035 [Physics, Q-Bio, Stat]</em>, July. <a href="http://arxiv.org/abs/2007.05035">http://arxiv.org/abs/2007.05035</a>.</p>
+</div>
+<div id="ref-ggdist">
+<p>Kay, Matthew. 2020. <em>ggdist: Visualizations of Distributions and Uncertainty</em>. <a href="https://doi.org/10.5281/zenodo.3879620">https://doi.org/10.5281/zenodo.3879620</a>.</p>
+</div>
+</div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p>
@@ -1413,7 +1481,7 @@ gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
   <p>Enjoy this blog? Get notified of new posts via email:</p>
   <input type='text' name='btr_email' />
   <input type='hidden' name='btr_url'
-         value='https://michaeldewittjr.com/dewitt_blog/index.xml'/>
+         value='https:/michaeldewittjr.com/dewitt_blog/index.xml'/>
   <input type='hidden' name='schedule_type' value='0' />
   <input type='submit' value='Subscribe' />
 </form></div>
@@ -1434,15 +1502,48 @@ gghighlight_line(d, aes(idx, value, colour = type), predicate = max(value),
   <p>Text and figures are licensed under Creative Commons Attribution <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. The figures that have been reused from other sources don't fall under this license and can be recognized by a note in their caption: "Figure from ...".</p>
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">DeWitt (2018, July 4). Michael DeWitt: gghighlight for the win. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/</pre>
+  <pre class="citation-appendix short">DeWitt (2020, Aug. 9). Michael DeWitt: ggdist and Epidemic Curves. Retrieved from https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-ggdist-and-epidemic-curves/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{dewitt2018gghighlight,
+  <pre class="citation-appendix long">@misc{dewitt2020ggdist,
   author = {DeWitt, Michael},
-  title = {Michael DeWitt: gghighlight for the win},
-  url = {https://michaeldewittjr.com/dewitt_blog/posts/2018-07-04-gghighlight-for-the-win_files/},
-  year = {2018}
+  title = {Michael DeWitt: ggdist and Epidemic Curves},
+  url = {https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-ggdist-and-epidemic-curves/},
+  year = {2020}
 }</pre>
 </div>
+<script id="distill-bibliography" type="text/bibtex">
+
+@article{juul_fixed_time_2020,
+	title = {Fixed-time descriptive statistics underestimate extremes of epidemic curve ensembles},
+	url = {http://arxiv.org/abs/2007.05035},
+	abstract = {Across the world, scholars are racing to predict the spread of the novel coronavirus, COVID-19. Such predictions are often pursued by numerically simulating epidemics with a large number of plausible combinations of relevant parameters. It is essential that any forecast of the epidemic trajectory derived from the resulting ensemble of simulated curves is presented with confidence intervals that communicate the uncertainty associated with the forecast. Here we argue that the state-of-the-art approach for summarizing ensemble statistics does not capture crucial epidemiological information. In particular, the current approach systematically suppresses information about the projected trajectory peaks. The fundamental problem is that each time step is treated separately in the statistical analysis. We suggest using curve-based descriptive statistics to summarize trajectory ensembles. The results presented allow researchers to report more representative confidence intervals, resulting in more realistic projections of epidemic trajectories and -- in turn -- enable better decision making in the face of the current and future pandemics.},
+	urldate = {2020-07-13},
+	journal = {arXiv:2007.05035 [physics, q-bio, stat]},
+	author = {Juul, Jonas L. and Græsbøll, Kaare and Christiansen, Lasse Engbo and Lehmann, Sune},
+	month = jul,
+	year = {2020},
+	note = {arXiv: 2007.05035},
+	keywords = {Statistics - Applications, Physics - Physics and Society, Quantitative Biology - Populations and Evolution},
+	file = {arXiv Fulltext PDF:/Users/michael/Zotero/storage/2GDWSEX6/Juul et al. - 2020 - Fixed-time descriptive statistics underestimate ex.pdf:application/pdf;arXiv.org Snapshot:/Users/michael/Zotero/storage/8SGYFWHN/2007.html:text/html}
+}
+
+@Manual{odin,
+    title = {odin: ODE Generation and Integration},
+    author = {Rich FitzJohn},
+    year = {2019},
+    note = {R package version 1.0.1},
+    url = {https://CRAN.R-project.org/package=odin},
+  }
+  
+  @Manual{ggdist,
+    title = {{ggdist}: Visualizations of Distributions and Uncertainty},
+    author = {Matthew Kay},
+    year = {2020},
+    note = {R package version 2.2.0.9000},
+    url = {http://mjskay.github.io/ggdist/},
+    doi = {10.5281/zenodo.3879620},
+  }
+</script>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <!--/radix_placeholder_navigation_after_body-->
