@@ -36,15 +36,6 @@
       <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-27-optimisation-with-stan/optimisation-with-stan_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
-      <title>Sensitivity and Specificity</title>
-      <dc:creator>Michael DeWitt</dc:creator>
-      <link>https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity</link>
-      <description>Here I explore the implications of different levels of sensitivity and specificity in a Bayesian framework. All of this work is based on Gelman and Carpenter.</description>
-      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity</guid>
-      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
-      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity/sensitivity-and-specificity_files/figure-html5/unnamed-chunk-7-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
       <title>ggdist and Epidemic Curves</title>
       <dc:creator>Michael DeWitt</dc:creator>
       <link>https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-ggdist-and-epidemic-curves</link>
@@ -61,6 +52,15 @@
       <guid>https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-julia-abm-sir</guid>
       <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
       <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-julia-abm-sir/julia-abm-sir_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Sensitivity and Specificity</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity</link>
+      <description>Here I explore the implications of different levels of sensitivity and specificity in a Bayesian framework. All of this work is based on Gelman and Carpenter.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity</guid>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2020-08-09-sensitivity-and-specificity/sensitivity-and-specificity_files/figure-html5/unnamed-chunk-7-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Flatten the Curve</title>

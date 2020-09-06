@@ -1268,8 +1268,87 @@
   gtag('js', new Date());
   gtag('config', 'UA-110093032-1');
   </script>
+  <style type="text/css">
+  @import url(https://fonts.googleapis.com/css?family=Montserrat);
+  
+  .distill-site-nav {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: #2e6276;
+    font-size: 15px;
+    font-weight: 300;
+  }
+  
+  .radix-site-nav {
+      color: rgba(255, 255, 255, 0.8);
+      background-color: #2e6276;
+      font-size: 15px;
+      font-weight: 300;
+  }
+  
+  h1.title {
+      font-weight: 300px;
+      font-family: "Montserrat",Arial,sans-serif;
+    }
+  h1 { /* Header 1 */
+      font-size: 24px;
+    font-family: "Montserrat",Arial,sans-serif;
+  }
+  h2 { /* Header 2 */
+      font-size: 18px;
+    font-family: "Montserrat",Arial,sans-serif;
+  }
+  h3 { /* Header 3 */
+      font-size: 18px;
+    font-family: "Montserrat",Arial,sans-serif;
+  }
+  h4.author { /* Header 3 */
+      font-size: 18px;
+    font-family: "Montserrat",Arial,sans-serif;
+  }
+  h4.date { /* Header 3 */
+      font-size: 18px;
+    font-family: "Montserrat",Arial,sans-serif;
+      font-style: italic;
+  }
+  body {
+    font-family: "Montserrat",Arial,sans-serif;
+    font-size: 16px;
+  }
+  
+  .warning {
+      display: inline-flex;
+      margin: 30px;
+      font-weight: 700;
+      font-size: 16px;
+      /* font-size: 1rem; */
+      line-height: 1.25;
+      color: #0b0c0c;
+  }
+  
+  .warning:before {
+      display: inline-block;
+      margin: 10px;
+      content: "!";
+      color: white;
+      background: #d4351c;
+      font-weight: 700;
+      left: 50px;
+      min-width: 35px;
+      max-width: 35px;
+      max-height: 35px;
+      min-height: 35px;
+      margin-top: -7px;
+      border-radius: 50%;
+      font-size: 30px;
+      line-height: 35px;
+      text-align: center;
+  }
+  
+  
+  </style>
   <!--/radix_placeholder_site_in_header-->
 
+  <link rel="stylesheet" href="style.css" type="text/css"/>
 
 </head>
 
@@ -1661,19 +1740,6 @@ function init_posts_list() {
 <p>Using Stan for optimization.</p>
 </div>
 </a>
-<a href="posts/2020-08-09-sensitivity-and-specificity/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["pandemic","bayes","sensitivity"]}</script>
-<div class="metadata">
-<div class="publishedDate">Aug. 9, 2020</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2020-08-09-sensitivity-and-specificity/sensitivity-and-specificity_files/figure-html5/unnamed-chunk-7-1.png"/>
-</div>
-<div class="description">
-<h2>Sensitivity and Specificity</h2>
-<p>Here I explore the implications of different levels of sensitivity and specificity in a Bayesian framework. All of this work is based on Gelman and Carpenter.</p>
-</div>
-</a>
 <a href="posts/2020-08-09-ggdist-and-epidemic-curves/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":["pandemic","scenarios","curve statistics"]}</script>
 <div class="metadata">
@@ -1698,6 +1764,19 @@ function init_posts_list() {
 <div class="description">
 <h2>julia ABM SIR</h2>
 <p>Use Julia and R to run agent based models in Julia and visualise them in R.</p>
+</div>
+</a>
+<a href="posts/2020-08-09-sensitivity-and-specificity/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":["pandemic","bayes","sensitivity"]}</script>
+<div class="metadata">
+<div class="publishedDate">Aug. 9, 2020</div>
+</div>
+<div class="thumbnail">
+<img data-src="posts/2020-08-09-sensitivity-and-specificity/sensitivity-and-specificity_files/figure-html5/unnamed-chunk-7-1.png"/>
+</div>
+<div class="description">
+<h2>Sensitivity and Specificity</h2>
+<p>Here I explore the implications of different levels of sensitivity and specificity in a Bayesian framework. All of this work is based on Gelman and Carpenter.</p>
 </div>
 </a>
 <a href="posts/2020-03-13-flatten-the-curve/" class="post-preview">
@@ -2443,6 +2522,22 @@ Visualisations help to show these relationships but also some numeric values to 
 </div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
+<div class="radix-site-nav radix-site-footer">
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    
+    
+    var t = setInterval(function(){
+      var resizeEvent = new Event('resize');
+      window.dispatchEvent(resizeEvent);  
+    }, 1000);
+ 
+    
+  });
+  
+  
+</script>
+</div>
 <!--/radix_placeholder_navigation_after_body-->
 
 </body>
