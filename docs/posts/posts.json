@@ -1,5 +1,27 @@
 [
   {
+    "path": "posts/2020-10-03-shinyproxy-serving-websites/",
+    "title": "ShinyProxy Serving Websites",
+    "description": "This post discuses using the ShinyProxy framework to serve static html sites. These products could be generated from single R Markdown documents to entire websites. Serving these items in containers gives you all the benefits of containerising your work along with the ability to authenticate through ShinyProxy if desired.",
+    "author": [
+      {
+        "name": "Michael DeWitt",
+        "url": "https://michaeldewittjr.com"
+      }
+    ],
+    "date": "2020-10-03",
+    "categories": [
+      "r",
+      "shiny",
+      "deploy",
+      "shinyproxy"
+    ],
+    "preview": "posts/2020-10-03-shinyproxy-serving-websites/shiny.png",
+    "last_modified": "2020-10-03T14:09:25-04:00",
+    "preview_width": 2330,
+    "preview_height": 1228
+  },
+  {
     "path": "posts/2020-08-28-bayesian-sir/",
     "title": "Bayesian SIR",
     "description": "In this post I review how to build a compartmental model using the Stan probabilistic computing language. This is based largely by the case study, [Bayesian workflow for disease transmission modeling in Stan](https://mc-stan.org/users/documentation/case-studies/boarding_school_case_study.html) which has been expanded to include a second compartment for exposed individuals as well as utilise case incidence data rather than prevalence.",

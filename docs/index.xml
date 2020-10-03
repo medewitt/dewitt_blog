@@ -7,7 +7,16 @@
     <description>The thoughts and exploration of Michael DeWitt
 </description>
     <generator>Radix</generator>
-    <lastBuildDate>Sat, 05 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>ShinyProxy Serving Websites</title>
+      <dc:creator>Michael DeWitt</dc:creator>
+      <link>https://michaeldewittjr.com/dewitt_blog/posts/2020-10-03-shinyproxy-serving-websites</link>
+      <description>This post discuses using the ShinyProxy framework to serve static html sites. These products could be generated from single R Markdown documents to entire websites. Serving these items in containers gives you all the benefits of containerising your work along with the ability to authenticate through ShinyProxy if desired.</description>
+      <guid>https://michaeldewittjr.com/dewitt_blog/posts/2020-10-03-shinyproxy-serving-websites</guid>
+      <pubDate>Sat, 03 Oct 2020 00:00:00 +0000</pubDate>
+      <media:content url="https://michaeldewittjr.com/dewitt_blog/posts/2020-10-03-shinyproxy-serving-websites/shiny.png" medium="image" type="image/png" width="2330" height="1228"/>
+    </item>
     <item>
       <title>Bayesian SIR</title>
       <dc:creator>Michael DeWitt</dc:creator>
