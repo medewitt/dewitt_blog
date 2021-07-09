@@ -3,3 +3,11 @@ title: "Michael DeWitt"
 site: radix::radix_website
 listing: posts
 ---
+
+<br><br><br>
+
+
+This blog has moved to <https://michaeldewittjr.com/programming.html>. 
+These posts will remain, but will not be updated. 
+
+Thanks for reading!
